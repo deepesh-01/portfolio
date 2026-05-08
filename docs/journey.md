@@ -449,10 +449,82 @@
 
 <p data-mode="founder">November 2025 was where the Bloom started becoming something else. The encyclopedia in one head. The ESOPs printed against a number that would eventually have to be tested. The gaps that one engineer kept filling. The successor sentence that nobody had asked me whether I wanted. The bubble had a shape, and shapes have edges. That chapter is for the next phase.</p>
 
+## Phase 10 — The Institutional Resilience Era (Late 2025)
+
+### When The Frameworks Met The System
+
+<p data-mode="founder">By late 2025 the company was running on a hybrid spine — senior external consultants brought in to accelerate specific surfaces, plumbed alongside the Founding-engineer core that had carried the system from the predecessor identity through the Bloom. <strong>Himanshu Hazarika</strong> ran point in the Enterprise pod. <strong>Soumyakanti</strong> held an adjacent surface. The collaboration that had powered the Drizzle / IaC / SOC2 work in <a href="#phase-9">Phase 9</a> was real, and the throughput it bought was real.</p>
+
+<p data-mode="founder">The limits of that collaboration arrived in late 2025. They didn't arrive in the surfaces the consultants had been hired for — those shipped. They arrived in the seams between the new framework-driven work and the legacy substrate underneath. The places nobody had documented well enough for an outsider to navigate without the institutional memory the founding-engineer cohort still carried in one set of heads.</p>
+
+<p data-mode="founder">An institutional spine that had been a quiet asset for five years became, in this stretch, the load-bearing structure the framework-driven work kept landing back on whenever the map ran out.</p>
+
+### The Infra-Flip — One Hour, Then Five Minutes
+
+<p data-mode="engineer founder">The consultant-led infrastructure team executed a massive <strong>Infra-Flip</strong> to consolidate the entire deployment surface onto Terraform. The flip itself shipped. The architecture diagram was clean. The state files were committed. The framework had landed where the framework was meant to land.</p>
+
+<p data-mode="engineer founder"><em>Then the CI/CD pipelines stalled.</em> New code wouldn't deploy. The infrastructure team and a war room of engineers spent over an hour unable to identify why. Every standard Terraform diagnostic returned green. The framework said the system should be running. The system was not running.</p>
+
+<p data-mode="engineer founder">I stepped in, performed the Root Cause Analysis in five minutes, and the pipeline recovered. The fix lived at the seam between the legacy environment and the new NestJS / NX structure — a binding the framework didn't model because the framework wasn't there when the binding was first introduced. A seam <em>only the people who had built both sides understood</em>. Cross-link: <a href="#infra-flip-rca">Case Study: The 5-Minute RCA</a>.</p>
+
+### Framework Knowledge vs System Wisdom
+
+<p data-mode="founder">The lesson the era named for itself. Tools like Terraform are only as good as the engineer's understanding of the ground truth underneath them. <strong>Framework Knowledge</strong> — the consultant's currency, the ORM patterns, the IaC idioms, the deployment topologies the industry agrees on — is necessary. <strong>System Wisdom</strong> — the founder-engineer's currency, the reason a specific cron runs at 3:07, the binding that exists because a 2023 outage demanded it — is what closes the gap when the framework meets the company's actual idiosyncrasies.</p>
+
+<p data-mode="founder">The Institutional Soul moves faster than the Consultant Framework in this kind of moment — not because the consultants are slower or the framework is wrong, but because there is <em>less surface area between knowing and doing</em> when you've lived inside the system since day one. The five-minute RCA wasn't a feat of debugging. It was the absence of translation cost.</p>
+
+<p data-mode="founder">See <a href="#adr-0016">ADR-0016</a> for the doctrine, recorded so the next era doesn't have to re-derive it.</p>
+
+### The Win Pod — From "Generative Hope" To "Deterministic Logic"
+
+<p data-mode="engineer founder">The Win Pod was struggling with non-deterministic AI behaviour. <em>"Change the prompt"</em> had become the team's reflex when output drifted — a dangerous excuse dressed up as a fix, because nothing in the system was actually getting more reliable. Performance was inconsistent because <em>the architecture was inconsistent</em>; the prompt was just the most visible knob.</p>
+
+<p data-mode="engineer founder">I took the lead to move the team from generative hope to deterministic logic. Built the <strong>Follow-Up Engine</strong> on three layers: <strong>prompt serialization</strong> (standardised request/response shapes so every call had a contract), <strong>semantic serialization</strong> (parsed and validated before any DB write, so invalid LLM output failed at the perimeter instead of silently corrupting the table), and a <strong>security layer</strong> that identifies and blocks unauthorized requests to the AI agents.</p>
+
+<p data-mode="engineer founder">The engine became a predictable, high-performance tool — stabilising the Win Pod's contribution to the <strong>$3.5M ARR</strong>. Cross-link: Blueprint §14, <a href="#adr-0015">ADR-0015</a> (deterministic LLM testing).</p>
+
+### The Master Stroke — Reclaiming Scheduling & Payments
+
+<p data-mode="engineer founder"><em>Scheduling and Payments</em> — the Master Stroke feature, mission-critical to NRR — had been handed to the consultant-led pod for a month. The result: <strong>zero deliverable</strong>. Total stagnation. Not because the engineers on it weren't capable, but because the framework-driven approach kept stalling at the seams the system's history had carved into the data layer — the same category of seam the Infra-Flip RCA had exposed in the deployment layer.</p>
+
+<p data-mode="engineer founder">Leadership recognised the stall and handed the baton back to me. I didn't just <em>code</em> the feature; I leveraged the <strong>Cynical Architect</strong> mindset (<a href="#adr-0010">ADR-0010</a>) on top of the <strong>Master-Worker</strong> (<a href="#adr-0012">ADR-0012</a>) and <strong>Audit-by-Snapshot</strong> (<a href="#adr-0011">ADR-0011</a>) doctrines we'd already shipped. The pod re-launched on the company's own architectural floor — built for 100% integrity from day one.</p>
+
+<p data-mode="engineer founder">The doctrines weren't slogans by this point. They were the foundation a stalled pod could be re-floored on in a week instead of a quarter.</p>
+
+### Emergency Engineering Manager
+
+<p data-mode="founder">The operational title became formal in this stretch. <strong>Lead Crisis Architect</strong> / <strong>Emergency Engineering Manager</strong> — the role someone holds when the wheels have to keep turning while the team rebuilds itself around them. Not a promotion in the traditional sense. A description of the actual work the moment was asking for.</p>
+
+<p data-mode="founder">The work wasn't writing more code. The work was deciding <em>which code earned the team's bandwidth this week</em> — which fire merited the founding-engineer cohort's full attention, which one a consultant could carry, which one was allowed to keep burning quietly for another sprint because the alternative cost more. Triage as architecture. The org chart for the era was a priority queue.</p>
+
+### Quality + Safety Layer Around The Migration
+
+<p data-mode="engineer">The Drizzle / Terraform IaC work from <a href="#phase-9">Phase 9</a> (<a href="#adr-0014">ADR-0014</a>) carried into this phase as the <em>background floor</em> — the migration didn't pause because the resilience era started; it kept landing under everything else. On top of it, I built the <strong>Safety &amp; Quality Control</strong> layer: pre-merge invariant checks, post-deploy smoke tests, automated rollback hooks. The compliance-readable migration didn't get to trade speed for safety.</p>
+
+<p data-mode="engineer">The shape: every speed-critical surface still moves; every compliance-critical surface still passes. The cynical-architect instinct, applied at the migration's perimeter — <em>build the rollback before the deploy, build the smoke test before the release</em> — kept the SOC2-readable substrate from becoming the SOC2-blocking one.</p>
+
+### Claude Code As The Changelog Writer
+
+<p data-mode="engineer founder">Used Claude Code to analyse commits and generate automated changelogs for team-wide transparency. The team got a daily / weekly digest of <em>what changed and why</em> without anyone hand-writing it — the kind of artifact that traditionally falls to whoever has the least leverage to refuse it, and traditionally doesn't get written.</p>
+
+<p data-mode="engineer founder">The AI-Native discipline matured one more notch. Phase 8 was <em>use AI</em>. Phase 9 was <em>lead with AI</em>. Phase 10 was <em>deploy AI as the team's institutional memory</em> — the encyclopedia stopped being one engineer's head and started being a corpus the agent maintained in the background while the humans shipped.</p>
+
+### The Stress Test — 2 Years Of Social Media Debt In 30 Days
+
+<p data-mode="engineer human">While running the Win Pod rescue and the Scheduling reclaim, I also cleared two years of accumulated social-media-pipeline debt in a single 30-day stretch. The backlog had been a quiet line item on the roadmap since the funding round; nobody had owned it because everybody who could own it was busy with the surface that was on fire that quarter.</p>
+
+<p data-mode="engineer human">The pace was not sustainable. It was not <em>meant</em> to be. It was the demonstration — for the room, for the cap table, for the part of myself that was still tracking the question Phase 9 had named — that the founding-engineer cohort could still go through walls when the company asked. A demonstration is not a permanent operating mode. It was filed as evidence, not as schedule.</p>
+
+### What This Phase Proved
+
+<p data-mode="founder">When the Perfect Frameworks failed at the seams, the Founding Logic saved the day. Not as ego. As load-bearing operational fact. The doctrines stacked — Cynical Architect + Audit Architect + Master-Worker + LLM Guardrails + Determinism Testing + IaC + System Wisdom — and they held. Each one had been built in a different fire; each one paid its rent in this one.</p>
+
+<p data-mode="founder">The system was resilient because the <em>institutional memory carrying the doctrines</em> was still in the building. The framework can be hired; the memory has to be grown. Phase 10 is the chapter that recorded the difference.</p>
+
 ## The Trajectory
 
-<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA) → Staff Engineer / Founding Engineer → Battle-Tested Leader / Guardian of the Product's Survival → <strong>Founding Member &amp; Internal Technical Consultant at Zoca</strong> (26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs). At peak: <strong>$3.5M ARR · 1,500+ customers · 140+ headcount</strong>. The title is downstream of the work. Each ESOP grant is a renewed bet — not a salary line, a stake. <strong>Background:</strong> $6M funding closed (Aug 2024); Zoca stabilized through the December 2024 Collision; Founding Recognition followed in April 2025; the Golden Bloom ran through November 2025.</p>
+<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA) → Staff Engineer / Founding Engineer → Battle-Tested Leader / Guardian of the Product's Survival → Founding Member &amp; Internal Technical Consultant → <strong>Founding Member &amp; Lead Crisis Architect / Emergency Engineering Manager</strong>. Each title named the work the moment was asking for. <strong>At peak (Apr — Nov 2025):</strong> $3.5M ARR · 1,500+ customers · 140+ headcount. <strong>Background:</strong> $6M funding closed (Aug 2024); the doctrines stacked; the system held when the consultants' frameworks ran out of map.</p>
 
 ## What's next
 
-> **Status: ongoing.** Phase 9 closed the Golden Bloom (April — November 2025). The story turns past November — the chapter where Bloom started becoming something else — and that chapter lands here as it's written. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: ongoing.** The Institutional Resilience era closed the loop on the consultant-vs-founding-engineer chapter. The next entries land here as they're written — without a schedule. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).

@@ -64,6 +64,7 @@ const SLUG_TO_PATH = Object.freeze({
   'psql-audit-function': 'docs/case-studies/psql-audit-function.md',
   'master-worker':      'docs/case-studies/master-worker.md',
   'win-agent-testing':  'docs/case-studies/win-agent-testing.md',
+  'infra-flip-rca':     'docs/case-studies/infra-flip-rca.md',
 });
 
 /** Modes the perspective switcher can be in. Order matters for the UI. */

@@ -664,3 +664,102 @@ policy guards, and a drift detector compares running state to HCL
 state nightly — alerts on mismatch. The pair shipped during Phase
 9 (April – November 2025). The infrastructure-as-code discipline
 carried straight into the SOC2 + HIPAA audit windows.
+
+## 14. The Win Pod Deterministic Follow-Up Engine
+
+**Context.** The Win Pod's customer-facing AI follow-up surface had
+drifted into *"change the prompt and pray"* — non-deterministic LLM
+behaviour shipping into a paid product surface. The fix was not
+better prompts. The fix was a perimeter. ADR-0013 had named the
+runtime safety layer as a strategic invariant. ADR-0015 had named
+the test-time partner — invariant suites that pin model behaviour
+before deploy. This blueprint is the implementation that lives at
+the intersection of both, on a specific high-traffic engine the pod
+shipped into production.
+
+**The Concept.** *Generative Hope* → *Deterministic Logic*. Three
+primitives, each load-bearing.
+
+1. **Prompt Serialization.** Strict request shapes against a typed
+   schema. The LLM never receives surprise inputs; the engine never
+   accepts surprise outputs without validation. Free-text fields
+   that an attacker could load with prompt-injection payloads do
+   not exist in the request shape.
+2. **Semantic Serialization.** Every LLM response is parsed against
+   a typed schema *before* it touches the database. Structural
+   validation first; domain-aware semantic checks (per ADR-0013's
+   three-layer pattern) second. Structure tells you the model
+   returned the right fields. Semantics tell you the model did not
+   hallucinate a value the domain rejects.
+3. **Adversarial Input Filter.** A security layer that identifies
+   and blocks unauthorized requests to the AI agents. Not just
+   rate-limiting — schema-shape detection on the request side,
+   anomaly scoring on the prompt content, deny-list patterns for
+   known exploit shapes. An agent's authorisation surface is the
+   application's authorisation surface; without this gate, the
+   surface is too wide for an LLM-driven product.
+
+**The Code Shape.** The engine's main loop, with IPO labels. The
+order is the contract.
+
+```typescript
+// win_pod_engine.ts — deterministic LLM follow-up
+async function generateFollowUp(
+  request: FollowUpRequest,                // input — strict typed schema
+): Promise<FollowUpOutput> {
+  // 1. Authorize — block anything not from a sanctioned caller
+  if (!isAuthorizedCaller(request)) {
+    throw new UnauthorizedAgentError(request.caller, request.tenantId);
+  }
+
+  // 2. Serialize the request — no free-text fields the LLM can be tricked by
+  const prompt = PromptSerializer.fromRequest(request);     // process
+
+  // 3. LLM call — wrapped with the runtime safety layer (ADR-0013)
+  const raw = await llm.complete(prompt, {
+    timeout: 8_000,
+    maxTokens: 800,
+  });
+
+  // 4. Semantic serialization — structural + domain-aware validation
+  const parsed = ResponseSchema.safeParse(raw);            // data context
+  if (!parsed.success) throw new MalformedLlmOutput(parsed.error);
+
+  const violations = SemanticGuardrails[request.domain](parsed.data);
+  if (violations.length) throw new SemanticViolation(violations);
+
+  // 5. Persist — only validated outputs ever touch the DB
+  return persist(parsed.data, request.tenantId);            // output
+}
+```
+
+**The Three Failure Modes The Engine Closes.**
+
+- **Hallucinated outputs.** Caught at the `ResponseSchema.safeParse`
+  + `SemanticGuardrails` step. A response that parses but violates
+  domain semantics is rejected at the same gate as a response that
+  does not parse.
+- **Malformed prompts (drifted business logic).** Caught at the
+  `PromptSerializer.fromRequest` step. Upstream callers cannot
+  smuggle a half-formed request into the LLM by accident; the
+  serializer is the contract boundary.
+- **Adversarial / unauthorized callers.** Caught at the
+  `isAuthorizedCaller` gate. Without this, an agent's
+  authorisation surface is the application's authorisation
+  surface — too wide for an LLM-driven product.
+
+**Observability.** Every reject reason — `UnauthorizedAgentError`,
+`MalformedLlmOutput`, `SemanticViolation` — is a metric. Aggregated
+to the Metabase dashboards (built with Claude Code as pair, see
+the Phase 9 narrative). A spike in any single reject class is the
+signal that something upstream — prompt template, model version,
+caller pattern — has drifted. The dashboard is the early-warning
+system; the engine itself is the floor.
+
+**Result.** The Win Pod's follow-up engine moved from *"change the
+prompt and pray"* to a predictable, high-performance tool.
+Stabilised the pod's contribution to the **$3.5M ARR**. The pattern
+generalised: subsequent LLM-product surfaces in the stack adopted
+the same three-primitive shape — request serializer, response
+serializer with semantic guardrails, adversarial filter at the
+gate. The perimeter is the product.

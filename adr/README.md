@@ -24,6 +24,7 @@
 | 0013  | [LLM Guardrails (the AI Safety Layer)](./0013-llm-guardrails-ai-safety-layer.md) | Accepted |
 | 0014  | [Drizzle ORM Migrations + Terraform IaC for SOC2/HIPAA-Ready Infrastructure](./0014-drizzle-orm-iac-compliance.md) | Accepted |
 | 0015  | [Deterministic LLM Testing (Invariants Over Examples)](./0015-deterministic-llm-testing.md) | Accepted |
+| 0016  | [System Wisdom vs Framework Knowledge (the Founding Logic doctrine)](./0016-system-wisdom-vs-framework-knowledge.md) | Accepted |
 
 ## Format
 
