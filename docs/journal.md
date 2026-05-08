@@ -128,11 +128,61 @@
 
 <p data-mode="founder human">The ESOPs weren't a perk. They were the founding-ownership signal — the company telling me, in the only language a cap table speaks, that I was no longer just an employee on this build. I was on the inside of it.</p>
 
+### The Pune Clarity Trip & The Stabilization Oath
+
+<p data-mode="human">Early 2024. Mentors had begun leaving — one by one, the people I'd built around were stepping out the door. The legal Thunderstorm was at full pitch. The new entity was already on its way to shutdown. I was at my lowest. Not dramatic-lowest — quiet-lowest, the kind where you stop being sure why you're still in the room.</p>
+
+<p data-mode="human">I booked a flight. Two days in Pune. Strategic, not a vacation — I needed distance from Bangalore, from the Slack threads, from the war room. Two days away from the noise and the answer arrived without me hunting for it. That personal clarity changed everything.</p>
+
+<p data-mode="founder human">I came back and walked into the room with <strong>Robin</strong> and <strong>Ashish</strong>. No build-up, no soft opening. I told them, directly: <strong>"I am not someone who leaves when everything is breaking."</strong></p>
+
+<p data-mode="founder">That sentence was the oath. I committed — to them and to myself — to stabilise the system and see the transition through before I let myself even <em>think</em> about an exit. The decision was made there, in that room, in early 2024. Everything in the Builder era that came after — the DevOps takeover, the documentation work, the team scaling — was downstream of that one promise. The oath came first. The work came second.</p>
+
 ### Bangalore Treks — Sustainable Hustle
 
 <p data-mode="human">The 100kg, three-months-of-burger-combos version of me from late 2023 was behind me. I started trekking around Bangalore on weekends with the friend from Trivandrum — the same one I hadn't seen for a month during the Ghost Sprint.</p>
 
 <p data-mode="human">Nothing extreme. Skandagiri, Savandurga, the Nandi side trails. What changed wasn't the distance. It was the realisation that the hustle didn't have to eat the body to be real. The grind became <em>sustainable</em>. That word, for the first time, started meaning something.</p>
+
+## The Full-Stack Builder Era (Mid-2024 — Present)
+
+### The Strategic Baton
+
+<p data-mode="founder human">Through mid-2024, the mentors left. <strong>Vishal</strong>. <strong>Vinay</strong>. <strong>Ruddhi</strong>. Not all at once, not dramatically — but the cumulative effect was that the people who had built the original engineering culture with me were no longer in the building. I was the last of the Original Clan.</p>
+
+<p data-mode="human">There's no clean word for that feeling, but the closest one is <em>orphaned</em>. The people who had taught me how this place thought — gone. The people who had argued with me about architecture at midnight — gone. The room got quieter. The weight on the remaining chair got heavier.</p>
+
+<p data-mode="founder human">The easy move would have been to follow them out. The market was hot, my résumé was loud, and "everyone's leaving" is the cleanest cover any engineer ever gets to walk under. I didn't. The Pune oath had already been spoken, and I'd told Robin and Ashish I was not someone who leaves when everything is breaking. The emotional cost of staying was real. I paid it anyway.</p>
+
+### Strategic Selfishness
+
+<p data-mode="founder">Vishal and Ruddhi, on their way out, did something I still think about: they hired <strong>Pravesh</strong> and <strong>Sahil</strong> as juniors specifically to unburden me. They could have just left. Instead they staffed the gap before stepping through it. That was the breathing room I inherited.</p>
+
+<p data-mode="founder engineer">I could have used that room as comfort — push work down, take the easier load, coast on seniority. I didn't. I used it to pivot from "Lead Dev" to "Full-Stack Builder". The honest framing: <em>I chose to learn DevOps because no one else would.</em> Not because it was the noble choice — because it was the move that compounded. When breathing room appears, you don't spend it. You invest it. You expand your capability radius while you have the slack to do it. That kind of selfishness is the productive kind.</p>
+
+### The Infrastructure Takeover
+
+<p data-mode="engineer founder">I absorbed the cloud, end to end. CI/CD pipelines — owned. AWS Lambda orchestration — owned. ECS/Fargate management — owned. The handoffs from the departed mentors weren't ceremonial; I was now the one paged when a deployment broke at 2 AM, the one approving infra PRs, the one writing the runbooks.</p>
+
+<p data-mode="engineer founder">The lifecycle of my work expanded: <strong>Develop → Deploy → Monitor → Cost Manage</strong>. The last one is the one most engineers skip. I didn't. Cost observability became real ownership — dashboards on per-tenant cloud spend, alerts on Lambda cost spikes, tuning ECS task sizes against actual utilisation. Scaling from 90 tenants to 1,500 tenants isn't an engineering achievement if the unit economics quietly collapse underneath it. I made sure they didn't.</p>
+
+### From Coder to Human Documentation
+
+<p data-mode="founder">Somewhere in this stretch, the inflection point hit. <em>I stopped being the engineer who could write the system. I became the engineer who knew the system.</em></p>
+
+<p data-mode="founder">Every corner. Every tenant edge case in the product. Every Lambda's cold-start behaviour. Every deploy quirk. Every cost line. Every decision that had been made and the reason behind it. People stopped asking "where is this documented?" and started asking <em>me</em>. That's flattering for about a week and terrifying after that. A company whose memory lives in one engineer's head is a company with a single point of failure wearing a lanyard.</p>
+
+### The AI-Native Handover Doctrine
+
+<p data-mode="founder engineer">So I made an explicit decision: document everything. Not for humans this time — for agents. The company should be able to run without me by being readable to AI. Architecture docs, runbooks, decision logs, tenant-onboarding playbooks, cost models, the lot. The portfolio you're reading right now is part of that work — the public-facing slice of a much larger internal corpus.</p>
+
+<p data-mode="founder engineer">The reasoning was simple: <em>my knowledge sitting in my head is a bottleneck for the company. My knowledge written down so an AI agent can read and act on it is a moat for the company. Same knowledge, very different leverage.</em> The Human Documentation phase was the input. The AI-native handover is the output. One engineer, one keyboard, but the artefacts now compound without me sitting in the chair.</p>
+
+### Treks as Default, Not Exception
+
+<p data-mode="human">The Bangalore-treks habit from late 2023 stopped being a weekend luxury and became weekly load-bearing. Skandagiri, Savandurga, the Nandi trails — on rotation. Not as recovery from the grind. As the rhythm of the grind itself.</p>
+
+<p data-mode="human">The team grew to 80 people. The work got heavier, not lighter. Leadership through balance was no longer a phrase I'd read somewhere — it was the only mode that scaled. The 100kg, burger-combo, adrenaline-era version of me would not have lasted six months at this size. He would have burned the body out and called it dedication. The trekking version is still here, two years later, still leading, still building. That's the proof.</p>
 
 ## What This Log Is For
 
@@ -145,8 +195,6 @@ If you want to know <em>why</em> I am that kind of engineer, read this.
 
 ---
 
-## May 2024 — May 2026 · Drafting
+## Next chapter — drafting on the go
 
-> **Status: being written, on the go.** Lands here as each chapter completes.
-
-The unvarnished entries for the cloud-ownership era, the Tech Lead season, the AI-native engineering toolchain, and the multi-tenant scale-up are still being written up. The structured executive version lives in the [Résumé](../Deepesh_Rathod_Resume.pdf) until the long-form entries land here.
+> **Status: ongoing.** The Builder era is current. New entries land here as they happen, without a schedule. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).

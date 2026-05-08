@@ -15,6 +15,8 @@
 | 0004  | [Static Serve + Cloudflare Tunnel](./0004-static-serve-cloudflare-tunnel.md)  | **Superseded by 0005** |
 | 0005  | [Tunnel → Cloudflare Pages migration](./0005-tunnel-to-pages-migration.md)    | Accepted |
 | 0006  | [SQL-Defined Business Triggers](./0006-sql-defined-business-triggers.md) | Accepted |
+| 0007  | [The Fallback Migration Pattern (client-side safety net)](./0007-fallback-migration-pattern.md) | Accepted |
+| 0008  | [SQL-Defined Logic as the Default for Trigger-Shaped Problems](./0008-sql-defined-logic-pattern.md) | Accepted |
 
 ## Format
 

@@ -222,3 +222,47 @@ async function migrate(manifest: Chunk[]): Promise<void> {
 **Result.** 150GB migrated across regions with zero data loss across
 multiple crashes and restarts. The script became reusable — every
 later migration started from this same skeleton.
+
+## 8. The Social Media Content Pipeline
+
+**Context.** A multi-tenant SaaS where every paying customer needed a
+credible social presence (Facebook Pages + Instagram Business) without
+each one having to think like a marketer. The pipeline turns generated
+content plus a posting schedule into actual posts on customer-owned
+Meta accounts. Co-designed with Pravesh.
+
+**The Architecture.** Three layers, each replaceable on its own.
+
+- **OAuth surface.** Meta's flows for FB Pages and IG Business
+  accounts. Token refresh handled server-side; tenants never see a
+  re-auth prompt unless Meta itself revokes. Scopes kept tight —
+  `pages_manage_posts`, `instagram_content_publish`, nothing surplus.
+- **Content calendar.** A tenant-scoped service with slots, recurrence
+  rules, and content templates. Deliberately *generic*: it knows
+  nothing about Meta. What fills a slot today is FB/IG; tomorrow it
+  could be LinkedIn or Threads with no calendar rewrite.
+- **Posting workers.** Queue-driven. Pick up due slots, hit the right
+  Meta endpoint, log the result, reschedule on transient failure.
+  Idempotent on retry — a post is keyed by `(tenant_id, slot_id)`, not
+  by the Meta-side ID — so a retry can never double-post.
+
+```sql
+-- calendar_slots — platform-agnostic, tenant-scoped
+CREATE TABLE calendar_slots (
+  tenant_id     int         NOT NULL,                    -- input
+  slot_id       uuid        NOT NULL,                    -- input
+  scheduled_at  timestamptz NOT NULL,                    -- data context
+  platform      text        NOT NULL,                    -- 'fb' | 'ig' | ...
+  content_ref   uuid        NOT NULL,                    -- process: which asset
+  status        text        NOT NULL DEFAULT 'pending',  -- pending|posted|failed
+  external_id   text,                                    -- output: Meta post id
+  PRIMARY KEY (tenant_id, slot_id)                       -- idempotency key
+);
+```
+
+**The Generic-By-Design Win.** Decoupling the calendar from the
+platform mattered the moment it shipped: the same calendar powered the
+initial FB/IG launch with no platform-specific code in it. And when
+Meta's API broke — which it does, regularly — only the posting layer
+needed touching. The calendar and OAuth surfaces stayed still while
+the worker was patched, which is the whole reason the boundary exists.

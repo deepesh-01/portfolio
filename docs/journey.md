@@ -89,24 +89,77 @@
 
 <p data-mode="human"><strong>The Balance:</strong> started trekking around Bangalore on weekends with the friend from Trivandrum. The hustle finally became sustainable. You can't migrate 150GB twice in a row without learning to log off.</p>
 
+## Phase 5 — The Full-Stack Builder Era (May 2024 — Present)
+
+### The Strategic Baton
+
+<p data-mode="founder human">The mentors left in sequence. Vishal, Vinay, Ruddhi — gone. The Original Clan dissolved around me, and I was the last one standing in the room. "Orphaned" is the honest word. The people who taught me how the system thinks were no longer in the building.</p>
+
+<p data-mode="founder human">The exit door was right there. I didn't take it. The Pune trip earlier in the year had already settled the question — I told Robin and Ashish I wasn't someone who leaves when everything is breaking. The baton wasn't handed to me; it landed at my feet. I picked it up.</p>
+
+<p data-mode="founder">Cloud, Infra, DevOps — three domains the departing seniors used to own. I inherited all of them. Not because I was ready, but because nobody else in the room had the tenure to absorb them.</p>
+
+### Strategic Selfishness
+
+<p data-mode="founder engineer">Vishal and Ruddhi, on the way out, hired Pravesh and Sahil specifically to unburden me. Two juniors, one explicit purpose: give Deepesh breathing room. The kind gesture had a quiet test embedded in it — what would I do with the slack?</p>
+
+<p data-mode="founder engineer">I could have stayed in my lane. I chose to expand it instead. Strategic selfishness — I redirected every spare cycle into a deliberate pivot from "Lead Dev" to <strong>Full-Stack Builder</strong>. Owning the entire lifecycle: <strong>Develop → Deploy → Monitor → Cost Manage</strong>. Not just the code shipping out, but the cloud bill landing at the end of the month.</p>
+
+<p data-mode="founder">The breathing room wasn't a vacation. It was a runway.</p>
+
+### The Infrastructure Takeover
+
+<p data-mode="engineer founder"><strong>Input:</strong> CI/CD pipelines that someone else used to babysit, AWS Lambda orchestration with 50+ functions, ECS/Fargate clusters that scaled by faith more than by plan. <strong>Process:</strong> learn each surface in production, document the failure modes, take ownership one runbook at a time. <strong>Output:</strong> a single engineer who could deploy, observe, and pay for the whole stack.</p>
+
+<p data-mode="engineer founder"><strong>Cost Observability:</strong> the customer base was about to walk from 90 tenants to 1,500. "Make it work" stopped being the bar — "make it efficient" became the contract. I owned cloud costing as a first-class metric. Every Lambda concurrency setting, every ECS task size, every S3 lifecycle policy got audited. Scaling the customer base shouldn't scale the AWS invoice 17×.</p>
+
+<p data-mode="engineer">The shift from Coder to Operator. Code merged is half the job; code that runs cheaply at 1,500-tenant scale is the other half.</p>
+
+### The "Zero-Failure" Fallback Protocol
+
+<p data-mode="engineer founder"><strong>The Challenge:</strong> migrate the mobile-app backend from a legacy Flask monolith to a clean Node.js service. Without a single user-facing error. The mobile app had no graceful failure UX for "API rewrite week."</p>
+
+<p data-mode="engineer"><strong>The Logic:</strong> engineered a fallback in the app itself. Every request hit the new Node API first. If the Node call failed or timed out — for any reason, for any duration — the app silently re-issued the same call against the legacy Flask server. Two backends, one client, zero awareness on the user's side.</p>
+
+<p data-mode="engineer"><strong>The Tradeoff:</strong> determinism over speed. Response times occasionally fluctuated during the cutover — a fallback round-trip costs latency. Users never hit a dead wall. The system stayed 100% deterministic across the entire migration window. Cross-reference: <a href="#flask-to-node">Case Study: The Fallback Protocol</a>.</p>
+
+### SQL Optimization — 15m to 75s
+
+<p data-mode="engineer"><strong>The Bottleneck:</strong> campaign analytics and funnel queries were timing out on AWS Lambda. 15 minutes plus. Lambda's hard ceiling was the only thing stopping them from running longer. 70+ internal users were waiting on dashboards that never finished loading.</p>
+
+<p data-mode="engineer"><strong>The AI-Native Research:</strong> deep-dived with GPT-4 on indexing strategy, Common Table Expressions, complex multi-join shapes, query planner behaviour. Treated the LLM as a reading partner — not a code-generator. The goal was to internalise <em>why</em> a query was slow, not to copy-paste a fix.</p>
+
+<p data-mode="engineer"><strong>The Impact:</strong> 15m+ → <strong>1m 15s</strong>. Resolved DB deadlocks that had been hiding behind the timeout. Stabilised the campaign pipeline for 70+ internal users — analytics that used to fail now refreshed before the coffee got cold. Cross-reference: <a href="#sql-optimization">Case Study: 15m to 75s</a>.</p>
+
+### Social Media Content Pipeline
+
+<p data-mode="engineer founder"><strong>The Build:</strong> co-designed the Content Creation → Posting pipeline with Pravesh. His first major surface; my chance to mentor through a real production system instead of a side-task.</p>
+
+<p data-mode="engineer">Architected the OAuth flows for Meta — Facebook + Instagram — with token refresh, scope handling, and the failure-mode catalogue OAuth always demands. Built a <strong>generic content-calendar system</strong> on top of that surface — calendar primitives that any future channel could plug into without re-doing the auth dance.</p>
+
+<p data-mode="founder engineer">That generic calendar powered the initial launch. Pravesh shipped the first verticals; the system held. See Blueprints for the architecture diagrams.</p>
+
+### Human Documentation
+
+<p data-mode="founder human">By the end of this stretch, the title on the badge had stopped mattering. What I'd actually become was <strong>Human Documentation</strong> — the engineer who knew every corner of the tech, the product, and the cloud. The tenant routing in the database. The IAM policies on the Lambdas. The reason a specific cron ran at 3:07 instead of 3:00.</p>
+
+<p data-mode="founder human">Useful. Also dangerous. A company where one person is the documentation is a company with a single point of failure wearing a name tag.</p>
+
+### AI-Native Handover
+
+<p data-mode="founder engineer">The strategic move now: <strong>document everything.</strong> Architecture Decision Records, blueprints, runbooks, the portfolio you are reading. Transfer the knowledge out of one head and into a corpus that an AI agent — or the next engineer, or the engineer after that — can consume on day one.</p>
+
+<p data-mode="founder">The thesis: <em>"My knowledge isn't a moat. The way I document my knowledge is."</em> A moat is a wall. Documentation is a road. Roads scale; walls trap.</p>
+
+<p data-mode="founder engineer">The AI-native toolchain — Claude Code, a custom Metabase MCP, the AWS CLI woven in — is the consumer of that documentation. RCAs that used to take 2 — 3 hours now resolve in ~5 minutes when the agent has the runbooks to read. The portfolio itself is part of this system. Every section you read is a node an agent can query tomorrow without asking me a question today.</p>
+
+<p data-mode="founder">The company becomes AI-autonomous. My knowledge stops being a bottleneck. That is the work.</p>
+
 ## The Trajectory
 
-<p data-mode="founder">Intern → 18 LPA Full-time → Lead → <strong>Senior Engineer at 28 LPA (22 fixed + 2 variable + 4 ESOPs)</strong>, in under three years. The ESOPs are the Founding Ownership signal — skin in the game, not just a salary line.</p>
+<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA: 22 Fixed + 2 Variable + 4 more ESOPs in successive grants) → <strong>Senior Systems Architect / Tech Lead</strong>. Each ESOP grant is a renewed bet — not a salary line, a stake.</p>
 
-## May 2024 — May 2026 · The Cloud Ownership & Tech Lead Era
+## Next — May 2026 onwards
 
-> **Status: being written, on the go.** Long-form lands here as each chapter completes.
-
-Headline material the long-form will cover:
-
-- The mobile-backend migration (Python monolith → Node.js services).
-- AWS Cloud Infrastructure & DevOps absorbed during a critical leadership transition.
-- Stack-defining decisions: AWS ECS + Fargate over EC2; consolidating 3 servers + 50 — 60 Lambdas into 6 autoscaling services + 10 workers + 10 Lambdas.
-- Zero-failure migration of all legacy users to the new architecture.
-- Tenant isolation, RBAC, and database-layer audit logging — the SOC2 / HIPAA foundation.
-- The AI-native engineering toolchain (Claude Code + custom Metabase MCP + AWS CLI) — RCAs cut from 2 — 3 hours to ~5 minutes.
-- 90 → 1,500 customers, 1,000+ paying, $1M+ ARR.
-- The Tech Lead role: Scheduling & Payments pod, RFC processes, code-review standards.
-- Hiring & mentorship: 20+ technical interviews, Senior Buddy for 4+ engineers.
-
-Until those land, the executive version lives in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: in flight.** The Builder era is the present-tense.
+> The next chapter writes itself the day it lands.

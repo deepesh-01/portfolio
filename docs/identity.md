@@ -1,8 +1,10 @@
 # The Identity: Deepesh Rathod
 
-**Title:** Founding Engineer · Senior Engineer · Logic-First Systems Architect
+**Title:** Founding Engineer · Senior Systems Architect / Tech Lead
 **Motto:** *"If the product isn't moving, move it yourself."*
-**Stake:** 28 LPA (22 Fixed + 2 Variable + 4 ESOPs). The ESOPs are the Founding Ownership signal — skin in the game, not just a salary line.
+**Lifecycle:** Develop → Deploy → Monitor → Cost. Full-Stack Builder, not Full-Stack Developer.
+**Stake:** 28 LPA (22 Fixed + 2 Variable + 4 *more* ESOPs in successive grants). The ESOPs are the Founding Ownership signal — each grant a renewed bet, not a salary line.
+**Doctrine:** AI-Native Handover. Document everything so the company is AI-autonomous and my knowledge is a moat for it, not a bottleneck inside it.
 
 ## Core Philosophy: The Input-Process-Output (IPO) Framework
 

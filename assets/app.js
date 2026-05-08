@@ -57,6 +57,8 @@ const SLUG_TO_PATH = Object.freeze({
   '175-lead-bug':       'docs/case-studies/175-lead-bug.md',
   'ghost-sprint':       'docs/case-studies/ghost-sprint.md',
   'media-migration':    'docs/case-studies/media-migration.md',
+  'flask-to-node':      'docs/case-studies/flask-to-node.md',
+  'sql-optimization':   'docs/case-studies/sql-optimization.md',
 });
 
 /** Modes the perspective switcher can be in. Order matters for the UI. */
