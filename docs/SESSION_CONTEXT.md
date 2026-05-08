@@ -100,7 +100,7 @@ Per case-study-count discipline:
 
 **For the next session:** Do NOT name colleagues, even if the user's source material does. If new source material includes names, replace with role-based phrasing during extraction. Quotes attributed to named people get role-based attribution. The user has explicitly delegated this judgment.
 
-**Brand-name policy carry-over** (unchanged): No predecessor brand names (originally Chrone, LOCA, TimelyAI) in legal/compliance context. Zoca (current employer) is fine. *"the existing brand identity"* / *"the new entity"* / *"the stealth pivot"* / *"the predecessor identity"* are the canonical phrasings.
+**Brand-name policy carry-over** (unchanged): No predecessor brand names anywhere in legal/compliance context. Zoca (current employer) is fine. *"the existing brand identity"* / *"the new entity"* / *"the stealth pivot"* / *"the predecessor identity"* are the canonical phrasings.
 
 ---
 
