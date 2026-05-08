@@ -223,12 +223,72 @@
 
 <p data-mode="founder">The legal audit of the predecessor identity and the emergence of Zoca — a battle-tested, VC-funded engineering identity. The brand on the cap-table changed. The system underneath didn't blink.</p>
 
+## Phase 7 — The Collision & Resilience Era (December 2024)
+
+### The Traceability Mandate
+
+<p data-mode="founder engineer">Zoca was scaling. Leads, clients, source channels — three entities that touched every meaningful business decision in the system. As the tenant base grew, so did the cost of <em>not knowing</em>. Not knowing who changed a lead's status, when a client's contact got overwritten, which channel a conversion actually came from. Absolute traceability stopped being a nice-to-have. It became a contract.</p>
+
+<p data-mode="founder engineer">The challenge: a <strong>self-healing audit log</strong> that didn't just record <em>who changed what</em> — anyone can build a "last_updated_by" column — but captured the exact state of the world <em>before</em> and <em>after</em> every change. Diff-able. Replayable. Defensible in a deposition. The kind of trace you'd want in front of you the day a regulator, an investor, or a paying customer asked the question that started with "can you prove…"</p>
+
+### The PSQL Audit Function
+
+<p data-mode="engineer"><strong>The solution:</strong> a custom PostgreSQL function that automatically generates a shadowed log table for any entity. Point it at a table — leads, clients, source_channels, anything — and it provisions the shadow, wires up the trigger, and walks away. No per-table boilerplate. No engineer remembering to "also write the audit row." The database itself becomes the auditor.</p>
+
+<p data-mode="engineer"><strong>The logic:</strong> every row update fires a trigger that captures a nested JSON diff — <code>before</code> and <code>after</code> — and writes it to the shadow. Schema stays minimal: <code>log_id + updates_json + updated_at_timestamp</code>. Three columns, infinite history. The <code>updates_json</code> shape is what does the heavy lifting — the entire pre-image and post-image of the row, so a single log entry is enough to reconstruct the state without joining back to anything.</p>
+
+<p data-mode="engineer founder"><strong>The result:</strong> the system became <strong>audit-proof</strong> for future legal or investor due diligence. Every business actionable traces back to its origin without an engineer in the loop. Cross-link: <a href="#psql-audit-function">Case Study: The PSQL Audit Function</a>. Reference: Blueprint §10.</p>
+
+### The Cynical Architect Evolves
+
+<p data-mode="engineer founder">This was the doctrine maturing. The <a href="#adr-0010">Cynical Architect (ADR-0010)</a> builds with <em>recovery</em> from day one — fallbacks before features, dead-letter queues before producers, the failure path written before the happy path. The <strong>Audit Architect</strong> builds with <em>traceability</em> from day one. Same instinct, different layer.</p>
+
+<p data-mode="engineer founder">Errors will happen. Build the trace before the bug. The cynic and the auditor are the same person — one assumes the system will break, the other assumes someone will eventually need to prove what it did before it broke. Cynicism about runtime; cynicism about institutional memory. Both load-bearing.</p>
+
+### Spike Mode — The Never-Ending Hackathon
+
+<p data-mode="human">Peak intensity. The team was living on the top floor of the office — Red Bull stacked next to diet coke, laptops on coffee tables, sofas doing duty as beds. The boundary between work and rest dissolved because there was no rest to bound against.</p>
+
+<p data-mode="human">Morale was on a knife-edge. The kind of edge where you can't tell, walking into the room, whether the silence is focus or fracture. Spike Mode wasn't a sprint with a Friday demo — it was a metabolism, and metabolisms don't end on a calendar.</p>
+
+### The Blackout
+
+<p data-mode="human">A core engineer — <strong>Harshpal</strong> — blacked out from exhaustion. The body's veto on the schedule the calendar hadn't yet allowed.</p>
+
+<p data-mode="human">Nobody on a deadline gets to argue with that. Or — they do argue with it, and then they lose. Harshpal hitting the floor was the system telling us a number the spreadsheet refused to print.</p>
+
+### The December 22nd Collision
+
+<p data-mode="founder human">Dec 22nd. A unilateral Jan 1st launch deadline was announced — no status check, no capacity read, no question to the people doing the shipping. The deadline collided with the team's actual capacity, and the collision wasn't theoretical. It happened in the room.</p>
+
+<p data-mode="human">A physical and verbal confrontation followed between the Founder and the Lead — <strong>Pravesh</strong>. Two people who'd built the product together, standing chest-to-chest in an office at the end of the worst month of the year. I stood in the middle — the literal buffer between two colliding forces. Hands up, voice level, trying to keep the thing that was already broken from breaking further.</p>
+
+### The Fracture
+
+<p data-mode="founder human">Pravesh and <strong>Kushal</strong> left. The team I'd built the funding round with — the Arrow team that had run the 11 AM to 2 PM gauntlet for months, the people who'd been on the Slack thread the night the $6M closed — cracked at the seams. Not over engineering disagreements. Over the way humans were being asked to perform like systems.</p>
+
+<p data-mode="founder human">Management held a "Stay or Leave" interrogation. Each remaining engineer in a room, the question put plainly. No theatrics. No long preamble. Stay, or leave. The kind of conversation that strips a company down to who is actually in it.</p>
+
+### The Oath, Reaffirmed
+
+<p data-mode="founder human">The same oath I'd given Robin and Ashish on the <a href="#pune-trip">Pune trip</a> months earlier — <em>"I am not someone who leaves when everything is breaking"</em> — held when it would have been easier to break it. The market was still hiring. The exit door was, again, right there. Easier than ever to walk through, because this time half the room had already walked.</p>
+
+<p data-mode="founder human">I broke emotionally watching the team leave. Not metaphorically — actually broke. The Arrow team had been the closest thing to a unit I'd had since the Original Clan. Watching it splinter on the way out of the year that had also closed our funding was a category of grief the trajectory hadn't prepared me for. I broke. I did not break the oath.</p>
+
+### Tech Leader → Guardian of the Product's Survival
+
+<p data-mode="founder">Stayed to ensure the migration was successful and the product was stable. The transition wasn't a promotion — there was no new title on the badge, no salary letter, no announcement. It was a redefinition.</p>
+
+<p data-mode="founder">The work that mattered was no longer "lead the team." There was less team to lead. The work was "make sure the system doesn't fall over while the team rebuilds." That's the Guardian role. Stability over ego. System over feelings. The product was 600+ tenants of someone else's livelihood; the product didn't get to know that the founding lead had walked. Keeping that opacity intact — keeping the outage that should have happened from happening — was the entire job.</p>
+
 ## The Trajectory
 
-<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA: 22 Fixed + 2 Variable + 4 more ESOPs in successive grants) → <strong>Staff Engineer / Founding Engineer</strong>. The title is downstream of the work. Each ESOP grant is a renewed bet — not a salary line, a stake.</p>
+<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA: 22 Fixed + 2 Variable + 4 more ESOPs in successive grants) → Staff Engineer / Founding Engineer → <strong>Battle-Tested Leader · Guardian of the Product's Survival</strong>. The title is downstream of the work. Each ESOP grant is a renewed bet — not a salary line, a stake. <strong>Background:</strong> $6M funding closed (August 2024). The drama in Phase 7 played out against that funded backdrop — the system was supposed to be coasting, not breaking.</p>
 
-## Next chapter
+## What's next
 
-> **Status: ongoing.** The Funding & Swarm Era is the present-tense.
-> The next entries land here as they happen. The structured executive
-> view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: ongoing.** The Collision & Resilience era was December 2024.
+> What followed — the rebuild, the team that came back stronger, the
+> architectural choices made in the quiet that came after — lands
+> here as it's written. The structured executive view stays in the
+> [Résumé](../Deepesh_Rathod_Resume.pdf).

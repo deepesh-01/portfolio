@@ -264,6 +264,68 @@
 
 <p data-mode="human">The treks I started after the Thunderstorm became the <em>backbone</em> of how I survived this stretch. Skandagiri, Savandurga, the Nandi trails — on rotation, every weekend, non-negotiable. The team grew to <strong>80 people</strong>. The work got heavier, not lighter. Leadership through balance is not a poster on a wall. It is a Sunday on a hill, and then a Monday where you can still think clearly at 1 AM.</p>
 
+## The Collision & Resilience Era (December 2024)
+
+### Spike Mode — The Top Floor
+
+<p data-mode="human">By December the team had taken over the top floor of the office. Red Bull empties on every flat surface. Diet coke cans next to the keyboards, sticky rings under them where someone hadn't bothered with a tissue in days. Sofas pushed against the walls — not for guests, for us, for the few hours of sleep we allowed ourselves between commits.</p>
+
+<p data-mode="human">There was no rest. The boundary between work and rest had stopped existing — not blurred, <em>gone</em>. You woke up where you had stopped. You stopped where you had started. The lights stayed on. The build stayed running. Morale was on a knife-edge and we kept walking it, single file, one engineer behind the other, pretending the edge was a path.</p>
+
+### Harshpal Blacked Out
+
+<p data-mode="human">One of our core engineers — <strong>Harshpal</strong> — blacked out. Not a figure of speech. His body, mid-shift, said <em>no</em> in the only language a body has left when no one is listening to it. The schedule the calendar hadn't yet allowed for, his nervous system vetoed for him.</p>
+
+<p data-mode="human">That was the moment the cost stopped being theoretical. Up until then, "we're burning out" had been a sentence we said in standups and didn't act on. After Harshpal hit the floor, the sentence had a body attached to it. <em>Yeh real hai. Yeh ho gaya hai.</em> You can argue with a Slack message. You can't argue with a person who isn't conscious.</p>
+
+### The December 22nd Announcement
+
+<p data-mode="founder human">December 22nd. A unilateral <strong>January 1st</strong> launch deadline got announced. No status check. No team consultation. No <em>"hey, what's actually shippable, what's actually broken, who's actually still standing."</em> Just a date, dropped into the room from above, and a clock that started counting down whether anyone in the room was ready or not.</p>
+
+<p data-mode="founder human">The deadline collided with the team's actual capacity in the same room — the room where Harshpal had blacked out, where the sofas had become beds, where the Red Bull cans had become décor. The math didn't work. The announcement didn't care that the math didn't work. That was the spark.</p>
+
+### The Collision
+
+<p data-mode="human founder">A physical and verbal confrontation between the <strong>Founder</strong> and <strong>Pravesh</strong> (the Lead). In the same room. In front of the team. I stood in the middle. <em>The literal buffer between two colliding forces.</em></p>
+
+<p data-mode="human founder">I do not have a clean image of what I said. I was holding two people apart, in a room of people who had been working too long, who had not slept properly in weeks, who were watching this happen. Memory does not record cleanly under that kind of load. What I remember is the weight on both of my arms, the heat of two voices going past my ears in opposite directions, and the silence of the rest of the team — a silence that was its own kind of damage.</p>
+
+### The Fracture
+
+<p data-mode="founder human"><strong>Pravesh</strong> left. <strong>Kushal</strong> left with him. The <em>Arrow</em> team — the same Arrow that had won the funding round in August, the half I had named in a quieter month — was fractured by December. Four months. That's the whole arc. From <em>$6M</em> to a hollowed-out half-team in one calendar season.</p>
+
+<p data-mode="founder human">Management called a <strong>"Stay or Leave"</strong> interrogation. Not a conversation. An interrogation — the word fits because the room had that shape. Direct question, direct answer, on the record. The kindness of ambiguity was not on offer.</p>
+
+### The Interrogation
+
+<p data-mode="founder">I sat in that meeting. The question was direct. The honest version of my answer was <em>I have made an oath; I do not break oaths when the asking gets hard.</em> The polite version of my answer was the one I gave — shorter, calmer, professional, the version that fits in a meeting with the people who sign your offer letter.</p>
+
+<p data-mode="founder">Either way, I stayed. Same answer underneath both versions. The Pune oath, said to Robin and Ashish a year earlier, was still load-bearing. <em>"I am not someone who leaves when everything is breaking."</em> December 2024 was the sentence's worst test, and the sentence held.</p>
+
+### Breaking, Without Breaking
+
+<p data-mode="human founder">I broke emotionally seeing the team leave. The people I had pulled all-nighters with for the funding demo, four months earlier. The people I had named <em>Arrow</em> and <em>Shield</em> in a quieter month, when naming felt like leadership and not like writing an obituary. I broke. <em>Tut gaya andar se.</em></p>
+
+<p data-mode="human founder">I did not break the oath. Those are different things, and December 2024 was when I learned how different they were. You can sit on the floor of an empty meeting room with your hands over your face and still walk back to your desk and open the PR. The body can break. The promise does not have to. I learned that distinction the hard way, in real time, and I will carry it for the rest of my career.</p>
+
+### Guardian of the Product's Survival
+
+<p data-mode="founder human">By the end of December, the title in my head had quietly shifted. <em>Tech Leader</em> was the role I had been given on paper. <em>Guardian of the Product's Survival</em> was the role the moment had given me. They are not the same job.</p>
+
+<p data-mode="founder human">The work was no longer "lead the team to the next feature." There was less team to lead. The work was "keep the system from falling over while what's left of us rebuilds." That is a quieter job. Less glamorous. Fewer demos. No funding rounds attached. It is also the job I am most proud of having done — because the version of me that wanted credit would have walked, and the version of me that stayed did the work that nobody outside the room would ever see.</p>
+
+### The Audit Architect, In The Background
+
+<p data-mode="engineer">While the human story was unfolding on the top floor, the technical work that defined the era was happening in the background — quiet, deliberate, almost meditative against the chaos. The <strong>audit-by-snapshot</strong> system. A custom PostgreSQL function that auto-generated shadowed log tables for any entity — Leads, Clients, Source Channels — with nested <code>before</code> and <code>after</code> JSON on every row mutation.</p>
+
+<p data-mode="engineer">Every row change traceable. Every business actionable resolvable to its origin. The system became <strong>audit-proof</strong> — for legal, for investors, for the version of us that would, six months later, need to reconstruct exactly what had happened and when. The Cynical Architect doctrine had grown a sibling: <em>the Audit Architect builds with traceability from day one.</em> See <strong>Blueprint §10</strong> for the implementation; <strong>Case Study 09</strong> for the deeper write-up.</p>
+
+### The Quiet After
+
+<p data-mode="founder human">By the first week of January, the launch was either alive or it wasn't. It was. The system held. Whatever the December 22nd announcement had cost us in people, the engineering — the audit log, the Cynical Architect's pre-wired recovery paths, the bones laid down in 2024 — held the weight that the team alone could no longer carry.</p>
+
+<p data-mode="founder human">The team that had stayed regrouped slowly. The team that had left moved on slowly. Both processes were necessary. Neither was clean. Anyone who tells you a fracture like that resolves in a month is selling you a story. What January gave us was not closure — it was <em>quiet</em>. And in that quiet, what was left of us started building again.</p>
+
 ## What This Log Is For
 
 This is the <em>uncompressed</em> file. Every other document on this site
@@ -277,4 +339,4 @@ If you want to know <em>why</em> I am that kind of engineer, read this.
 
 ## What's next — drafting on the go
 
-> **Status: ongoing.** The Swarm era is current. The next entries land here as they happen. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: ongoing.** December 2024 was the Collision. What came after — the rebuild, the architectural choices made in the quiet, the team that grew back — lands here as it's written. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).

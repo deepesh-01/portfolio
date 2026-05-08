@@ -1,11 +1,11 @@
 # The Identity: Deepesh Rathod
 
-**Title:** Staff Engineer / Founding Engineer
+**Title:** Staff Engineer / Founding Engineer · Battle-Tested Leader · Guardian of the Product's Survival
 **Motto:** *"If the product isn't moving, move it yourself."*
 **Oath:** *"I am not someone who leaves when everything is breaking."*
 **Lifecycle:** Develop → Deploy → Monitor → Cost. Full-Stack Builder, not Full-Stack Developer.
-**Stake:** 28 LPA (22 Fixed + 2 Variable + 4 *more* ESOPs in successive grants). The ESOPs are the Founding Ownership signal — each grant a renewed bet, not a salary line.
-**Doctrine:** Recovery-First Architecture (the Cynical Architect — see ADR-0010). AI-Native Handover via RAG-ready documentation, so the company is AI-autonomous and my knowledge is a moat for it, not a bottleneck inside it.
+**Stake:** 28 LPA (22 Fixed + 2 Variable + 4 *more* ESOPs in successive grants). The ESOPs are the Founding Ownership signal — each grant a renewed bet, not a salary line. **Background:** $6M funding closed (Aug 2024). The drama in Phase 7 played out against that funded backdrop.
+**Doctrine:** Recovery-First Architecture (the Cynical Architect — see ADR-0010). Audit-by-Snapshot (the Audit Architect — see ADR-0011). AI-Native Handover via RAG-ready documentation, so the company is AI-autonomous and my knowledge is a moat for it, not a bottleneck inside it.
 
 ## Core Philosophy: The Input-Process-Output (IPO) Framework
 

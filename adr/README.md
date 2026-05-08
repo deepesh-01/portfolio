@@ -19,6 +19,7 @@
 | 0008  | [SQL-Defined Logic as the Default for Trigger-Shaped Problems](./0008-sql-defined-logic-pattern.md) | Accepted |
 | 0009  | [The Lambda Swarm: Step Functions Hierarchy + S3 JSON State](./0009-lambda-swarm-step-functions.md) | Accepted |
 | 0010  | [Recovery-First Architecture (the Cynical Architect doctrine)](./0010-cynical-architect-recovery-first.md) | Accepted |
+| 0011  | [Audit-by-Snapshot (Generic PSQL Before/After Logging)](./0011-psql-audit-by-snapshot.md) | Accepted |
 
 ## Format
 

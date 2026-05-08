@@ -61,6 +61,7 @@ const SLUG_TO_PATH = Object.freeze({
   'sql-optimization':   'docs/case-studies/sql-optimization.md',
   'zoca-unified-migration': 'docs/case-studies/zoca-unified-migration.md',
   'lambda-swarm':       'docs/case-studies/lambda-swarm.md',
+  'psql-audit-function': 'docs/case-studies/psql-audit-function.md',
 });
 
 /** Modes the perspective switcher can be in. Order matters for the UI. */

@@ -351,3 +351,77 @@ that reads keys, not in-memory state.
 architecture later carried 480+ tenants without re-design — the swarm
 widens at the Map step, nothing else changes. Idempotent state on S3
 meant a mid-run failure cost minutes, not a re-run.
+
+## 10. PSQL Snapshot Logic — Generic Before/After Audit
+
+**Context.** §3 introduced per-table `AFTER DELETE` triggers in late
+2022, after the row-deletion incident made silent data loss a board-level
+problem. By late 2024, the same instinct had to scale: every entity,
+every UPDATE, both states — before and after — without hand-writing a
+50-line trigger per table. ADR-0008 (SQL-Defined Logic) had warned that
+five copies of a pattern with no shared shape is how local customs are
+born. This is what happens when that warning gets applied to audit.
+
+**Concept.** A single PostgreSQL function — `audit_attach(entity_name)`
+— that, given an entity name, generates the shadow log table, the
+`AFTER UPDATE` trigger, and the before/after JSON capture function in
+one call. Adding audit coverage to a new table is one line of SQL.
+
+**The Schema.** One shadow log table per entity, generated, never hand-
+written.
+
+```sql
+create table {entity}_audit_log (
+  log_id              uuid primary key default gen_random_uuid(),
+  entity_id           uuid not null,
+  updates_json        jsonb not null,           -- {"before": {...}, "after": {...}}
+  actor_id            int,
+  updated_at_timestamp timestamptz not null default now()
+);
+create index on {entity}_audit_log (entity_id, updated_at_timestamp desc);
+```
+
+**The Trigger.** `row_to_json(OLD)` / `row_to_json(NEW)` read the live
+row shape, so a column rename never silently breaks coverage. The
+`WHEN` clause is load-bearing — it keeps no-op writes out of the log.
+
+```sql
+create or replace function audit_capture_{entity}() returns trigger as $$
+begin
+  insert into {entity}_audit_log (entity_id, updates_json, actor_id)
+  values (
+    NEW.id,                                              -- input
+    jsonb_build_object(                                  -- process
+      'before', row_to_json(OLD),                        -- data context (live shape)
+      'after',  row_to_json(NEW)
+    ),
+    current_setting('app.user_id', true)::int            -- actor
+  );                                                     -- output: one log row
+  return NEW;
+end;
+$$ language plpgsql;
+
+create trigger trg_audit_{entity}
+after update on {entity}
+for each row
+when (OLD.* is distinct from NEW.*)        -- skip no-op updates; non-negotiable
+execute function audit_capture_{entity}();
+```
+
+**The Three Invariants.**
+
+- **Schema-drift-proof.** `row_to_json(OLD/NEW)` reads the live shape.
+  Renaming a column doesn't silently break audit coverage — the new
+  shape just shows up in the next log row.
+- **No-op skip.** `WHEN (OLD.* IS DISTINCT FROM NEW.*)` keeps the audit
+  log honest. A busy table that re-writes the same row twice does not
+  double-log for free.
+- **Idempotent attach.** `audit_attach('leads')` re-runs safely. `IF
+  NOT EXISTS` guards on the table and trigger creation mean a redeploy
+  is a no-op, not a duplicate.
+
+**Result.** Every entity in the core schema gets a complete audit
+trail with one SQL call per entity. "Show me how this lead got here"
+becomes one query against `<entity>_audit_log` — no reconstruction,
+no diff archaeology, no per-table trigger to read. The pattern that
+§3 started by hand became a function the schema calls on itself.
