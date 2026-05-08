@@ -555,3 +555,112 @@ contract is not.
 to "production system shipping for 480+ tenants." Reference
 ADR-0013 for the strategic adoption of this layer as a non-optional
 component of any LLM-in-the-loop pipeline.
+
+## 13. Drizzle ORM Migrations + Terraform IaC — SOC2/HIPAA-Ready Infrastructure
+
+**Context.** By Phase 9 (mid-2025) the company was preparing for
+SOC2 + HIPAA. The two surfaces compliance auditors ask about first:
+*what is in your database*, and *what is in your infrastructure.*
+Both had to be reproducible, reviewable, and revertable from version
+control. Same compliance-floor instinct as §3 — silent state is a
+liability — applied to schema and infra instead of row-level deletes.
+
+**Two interlocking patterns.**
+
+- **Drizzle ORM** for the database surface. Every schema change is
+  a typed migration, every migration's diff is reviewable, every
+  migration is revertible.
+- **Terraform** for the infrastructure surface. Every IAM role,
+  security group, RDS parameter, and S3 policy lives in
+  version-controlled HCL. No console-clicked infrastructure.
+
+**Senior collaborator.** Worked with Himanshu Hazarika (IIT KGP '08)
+on the Drizzle rollout and the early Terraform footprint.
+
+### Drizzle ORM
+
+**Why Drizzle, not Prisma / TypeORM.** Three reasons.
+
+- **Generated SQL stays close to the SQL we already write.** No
+  framework dialect to mentally translate during a review.
+- **Migrations are real SQL diffs**, not opaque framework artefacts.
+  A reviewer reads the migration in the language production speaks.
+- **Typed schemas in TypeScript with no runtime overhead.** The
+  types are the schema; the schema is the types.
+
+**The migration shape.** Each file is a self-contained `up` / `down`
+pair. The header comment carries the IPO framing — what the
+migration consumes, what it does, what it leaves behind — so the
+diff reads as a unit even months later during an audit.
+
+```typescript
+// drizzle/migrations/0042_add_consent_log_index.ts
+// Input:   the live `consent_logs` table (~12M rows by Q3 2025)
+// Process: add a partial index for compliance queries (HIPAA audit trail)
+// Output:  a typed, revertible, review-friendly migration
+
+import { sql } from 'drizzle-orm';
+
+export const up = sql`
+  CREATE INDEX CONCURRENTLY IF NOT EXISTS idx_consent_logs_recent
+    ON consent_logs (tenant_id, created_at DESC)
+    WHERE created_at > now() - interval '90 days';
+`;
+
+export const down = sql`
+  DROP INDEX IF EXISTS idx_consent_logs_recent;
+`;
+```
+
+### Terraform IaC
+
+**The pattern.** Per-environment Terraform workspaces (dev /
+staging / prod). Modules for each repeatable concern — RDS, ECS
+service, IAM, S3 bucket policy. A new environment is a workspace
+switch, not a re-creation effort.
+
+**Compliance-relevant invariants encoded in HCL.**
+
+- **All S3 buckets default to private + encrypted.** Public is an
+  explicit override, reviewed in PR.
+- **All RDS instances have backup-retention ≥ 7 days, encryption
+  at rest enabled.** SOC2 minimum baked into the module.
+- **IAM policies use least-privilege role-based access**; no
+  wildcards on production resources. Wildcard in a prod plan fails
+  CI.
+
+```hcl
+# terraform/modules/rds_audited/main.tf
+# A compliance-shaped RDS module — every flag here is a SOC2/HIPAA review item
+resource "aws_db_instance" "audited" {
+  identifier                      = var.identifier
+  engine                          = "postgres"
+  storage_encrypted               = true                              # HIPAA at-rest encryption
+  backup_retention_period         = max(var.backup_retention, 7)      # SOC2 minimum
+  deletion_protection             = true                              # SOC2 change-control
+  copy_tags_to_snapshot           = true                              # audit trail
+  enabled_cloudwatch_logs_exports = ["postgresql", "upgrade"]         # HIPAA audit trail
+  performance_insights_enabled    = true
+}
+```
+
+### Why this pair, not just one
+
+- **Drizzle alone** = reproducible schema, opaque infrastructure.
+  *"Why is this RDS open to 0.0.0.0/0?"* — no answer in version
+  control.
+- **Terraform alone** = reproducible infrastructure, opaque schema.
+  *"Show me when this column got added."* — `git log migrations/`
+  is the answer; Terraform doesn't have it.
+- **Together** = the floor compliance auditors expect. Everything
+  that touches the production data path is a reviewable file in
+  git.
+
+**Result.** DB-migration visibility: every schema change diff'd,
+reviewed, mergeable. **Zero "what is in production?" questions
+during compliance prep.** Infrastructure visibility: every
+parameter that compliance cares about is encoded in HCL with
+policy guards, and a drift detector compares running state to HCL
+state nightly — alerts on mismatch. The pair shipped during Phase
+9 (April – November 2025). The infrastructure-as-code discipline
+carried straight into the SOC2 + HIPAA audit windows.

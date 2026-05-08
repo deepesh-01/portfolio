@@ -22,6 +22,8 @@
 | 0011  | [Audit-by-Snapshot (Generic PSQL Before/After Logging)](./0011-psql-audit-by-snapshot.md) | Accepted |
 | 0012  | [Master-Worker Pattern (Redis + NestJS Workers + Lambda Callbacks)](./0012-master-worker-redis-pattern.md) | Accepted |
 | 0013  | [LLM Guardrails (the AI Safety Layer)](./0013-llm-guardrails-ai-safety-layer.md) | Accepted |
+| 0014  | [Drizzle ORM Migrations + Terraform IaC for SOC2/HIPAA-Ready Infrastructure](./0014-drizzle-orm-iac-compliance.md) | Accepted |
+| 0015  | [Deterministic LLM Testing (Invariants Over Examples)](./0015-deterministic-llm-testing.md) | Accepted |
 
 ## Format
 

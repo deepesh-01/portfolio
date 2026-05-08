@@ -1,12 +1,12 @@
 # The Identity: Deepesh Rathod
 
-**Title:** **Founding Member & Lead Architect at Zoca** · Institutional Soul · Battle-Tested Leader · Guardian of the Product's Survival
+**Title:** **Founding Member & Internal Technical Consultant at Zoca** · Institutional Encyclopedia · Battle-Tested Leader · Guardian of the Product's Survival
 **Motto:** *"If the product isn't moving, move it yourself."*
 **Oath:** *"I am not someone who leaves when everything is breaking."*
-**Lifecycle:** Develop → Deploy → Monitor → Cost. Full-Stack Builder, not Full-Stack Developer. AI-Native across the stack — DevOps, Research, TRDs, Code.
-**Stake:** **26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs** (formally recognised at the April 2025 Goa Workation). ESOPs are the Founding Ownership signal — each grant a renewed bet, not a salary line. **Background:** $6M funding closed (Aug 2024); Zoca stabilised through the December 2024 Collision; Founding Recognition followed in April 2025.
-**Doctrine:** Recovery-First Architecture (the Cynical Architect — ADR-0010). Audit-by-Snapshot (the Audit Architect — ADR-0011). Master-Worker for load-shedding (ADR-0012). LLM Guardrails / AI Safety Layer at the perimeter (ADR-0013). **AI-Autonomous Documentation (RAG-ready)** — every doc, ADR, blueprint, and runbook on this site shaped to be ingestible by an agent so the company runs even when its senior engineer takes a break.
-**The personal note:** productivity is a byproduct of personal stability. My partner's support is the invisible infrastructure that made all of the above possible.
+**Lifecycle:** Develop → Deploy → Monitor → Cost. Full-Stack Builder, not Full-Stack Developer. **Leading with AI**, not just using it — DevOps, Research, TRDs, Code, Architectural debates.
+**Stake:** **26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs**. At peak (Golden Bloom, Apr — Nov 2025): **$3.5M ARR · 1,500+ customers · 140+ headcount.** ESOPs are the Founding Ownership signal — each grant a renewed bet.
+**Doctrine:** Recovery-First (ADR-0010) · Audit-by-Snapshot (ADR-0011) · Master-Worker (ADR-0012) · LLM Guardrails — runtime (ADR-0013) · Drizzle ORM + Terraform IaC for SOC2/HIPAA (ADR-0014) · Deterministic LLM Testing — test-time (ADR-0015) · **AI-Autonomous Documentation (RAG-ready)** so the company runs even when its senior engineer takes a break.
+**The personal note:** productivity is a byproduct of personal stability. My partner's support — and the long rides with my girlfriend on the Himalayan 450 — are the invisible infrastructure that made all of this possible. *A 16-hour workday is a sprint; a motorcycle ride to Pondicherry is a journey.*
 
 ## Core Philosophy: The Input-Process-Output (IPO) Framework
 
