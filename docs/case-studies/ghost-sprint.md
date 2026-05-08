@@ -1,4 +1,4 @@
-# Case Study 03 — The LOCA Ghost Sprint
+# Case Study 03 — The Ghost Sprint
 
 **Period.** Jan — Feb 2024.
 **Surface.** A 0-to-1 Node.js backend, onboarding flow, and dev environment for a brand that had to exist by Monday.
@@ -7,7 +7,7 @@
 
 ## Context
 
-<p data-mode="founder">TimelyAI and the Chrone brand had hit a legal dead-wall. We could not go to market under the existing identity. The pivot was LOCA — and it was not a rebrand. It was a 0-to-1 rebuild, top to bottom, because nothing legally tainted could survive the migration. Mobile app, websites, onboarding flows — all of it had to be re-engineered from a clean room.</p>
+<p data-mode="founder">The existing brand identity hit a legal and compliance dead-wall — public launch under that name was off the table. The call was a stealth pivot to a new entity (kept unnamed here on purpose). Not a rebrand. A 0-to-1 rebuild, top to bottom, because nothing legally tainted could survive the migration. Mobile app, websites, onboarding flows — all of it had to be re-engineered from a clean room.</p>
 
 <p data-mode="engineer">"Clone everything, import nothing" is a strange constraint to engineer against. You know exactly what the product needs to do — you built the original. You also cannot copy a single line forward. Every shape has to be re-derived from first principles, on a clock, while the rest of the company waits on you to put the floor down.</p>
 
@@ -42,7 +42,7 @@ pnpm test --changed
 
 <p data-mode="human">It was the first time Shambhav had jumped back into hands-on coding alongside Vishal in a long stretch. The fact that he could — and that he didn't lose a day to setup — was the proudest line item of the sprint.</p>
 
-> *"README was more than enough."* — Shambhav, on the LOCA codebase, Jan 2024.
+> *"README was more than enough."* — Shambhav, on the new codebase, Jan 2024.
 
 ## The Investor Demo
 
@@ -58,7 +58,7 @@ pnpm test --changed
 
 ## The Epilogue — Gold Standard
 
-<p data-mode="founder">LOCA shut down after two months. Further legal hurdles closed the door on the brand entirely. The product never reached the market under that name.</p>
+<p data-mode="founder">The new entity shut down after two months. Further legal hurdles closed the door on the brand entirely. The product never reached the market under that name.</p>
 
 <p data-mode="engineer">The engineering foundation outlived it. The repo skeleton, the README conventions, the pre-commit hook setup, the utils layout — every project that followed at the company started from that template. The codebase that died became the gold standard for the codebases that didn't.</p>
 
@@ -70,4 +70,4 @@ pnpm test --changed
 
 <p data-mode="human">And one more thing, the one I keep coming back to: a Founder writing the words *"zero friction"* about your repo is a more honest review than any retro could produce. It means a senior person, low on time, hit your code and kept moving. That is the only DevEx metric that actually matters.</p>
 
-> *"README was more than enough."* — Shambhav, on the LOCA codebase, Jan 2024.
+> *"README was more than enough."* — Shambhav, on the new codebase, Jan 2024.

@@ -127,7 +127,7 @@ set -euo pipefail
 exec gunicorn app:wsgi --workers 4 --bind 0.0.0.0:8000
 ```
 
-## 6. The SQL-Defined Trigger Engine (LOCA)
+## 6. The SQL-Defined Trigger Engine
 
 **Context.** Every growth team eventually wants the same thing: "if a
 user does X, send Y." The naive answer is to write a new handler, open

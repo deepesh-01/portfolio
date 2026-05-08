@@ -41,9 +41,9 @@
 
 ## Phase 4 — The Thunderstorm (Jan — May 2024)
 
-### Jan — Feb 2024 · The LOCA Ghost Sprint
+### Jan — Feb 2024 · The Ghost Sprint
 
-<p data-mode="founder human">TimelyAI and the Chrone brand hit a legal dead-wall. Public launch under that identity was off the table. Leadership made the call: pivot to <strong>LOCA</strong> — a clean rebrand on paper, a total 0-to-1 rebuild in practice.</p>
+<p data-mode="founder human">The existing brand identity hit a legal and compliance dead-wall. Public launch under that name was off the table. Leadership made the call: a <strong>stealth pivot to a new entity</strong> (kept unnamed here on purpose) — a clean rebrand on paper, a total 0-to-1 rebuild in practice.</p>
 
 <p data-mode="engineer founder">No imports. Legal-tainted assets stayed where they were. We manually cloned and re-engineered the mobile app, the websites, the onboarding flows — every line, two months, from scratch.</p>
 
@@ -57,7 +57,7 @@
 
 <p data-mode="human">A close friend moved from Trivandrum to Bangalore that month. Same city. Didn't see him for 30+ days. The pivot took 100% of bandwidth — there was no surplus.</p>
 
-<p data-mode="founder engineer"><strong>The Epilogue:</strong> LOCA shut down after 2 months. Further legal hurdles, outside engineering's reach. But the foundation I'd set — the Node.js server, the DevEx, the hooks — became the <strong>gold standard</strong> for every project that followed. The company died; the architecture didn't. See <a href="#loca-ghost-sprint">Case Study: The LOCA Ghost Sprint</a>.</p>
+<p data-mode="founder engineer"><strong>The Epilogue:</strong> the new entity shut down after 2 months. Further legal hurdles, outside engineering's reach. But the foundation I'd set — the Node.js server, the DevEx, the hooks — became the <strong>gold standard</strong> for every project that followed. The brand died; the architecture didn't. See <a href="#ghost-sprint">Case Study: The Ghost Sprint</a>.</p>
 
 ### March 2024 · The Media Migration & Senior Evolution
 

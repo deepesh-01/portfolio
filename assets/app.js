@@ -55,7 +55,7 @@ const SLUG_TO_PATH = Object.freeze({
   'journal':            'docs/journal.md',
   'christmas-sql':      'docs/case-studies/christmas-sql.md',
   '175-lead-bug':       'docs/case-studies/175-lead-bug.md',
-  'loca-ghost-sprint':  'docs/case-studies/loca-ghost-sprint.md',
+  'ghost-sprint':       'docs/case-studies/ghost-sprint.md',
   'media-migration':    'docs/case-studies/media-migration.md',
 });
 

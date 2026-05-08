@@ -1,15 +1,15 @@
-# ADR-0006 — SQL-Defined Business Triggers (the LOCA pattern)
+# ADR-0006 — SQL-Defined Business Triggers
 
 - **Status:** Accepted
-- **Date:** 2024-02-XX (approximate — decision crystallised during the LOCA Ghost Sprint, Jan — Feb 2024)
-- **Deciders:** Deepesh Rathod, with the LOCA founding team (Shambhav et al.)
+- **Date:** 2024-02-XX (approximate — decision crystallised during the Ghost Sprint, Jan — Feb 2024, on a stealth-pivot rebuild kept unnamed here on purpose)
+- **Deciders:** Deepesh Rathod, with the founding team (Shambhav et al.)
 - **Supersedes:** —
-- **Related:** [`docs/loca_ghost_sprint.md`](../docs/loca_ghost_sprint.md), `docs/blueprints.md` §3 and §6
+- **Related:** [`docs/case-studies/ghost-sprint.md`](../docs/case-studies/ghost-sprint.md), `docs/blueprints.md` §3 and §6
 
 ## Context
 
-Every business-trigger rule change at LOCA required an engineering
-deploy. The shape of these rules was always the same:
+Every business-trigger rule change on the new entity required an
+engineering deploy. The shape of these rules was always the same:
 
 - "If a user joins from source X, send them message Y."
 - "If a user's signup city is Z, route them to onboarding flow W."
@@ -25,8 +25,9 @@ new condition required:
 3. A deploy cycle (minutes to hours, depending on what else was queued).
 4. A QA pass on staging before promoting to prod.
 
-At LOCA's pace — a 0-to-1 rebuild on a two-month legal clock with a
-team of 10+ engineers — that lead time was a tax we couldn't afford.
+At the Ghost Sprint's pace — a 0-to-1 rebuild on a two-month legal
+clock with a team of 10+ engineers — that lead time was a tax we
+couldn't afford.
 The work was also misallocated: engineers were doing rule-by-rule
 plumbing instead of systems-level work, and PMs were blocked on
 engineering bandwidth for changes that were, in essence, configuration.
@@ -130,11 +131,12 @@ the stack depends on the table existing.
 
 ## Notes
 
-This pattern shipped during the LOCA Ghost Sprint (Jan — Feb 2024,
-see [`docs/loca_ghost_sprint.md`](../docs/loca_ghost_sprint.md)).
-LOCA itself wound down two months later for legal reasons unrelated
-to the engineering. The SQL-defined trigger pattern survived as the
-gold-standard approach for business-trigger logic in every project
-that followed. The implementation sketch lives in
+This pattern shipped during the Ghost Sprint (Jan — Feb 2024 — the
+two-month stealth-pivot 0-to-1 rebuild, see
+[`docs/case-studies/ghost-sprint.md`](../docs/case-studies/ghost-sprint.md)).
+The new entity itself wound down two months later for legal reasons
+unrelated to the engineering. The SQL-defined trigger pattern
+survived as the gold-standard approach for business-trigger logic in
+every project that followed. The implementation sketch lives in
 `docs/blueprints.md` §6; the full story is in
-`docs/case-studies/loca-ghost-sprint.md`.
+`docs/case-studies/ghost-sprint.md`.

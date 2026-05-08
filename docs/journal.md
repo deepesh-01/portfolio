@@ -56,13 +56,13 @@
 
 ### The Legal Thunderstorm
 
-<p data-mode="founder human">January 2024. The Chrone / TimelyAI identity hit a legal dead-wall. Trademark, brand, public-facing surface — all of it suddenly couldn't go out the door. The product was alive. The name was not.</p>
+<p data-mode="founder human">January 2024. The existing identity hit a legal and compliance dead-wall. Trademark, brand, public-facing surface — all of it suddenly couldn't go out the door. The product was alive. The name was not.</p>
 
 <p data-mode="founder human">For about a week, every "let's just ship" instinct I had broke against the same sentence: <em>we cannot go public with this identity.</em> No appeal, no workaround, no clever rename of a folder. The thing we'd built our 2023 around had to be put behind glass.</p>
 
-### The LOCA Pivot — 0 to 1 in Two Months
+### The Stealth Pivot — 0 to 1 in Two Months
 
-<p data-mode="founder engineer">We pivoted to <strong>LOCA</strong>. Not a rebrand. A 0-to-1 rebuild. Mobile app, websites, onboarding flows — all of it manually re-engineered, because anything legal-tainted couldn't be imported, copy-pasted, or even referenced. Clean room. Two months.</p>
+<p data-mode="founder engineer">We pivoted to a <strong>new entity</strong> (kept unnamed here on purpose). Not a rebrand. A 0-to-1 rebuild. Mobile app, websites, onboarding flows — all of it manually re-engineered, because anything legal-tainted couldn't be imported, copy-pasted, or even referenced. Clean room. Two months.</p>
 
 <p data-mode="founder engineer">Every shortcut you take in a normal sprint — "just lift this util", "we already have an auth flow" — was off the table. We were typing it out again, with new names, new boundaries, new repos. The pace was insane. I remember thinking: <em>this is what 0-to-1 actually feels like, not the LinkedIn version.</em></p>
 
@@ -80,7 +80,7 @@
 
 ### The Investor Demo
 
-<p data-mode="founder human">I owned the complete onboarding backend for the investor demo. End to end — the flow a new business would touch in their first thirty seconds with LOCA. All-nighters, dry-runs, paranoia checks at 3 AM on the staging environment.</p>
+<p data-mode="founder human">I owned the complete onboarding backend for the investor demo. End to end — the flow a new business would touch in their first thirty seconds with the new entity. All-nighters, dry-runs, paranoia checks at 3 AM on the staging environment.</p>
 
 <p data-mode="founder human">The demo was flawless. No fallback slides, no "let's pretend this part works" — the actual product, running. That night I understood that "investor demo" is just a polite name for <em>your code, on stage, with money in the room</em>.</p>
 
@@ -92,9 +92,9 @@
 
 ### The Epilogue — Gold Standard
 
-<p data-mode="founder engineer">After two months, LOCA shut down. Further legal hurdles, deeper than the first wall. The brand didn't survive.</p>
+<p data-mode="founder engineer">After two months, the new entity shut down. Further legal hurdles, deeper than the first wall. The brand didn't survive.</p>
 
-<p data-mode="founder engineer">The engineering foundation did. The Node.js skeleton, the README discipline, the pre-commit guardrails, the onboarding backend shape — all of it became the <strong>gold standard</strong> for every project that followed at Zoca. LOCA died. The bones it left behind built the next two years.</p>
+<p data-mode="founder engineer">The engineering foundation did. The Node.js skeleton, the README discipline, the pre-commit guardrails, the onboarding backend shape — all of it became the <strong>gold standard</strong> for every project that followed at Zoca. The brand died. The bones it left behind built the next two years.</p>
 
 ### The 150GB Migration — March 2024
 
@@ -130,7 +130,7 @@
 
 ### Bangalore Treks — Sustainable Hustle
 
-<p data-mode="human">The 100kg, three-months-of-burger-combos version of me from late 2023 was behind me. I started trekking around Bangalore on weekends with the friend from Trivandrum — the same one I hadn't seen for a month during the LOCA sprint.</p>
+<p data-mode="human">The 100kg, three-months-of-burger-combos version of me from late 2023 was behind me. I started trekking around Bangalore on weekends with the friend from Trivandrum — the same one I hadn't seen for a month during the Ghost Sprint.</p>
 
 <p data-mode="human">Nothing extreme. Skandagiri, Savandurga, the Nandi side trails. What changed wasn't the distance. It was the realisation that the hustle didn't have to eat the body to be real. The grind became <em>sustainable</em>. That word, for the first time, started meaning something.</p>
 

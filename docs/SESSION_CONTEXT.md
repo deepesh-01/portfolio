@@ -12,7 +12,7 @@
 ## 1. The 60-second briefing
 
 - **What this repo is:** A brutalist, zero-build, zero-framework personal portfolio for Deepesh Rathod (Founding Engineer · Senior Engineer · Tech Lead). Live at https://v1.deepesh-engg.in.
-- **What was done in the most recent session:** Shipped Phase 4 — The Thunderstorm (Jan — May 2024): LOCA Ghost Sprint, the 150GB Migration, the Senior raise to 28 LPA + ESOPs. Two new case studies (LOCA Ghost Sprint, 150GB Migration), an updated journey + journal, expanded blueprints (SQL-defined business triggers, Resilient Local Migrator), a new product-growth section (GBP "3-Pack" drip-feed + WebSocket observability), a new ADR (0006 — SQL-defined business triggers), identity title updated.
+- **What was done in the most recent session:** Shipped Phase 4 — The Thunderstorm (Jan — May 2024): the Ghost Sprint (a stealth-pivot 0-to-1 rebuild — the new entity's brand name is intentionally not on the public site), the 150GB Migration, the Senior raise to 28 LPA + ESOPs. Two new case studies (`ghost-sprint`, `media-migration`), an updated journey + journal, expanded blueprints (SQL-defined business triggers, Resilient Local Migrator), a new product-growth section (GBP "3-Pack" drip-feed + WebSocket observability), a new ADR (0006 — SQL-defined business triggers), identity title updated. **Brand-name scrub:** the new entity's actual name and the predecessor brand's name in legal context have been removed from all public-facing files.
 - **What the next session needs to do:** **The May 2024 — May 2026 chapter** — cloud ownership, AI-native RCA toolchain, ECS/Fargate consolidation, 90 → 1,500 multi-tenant scale-up, the Tech Lead role. Source: the résumé bullets + the user's narrative when they bring it.
 - **Current state of the public site:** Phases 0 — 4 are written and live. The home-page banner now reads *"Status · Shipping On The Go — May 2024 — May 2026"* with the résumé as the executive interim.
 
@@ -70,10 +70,10 @@ The structured executive version lives in [`Deepesh_Rathod_Resume.pdf`](../Deepe
 
 Per case-study-count discipline:
 
-- **Case studies are now at 4** (Christmas SQL, 175-Lead Bug, LOCA Ghost Sprint, 150GB Migration). **The cap is 5.** That leaves room for *one more* from the May 2024 — May 2026 era — pick the strongest single story (most likely candidates: the AI-native RCA toolchain *or* the zero-failure 90 → 1,500 migration). Don't add both.
+- **Case studies are now at 4** (Christmas SQL, 175-Lead Bug, Ghost Sprint, 150GB Migration). **The cap is 5.** That leaves room for *one more* from the May 2024 — May 2026 era — pick the strongest single story (most likely candidates: the AI-native RCA toolchain *or* the zero-failure 90 → 1,500 migration). Don't add both.
 - **Don't add a case study for the Website Suggestions feature** — already in `journey.md` as the salary-hike + ESOPs trigger; no deeper transferable lesson on file.
 - **Don't add a case study for the Scheduling system as a whole** — architecture in `blueprints.md`, emotional arc in `journal.md`.
-- **Don't add the Mobile-Backend migration as its own case study** — already covered in The Thunderstorm (LOCA Ghost Sprint context) and journey.md.
+- **Don't add the Mobile-Backend migration as its own case study** — already covered in The Thunderstorm (Ghost Sprint context) and journey.md.
 
 ### 3.4 Once the May 2024 — May 2026 chapter lands
 
@@ -84,7 +84,9 @@ Per case-study-count discipline:
 
 ### 3.5 Editorial-name policy carry-over (important)
 
-The previous session set a strict "no real names" rule. **The Thunderstorm session relaxed this for three names that the user explicitly authorized:** **Shambhav** (LOCA Founder/CTO), **Vishal** (engineer who paired with Shambhav), and **Animesh** (Junior FE). These names are now public on the live site (in journey, journal, case studies, ADR-0006).
+The previous session set a strict "no real names" rule. **The Thunderstorm session relaxed this for three names that the user explicitly authorized:** **Shambhav** (Founder/CTO of the stealth entity), **Vishal** (engineer who paired with Shambhav), and **Animesh** (Junior FE). These names are public on the live site (in journey, journal, case studies, ADR-0006).
+
+**Brand-name policy carry-over:** The user asked us to scrub the *new entity's* actual brand name from the public site to avoid carrying any legal/compliance smell into the portfolio (this file is publicly reachable at `/docs/SESSION_CONTEXT.md`, so we keep it scrubbed here too). The story reads as a **stealth pivot to an unnamed new entity** triggered by legal/compliance issues on the existing brand. The predecessor brand is also softened in legal contexts to "the existing brand identity". Carry this forward: when documenting the next chapter, do not name the stealth entity, and do not surface the predecessor brand name alongside any legal/compliance language. Naming Zoca (the current employer) is fine; it appears in the resume.
 
 For the next session: **default back to anonymisation** unless the user names someone explicitly. Do not extrapolate the Thunderstorm exception. If the user mentions a colleague by name in source material for the next phase, ask for confirmation before publishing the name.
 
