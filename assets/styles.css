@@ -1,0 +1,354 @@
+/* =========================================================================
+   styles.css — Brutalist Dark Mode for the BMAD (Boring Markdown) portfolio.
+
+   Design contract:
+     - Monospace everywhere. One typeface family, two weights.
+     - High-contrast borders. No drop-shadows, no gradients, no glassmorphism.
+     - No animations beyond the essentials (perspective dim, copy-button flash).
+     - One file. No imports. No CSS variables in shadow DOM. No Tailwind.
+
+   Layout strategy: native CSS only. Flexbox for nav. CSS Grid for the IPO
+   matrix. Static document flow for everything else.
+   ========================================================================= */
+
+:root {
+  --bg:        #0a0a0a;
+  --fg:        #f5f5f5;
+  --muted:     #888;
+  --line:      #2a2a2a;
+  --line-hot:  #f5f5f5;
+  --accent:    #ffd400;     /* Founder mode highlight */
+  --accent-2:  #4ade80;     /* Engineer mode highlight */
+  --accent-3:  #f472b6;     /* Human mode highlight */
+  --code-bg:   #111;
+  --code-fg:   #e5e5e5;
+
+  --mono: ui-monospace, "SF Mono", "JetBrains Mono", "Fira Code",
+          Menlo, Consolas, "Courier New", monospace;
+
+  --measure: 72ch;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--mono);
+  font-size: 15px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent); color: #000; }
+
+a {
+  color: var(--fg);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+a:hover { background: var(--fg); color: var(--bg); text-decoration: none; }
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--line);
+  margin: 2.5rem 0;
+}
+
+/* ---------- Layout shell ---------------------------------------------- */
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  flex-wrap: wrap;
+}
+
+.nav-brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.nav-brand a { text-decoration: none; }
+.nav-brand small {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+/* ---------- Perspective switcher ------------------------------------- */
+
+.modebar {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--line-hot);
+}
+
+.mode-pill {
+  background: transparent;
+  color: var(--fg);
+  border: 0;
+  border-right: 1px solid var(--line-hot);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.55rem 0.9rem;
+  cursor: pointer;
+}
+.mode-pill:last-child { border-right: 0; }
+.mode-pill:hover { background: var(--fg); color: var(--bg); }
+.mode-pill.is-active { background: var(--fg); color: var(--bg); }
+
+/* The whole-document perspective dimming.
+   Default mode "all": every [data-mode] paragraph reads at full strength.
+   Active mode (founder|engineer|human): non-matching paragraphs dim, matching
+   paragraphs gain a coloured left border.
+
+   `:not(.mode-pill)` keeps the perspective switcher buttons themselves
+   (which also carry data-mode for the JS handler) out of these rules.
+   Without this, the negative margin-left below pulls the first pill
+   outside the modebar's left border. */
+
+[data-mode]:not(.mode-pill) {
+  transition: opacity 120ms linear;
+  border-left: 3px solid transparent;
+  padding-left: 0.75rem;
+  margin-left: -0.75rem;
+}
+
+body[data-active-mode="founder"]  [data-mode]:not([data-mode~="founder"]):not(.mode-pill),
+body[data-active-mode="engineer"] [data-mode]:not([data-mode~="engineer"]):not(.mode-pill),
+body[data-active-mode="human"]    [data-mode]:not([data-mode~="human"]):not(.mode-pill) {
+  opacity: 0.22;
+}
+
+body[data-active-mode="founder"]  [data-mode~="founder"]:not(.mode-pill)  { border-left-color: var(--accent);   }
+body[data-active-mode="engineer"] [data-mode~="engineer"]:not(.mode-pill) { border-left-color: var(--accent-2); }
+body[data-active-mode="human"]    [data-mode~="human"]:not(.mode-pill)    { border-left-color: var(--accent-3); }
+
+/* ---------- Hero ----------------------------------------------------- */
+
+.hero {
+  border: 1px solid var(--line-hot);
+  padding: 2rem 1.75rem;
+  margin: 2rem 0 3rem;
+}
+.hero h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+.hero .role {
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+.hero blockquote {
+  margin: 0;
+  border-left: 3px solid var(--fg);
+  padding-left: 1rem;
+  font-style: normal;
+}
+
+/* ---------- IPO matrix ----------------------------------------------- */
+
+.ipo {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line-hot);
+  border-right: 0;
+  border-bottom: 0;
+  margin: 2rem 0 3rem;
+}
+.ipo-cell {
+  border-right: 1px solid var(--line-hot);
+  border-bottom: 1px solid var(--line-hot);
+  padding: 1.1rem 1rem;
+}
+.ipo-cell .label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+}
+.ipo-cell h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.05rem;
+}
+.ipo-cell p { margin: 0; color: var(--fg); }
+
+@media (max-width: 720px) {
+  .ipo { grid-template-columns: 1fr 1fr; }
+}
+
+/* ---------- Index lists (case studies / deep dives) ------------------ */
+
+.section-title {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin: 2.5rem 0 0.75rem;
+}
+
+.index-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+}
+.index-list li {
+  border-bottom: 1px solid var(--line);
+}
+.index-list a {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0.25rem;
+  text-decoration: none;
+}
+.index-list a:hover { background: var(--fg); color: var(--bg); }
+.index-list .num {
+  color: var(--muted);
+  flex: 0 0 auto;
+}
+.index-list .title { flex: 1 1 auto; }
+.index-list .arrow { flex: 0 0 auto; color: var(--muted); }
+.index-list a:hover .num,
+.index-list a:hover .arrow { color: inherit; }
+
+/* ---------- "Coming soon" banner (Phase 4 placeholder) ---------------- */
+
+.banner {
+  border: 1px solid var(--line-hot);
+  padding: 1.25rem 1.25rem;
+  margin: 2.5rem 0 1rem;
+}
+.banner-label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin: 0 0 0.6rem;
+}
+.banner h3 { margin: 0 0 0.5rem; font-size: 1.05rem; }
+.banner p { margin: 0.4rem 0; }
+.banner p:last-child { color: var(--muted); }
+.banner p:last-child a { color: var(--fg); }
+
+/* ---------- Article view --------------------------------------------- */
+
+.article {
+  max-width: var(--measure);
+  margin: 1rem 0;
+}
+.article h1 { font-size: 1.6rem; margin-top: 0; }
+.article h2 { font-size: 1.2rem; margin-top: 2.25rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+.article h3 { font-size: 1rem;  margin-top: 1.75rem; }
+.article p, .article li { line-height: 1.65; }
+.article blockquote {
+  border-left: 3px solid var(--fg);
+  margin: 1.25rem 0;
+  padding: 0.25rem 0 0.25rem 1rem;
+  color: var(--fg);
+}
+.article ul { padding-left: 1.25rem; }
+
+.article code {
+  background: var(--code-bg);
+  padding: 1px 5px;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  font-size: 0.92em;
+}
+
+/* ---------- Code blocks (Copy + System Architecture label) ----------- */
+
+.codeblock {
+  margin: 1.25rem 0;
+  border: 1px solid var(--line-hot);
+  position: relative;
+}
+.codeblock-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line-hot);
+  padding: 0.4rem 0.75rem;
+  background: #000;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.codeblock-label { color: var(--muted); }
+.codeblock-copy {
+  background: transparent;
+  color: var(--fg);
+  border: 1px solid var(--fg);
+  padding: 2px 8px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+}
+.codeblock-copy:hover { background: var(--fg); color: var(--bg); }
+.codeblock-copy.is-copied { background: var(--accent-2); color: #000; border-color: var(--accent-2); }
+
+.codeblock pre {
+  margin: 0;
+  padding: 0.9rem 1rem;
+  background: var(--code-bg);
+  color: var(--code-fg);
+  overflow-x: auto;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.codeblock pre code { background: transparent; border: 0; padding: 0; }
+
+/* ---------- Back link & footer --------------------------------------- */
+
+.back {
+  display: inline-block;
+  margin: 1.5rem 0 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 12px;
+}
+
+.footer {
+  margin-top: 4rem;
+  border-top: 1px solid var(--line-hot);
+  padding-top: 1.25rem;
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+.footer strong { color: var(--fg); }
+
+/* ---------- Utility -------------------------------------------------- */
+
+.hide { display: none !important; }
+
+/* Reduced-motion users: kill the only transition we have. */
+@media (prefers-reduced-motion: reduce) {
+  [data-mode]:not(.mode-pill) { transition: none; }
+}
