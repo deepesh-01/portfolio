@@ -266,3 +266,88 @@ initial FB/IG launch with no platform-specific code in it. And when
 Meta's API broke — which it does, regularly — only the posting layer
 needed touching. The calendar and OAuth surfaces stayed still while
 the worker was patched, which is the whole reason the boundary exists.
+
+## 9. The Lambda Swarm — Step Functions + S3 JSON State
+
+**Context.** A single-process Python pipeline took 2 hours to generate
+per-tenant insights. Investors wanted a live demo; customers wanted
+near-real-time. Two hours was unworkable for both. The boundary in the
+data was already there — each tenant's insights were independent of
+every other tenant's — so the architecture had to match the data, not
+fight it. Co-built with Pravesh.
+
+**The Pattern.** A hierarchy of AWS Step Functions, narrow at the top
+and wide at the leaves.
+
+- **Master Orchestrator.** Gates each stage on the previous stage's
+  completion. Knows nothing about tenants — only about stages.
+- **Sub-orchestrators per analysis type.** One for scraping, one for
+  LLM analysis, one for catalog audit. Each fans out across tenants
+  inside its own execution.
+- **Leaf Lambdas.** The actual per-tenant or per-cohort work, run in
+  parallel. Stateless. Read their slice, write their slice, exit.
+
+**State Surface — S3 JSON blobs.** State lives in S3, keyed by
+`(tenant_id, stage)`. Each Lambda reads its slice, does its work,
+writes the result back, emits completion. Step Functions track which
+slices are done; the blobs are the durable record. Cheap, ordered,
+recoverable, and the evaluator at each stage boundary is a tiny Lambda
+that reads keys, not in-memory state.
+
+**The Failure Modes That Drove The Design.**
+
+- **Step Functions execution-history limits.** A single execution
+  cannot hold the whole swarm — break the work across sub-orchestrators
+  so no one history blows the cap.
+- **Cold-start traps in custom recursion.** Self-recursive Lambdas at
+  scale stall on cold starts and lose context. Replace with S3 +
+  small evaluator at the stage boundary; the orchestrator decides
+  when to advance.
+- **Partial failures.** Idempotent per-`(tenant, stage)` writes. Resume
+  reads existing state and skips what's already done — a re-run is
+  cheap, not destructive.
+
+```json
+// state-machine.json — Master Orchestrator (stripped)
+{
+  "StartAt": "ScrapeStage",
+  "States": {
+    "ScrapeStage": {                                  // input: tenant_ids[]
+      "Type": "Map",
+      "ItemsPath": "$.tenants",
+      "MaxConcurrency": 50,
+      "Iterator": {
+        "StartAt": "ScrapeTenant",
+        "States": {
+          "ScrapeTenant": {
+            "Type": "Task",
+            "Resource": "arn:aws:lambda:::function:scrape_tenant",
+            "End": true                               // process: per-tenant leaf
+          }
+        }
+      },
+      "ResultPath": "$.scrape",
+      "Next": "GateScrape"
+    },
+    "GateScrape": {                                   // process: stage boundary
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:::function:evaluate_stage",
+      "Parameters": { "stage": "scrape", "tenants.$": "$.tenants" },
+      "Next": "AnalyzeStage"
+    },
+    "AnalyzeStage": { "Type": "Task", "Resource": "arn:aws:states:::states:startExecution.sync",
+      "Parameters": { "StateMachineArn": "arn:...:AnalyzeOrchestrator", "Input.$": "$" },
+      "Next": "AggregateResults" },
+    "AggregateResults": {                             // output: S3 result manifest
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:::function:aggregate_results",
+      "End": true
+    }
+  }
+}
+```
+
+**Result.** 2 hours collapsed to ~5 minutes. ~24x speedup. The same
+architecture later carried 480+ tenants without re-design — the swarm
+widens at the Map step, nothing else changes. Idempotent state on S3
+meant a mid-run failure cost minutes, not a re-run.

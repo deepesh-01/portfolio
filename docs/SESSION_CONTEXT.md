@@ -4,17 +4,17 @@
 > It captures everything a future collaborator (Claude or human) needs to
 > resume work without re-deriving context from scratch.
 >
-> **Last updated:** 2026-05-08, at end of **The Full-Stack Builder Era** session
-> (Phase 5 — Mid-2024 onwards — landed live).
+> **Last updated:** 2026-05-08, at end of **The Funding & Swarm Era** session
+> (Phase 6 — August 2024 onwards — landed live).
 
 ---
 
 ## 1. The 60-second briefing
 
-- **What this repo is:** A brutalist, zero-build, zero-framework personal portfolio for Deepesh Rathod (Founding Engineer · Senior Systems Architect / Tech Lead). Live at https://v1.deepesh-engg.in.
-- **What was done in the most recent session:** Shipped Phase 5 — The Full-Stack Builder Era (Mid-2024 onwards). The Pune Clarity Trip + Stabilization Oath added as the bridge from Thunderstorm. The Strategic Baton (mentor departures: Vishal, Vinay, Ruddhi). Strategic Selfishness (Pravesh and Sahil hired to unburden; used the breathing room to pivot from Lead Dev to Full-Stack Builder). Develop → Deploy → Monitor → Cost lifecycle. Two new case studies (`flask-to-node`, `sql-optimization`). New blueprint §8 (Social Media Content Pipeline). Two new ADRs (0007 Fallback Migration Pattern, 0008 SQL-Defined Logic as the org-wide default). Identity title bumped to Senior Systems Architect / Tech Lead. New 4th principle in the manifesto: AI-Native Handover.
-- **What the next session needs to do:** Whatever the user brings next — could be more Phase 5 detail (the AWS ECS/Fargate consolidation, the Hyper-local keyword demand system, the 90 → 1,500 scale-up specifics, the Senior Buddy / hiring program) or an entirely new chapter.
-- **Current state of the public site:** Phases 0 — 5 are written and live. The home-page banner now reads *"Status · Live · Shipping On The Go"* and points at Phase 5 as the present-tense.
+- **What this repo is:** A brutalist, zero-build, zero-framework personal portfolio for Deepesh Rathod (Staff Engineer / Founding Engineer). Live at https://v1.deepesh-engg.in.
+- **What was done in the most recent session:** Shipped Phase 6 — The Funding & Swarm Era (August 2024 onwards), in memoir voice. The orphaned-window retelling + the Cynical Architect doctrine. The Arrow / Shield team dynamic (Pravesh + me = Arrow, **Durga** + Sahil = Shield). The 11 AM to 2 PM battle (US-based CEO, 3-hour feedback loops, $6M on the line). The Streamlit Revenue Opportunity engine. The Lambda Swarm + Step Functions hierarchy with S3 JSON state — 2hr → 5min, first meaningful Claude collaboration on architecture. The Zoca unified-service migration (480+ users, 0 failures, 0 downtime, 0 website-side code changes). Two new case studies (`zoca-unified-migration`, `lambda-swarm`). New blueprint §9 (Lambda Swarm). New product-growth §5 (Revenue Opportunity Engine). Two new ADRs (0009 Lambda Swarm + Step Functions, 0010 Recovery-First Architecture / Cynical Architect doctrine). Identity title bumped to **Staff Engineer / Founding Engineer**. The Oath now sits at the top of identity.md alongside the Motto.
+- **What the next session needs to do:** Whatever the user brings next. Possible threads still in the résumé that haven't fully landed: the AWS ECS/Fargate consolidation specifics, the Hyper-local keyword demand system (US Census), the Senior Buddy / hiring program (20+ interviews), the 90 → 1,500 scale-up internals (tenant isolation, SOC2/HIPAA prep), the AI-native RCA toolchain (Claude Code + Metabase MCP + AWS CLI, 2-3hr → ~5min RCAs).
+- **Current state of the public site:** Phases 0 — 6 are written and live. The home-page banner now reads *"Status · Live · Shipping On The Go — Phase 6"*. **$6M funding closed** appears on the home page. **8 case studies** live (cap was 6; the 6→8 raise is per this session — treat 8 as the new soft cap).
 
 ---
 
@@ -70,7 +70,7 @@ The structured executive version lives in [`Deepesh_Rathod_Resume.pdf`](../Deepe
 
 Per case-study-count discipline:
 
-- **Case studies are now at 6** (Christmas SQL, 175-Lead Bug, Ghost Sprint, 150GB Migration, Flask-to-Node Fallback, SQL Optimisation 15m→75s). **Treat 6 as the new soft cap.** A 7th would push the home-page list past comfortable scan length. If a future story is so strong it earns the slot, retire one of the older ones (most likely 175-Lead Bug — it's the least "transferable lesson"-shaped of the existing six) before adding.
+- **Case studies are now at 8** (Christmas SQL, 175-Lead Bug, Ghost Sprint, 150GB Migration, Flask-to-Node Fallback, SQL Optimisation 15m→75s, Zoca Unified Migration, $6M Lambda Swarm). **Treat 8 as the hard cap.** Past 8, the home-page list stops being a scannable index and starts being a brochure. A 9th must retire an existing one (most likely candidate: 175-Lead Bug — least transferable-lesson-shaped of the eight).
 - **Don't add a case study for the Website Suggestions feature** — already in `journey.md` as the salary-hike + ESOPs trigger; no deeper transferable lesson on file.
 - **Don't add a case study for the Scheduling system as a whole** — architecture in `blueprints.md`, emotional arc in `journal.md`.
 - **Don't add the Mobile-Backend migration as its own case study** — already covered in The Thunderstorm (Ghost Sprint context) and journey.md.
@@ -84,7 +84,7 @@ Per case-study-count discipline:
 
 ### 3.5 Editorial-name policy carry-over (important)
 
-The previous session set a strict "no real names" rule. The user has now explicitly authorized the following names on the live site: **Shambhav** (Founder/CTO of the stealth entity, from Thunderstorm), **Vishal** (engineer who paired with Shambhav, also a mentor who later departed), **Animesh** (Junior FE, Thunderstorm), **Robin** (co-founder/CTO, named in the Pune Clarity Trip oath), **Ashish** (CEO, named with Robin in the Pune oath), **Vinay** (mentor who departed), **Ruddhi** (mentor who departed; helped hire Pravesh and Sahil), **Pravesh** (junior hired to unburden), **Sahil** (junior hired to unburden). These names appear in the new Phase 5 content and the Pune sub-section in the journal. Older 2023 entries that previously anonymised "Robin" / "Ashish" as "leadership" / "the reply that came back" have NOT been retroactively un-anonymised — leaving inconsistency rather than over-publishing names without explicit re-confirmation.
+Authorised names on the live site (cumulative across sessions): **Shambhav** (Founder/CTO of the stealth entity, Thunderstorm), **Vishal** (engineer who paired with Shambhav, later a departing mentor), **Animesh** (Junior FE, Thunderstorm), **Robin** (co-founder/CTO), **Ashish** (CEO), **Vinay** (mentor who departed, August 2024), **Ruddhi** (mentor who departed, August 2024), **Pravesh** (junior hired to unburden; Arrow team in Phase 6), **Sahil** (junior hired to unburden; Shield team in Phase 6), **Durga** (Shield team in Phase 6 — NEW in this session). These names appear in Phases 4 — 6 content. Older 2023 entries that previously anonymised "Robin" / "Ashish" remain anonymised — over-publishing without explicit re-confirmation is harder to undo than under-publishing.
 
 **Brand-name policy carry-over:** The user asked us to scrub the *new entity's* actual brand name from the public site to avoid carrying any legal/compliance smell into the portfolio (this file is publicly reachable at `/docs/SESSION_CONTEXT.md`, so we keep it scrubbed here too). The story reads as a **stealth pivot to an unnamed new entity** triggered by legal/compliance issues on the existing brand. The predecessor brand is also softened in legal contexts to "the existing brand identity". Carry this forward: when documenting the next chapter, do not name the stealth entity, and do not surface the predecessor brand name alongside any legal/compliance language. Naming Zoca (the current employer) is fine; it appears in the resume.
 
@@ -134,6 +134,7 @@ If something on this list feels wrong while working on Phase 4, **don't change i
 | Reddit account aging (1 week + double-digit karma) | In progress | Required before posting to stricter subs |
 | **Phase 4 (The Thunderstorm)** | ✅ Shipped 2026-05-08 | journey.md / journal.md / case studies 03 + 04 / blueprints §6-7 / product-growth §4 / ADR-0006 |
 | **Phase 5 (The Full-Stack Builder Era)** | ✅ Shipped 2026-05-08 | journey.md (Phase 5) / journal.md (Pune + Builder section) / case studies 05 + 06 / blueprints §8 / ADR-0007 + ADR-0008 / manifesto §4 (AI-Native Handover) / identity title update |
+| **Phase 6 (The Funding & Swarm Era)** | ✅ Shipped 2026-05-08 | journey.md (Phase 6) / journal.md (Funding & Swarm memoir, 13 sub-sections) / case studies 07 (Zoca migration) + 08 (Lambda Swarm) / blueprints §9 (Lambda Swarm) / product-growth §5 (Revenue Opportunity Engine) / ADR-0009 (Lambda Swarm) + ADR-0010 (Recovery-First / Cynical Architect) / identity title bumped to Staff Engineer / Founding Engineer |
 
 ---
 

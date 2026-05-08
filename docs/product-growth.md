@@ -65,3 +65,13 @@ io.to(`profile:${profileId}`).emit('pipeline:stage', {
 <p data-mode="engineer"><strong>The Engineering numbers.</strong> SQS-backed Lambdas processing <strong>50+ media items in under 30 seconds</strong> per batch. The scheduler decoupled <em>throughput</em> from <em>delivery cadence</em> — the system could move fast internally while still drip-feeding GBP at a human-paced rhythm.</p>
 
 <p data-mode="founder human"><strong>Result.</strong> Profiles stayed "active" in GBP's eyes — the ranker kept seeing fresh signal day after day instead of one burst and a flatline. Internal trust in the pipeline went up because every stage was observable in real time, not after the fact. The CS team stopped asking engineering for status; they watched the socket.</p>
+
+## 5. The Revenue Opportunity Engine
+
+<p data-mode="founder"><strong>The Hunch.</strong> Investors don't fund "we will build features." They fund "here is the engine that makes our customers more money, and we can quantify it." The pitch needed a <em>running, data-backed</em> surface — not slides. Not a Figma. A thing that took a tenant ID and spat out dollars on the table.</p>
+
+<p data-mode="engineer founder"><strong>The Execution.</strong> Pravesh and I shipped a raw Streamlit frontend in days. <strong>Makeshift was the point.</strong> The thing was ugly. The data was real. It scraped competitors' surfaces (StyleSeat, Booksy), ran city-wide trending keywords through LLMs, and audited every tenant's service catalog for pricing gaps and category gaps. Each output was a concrete, dollar-quantifiable revenue opportunity for that specific tenant — not a generic benchmark, not a vibe. A number, attached to a missing service, attached to a competitor already charging for it.</p>
+
+<p data-mode="engineer"><strong>The Engineering Beneath It.</strong> The frontend was Streamlit. The engine behind it was the Lambda Swarm + Step Functions hierarchy (cross-ref: Blueprint §9 and Case Study 08 — the $6M Lambda Swarm). A background Python script that took 2 hours collapsed into a 5-minute run by fanning the work out across a hierarchy of orchestrated Lambdas. The "5-minute insight" wasn't a Streamlit feature; it was what the Swarm delivered to the demo. The UI was a window. The engine was the work.</p>
+
+<p data-mode="founder human"><strong>The Product Result.</strong> The funding round closed at <strong>$6M</strong>. The engine itself stayed in production after the demo and became the live "Revenue Opportunity" surface for <strong>480+ tenants</strong> at Zoca. The makeshift demo was the seed; the production engine is the tree. Every tenant who logs in and sees a dollar figure next to a missing service is reading the output of a Streamlit hack that shipped under deadline.</p>

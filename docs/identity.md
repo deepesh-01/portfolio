@@ -1,10 +1,11 @@
 # The Identity: Deepesh Rathod
 
-**Title:** Founding Engineer · Senior Systems Architect / Tech Lead
+**Title:** Staff Engineer / Founding Engineer
 **Motto:** *"If the product isn't moving, move it yourself."*
+**Oath:** *"I am not someone who leaves when everything is breaking."*
 **Lifecycle:** Develop → Deploy → Monitor → Cost. Full-Stack Builder, not Full-Stack Developer.
 **Stake:** 28 LPA (22 Fixed + 2 Variable + 4 *more* ESOPs in successive grants). The ESOPs are the Founding Ownership signal — each grant a renewed bet, not a salary line.
-**Doctrine:** AI-Native Handover. Document everything so the company is AI-autonomous and my knowledge is a moat for it, not a bottleneck inside it.
+**Doctrine:** Recovery-First Architecture (the Cynical Architect — see ADR-0010). AI-Native Handover via RAG-ready documentation, so the company is AI-autonomous and my knowledge is a moat for it, not a bottleneck inside it.
 
 ## Core Philosophy: The Input-Process-Output (IPO) Framework
 

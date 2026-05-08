@@ -184,6 +184,86 @@
 
 <p data-mode="human">The team grew to 80 people. The work got heavier, not lighter. Leadership through balance was no longer a phrase I'd read somewhere — it was the only mode that scaled. The 100kg, burger-combo, adrenaline-era version of me would not have lasted six months at this size. He would have burned the body out and called it dedication. The trekking version is still here, two years later, still leading, still building. That's the proof.</p>
 
+## The Funding & Swarm Era (August 2024 — Present)
+
+### The Orphaned Window
+
+<p data-mode="human founder">August 2024. Within a single window — not a quarter, not a half, a <em>window</em> — the Original Clan walked out the door. <strong>Vishal</strong>. <strong>Vinay</strong>. <strong>Ruddhi</strong>. The men I had argued architecture with at midnight, the ones who had taught me how this place actually thought. Gone, in sequence, fast.</p>
+
+<p data-mode="human">The word for it is <em>orphaned</em>. Not metaphor, not exaggeration — the literal shape of it. The people who had been load-bearing in my professional life were no longer in the room, and the chairs they used to sit in still had their indentations. The vacuum was real. I felt it in the silence of Slack channels that used to hum, in the questions I now had no one senior to lob upward.</p>
+
+### The Real Test of the Oath
+
+<p data-mode="founder human">Months earlier, I had walked into a room with <strong>Robin</strong> and <strong>Ashish</strong> and said, plainly, <em>"I am not someone who leaves when everything is breaking."</em> I'd thought that was the moment the oath was tested. It wasn't. The moment I said it, the people I would have stood next to were still in the building.</p>
+
+<p data-mode="founder human">The real test came now — when those people weren't there anymore. The market was hot, the cover story was clean (<em>"everyone's leaving"</em>), and no one would have blamed me for following them out. The oath is not what you say when your friends are next to you. The oath is what stays when the noise fades, when the room is quieter, when the only person enforcing the promise is you.</p>
+
+### The Cynical Architect — Origin Story
+
+<p data-mode="engineer human">I used to be the guy who failed SQL queries and crashed migration scripts. The Christmas SQL call where a senior had to walk me through a JOIN at 1.5 hours on his holiday. The deleted row that came back with <em>"innocence is allowed, ignorance is not."</em> The 30-hour migration script that crashed twice deep into the run while I stared at the terminal feeling sad and depressed.</p>
+
+<p data-mode="engineer human">That trauma compounded. Quietly, year over year. By August 2024 it had a name: cynicism — but the <em>productive</em> kind. The kind that doesn't sneer at hope, it just refuses to plan around it. Every scar from 2022 through early 2024 had stitched itself into a worldview, and the worldview was now the operating system.</p>
+
+### The Cynical Architect — Religion
+
+<p data-mode="engineer">I no longer build on hope. SQS recovery is wired before the happy path even compiles. Real-time dashboards exist before the feature ships, not after the first incident. Deterministic fallbacks — like the Flask-to-Node app-level retry that quietly fell back to the legacy server when Node failed — are the default, not the exception. Users saw a slightly slower response. They never saw an error.</p>
+
+<p data-mode="engineer">The discipline collapses to one line: <strong>if a system can fail, I've already architected the recovery.</strong> That sentence is not a slogan. It is the filter every PR I open or review goes through.</p>
+
+### The Arrow and the Shield
+
+<p data-mode="founder human">When the funding battle started, I split the team in half on purpose. <strong>Pravesh</strong> and I were the <strong>Arrow</strong> — attacking the demo for investors, building the engine that would prove the thesis. <strong>Durga</strong> and <strong>Sahil</strong> were the <strong>Shield</strong> — protecting the 600+ existing users, shipping the roadmap, keeping the lights on while we fought.</p>
+
+<p data-mode="founder">Naming the split was half the work. Once the whole team said <em>Arrow</em> and <em>Shield</em> the same way, with the same weight, no one had to ask whose lane was whose. No turf. No "wait, who owns this ticket?" The vocabulary did the coordination the org chart couldn't.</p>
+
+### The 11 AM to 2 PM Battle
+
+<p data-mode="founder human">The CEO was in the US, 12 hours ahead. He woke at <strong>11 AM IST</strong>. The demo was expected at <strong>2 PM IST</strong>. Three-hour feedback loops, every working day, for weeks. Whatever didn't get done by 2 PM IST became the agenda for the next 11 AM. The funding — <strong>$6M</strong> — was the only thing in the room.</p>
+
+<p data-mode="founder human">I lived inside that three-hour window. I stopped tracking time the normal way. The day was: <em>before 11</em>, <em>the window</em>, <em>after 2</em>. The window was the day. Everything else was setup or recovery for the window.</p>
+
+### The Streamlit Makeshift Sprint
+
+<p data-mode="engineer founder">Pravesh and I shipped a raw <strong>Streamlit</strong> frontend. <em>Makeshift was the point.</em> No design polish, no component library, no opinions about UX. Just a thin glass over the engine.</p>
+
+<p data-mode="engineer founder">Underneath: it scraped <strong>StyleSeat</strong> and <strong>Booksy</strong>, ran city-wide trending keywords through LLMs, and audited service catalogs for pricing gaps. The thing was ugly. The data was real. When the investors looked at the screen, what they saw was the <em>engine</em>, not the polish — and that was the bet. Polish would have lied about what stage we were at. Streamlit told the truth.</p>
+
+### The Lambda Swarm — and the Dead End
+
+<p data-mode="engineer">The background script that generated the "Revenue Opportunity" insights took <strong>2 hours</strong>. Investors needed it in <strong>5 minutes</strong>. The gap was non-negotiable. So I built a <strong>Swarm of AWS Lambdas</strong> orchestrated by a hierarchy of <strong>AWS Step Functions</strong> — fan out, parallelise, aggregate, return.</p>
+
+<p data-mode="engineer">I hit a wall on the <strong>Master Orchestrator</strong>'s state-management logic. The hierarchy was right, the leaves were right — the head couldn't hold the state cleanly across the branches. I lost days on it. The 2 PM window kept arriving and the engine kept being half-built.</p>
+
+### Claude, First Time
+
+<p data-mode="engineer human">I turned to the newly-launched <strong>Claude</strong>. It solved the state-management logic the Master Orchestrator needed — not by autocompleting, by <em>reasoning</em> through the shape of the problem with me until the right pattern fell out.</p>
+
+<p data-mode="engineer human">That was the first time an LLM was a meaningful collaborator on architecture for me. Not a typing-faster tool. Not a snippet generator. An actual systems-design pair. The Swarm shipped because of it. The 2-hour script became a 5-minute production engine. I remember closing the laptop that night and knowing something about how I built had just permanently changed.</p>
+
+### The $6M Validation
+
+<p data-mode="founder">The funding closed. <strong>$6M</strong>. The engineering bet — Lambda Swarm, Step Functions, real-time analytics on top of a Streamlit shell — got market validation in the bluntest form a market gives.</p>
+
+<p data-mode="founder">Numbers on a term sheet are a strange, blunt review of code. They don't read your architecture diagrams. They don't appreciate your retry logic. They are also the only review that lets you keep building. I'll take it.</p>
+
+### Zoca Unified Migration — 0 Downtime
+
+<p data-mode="engineer founder"><strong>480+ users</strong> moved to a new unified Service Management system — Categories, Services, Variations, all reshaped underneath them. <strong>0 failures. 0 production downtime.</strong> The website team didn't have to change one line of code on their side. The contract held.</p>
+
+<p data-mode="engineer founder">This is what the Cynical Architect doctrine looks like in production: the migration assumed it would fail somewhere, so the fallbacks and the dual-read paths were built before the cutover. They never had to fire. That's not luck. That's the recovery you architected sitting quietly in the corner, unused, exactly the way it was supposed to be.</p>
+
+### The Predecessor Audit, The Zoca Identity
+
+<p data-mode="founder">In parallel, the legal audit of the predecessor identity finally settled. The compliance dead-wall that had defined the Thunderstorm a year earlier was, at last, behind us — not by being argued away, but by being <em>built past</em>.</p>
+
+<p data-mode="founder"><strong>Zoca</strong> emerged as the battle-tested, VC-funded identity. The brand finally caught up to the engineering. For the first time since January 2024, the name on the door and the system behind it were pointing the same direction.</p>
+
+### Treks As The Default
+
+<p data-mode="human">The late-2023 version of me — 100kg, three months of burger combos, adrenaline-as-fuel — would not have lasted at this scale or this pace. He would have flamed out somewhere around the third week of the 11-to-2 window and called it dedication. The Swarm era would have eaten him.</p>
+
+<p data-mode="human">The treks I started after the Thunderstorm became the <em>backbone</em> of how I survived this stretch. Skandagiri, Savandurga, the Nandi trails — on rotation, every weekend, non-negotiable. The team grew to <strong>80 people</strong>. The work got heavier, not lighter. Leadership through balance is not a poster on a wall. It is a Sunday on a hill, and then a Monday where you can still think clearly at 1 AM.</p>
+
 ## What This Log Is For
 
 This is the <em>uncompressed</em> file. Every other document on this site
@@ -195,6 +275,6 @@ If you want to know <em>why</em> I am that kind of engineer, read this.
 
 ---
 
-## Next chapter — drafting on the go
+## What's next — drafting on the go
 
-> **Status: ongoing.** The Builder era is current. New entries land here as they happen, without a schedule. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: ongoing.** The Swarm era is current. The next entries land here as they happen. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).

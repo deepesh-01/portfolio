@@ -155,11 +155,80 @@
 
 <p data-mode="founder">The company becomes AI-autonomous. My knowledge stops being a bottleneck. That is the work.</p>
 
+## Phase 6 — The Funding & Swarm Era (August 2024 onwards)
+
+### The Real Test of the Oath
+
+<p data-mode="founder human">Within a single window, the Original Clan walked. Vishal, Vinay, Ruddhi — gone in sequence, gone close enough together that the calendar barely had room to breathe between exits. The vacuum wasn't theoretical. The people I asked when I didn't know, the people who used to catch the falling object before it hit the floor — none of them were on Slack anymore. "Orphaned" earned its quotation marks.</p>
+
+<p data-mode="human">The <a href="#pune-trip">Pune trip earlier in the year</a> had already settled the philosophy. The oath I'd given Robin and Ashish over that conversation — <em>"I am not someone who leaves when everything is breaking"</em> — had been a sentence at the time. A clean line spoken in a quieter month. Now the building was actively breaking and the oath had to either become a load-bearing decision or expose itself as a slogan.</p>
+
+<p data-mode="founder">I stayed. Not as a gesture, not as loyalty theatre — as a structural choice. The exit door was right there, the market was hiring, and the rational move on a spreadsheet was to leave. The oath stopped being a sentence the day I noticed I wasn't reading the spreadsheet.</p>
+
+### The Cynical Architect Arc
+
+<p data-mode="engineer founder"><strong>The doctrine that crystallised here:</strong> <em>I used to be the guy who failed SQL queries and crashed migration scripts. That trauma turned me cynical.</em> Cynical in the engineering sense — not the human one. The optimist builds the happy path and writes "// TODO: handle errors" where the chaos belongs. The cynic builds the failure path first and lets the success path emerge as the absence of failure.</p>
+
+<p data-mode="engineer">SQS recovery before the producer is written. Real-time dashboards before the deploy is announced. Deterministic fallbacks before the new endpoint is wired in. Hope is not an architecture pattern. Every system I touch from this point forward assumes a crash, a timeout, a partial write, a lost message — and recovers from each one without a human in the loop. This is the doctrine <a href="#adr-0010">ADR-0010</a> records. Not a stylistic preference — a religion built out of two years of getting burned.</p>
+
+### The Arrow and the Shield
+
+<p data-mode="founder">When the funding battle started, the team had to split clean. Pravesh and I became the <strong>Arrow</strong> — the attack team, head-down on the funding demo, building the thing that didn't exist yet. Durga and Sahil became the <strong>Shield</strong> — protecting the 600+ existing users, shipping the roadmap features that couldn't slip, holding the production line while the Arrow tried to bend reality.</p>
+
+<p data-mode="founder">Naming the dynamic was half the win. Once the room had the words "Arrow" and "Shield," nobody asked who was on point for what. No daily reshuffling, no ambiguous ownership, no "I thought you were handling that." Two postures, four people, zero confusion. The org chart was a sentence.</p>
+
+### The 11 AM to 2 PM Battle
+
+<p data-mode="founder human">The CEO was in the US — 12 hours behind, or 12 hours ahead, depending which side of the day you measured from. He woke up at 11 AM IST. He demanded a demo by 2 PM IST. Three hours, every day, to ship the iteration he'd asked for the previous evening.</p>
+
+<p data-mode="founder">$6M on the line. Investors watching. Three-hour feedback loops, day after day, week after week. The cadence wasn't a sprint — sprints have an end date. This was the metabolism of the company for that stretch. You stopped counting days and started counting demos.</p>
+
+### The Streamlit Makeshift Sprint
+
+<p data-mode="founder engineer">We built a raw, data-backed frontend in <strong>Streamlit</strong> to prove the "Revenue Opportunity" engine. Not pretty. Not productionised. Not even hosted on the real domain. <em>Makeshift was the point.</em> The investor demo needed to show that the data underneath was real — not that the pixels on top were polished.</p>
+
+<p data-mode="engineer">Under the hood: scraped StyleSeat and Booksy for competitor catalogs in the tenant's geography. Analysed city-wide trending keywords via LLM passes — what services were spiking in this ZIP code, what wasn't being offered, what was underpriced. Audited the tenant's own service catalog for pricing gaps against the trend. The Streamlit shell was a window into a real engine. Cross-ref: <a href="#product-growth">product-growth note on the Revenue Opportunity engine</a>.</p>
+
+### The Lambda Swarm
+
+<p data-mode="engineer founder"><strong>The bottleneck:</strong> the background Python script that generated the insights took <strong>2 hours</strong> to run for a single tenant. Investors needed a live demo in <strong>5 minutes</strong>. A 24× speed-up wasn't an optimisation problem — it was an architecture problem.</p>
+
+<p data-mode="engineer"><strong>The architecture:</strong> a "Swarm" of AWS Lambdas — dozens of small, parallel workers each owning a slice of the analysis (one keyword cluster, one competitor scrape, one pricing audit) — orchestrated by a hierarchy of <strong>AWS Step Functions</strong>. Map states fanning out, parallel branches converging, sub-orchestrators feeding a Master Orchestrator at the top. Distributed by design, not by accident.</p>
+
+<p data-mode="engineer human"><strong>The dead-end:</strong> the Master Orchestrator's state-management logic broke me. Step Functions' execution context, the way state propagates across nested map states, the way errors bubble — I hit a wall I couldn't read my way out of in the time I had. Documentation was thin; Stack Overflow was thinner.</p>
+
+<p data-mode="engineer"><strong>The unlock:</strong> turned to the newly-launched Claude. Pasted the topology, the constraints, the failing state transitions. Claude solved the state logic. The swarm shipped. <strong>2 hours → 5 minutes.</strong> The first time an LLM was a peer architect on a load-bearing system, not a research partner. Cross-link: <a href="#lambda-swarm">Case Study: The $6M Lambda Swarm</a>.</p>
+
+### The $6M Validation
+
+<p data-mode="founder">Funding closed. $6M. The engineering strategy — the cynical architecture, the Arrow/Shield split, the swarm itself — got market validation in the most expensive feedback loop available. The investors weren't buying a deck. They were buying a system that ran.</p>
+
+### The Zoca Unified Migration — Zero Downtime
+
+<p data-mode="engineer founder"><strong>The mission:</strong> move 480+ users to a new unified Service Management system — Categories, Services, Variations as a coherent three-tier model instead of the flat, drift-prone schema underneath. Live tenants. Active bookings. Revenue flowing through the tables we were rewriting.</p>
+
+<p data-mode="engineer"><strong>The result:</strong> <strong>0 failures. 0 production downtime.</strong> The website team didn't have to change a single line of code — the migration shape preserved the read contracts the website depended on, so their deploys kept landing while their data layer got rebuilt under their feet. Cross-link: <a href="#zoca-unified-migration">Case Study: The Zoca Unified Migration</a>.</p>
+
+### Featured Resilience — Flask-to-Node + SQL Optimisation
+
+<p data-mode="engineer">The two case studies already in the archive — the <strong>Flask-to-Node Fallback Protocol</strong> and the <strong>SQL Optimisation 15m → 75s</strong> — graduated in this era from "interesting wins" to <em>gold standard</em>. The Fallback Protocol became the zero-downtime migration template every subsequent rewrite cribbed from. The SQL work became the high-concurrency performance proof we pointed at when the question was "can the platform hold at scale." Cross-links: <a href="#flask-to-node">Case Study 05</a>, <a href="#sql-optimization">Case Study 06</a>.</p>
+
+### Building For AI-Autonomous Documentation
+
+<p data-mode="founder engineer">Current focus: every doc, ADR, blueprint, and runbook in this site is being shaped to be <strong>RAG-ready</strong>. Markdown, semantic headings, stable anchors, source-cited claims, named entities, explicit cross-links. Not pretty for humans first — parseable for agents first, and accidentally clearer for humans as a side-effect.</p>
+
+<p data-mode="founder">The thesis: a company whose knowledge sits in markdown an agent can ingest is a company that can run when its senior engineer takes a break. Human Documentation was the diagnosis; AI-autonomous documentation is the cure. The portfolio you're reading is the same corpus the on-call agent will read tomorrow morning.</p>
+
+### The Predecessor Audit and the Emergence of Zoca
+
+<p data-mode="founder">The legal audit of the predecessor identity and the emergence of Zoca — a battle-tested, VC-funded engineering identity. The brand on the cap-table changed. The system underneath didn't blink.</p>
+
 ## The Trajectory
 
-<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA: 22 Fixed + 2 Variable + 4 more ESOPs in successive grants) → <strong>Senior Systems Architect / Tech Lead</strong>. Each ESOP grant is a renewed bet — not a salary line, a stake.</p>
+<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA: 22 Fixed + 2 Variable + 4 more ESOPs in successive grants) → <strong>Staff Engineer / Founding Engineer</strong>. The title is downstream of the work. Each ESOP grant is a renewed bet — not a salary line, a stake.</p>
 
-## Next — May 2026 onwards
+## Next chapter
 
-> **Status: in flight.** The Builder era is the present-tense.
-> The next chapter writes itself the day it lands.
+> **Status: ongoing.** The Funding & Swarm Era is the present-tense.
+> The next entries land here as they happen. The structured executive
+> view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
