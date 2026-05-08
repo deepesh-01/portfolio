@@ -357,10 +357,25 @@ async function loadArticle(slug) {
     rewriteInternalLinks(article);
     enhanceCodeBlocks(article);
 
+    // BACK link. Two behaviours, picked at click time:
+    //   - If the user has navigated within this tab (window.history.length > 1),
+    //     fire history.back() — the browser's hash history naturally records
+    //     every #slug change made by an internal anchor click, so going back
+    //     lands the user on whichever doc they came from (not always home).
+    //   - If they arrived via a deep link in a fresh tab (history.length === 1),
+    //     history.back() would do nothing — fall through to href="#" and route
+    //     them to home so the BACK button is never a dead end.
     const back = document.createElement('a');
     back.className = 'back';
-    back.href = '#';
+    back.href = '#';                                  // accessibility + fresh-tab fallback
     back.textContent = '← BACK';
+    back.addEventListener('click', (event) => {
+      if (window.history.length > 1) {
+        event.preventDefault();
+        history.back();
+      }
+      // else: let the browser follow href="#" and route() will handle it.
+    });
 
     view.innerHTML = '';
     view.appendChild(back);
@@ -434,14 +449,34 @@ function wireModeBar() {
 /* ───── §6. Boot ──────────────────────────────────────────────────────── */
 
 /**
+ * syncNavHeight — measure the rendered height of the sticky nav and write
+ * it to a CSS custom property so the article-view BACK bar can stick
+ * directly below it.
+ *
+ * Why it has to be measured (rather than hard-coded): the nav uses
+ * flex-wrap, so on narrow viewports the modebar wraps under the brand and
+ * the nav becomes taller. A hard-coded `top: 3.5rem` would break on phone
+ * widths.
+ *
+ * INPUT   none — reads from the DOM.
+ * OUTPUT  documentElement.style.--nav-h is set in pixels.
+ */
+function syncNavHeight() {
+  const nav = document.querySelector('.nav');
+  if (!nav) return;
+  document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+}
+
+/**
  * boot — the one-and-only DOMContentLoaded handler.
  *
  * Steps, in order:
  *   1. Wire the perspective pills.
  *   2. Apply the persisted perspective (or 'all' if none stored).
  *   3. Decorate any code blocks already in the static landing HTML.
- *   4. Run the router for whatever hash we landed on.
- *   5. Listen for hash changes for in-page navigation thereafter.
+ *   4. Measure the nav so the sticky BACK bar can sit under it.
+ *   5. Run the router for whatever hash we landed on.
+ *   6. Listen for hash changes (in-page nav) and resize (nav re-wrap).
  */
 function boot() {
   wireModeBar();
@@ -450,9 +485,10 @@ function boot() {
   try { stored = localStorage.getItem(MODE_STORAGE_KEY) || 'all'; } catch (_) {}
   setMode(stored);
 
-  // The home page may itself contain code blocks (the IPO snippets, etc.),
-  // so we run the enhancer once over the document on boot too.
   enhanceCodeBlocks(document);
+
+  syncNavHeight();
+  window.addEventListener('resize', syncNavHeight);
 
   route();
   window.addEventListener('hashchange', route);

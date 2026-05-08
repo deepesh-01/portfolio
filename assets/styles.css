@@ -326,13 +326,26 @@ body[data-active-mode="human"]    [data-mode~="human"]:not(.mode-pill)    { bord
 
 /* ---------- Back link & footer --------------------------------------- */
 
+/* The article-view BACK link is a sticky bar that sits directly under the
+   nav. --nav-h is set by app.js after measuring the nav's actual rendered
+   height, so the bar correctly reflows when the nav wraps on narrow screens.
+   z-index is 5 so the nav (z-index: 10) keeps painting on top if the math
+   is briefly off during a layout shift. */
 .back {
-  display: inline-block;
-  margin: 1.5rem 0 0;
+  position: sticky;
+  top: var(--nav-h, 3.4rem);
+  z-index: 5;
+  display: block;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  margin: 0 0 1.5rem;
+  padding: 0.7rem 0 0.6rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 12px;
+  text-decoration: none;
 }
+.back:hover { background: var(--fg); color: var(--bg); }
 
 .footer {
   margin-top: 4rem;
