@@ -327,6 +327,80 @@
 
 <p data-mode="founder human">The team that had stayed regrouped slowly. The team that had left moved on slowly. Both processes were necessary. Neither was clean. Anyone who tells you a fracture like that resolves in a month is selling you a story. What January gave us was not closure — it was <em>quiet</em>. And in that quiet, what was left of us started building again.</p>
 
+## The Stabilization & Founding Recognition Era (Feb — April 2025)
+
+### The DevOps Wall
+
+<p data-mode="engineer human">Mid-February 2025. The migration kept stalling, and the bottleneck was not the code I'd been writing — it was the infrastructure underneath it. The specialized DevOps fluency I'd been postponing for two years had finally come due. There is a kind of debt that doesn't show up on a balance sheet — it shows up as a deploy that won't go green at 2 AM, an IAM policy that won't bend, a VPC route that nobody alive on the team can fully draw on a whiteboard.</p>
+
+<p data-mode="engineer human">The honest framing: <em>I had built around this gap. I could no longer build through it.</em> Every workaround I'd shipped for two years — the careful avoidance of the parts of AWS I didn't have in my hands yet — was now the actual blocker. The wall wasn't in the cloud. The wall was the shape of my own avoidance, and February was the month I had to walk straight into it.</p>
+
+### Google AI Studio — The Knowledge Bridge
+
+<p data-mode="engineer">Google AI Studio landed at the right moment. I started using it to write the complex infrastructure and deployment scripts I would otherwise have lost a week researching from scratch — Terraform-adjacent shapes, IAM policies with the exact least-privilege grants, deployment scripts that knew the difference between staging and prod without me having to babysit each line.</p>
+
+<p data-mode="engineer">Not <em>generated</em> code. <em>Collaborated</em> code. Same instinct as the Claude moment in the Lambda Swarm in August 2024 — the model wasn't typing faster for me, it was reasoning through the shape of an unfamiliar problem with me until the right pattern fell out. The transition into <strong>AI-Native Lead</strong> stopped being aspirational and became operational. The DevOps surface I'd been avoiding for two years got covered in eight weeks because I stopped pretending I had to learn it alone.</p>
+
+### The CTO's Breather, The Vacuum
+
+<p data-mode="founder human">The CTO needed a personal breather. The kind that isn't optional — the kind a body and a calendar agree on at the same time. I stepped into the gap alongside a teammate. Two of us, briefly, holding what had been four people's worth of decisions a quarter earlier.</p>
+
+<p data-mode="founder human">It was not heroic. It was arithmetic. The work didn't pause because the org chart had a soft spot — it just routed to whoever was still standing in the lane. We were standing. So we held it.</p>
+
+### All-Nighters For The Internal Tool
+
+<p data-mode="engineer">Built the internal website management tool in a stretch of all-nighters. The team needed to self-serve website state — flip flags, fix bad data, re-render a tenant's site — without paging engineering for every edit. The tool was the unblock. Every hour spent building it was an hour saved on the next hundred Slack interrupts.</p>
+
+<p data-mode="engineer">The all-nighters were the cost. There is no romantic version of that sentence — by the third night in a row, the work is just the work, the keyboard is just the keyboard, and the only metric is whether the thing exists by morning. It existed by morning.</p>
+
+### The Master-Worker Pivot
+
+<p data-mode="engineer">The Node.js event loop was choking on heavy media and website-generation tasks. Server crashes during user onboarding — the worst possible time for a crash, the moment a new business is forming a first impression of whether we're a real product or a demo with good lighting.</p>
+
+<p data-mode="engineer">Architected a <strong>Master-Worker</strong> model with <strong>Redis</strong> as the job orchestrator. Specialized <strong>NestJS</strong> workers listen to the queue. A custom <strong>Lambda-callback</strong> flow keeps the main API non-blocking — Lambdas process the heavy work, ping a server-side endpoint when they're done, and the API never has to sit on a thread waiting. Same Cynical Architect doctrine from the Swarm, applied at a new layer. <em>If a system can fail, I've already architected the recovery.</em> The recovery this time was the queue itself.</p>
+
+### Iron Nails For Nail Salons
+
+<p data-mode="engineer human">The 30-second website generator's first LLM outputs hallucinated <em>"iron nails"</em> on the homepage of a nail salon. Hardware-store iron nails. On a beauty business's landing page. The model had locked onto the literal word and walked off a cliff with it.</p>
+
+<p data-mode="engineer human">It was the kind of failure that makes you laugh before it makes you sober. You laugh because it's absurd. You sober up because the same class of failure, on a different tenant, on a different keyword, on a launch day, is not funny — it's a churned customer and a screenshot in someone's group chat.</p>
+
+### The AI Safety Layer
+
+<p data-mode="engineer">Fixed it with request/response serializers, specialized prompt engineering, and semantic guardrails — domain-specific verification at the perimeter, before any LLM output hit a user-facing surface. The framing that stuck and that I now repeat to anyone shipping LLM features: <em>an LLM is a contractor, not an employee — verify the work at the perimeter.</em></p>
+
+<p data-mode="engineer">Contractors don't get committed-to-the-repo trust. They get a signed-off deliverable, inspected at the door. The serializers are the door. See <strong>ADR-0013</strong> for the full doctrine and the implementation.</p>
+
+### The 480-User Migration — Round Two
+
+<p data-mode="engineer founder">Same population as the Phase 6 unified-service cut — <strong>480+ users</strong> — now run on the Master-Worker stack with the audit-by-snapshot trail underneath every row mutation. <strong>0% data loss. Zero production downtime.</strong></p>
+
+<p data-mode="engineer founder">The doctrines stacked on top of each other in production for the first time: <strong>Cynical Architect</strong> wired the recovery paths before the cutover. <strong>Audit Architect</strong> made every change reconstructible after the fact. <strong>Master-Worker</strong> kept the API responsive while the heavy lift ran underneath. Three years of scar tissue, all of it loaded into one migration, all of it quiet, all of it boring in the way good engineering is supposed to be boring.</p>
+
+### Goa, April 2025
+
+<p data-mode="founder">The company workation. The recognition came in person, in front of the team: <strong>Institutional Soul. Lead Architect. Founding Member.</strong> Three titles, said out loud, in the same breath, in a room where everyone heard them.</p>
+
+<p data-mode="founder">The titles weren't separate. They were one sentence the company had finally said out loud — the sentence that had been the implicit subtext of every promotion, every ESOP grant, every "Deepesh, can you sit in on this one" since 2023. April 2025 was the month the subtext became text.</p>
+
+### The Numbers
+
+<p data-mode="founder">Package moved to <strong>26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs</strong>. The ESOP number mattered most. <em>37 LPA in equity is the company saying it expects me to be part of the upside it is building.</em></p>
+
+<p data-mode="founder">That is a different kind of stake than a paycheck. A salary is what you're worth this month. Equity at that size is what the company believes you'll still be worth to it three years from now. The cap table is the only document in a company that talks about the future in numbers, and the cap table now had me in a different row than it did a year earlier.</p>
+
+### What I Learned About Productivity
+
+<p data-mode="human">The 16-hour-a-day marathons that built this stack were not powered by caffeine. They were powered by personal stability. <strong>My partner held the rest of my life while I held this one.</strong></p>
+
+<p data-mode="human">That is not a thing engineers usually write down on portfolios. We write about systems and pipelines and cost dashboards and we leave the load-bearing humans out of the credits, as if the work happened in a vacuum. I am writing it down because pretending otherwise would be the dishonest version of this story, and the dishonest version is the one I refuse to tell. <em>Productivity is a byproduct of being held.</em> If the personal infrastructure had not been there, the professional infrastructure would not have been there either. They are the same infrastructure.</p>
+
+### What I Want To Build Next
+
+<p data-mode="engineer founder">AI-Autonomous Documentation. Every ADR, blueprint, and case study on this site is being shaped to be RAG-ready — ingestible by an agent that can answer questions about the system without paging me. Structured headings, decision provenance, explicit context blocks, the kind of metadata a retrieval pipeline can actually chew on.</p>
+
+<p data-mode="engineer founder">The point isn't to leave; the point is for the company to be okay if I do. The Human Documentation phase made me the single point of failure. The AI-Autonomous phase removes the single point of failure without removing the human. <em>That</em> is what loyalty actually looks like in 2025 — not staying because you're irreplaceable, but building so the company doesn't need you to be.</p>
+
 ## What This Log Is For
 
 This is the <em>uncompressed</em> file. Every other document on this site
@@ -340,4 +414,4 @@ If you want to know <em>why</em> I am that kind of engineer, read this.
 
 ## What's next — drafting on the go
 
-> **Status: ongoing.** December 2024 was the Collision. What came after — the rebuild, the architectural choices made in the quiet, the team that grew back — lands here as it's written. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: ongoing.** April 2025 closed the Zoca-stabilization arc. The next chapters land here as they happen, without a schedule. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).

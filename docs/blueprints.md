@@ -425,3 +425,133 @@ trail with one SQL call per entity. "Show me how this lead got here"
 becomes one query against `<entity>_audit_log` — no reconstruction,
 no diff archaeology, no per-table trigger to read. The pattern that
 §3 started by hand became a function the schema calls on itself.
+
+## 11. The Master-Worker Pattern — Redis + NestJS Workers + Lambda Callbacks
+
+**Context.** Heavy media handling and per-tenant website generation
+were running on the same Node.js process that served the API. Under
+onboarding bursts the event loop choked, requests stacked, and the
+server crashed. The fix was not more CPU on the box. The fix was
+getting the work off the API server entirely.
+
+**The Pattern.** A clean master/worker split with a queue between them.
+
+- **Master = NestJS API server.** Accepts the request, validates it,
+  enqueues a job onto Redis, returns `202 Accepted` with a job id.
+  Never does the heavy work itself. Stays responsive.
+- **Workers = NestJS processes subscribed to Redis.** Pull jobs off
+  the queue, do the work, write results to durable storage. Scale out
+  horizontally; the queue is the load-balancer.
+- **Lambda for the heavy slices.** When a job is genuinely CPU- or
+  memory-bound (image processing, multi-page website synthesis), the
+  worker invokes a Lambda and returns to the queue immediately. Lambda
+  POSTs the completed payload back to a Master callback endpoint when
+  it finishes. The 15-minute Lambda ceiling absorbs the long tail.
+
+**Why Redis (not SQS).** Low-latency local enqueue from the API
+process; sub-millisecond push, sub-millisecond pop. Simple worker
+scale-out — point another NestJS process at the same Redis URL and
+it joins the pool. Durability is sufficient for this workload (jobs
+re-issuable from the source-of-truth tenant record on a worst-case
+failure). Choose SQS when you need cross-region delivery or
+multi-day retention; Redis wins when the job's lifetime is minutes
+and the workers live next to the queue.
+
+**The Recovery Habit (Cynical Architect — ADR-0010).** Failed jobs
+do not disappear. They land on a dead-letter queue with the original
+payload plus the error reason. Replay is a single Redis push from
+ops once the underlying cause is fixed. Failure is a routine state,
+not an incident.
+
+```ts
+// website_worker.ts — NestJS worker main loop
+async function workerLoop(): Promise<void> {
+  while (running) {
+    const job = await redis.blpop('jobs:website', 5);              // input
+    if (!job) continue;
+
+    const ctx = await loadTenantContext(job.tenantId);             // data context
+    try {
+      const draft = await invokeLambda('render_website', {         // process
+        tenant: ctx, payload: job.payload,
+      });
+      await persistDraft(job.tenantId, draft);                     // process
+      await postCallback(job.id, 'done');                          // output
+    } catch (err) {
+      await redis.rpush('jobs:website:dlq',                        // recovery
+        JSON.stringify({ job, reason: serialize(err) }));
+    }
+  }
+}
+```
+
+**Result.** The API stayed responsive under burst — `p99` on the
+master never crossed the queue-push budget. Workers scaled
+independently of the API tier. Lambda's 15-minute ceiling absorbed
+the heavy slices without blocking anything upstream. The 480-tenant
+migration ran on this exact stack with **0% data loss and zero
+production downtime**.
+
+## 12. The AI Safety Layer — Serializers + Semantic Guardrails for LLM Outputs
+
+**Context.** A 30-second website generator powered by LLMs. Early
+outputs hallucinated *"iron nails"* on the homepage of a nail salon.
+Funny once. Production-blocking from there onward — the moment that
+ships to a paying tenant, the trust contract is broken.
+
+**The Concept.** Treat the LLM as an untrusted contractor. Validate
+the work at the perimeter — both the request shape going in and the
+response shape coming out. Layer domain-specific *semantic*
+guardrails on top of *structural* validation. Structure tells you
+the contractor returned a JSON object with the right fields. Semantics
+tell you the contractor did not write "iron nails" on a nail-salon
+homepage.
+
+**Three Layers.**
+
+1. **Request Serializer.** Strict schema for what gets sent to the
+   LLM — tenant context, business type, profile fields, brand voice
+   tokens. No surprise inputs; no free-text concatenation. The
+   request shape is the contract.
+2. **Specialized Prompt Engineering.** Per-domain system prompts
+   that anchor the LLM in the actual business category. A nail-salon
+   prompt is not a hardware-store prompt. Few-shot examples are
+   pulled from validated outputs of the same category, not from a
+   generic exemplar pool.
+3. **Response Serializer + Semantic Guardrails.** Structural
+   validation first (JSON shape, required fields, length bounds),
+   *then* domain-aware semantic checks. The pair `("iron nails",
+   "nail salon")` together is an automatic reject; the worker
+   triggers regeneration with a stricter prompt and the violation
+   logged as a counter-example.
+
+```typescript
+// website_response_validator.ts
+async function validateLlmOutput(
+  output: string,
+  domain: BusinessDomain
+): Promise<ValidationResult> {
+  // 1. Structural — shape and bounds                      // input
+  const parsed = ResponseSchema.safeParse(output);
+  if (!parsed.success) return reject(parsed.error);
+
+  // 2. Domain-aware semantic guardrails                  // process
+  const violations = SEMANTIC_RULES[domain](parsed.data);
+  if (violations.length) return reject(violations);
+
+  // 3. Pass — output is publishable                      // output
+  return accept(parsed.data);
+}
+```
+
+**The "Iron Nail" Lesson.** An LLM is a contractor, not an employee.
+Verify the work at the perimeter. The cost of one bad website
+hitting production — one tenant seeing "iron nails" on their nail-
+salon homepage — is higher than the cost of every regeneration the
+safety layer ever triggers. Regeneration is cheap; a broken trust
+contract is not.
+
+**Result.** The 30-second website generator went from "funny demo"
+to "production system shipping for 480+ tenants." Reference
+ADR-0013 for the strategic adoption of this layer as a non-optional
+component of any LLM-in-the-loop pipeline.

@@ -20,6 +20,8 @@
 | 0009  | [The Lambda Swarm: Step Functions Hierarchy + S3 JSON State](./0009-lambda-swarm-step-functions.md) | Accepted |
 | 0010  | [Recovery-First Architecture (the Cynical Architect doctrine)](./0010-cynical-architect-recovery-first.md) | Accepted |
 | 0011  | [Audit-by-Snapshot (Generic PSQL Before/After Logging)](./0011-psql-audit-by-snapshot.md) | Accepted |
+| 0012  | [Master-Worker Pattern (Redis + NestJS Workers + Lambda Callbacks)](./0012-master-worker-redis-pattern.md) | Accepted |
+| 0013  | [LLM Guardrails (the AI Safety Layer)](./0013-llm-guardrails-ai-safety-layer.md) | Accepted |
 
 ## Format
 

@@ -281,14 +281,81 @@
 
 <p data-mode="founder">The work that mattered was no longer "lead the team." There was less team to lead. The work was "make sure the system doesn't fall over while the team rebuilds." That's the Guardian role. Stability over ego. System over feelings. The product was 600+ tenants of someone else's livelihood; the product didn't get to know that the founding lead had walked. Keeping that opacity intact — keeping the outage that should have happened from happening — was the entire job.</p>
 
+## Phase 8 — The Zoca Stabilization & Founding Recognition Era (Feb — April 2025)
+
+### The DevOps Wall
+
+<p data-mode="engineer human">Mid-February 2025. The migration wasn't stalling on code. It was stalling on infrastructure — the Node services were ready, the schemas were ready, the workers were ready, but the surface underneath them wasn't. CI/CD glue, deployment topology, environment plumbing, the dozen invisible bindings between a working service and a service that actually serves traffic. The wall wasn't a bug. The wall was a category of knowledge I didn't yet own.</p>
+
+<p data-mode="engineer human">The diagnosis was uncomfortable. The work this stretch demanded wasn't more app engineering — that muscle was already developed. It was deeper DevOps fluency. The kind the departed seniors used to carry without anyone noticing they were carrying it. There was no senior left in the room to ask. The wall had to come down, and it had to come down through me.</p>
+
+### The AI Pivot — Google AI Studio
+
+<p data-mode="engineer founder">Google AI Studio shipped at exactly the right month. I leveraged it to bridge the specialized knowledge gap — wrote complex infrastructure and deployment scripts with LLM assistance. <em>Not generated</em>, <em>collaborated</em>. The LLM wasn't a code-vending-machine; it was a senior DevOps engineer I could pair with at 2 AM without anyone losing sleep but me.</p>
+
+<p data-mode="engineer founder">The transition into an <strong>AI-Native Lead</strong> got formalised here. The same instinct that turned to Claude on the Lambda Swarm state machine in <a href="#phase-6">Phase 6</a> — the instinct that said "the documentation is thin, the deadline is real, the LLM has read more of this than I have" — was now turned at the entire DevOps surface. One pivot the first time. A discipline the second.</p>
+
+### Leadership in the Vacuum
+
+<p data-mode="founder human">The CTO needed a personal breather. The kind a year like the one we'd just finished tends to extract whether you schedule it or not. I stepped into the gap alongside a teammate. Not as a title, not as an announcement — as the two people in the room who could keep the lights on while the senior-most engineer recovered the bandwidth to lead again.</p>
+
+<p data-mode="founder human">We managed the team. We built internal website management tools through all-nighters. We salvaged legacy ops tools that should have been retired and pressed them back into service to unblock the migration. The leadership wasn't a promotion. It was a posture — fill the vacuum, hold the line, hand the chair back when the chair's owner was ready to sit in it again.</p>
+
+### The Master-Worker Pivot
+
+<p data-mode="engineer">The Node.js event loop was being choked by heavy media and website-generation tasks. Frequent server crashes during user onboarding — the worst possible window to crash, because a tenant who hits a wall on day one rarely comes back on day two. The architecture wasn't wrong; it was no longer right for the load.</p>
+
+<p data-mode="engineer">Architected a Master-Worker model with <strong>Redis as the job orchestrator</strong>. Specialized NestJS workers listen to the queue and pull jobs off as capacity allows. A custom Lambda-callback flow keeps the main API non-blocking — Lambdas process the heavy slice, ping a server-side endpoint when done, and the API never holds the thread. The event loop got its breathing room back. The crashes stopped. Cross-link: <a href="#master-worker">Case Study: The Master-Worker Architecture</a>. Reference: Blueprint §11.</p>
+
+### The 30-Second Website Engine
+
+<p data-mode="engineer founder">An automated pipeline that generates full professional websites for users in <strong>30 seconds</strong> — profile data in, LLM passes through the middle, deployable site out. The onboarding promise stopped being "we'll get you live this week" and started being "you'll be live before this coffee gets cold."</p>
+
+<p data-mode="engineer founder">Conversion mechanics changed when the demo became the product. A salon owner watching their own site materialise in 30 seconds isn't being sold a service — they're being shown one. The engine became the pitch.</p>
+
+### The Iron Nail Lesson
+
+<p data-mode="engineer">Early LLM outputs hallucinated <em>"iron nails"</em> for nail salons. A model that had read more hardware-store catalogs than salon menus made the wrong association in the wrong domain at the wrong scale. Funny in a screenshot. Fatal in production.</p>
+
+<p data-mode="engineer">The fix was an AI safety layer — request/response serializers, specialized prompt engineering, semantic guardrails for domain-specific accuracy. The framing crystallised into a doctrine: <strong>an LLM is a contractor, not an employee.</strong> You don't trust the work because you trust the contractor. You trust the work because you verify it at the perimeter — every input shaped, every output bounded, every domain-violating phrase caught before it ships. Reference: Blueprint §12 and ADR-0013.</p>
+
+### The 480-User Migration — Round Two
+
+<p data-mode="engineer founder">Running on the new Master-Worker stack, the 480+ user migration completed with <strong>0% data loss and zero production downtime</strong>. The same headline number as the first migration, on a system that was now an order of magnitude more loaded — because this time the heavy-task surface didn't crash under it.</p>
+
+<p data-mode="engineer founder">The Cynical Architect doctrine, the Audit Architect doctrine, and the Master-Worker queue all working at once — recovery built in, traceability built in, throughput built in. Three doctrines, one migration window, zero pages.</p>
+
+### The Internal Website Management Tool — All-Nighters
+
+<p data-mode="engineer">During the leadership vacuum, the team kept needing to flip website states by hand — and every flip was a Slack ping at engineering. Engineering was already at capacity. The pings were real. The capacity wasn't.</p>
+
+<p data-mode="engineer">Built the internal tool that let the team self-serve website state without paging engineering. Promote, demote, repair, re-trigger — all from a UI the rest of the team could use without a backend ticket. The all-nighters were the cost. The unblocking was the return. Engineering stopped being the bottleneck on its own teammates' workdays.</p>
+
+### April 2025 — Goa Workation, Founding Recognition
+
+<p data-mode="founder">The company formally recognized me as <strong>Institutional Soul</strong> and <strong>Lead Architect</strong> of Zoca during the Goa Workation. Title: <strong>Founding Member &amp; Lead Architect at Zoca</strong>. Compensation moved to <strong>26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs</strong>.</p>
+
+<p data-mode="founder">The recognition wasn't just a title or a number — it was the validation that the Phase 7 oath ("I am not someone who leaves when everything is breaking") had paid off. The system held. The team rebuilt. The recognition followed. The order matters: the work first, the title last. A title that arrives in the other order tends not to outlast the next collision.</p>
+
+### AI-Native Across The Stack
+
+<p data-mode="engineer founder">By April 2025, LLMs weren't just for code. They were for DevOps (Google AI Studio scripts), Research (architectural prior-art surveys), and TRDs (technical-requirements drafting). The toolchain quietly absorbed the LLM into every load-bearing surface — not as a novelty, as default tooling.</p>
+
+<p data-mode="engineer founder">The next horizon: <strong>AI-Autonomous Documentation (RAG-ready)</strong>. Every doc, ADR, and runbook on this site is being shaped to be ingestible by an agent. The thesis is the same one Phase 5 named and Phase 6 hardened: <em>my knowledge is the company's moat only if it's outside my head.</em> Inside my head, it's a liability with a heartbeat.</p>
+
+### Productivity Is A Byproduct
+
+<p data-mode="human">The realization at the end of this era. The 16-hour-a-day marathons that built this stack were not made of caffeine and grit alone — they were made of personal stability. <strong>My partner's support was the invisible infrastructure</strong> that made this growth possible. The dinners I missed got held. The hours I burned got covered. The fraying at the edges got caught before it reached the centre.</p>
+
+<p data-mode="human">Productivity is downstream of being held. The trajectory above is the visible curve. The invisible curve is the one that kept the visible one from breaking.</p>
+
 ## The Trajectory
 
-<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA: 22 Fixed + 2 Variable + 4 more ESOPs in successive grants) → Staff Engineer / Founding Engineer → <strong>Battle-Tested Leader · Guardian of the Product's Survival</strong>. The title is downstream of the work. Each ESOP grant is a renewed bet — not a salary line, a stake. <strong>Background:</strong> $6M funding closed (August 2024). The drama in Phase 7 played out against that funded backdrop — the system was supposed to be coasting, not breaking.</p>
+<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA: 22 Fixed + 2 Variable + 4 more ESOPs) → Staff Engineer / Founding Engineer → Battle-Tested Leader / Guardian of the Product's Survival → <strong>Founding Member &amp; Lead Architect at Zoca</strong> (26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs, formally recognized at the April 2025 Goa Workation as Institutional Soul + Lead Architect). The title is downstream of the work. Each ESOP grant is a renewed bet — not a salary line, a stake. <strong>Background:</strong> $6M funding closed (Aug 2024); Zoca stabilized through the December 2024 Collision; the Founding Recognition followed in April 2025.</p>
 
 ## What's next
 
-> **Status: ongoing.** The Collision & Resilience era was December 2024.
-> What followed — the rebuild, the team that came back stronger, the
-> architectural choices made in the quiet that came after — lands
-> here as it's written. The structured executive view stays in the
+> **Status: ongoing.** Phase 8 closed the Zoca-stabilization arc with the
+> April 2025 Founding Recognition. New chapters land here as they happen,
+> without a schedule. The structured executive view stays in the
 > [Résumé](../Deepesh_Rathod_Resume.pdf).
