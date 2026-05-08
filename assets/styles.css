@@ -326,26 +326,37 @@ body[data-active-mode="human"]    [data-mode~="human"]:not(.mode-pill)    { bord
 
 /* ---------- Back link & footer --------------------------------------- */
 
-/* The article-view BACK link is a sticky bar that sits directly under the
-   nav. --nav-h is set by app.js after measuring the nav's actual rendered
-   height, so the bar correctly reflows when the nav wraps on narrow screens.
-   z-index is 5 so the nav (z-index: 10) keeps painting on top if the math
-   is briefly off during a layout shift. */
+/* nav-left holds BACK (when on an article) and the brand. They sit side by
+   side. BACK is hidden on the home view via the .hide utility. Putting BACK
+   inside the nav guarantees it sits exactly inside the nav's bottom border,
+   eliminating any gap that a separate sticky bar would introduce. */
+.nav-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-back {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.4rem 0.7rem;
+  border: 1px solid var(--line-hot);
+  white-space: nowrap;
+}
+.nav-back:hover { background: var(--fg); color: var(--bg); }
+
+/* Inline-error fallback BACK link inside the article body (used only if a
+   doc fails to load). Plain styling, no stickiness needed. */
 .back {
-  position: sticky;
-  top: var(--nav-h, 3.4rem);
-  z-index: 5;
-  display: block;
-  background: var(--bg);
-  border-bottom: 1px solid var(--line);
-  margin: 0 0 1.5rem;
-  padding: 0.7rem 0 0.6rem;
+  display: inline-block;
+  margin-top: 1rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   font-size: 12px;
-  text-decoration: none;
 }
-.back:hover { background: var(--fg); color: var(--bg); }
 
 .footer {
   margin-top: 4rem;

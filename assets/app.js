@@ -357,28 +357,10 @@ async function loadArticle(slug) {
     rewriteInternalLinks(article);
     enhanceCodeBlocks(article);
 
-    // BACK link. Two behaviours, picked at click time:
-    //   - If the user has navigated within this tab (window.history.length > 1),
-    //     fire history.back() — the browser's hash history naturally records
-    //     every #slug change made by an internal anchor click, so going back
-    //     lands the user on whichever doc they came from (not always home).
-    //   - If they arrived via a deep link in a fresh tab (history.length === 1),
-    //     history.back() would do nothing — fall through to href="#" and route
-    //     them to home so the BACK button is never a dead end.
-    const back = document.createElement('a');
-    back.className = 'back';
-    back.href = '#';                                  // accessibility + fresh-tab fallback
-    back.textContent = '← BACK';
-    back.addEventListener('click', (event) => {
-      if (window.history.length > 1) {
-        event.preventDefault();
-        history.back();
-      }
-      // else: let the browser follow href="#" and route() will handle it.
-    });
-
+    // The article body no longer carries its own BACK element — BACK lives
+    // in the nav (#navBack) and is shown / hidden by setNavBackVisible() on
+    // every route change. See §6 boot for the click handler.
     view.innerHTML = '';
-    view.appendChild(back);
     view.appendChild(article);
   } catch (err) {
     view.innerHTML =
@@ -391,12 +373,29 @@ async function loadArticle(slug) {
 }
 
 /**
- * showHome — hide the article view, show the landing layout. This is the
- * "empty hash" state of the router.
+ * setNavBackVisible — toggle the BACK button that lives inside the nav.
+ *
+ * INPUT   boolean: true on article views, false on the home view.
+ * OUTPUT  the #navBack element gains or loses the .hide class.
+ *
+ * Putting BACK inside the nav (rather than as a separate sticky bar above
+ * the article) is the simplest way to guarantee zero visible gap between
+ * BACK and the nav's bottom border — they share the same row.
+ */
+function setNavBackVisible(visible) {
+  const el = document.getElementById('navBack');
+  if (!el) return;
+  el.classList.toggle('hide', !visible);
+}
+
+/**
+ * showHome — hide the article view, show the landing layout, hide BACK.
+ * This is the "empty hash" state of the router.
  */
 function showHome() {
   document.getElementById('view').classList.add('hide');
   document.getElementById('home').classList.remove('hide');
+  setNavBackVisible(false);
 }
 
 /**
@@ -404,10 +403,15 @@ function showHome() {
  *
  * The rule: empty hash → home. Any non-empty hash → treat as a slug.
  * If the slug is unknown, loadArticle() falls back to home.
+ *
+ * BACK visibility is set here so it always reflects the current view
+ * regardless of how the route changed (anchor click, browser back/forward,
+ * direct URL edit).
  */
 function route() {
   const slug = (location.hash || '').replace(/^#\/?/, '');
   if (!slug) { showHome(); return; }
+  setNavBackVisible(true);
   loadArticle(slug);
 }
 
@@ -449,22 +453,26 @@ function wireModeBar() {
 /* ───── §6. Boot ──────────────────────────────────────────────────────── */
 
 /**
- * syncNavHeight — measure the rendered height of the sticky nav and write
- * it to a CSS custom property so the article-view BACK bar can stick
- * directly below it.
+ * wireNavBack — install the click handler on the nav-resident BACK link.
  *
- * Why it has to be measured (rather than hard-coded): the nav uses
- * flex-wrap, so on narrow viewports the modebar wraps under the brand and
- * the nav becomes taller. A hard-coded `top: 3.5rem` would break on phone
- * widths.
- *
- * INPUT   none — reads from the DOM.
- * OUTPUT  documentElement.style.--nav-h is set in pixels.
+ * Behaviour, picked at click time:
+ *   - If the user has navigated within this tab (window.history.length > 1),
+ *     fire history.back() — the browser's hash history naturally records
+ *     every #slug change made by an internal anchor click, so going back
+ *     lands the user on whichever doc they came from (not always home).
+ *   - If they arrived via a deep link in a fresh tab (history.length === 1),
+ *     history.back() would do nothing — fall through to href="#" and route
+ *     them to home so the BACK button is never a dead end.
  */
-function syncNavHeight() {
-  const nav = document.querySelector('.nav');
-  if (!nav) return;
-  document.documentElement.style.setProperty('--nav-h', nav.offsetHeight + 'px');
+function wireNavBack() {
+  const el = document.getElementById('navBack');
+  if (!el) return;
+  el.addEventListener('click', (event) => {
+    if (window.history.length > 1) {
+      event.preventDefault();
+      history.back();
+    }
+  });
 }
 
 /**
@@ -472,23 +480,21 @@ function syncNavHeight() {
  *
  * Steps, in order:
  *   1. Wire the perspective pills.
- *   2. Apply the persisted perspective (or 'all' if none stored).
- *   3. Decorate any code blocks already in the static landing HTML.
- *   4. Measure the nav so the sticky BACK bar can sit under it.
+ *   2. Wire the nav BACK link.
+ *   3. Apply the persisted perspective (or 'all' if none stored).
+ *   4. Decorate any code blocks already in the static landing HTML.
  *   5. Run the router for whatever hash we landed on.
- *   6. Listen for hash changes (in-page nav) and resize (nav re-wrap).
+ *   6. Listen for hash changes for in-page navigation thereafter.
  */
 function boot() {
   wireModeBar();
+  wireNavBack();
 
   let stored = 'all';
   try { stored = localStorage.getItem(MODE_STORAGE_KEY) || 'all'; } catch (_) {}
   setMode(stored);
 
   enhanceCodeBlocks(document);
-
-  syncNavHeight();
-  window.addEventListener('resize', syncNavHeight);
 
   route();
   window.addEventListener('hashchange', route);
