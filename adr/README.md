@@ -12,7 +12,8 @@
 | 0001  | [The "Boring Markdown" Stack](./0001-boring-markdown-stack.md)            | Accepted |
 | 0002  | [The Perspective Toggle (`data-mode`)](./0002-perspective-toggle-data-mode.md) | Accepted |
 | 0003  | [The Hand-Rolled Markdown Parser](./0003-vanilla-markdown-parser.md)      | Accepted |
-| 0004  | [Static Serve + Cloudflare Tunnel](./0004-static-serve-cloudflare-tunnel.md)  | Accepted |
+| 0004  | [Static Serve + Cloudflare Tunnel](./0004-static-serve-cloudflare-tunnel.md)  | **Superseded by 0005** |
+| 0005  | [Tunnel → Cloudflare Pages migration](./0005-tunnel-to-pages-migration.md)    | Accepted |
 
 ## Format
 

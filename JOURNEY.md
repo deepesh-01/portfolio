@@ -1,31 +1,31 @@
-# JOURNEY.md — How To Run This Portfolio In Two Minutes
+# JOURNEY.md — Pick This Repo Up In Two Minutes
 
-> A how-to guide for *this specific portfolio*. If you can read a
-> shell prompt and you have Python 3 installed, you can have this site
-> live behind your own Cloudflare Tunnel in under two minutes.
+> A how-to guide for *this specific portfolio*. Read this once and you
+> can run, edit, and deploy the site without help.
 
 ---
 
 ## TL;DR
 
 ```bash
-git clone <this-repo>
+git clone https://github.com/deepesh-01/portfolio.git
 cd portfolio
-./serve.sh
-# open http://localhost:4173
+./serve.sh                  # local dev: http://localhost:4173/
+git push                    # production deploy: https://v1.deepesh-engg.in/
 ```
 
-For public access via Cloudflare Tunnel, see [§4](#4-cloudflare-tunnel).
+For the operational runbook (cache-bust, rollback, cross-account DNS),
+see [`DEPLOYMENT.md`](./DEPLOYMENT.md).
 
 ---
 
-## 1. The Stack (what you're looking at)
+## 1. The Stack
 
 This is a **zero-build, zero-framework** static site:
 
 ```
 portfolio/
-├── index.html              # the entire UI shell
+├── index.html              # the entire UI shell + landing page
 ├── assets/
 │   ├── styles.css          # brutalist dark mode
 │   └── app.js              # router + markdown parser + perspective machine
@@ -34,26 +34,29 @@ portfolio/
 │   ├── manifesto.md
 │   ├── journey.md
 │   ├── blueprints.md
+│   ├── product-growth.md
 │   ├── perspectives.md
 │   ├── journal.md
 │   └── case-studies/
 │       ├── christmas-sql.md
 │       └── 175-lead-bug.md
 ├── adr/                    # architecture decision records
-├── serve.sh                # python3 -m http.server 4173
+├── serve.sh                # python3 -m http.server 4173 (local dev)
+├── DEPLOYMENT.md           # production runbook
 ├── JOURNEY.md              # this file
-└── (legacy *.md at root)   # original context files; safe to delete
+└── Deepesh_Rathod_Resume.pdf
 ```
 
 There is **no `package.json`**, **no `node_modules`**, **no build
-output directory**. What you see is what you ship.
+output directory**. What you see is what gets served.
 
 The full reasoning is in the ADRs:
 
 - [ADR-0001 — The Boring Markdown Stack](./adr/0001-boring-markdown-stack.md)
 - [ADR-0002 — The Perspective Toggle](./adr/0002-perspective-toggle-data-mode.md)
 - [ADR-0003 — The Hand-Rolled Markdown Parser](./adr/0003-vanilla-markdown-parser.md)
-- [ADR-0004 — Static Serve + Cloudflare Tunnel](./adr/0004-static-serve-cloudflare-tunnel.md)
+- [ADR-0004 — Static Serve + Cloudflare Tunnel](./adr/0004-static-serve-cloudflare-tunnel.md) *(superseded)*
+- [ADR-0005 — Tunnel → Cloudflare Pages migration](./adr/0005-tunnel-to-pages-migration.md)
 
 ---
 
@@ -64,23 +67,17 @@ The full reasoning is in the ADRs:
 - **Python 3.** Pre-installed on macOS and most Linux distros.
   Verify with `python3 --version`.
 
+That's it. No npm, no Docker, no global tools.
+
 ### Run
 
 ```bash
 ./serve.sh
 ```
 
-This binds `127.0.0.1:4173` (or whatever you set in `PORT=…`) and
-serves the repo as static files.
-
-### Edit & reload
-
-There is no hot-reload daemon. Edit a file, save, refresh the browser.
-That is the workflow. If you want auto-reload, drop a tab on
-[livereload-vscode] or run a lightweight watcher — but it isn't part
-of the contract.
-
-[livereload-vscode]: https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer
+Binds `127.0.0.1:4173`. Open `http://localhost:4173/`. Edit any file,
+save, refresh the browser. There is no hot-reload daemon and there
+isn't one needed.
 
 ### Adding a new article
 
@@ -94,149 +91,70 @@ no front-matter contract.
 
 ### Tagging perspectives
 
-Wrap the paragraph that should respond to the perspective switcher
-with a `<p data-mode="…">` (Markdown allows raw HTML). Modes are
-space-separated: `data-mode="founder engineer"` opts the paragraph
-into both the Founder lens *and* the Engineer lens.
+Wrap any block-level element with a `<p data-mode="…">` tag (Markdown
+allows raw HTML). Modes are space-separated: `data-mode="founder
+engineer"` opts the paragraph into both the Founder and Engineer
+lenses.
 
 ```markdown
-This paragraph is always visible.
+This paragraph is always visible (no data-mode tag).
 
-<p data-mode="founder">This paragraph highlights for the Founder lens
-and dims for the Engineer / Human lenses.</p>
+<p data-mode="founder">Highlights for Founder mode; dims for Engineer / Human.</p>
 
-<p data-mode="engineer human">This one shows up for both Engineer and
-Human, dims for Founder.</p>
+<p data-mode="engineer human">Shows for Engineer and Human; dims for Founder.</p>
 ```
 
-A paragraph with **no** `data-mode` is universally visible (good for
-universally-relevant content — résumés, intros, footers).
+A paragraph with **no** `data-mode` is universally visible.
 
 ---
 
-## 3. The Public URL: Cloudflare Tunnel
+## 3. Production Deployment
 
-The intended public URL is `v1.deepesh-engg.in`, served from your
-workstation via [Cloudflare Tunnel][cf-tunnel]. The site itself is
-hosting-agnostic — it is just static files — so feel free to publish
-elsewhere if you prefer.
+The site is live at **https://v1.deepesh-engg.in**, served by
+**Cloudflare Pages**, deployed automatically on every `git push` to
+`main`.
 
-[cf-tunnel]: https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/
-
-### One-time setup
-
-1. **Install `cloudflared`.**
-
-   ```bash
-   brew install cloudflared        # macOS
-   # or download from https://github.com/cloudflare/cloudflared/releases
-   ```
-
-2. **Authenticate against your Cloudflare account.**
-
-   ```bash
-   cloudflared tunnel login
-   ```
-
-   A browser opens; pick the zone (`deepesh-engg.in`).
-
-3. **Create a tunnel.**
-
-   ```bash
-   cloudflared tunnel create v1-portfolio
-   ```
-
-   This prints a tunnel ID. Note it.
-
-4. **Configure routing.** Create `~/.cloudflared/config.yml`:
-
-   ```yaml
-   tunnel: v1-portfolio
-   credentials-file: /Users/<you>/.cloudflared/<tunnel-id>.json
-
-   ingress:
-     - hostname: v1.deepesh-engg.in
-       service: http://localhost:4173
-     - service: http_status:404
-   ```
-
-5. **Bind the DNS record.**
-
-   ```bash
-   cloudflared tunnel route dns v1-portfolio v1.deepesh-engg.in
-   ```
-
-   Cloudflare will create the CNAME automatically.
-
-### Day-to-day
-
-Two terminals:
+### Day-to-day deploy
 
 ```bash
-# Terminal 1 — local server
-./serve.sh
-
-# Terminal 2 — tunnel
-cloudflared tunnel run v1-portfolio
+git push    # triggers Pages auto-deploy in ~30 seconds
 ```
 
-Hit `https://v1.deepesh-engg.in`. TLS terminates at the Cloudflare edge.
+### Detailed runbook
 
-### Production hardening (optional)
+Everything else — cache-bust convention, branch previews, rollback
+procedure, the cross-account DNS setup, the list of other apps on
+the same domain, common Cloudflare UI gotchas — lives in
+[`DEPLOYMENT.md`](./DEPLOYMENT.md).
 
-- **Run as a service.** `sudo cloudflared service install` registers
-  the tunnel as a launchd / systemd service so it survives reboots.
-- **Run the local server under tmux** (`tmux new -s portfolio
-  './serve.sh'`) so closing your laptop lid doesn't take down the site.
-- **Cache aggressively at the edge.** Static markdown content is
-  highly cacheable; Cloudflare's "Cache Everything" rule on
-  `v1.deepesh-engg.in/*` is fine.
+Read it once before doing anything more than a normal `git push` deploy.
 
 ---
 
 ## 4. Where Things Live (cheat sheet)
 
-| Question                                         | File                                 |
-|--------------------------------------------------|--------------------------------------|
-| Why is the stack like this?                      | `adr/0001-boring-markdown-stack.md`  |
-| How does the perspective switcher actually work? | `adr/0002-perspective-toggle-data-mode.md` |
-| Why no third-party Markdown library?             | `adr/0003-vanilla-markdown-parser.md`|
-| How is the site served / tunnelled?              | `adr/0004-static-serve-cloudflare-tunnel.md` |
-| Where is the routing table?                      | `assets/app.js`, `SLUG_TO_PATH`      |
-| Where does the Brutalist style live?             | `assets/styles.css`                  |
-| Where is the IPO grid?                           | `index.html`, `<section class="ipo">`|
-| The raw narrative archive?                       | `docs/journal.md`                    |
+| Question | File |
+|---|---|
+| Why is the stack like this? | `adr/0001-boring-markdown-stack.md` |
+| How does the perspective switcher work? | `adr/0002-perspective-toggle-data-mode.md` |
+| Why no third-party Markdown library? | `adr/0003-vanilla-markdown-parser.md` |
+| Why was the tunnel chosen first, then dropped? | `adr/0004-…` (superseded) and `adr/0005-…` |
+| How is the site deployed today? | [`DEPLOYMENT.md`](./DEPLOYMENT.md) |
+| Where is the routing table? | `assets/app.js`, `SLUG_TO_PATH` |
+| Where does the Brutalist style live? | `assets/styles.css` |
+| Where is the IPO grid? | `index.html`, `<section class="ipo">` |
+| The raw narrative archive? | `docs/journal.md` |
 
 ---
 
-## 5. Common Tasks
-
-**Change the port.** Edit `serve.sh` (default 4173) or run
-`PORT=8080 ./serve.sh`. Update the `cloudflared` config to match.
-
-**Move the site to GitHub Pages.** Push the repo. Enable Pages on the
-default branch. Done. No build command needed.
-
-**Add a new perspective** (e.g. "Recruiter"). Add a button to the
-`.modebar` in `index.html` (`data-mode="recruiter"`), add a colour rule
-to `styles.css` (mirror the existing accent rules), add `'recruiter'`
-to the `MODES` array in `app.js`. Tag paragraphs with
-`data-mode="recruiter"`.
-
-**Disable JavaScript and verify graceful degradation.** Every paragraph
-should render at full strength (equivalent to "All" mode). The
-perspective bar will be visible but inert. Code-block "COPY" buttons
-will be absent. The site is still readable.
-
----
-
-## 6. The Spirit Of This Repo
+## 5. The Spirit Of This Repo
 
 Boring is not a constraint. Boring is the moat.
 
 If you're tempted to add a build step, a framework runtime, or a
-client-side router library — read the ADRs first. The friction you're
-feeling is the *intended* friction. The site is sized to survive a
-two-year context-switch.
+client-side router library — **read the ADRs first.** The friction
+you're feeling is the *intended* friction. The site is sized to
+survive a two-year context-switch, and every dependency you add
+shortens that lifetime.
 
 — *Built with the BMAD-METHOD (Boring Markdown). Engineered for Logic, not Layouts.*

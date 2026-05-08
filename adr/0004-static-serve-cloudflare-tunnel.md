@@ -1,9 +1,10 @@
 # ADR-0004 — Static Serving via `python3 -m http.server` + Cloudflare Tunnel
 
-- **Status:** Accepted
+- **Status:** Superseded by [ADR-0005](./0005-tunnel-to-pages-migration.md)
 - **Date:** 2026-05-08
+- **Superseded:** 2026-05-08 (same day — the tunnel approach worked but coupled the site to the laptop; see ADR-0005 for the migration to Cloudflare Pages)
 - **Deciders:** Deepesh Rathod
-- **Related:** ADR-0001 (Boring Markdown Stack)
+- **Related:** ADR-0001 (Boring Markdown Stack), ADR-0005 (Pages migration)
 
 ## Context
 

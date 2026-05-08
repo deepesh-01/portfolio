@@ -63,12 +63,12 @@ If you want to know <em>why</em> I am that kind of engineer, read this.
 
 ---
 
-## 2024 — 2026 — Loading Soon
+## 2024 — 2026 — Drafting
 
-> **Status: loading soon. ETA 2026-05-09.**
+> **Status: drafting.** Still being written; lands here as soon as it's ready.
 
 The unvarnished entries for the cloud-ownership era, the Tech Lead
 season, the AI-native engineering work, and the multi-tenant
-scale-up are being written up. The structured executive version is
-in the [Résumé](../Deepesh_Rathod_Resume.pdf) until the long-form
-entries land.
+scale-up are still being written up. The structured executive version
+lives in the [Résumé](../Deepesh_Rathod_Resume.pdf) until the
+long-form entries land here.

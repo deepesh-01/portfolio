@@ -45,9 +45,10 @@
 
 ## Phase 4 — The Cloud Ownership & Tech Lead Era (2024 — 2026)
 
-> **Status: loading soon. ETA 2026-05-09.**
+> **Status: drafting.** This phase is still being written; it lands on this
+> site as soon as it's ready.
 
-The long-form write-ups for this era are in flight. Headline material:
+Headline material the long-form will cover:
 
 - Absorbing full AWS / DevOps ownership during a critical leadership transition.
 - The mobile-backend migration from a Python monolith to Node.js services.
