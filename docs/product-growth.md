@@ -45,3 +45,23 @@ document.querySelectorAll('[data-section]').forEach((el) => observer.observe(el)
 <p data-mode="founder engineer"><strong>Metric.</strong> <strong>15+ seamless onboardings per day</strong> during the peak "adrenaline" growth season. Each onboarding routed through the masking layer, the dwell-tracking instrumentation, and the slot-integrity engine — three systems I had owned end-to-end.</p>
 
 <p data-mode="human">This is the operational definition of "if the product isn't moving, move it yourself." When product is the bottleneck, the engineer becomes product. When the data is the bottleneck, the engineer becomes the analyst. The title is a label; the work is the role.</p>
+
+## 4. The GBP "3-Pack" Drip-Feed Strategy
+
+<p data-mode="founder"><strong>The Hunch.</strong> Bursting all media uploads at once gave the GBP "3-Pack" search ranker no reason to keep flagging a profile as active. The signal we actually wanted was <em>recency of activity</em>, not <em>volume of activity</em>. One loud day, then silence, looks dead. A trickle looks alive.</p>
+
+<p data-mode="engineer founder"><strong>The Execution.</strong> Re-architected the pipeline as a <em>drip-feed</em> — batch media uploads to GBP across days, with a Node-side scheduler controlling cadence. On top of it, a WebSocket observability layer giving users and internal teams real-time visibility on every pipeline stage: <strong>Upload &rarr; Resize &rarr; SQS &rarr; Lambda &rarr; GBP / Website Live</strong>. No more "did it go through?" tickets. Every transition emits.</p>
+
+```js
+// pipeline-emit.js — one event per stage, one socket room per profile
+io.to(`profile:${profileId}`).emit('pipeline:stage', {
+  mediaId,
+  stage: 'lambda:gbp_post',     // upload | resize | sqs | lambda | live
+  status: 'ok',                  // ok | retry | failed
+  ts: Date.now(),
+});
+```
+
+<p data-mode="engineer"><strong>The Engineering numbers.</strong> SQS-backed Lambdas processing <strong>50+ media items in under 30 seconds</strong> per batch. The scheduler decoupled <em>throughput</em> from <em>delivery cadence</em> — the system could move fast internally while still drip-feeding GBP at a human-paced rhythm.</p>
+
+<p data-mode="founder human"><strong>Result.</strong> Profiles stayed "active" in GBP's eyes — the ranker kept seeing fresh signal day after day instead of one burst and a flatline. Internal trust in the pipeline went up because every stage was observable in real time, not after the fact. The CS team stopped asking engineering for status; they watched the socket.</p>

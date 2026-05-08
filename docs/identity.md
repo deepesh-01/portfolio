@@ -1,7 +1,8 @@
 # The Identity: Deepesh Rathod
 
-**Title:** Founding Engineer | Logic-First Systems Architect
+**Title:** Founding Engineer · Senior Engineer · Logic-First Systems Architect
 **Motto:** *"If the product isn't moving, move it yourself."*
+**Stake:** 28 LPA (22 Fixed + 2 Variable + 4 ESOPs). The ESOPs are the Founding Ownership signal — skin in the game, not just a salary line.
 
 ## Core Philosophy: The Input-Process-Output (IPO) Framework
 

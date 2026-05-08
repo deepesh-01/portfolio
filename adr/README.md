@@ -14,6 +14,7 @@
 | 0003  | [The Hand-Rolled Markdown Parser](./0003-vanilla-markdown-parser.md)      | Accepted |
 | 0004  | [Static Serve + Cloudflare Tunnel](./0004-static-serve-cloudflare-tunnel.md)  | **Superseded by 0005** |
 | 0005  | [Tunnel → Cloudflare Pages migration](./0005-tunnel-to-pages-migration.md)    | Accepted |
+| 0006  | [SQL-Defined Business Triggers (the LOCA pattern)](./0006-sql-defined-business-triggers.md) | Accepted |
 
 ## Format
 

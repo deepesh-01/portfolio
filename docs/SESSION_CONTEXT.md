@@ -4,16 +4,17 @@
 > It captures everything a future collaborator (Claude or human) needs to
 > resume work without re-deriving context from scratch.
 >
-> **Last updated:** 2026-05-08, at end of the migration-to-Pages session.
+> **Last updated:** 2026-05-08, at end of **The Thunderstorm** session
+> (Phase 4 — Jan to May 2024 — landed live).
 
 ---
 
 ## 1. The 60-second briefing
 
-- **What this repo is:** A brutalist, zero-build, zero-framework personal portfolio for Deepesh Rathod (Founding Engineer / Tech Lead). Live at https://v1.deepesh-engg.in.
-- **What was built last session:** v1 of the entire site — content, design, routing, deploy pipeline. Then migrated hosting from Cloudflare Tunnel to Cloudflare Pages mid-session.
-- **What the next session needs to do:** **Phase 4 content** — write up the 2024 — 2026 era (Cloud Ownership & Tech Lead). The infrastructure is done; the story is what's missing.
-- **Current state of the public site:** Phases 0 — 3 are written and live. Phase 4 has a placeholder banner saying *"Status · Drafting — lands as soon as it's ready."*
+- **What this repo is:** A brutalist, zero-build, zero-framework personal portfolio for Deepesh Rathod (Founding Engineer · Senior Engineer · Tech Lead). Live at https://v1.deepesh-engg.in.
+- **What was done in the most recent session:** Shipped Phase 4 — The Thunderstorm (Jan — May 2024): LOCA Ghost Sprint, the 150GB Migration, the Senior raise to 28 LPA + ESOPs. Two new case studies (LOCA Ghost Sprint, 150GB Migration), an updated journey + journal, expanded blueprints (SQL-defined business triggers, Resilient Local Migrator), a new product-growth section (GBP "3-Pack" drip-feed + WebSocket observability), a new ADR (0006 — SQL-defined business triggers), identity title updated.
+- **What the next session needs to do:** **The May 2024 — May 2026 chapter** — cloud ownership, AI-native RCA toolchain, ECS/Fargate consolidation, 90 → 1,500 multi-tenant scale-up, the Tech Lead role. Source: the résumé bullets + the user's narrative when they bring it.
+- **Current state of the public site:** Phases 0 — 4 are written and live. The home-page banner now reads *"Status · Shipping On The Go — May 2024 — May 2026"* with the résumé as the executive interim.
 
 ---
 
@@ -29,21 +30,18 @@ In this order:
 
 ---
 
-## 3. Phase 4 — The Cloud Ownership & Tech Lead Era (2024 — 2026)
+## 3. Phase 5 — May 2024 — May 2026 — Cloud Ownership & Tech Lead
 
-This is the bulk of what the next session is for.
+This is the bulk of what the next session is for. **Phase 4 (The Thunderstorm — Jan to May 2024) already shipped this session.** The earlier chunks of "Phase 4" from previous notes — mobile-backend migration, distributed media pipeline, hyper-local keyword demand, Scheduling v1 — *partially* landed in The Thunderstorm. What remains is the May 2024 onwards material.
 
 ### 3.1 Source material
 
-The structured executive version lives in [`Deepesh_Rathod_Resume.pdf`](../Deepesh_Rathod_Resume.pdf). Key bullets to convert into long-form narrative:
+The structured executive version lives in [`Deepesh_Rathod_Resume.pdf`](../Deepesh_Rathod_Resume.pdf). Key bullets that **still need long-form**:
 
-**2024 era (Founding Engineer at Zoca, formerly Chrone)**
-- Spearheaded mobile-app backend migration from Python monolith to Node.js services.
-- Established team-wide developer-experience standards and shared utility tooling.
-- Engineered a distributed media pipeline handling 1,000+ uploads/day across 900+ GB of S3 storage, with content-aware duplicate detection (0.1 — 5% reclaimed).
+**Mid-to-late 2024 (still Founding Engineer at Zoca)**
 - Owned the entire AWS Cloud Infrastructure & DevOps after senior leaders departed — full infrastructure ownership during a critical leadership transition.
 - Architected a hyper-local keyword demand system with 5-mile-radius geo-accuracy by integrating US Census data.
-- Designed and shipped v1 of the Scheduling product end-to-end.
+- (The mobile-backend Python → Node.js migration and the distributed media pipeline already touched in The Thunderstorm — extend them with mid-late 2024 detail if there's more story.)
 
 **2025 — present era (Founding Engineer / Tech Lead at Zoca)**
 - Defined the foundational AWS ECS / Fargate stack that scaled the company from **90 → 1,500 customers (1,000+ paying, $1M+ ARR)**.
@@ -70,18 +68,25 @@ The structured executive version lives in [`Deepesh_Rathod_Resume.pdf`](../Deepe
 
 ### 3.3 What NOT to add
 
-Per a decision in the previous session about case-study count:
+Per case-study-count discipline:
 
-- **Cap case studies at 3 — 5 max total.** The two existing (Christmas SQL, 175-Lead Bug) plus 1 — 2 from this era is the upper bound. Beyond that, the homepage list stops being scannable.
-- **Don't add a case study for the Website Suggestions feature** — it's already mentioned in `journey.md` as the work that earned the salary hike + ESOPs. Without a deeper *transferable lesson*, it doesn't earn a case-study slot. (If a deeper story emerges in the next session, reconsider.)
-- **Don't add a case study for the Scheduling system as a whole** — its architecture is in `blueprints.md` and its emotional arc is in `journal.md`. A case study would duplicate.
+- **Case studies are now at 4** (Christmas SQL, 175-Lead Bug, LOCA Ghost Sprint, 150GB Migration). **The cap is 5.** That leaves room for *one more* from the May 2024 — May 2026 era — pick the strongest single story (most likely candidates: the AI-native RCA toolchain *or* the zero-failure 90 → 1,500 migration). Don't add both.
+- **Don't add a case study for the Website Suggestions feature** — already in `journey.md` as the salary-hike + ESOPs trigger; no deeper transferable lesson on file.
+- **Don't add a case study for the Scheduling system as a whole** — architecture in `blueprints.md`, emotional arc in `journal.md`.
+- **Don't add the Mobile-Backend migration as its own case study** — already covered in The Thunderstorm (LOCA Ghost Sprint context) and journey.md.
 
-### 3.4 Once Phase 4 lands
+### 3.4 Once the May 2024 — May 2026 chapter lands
 
-1. Remove or replace the **"Status · Drafting"** banner in `index.html` (`<section class="banner">`).
-2. Update the matching scope notes at the bottom of `journey.md` and `journal.md`.
-3. Bump `?v=3` to `?v=4` in `index.html` if `assets/app.js` or `assets/styles.css` change at all (cache-bust per `DEPLOYMENT.md` §2).
+1. Replace the home-page banner ("Status · Shipping On The Go") in `index.html` (`<section class="banner">`) with the next-period announcement, or remove the banner entirely if all eras are caught up.
+2. Update the closing scope notes at the bottom of `journey.md` and `journal.md` accordingly.
+3. Bump `?v=4` to `?v=5` in `index.html` if `assets/app.js` or `assets/styles.css` change (cache-bust per `DEPLOYMENT.md` §2).
 4. Update **this file** (`SESSION_CONTEXT.md`) with the new state for the *following* session.
+
+### 3.5 Editorial-name policy carry-over (important)
+
+The previous session set a strict "no real names" rule. **The Thunderstorm session relaxed this for three names that the user explicitly authorized:** **Shambhav** (LOCA Founder/CTO), **Vishal** (engineer who paired with Shambhav), and **Animesh** (Junior FE). These names are now public on the live site (in journey, journal, case studies, ADR-0006).
+
+For the next session: **default back to anonymisation** unless the user names someone explicitly. Do not extrapolate the Thunderstorm exception. If the user mentions a colleague by name in source material for the next phase, ask for confirmation before publishing the name.
 
 ---
 
@@ -118,13 +123,14 @@ If something on this list feels wrong while working on Phase 4, **don't change i
 
 | Item | Status | Where to pick up |
 |---|---|---|
-| Phase 4 content (this whole doc's reason for existing) | Pending | §3 above |
+| **May 2024 — May 2026 chapter** (the new Phase 5) | Pending | §3 above |
 | **Pin repos** on github.com/deepesh-01 (portfolio, resume-bot, job-intake) | Pending — manual web UI step | https://github.com/deepesh-01 → "Customize your pins" |
 | **r/forhire** post | Pending — needs account karma | Comment on a few r/freelance / r/cscareerquestionsIndia threads first to earn karma |
 | **HackerNews Show HN** post | Optional next step | Format in conversation history; recommended time 8 — 10 AM PT |
 | **Tunnel cleanup** (`v1-portfolio` tunnel + `serve.sh` python server) | Pending — redundant after Pages migration | See §7 below |
 | `cert.pem` API-token rotation | Low priority | `cloudflared tunnel login` overwrites it |
 | Reddit account aging (1 week + double-digit karma) | In progress | Required before posting to stricter subs |
+| **Phase 4 (The Thunderstorm)** | ✅ Shipped 2026-05-08 | journey.md / journal.md / case studies 03 + 04 / blueprints §6-7 / product-growth §4 / ADR-0006 |
 
 ---
 

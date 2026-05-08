@@ -126,3 +126,99 @@ set -euo pipefail
 
 exec gunicorn app:wsgi --workers 4 --bind 0.0.0.0:8000
 ```
+
+## 6. The SQL-Defined Trigger Engine (LOCA)
+
+**Context.** Every growth team eventually wants the same thing: "if a
+user does X, send Y." The naive answer is to write a new handler, open
+a PR, ship a deploy. That puts engineering in the critical path of
+every marketing experiment.
+
+**Concept.** Move the business-trigger logic from *code* into *data*.
+A new rule becomes a SQL insert, not a code change.
+
+**Implementation.** A Lambda pipeline reads enabled rows from a
+`business_triggers` table, evaluates the condition payload against the
+incoming event, and dispatches the matching action. Engineering owns
+the evaluator; PMs and ops own the rows.
+
+```sql
+-- business_triggers — rules live in data, not in code
+CREATE TABLE business_triggers (
+  id               serial PRIMARY KEY,
+  name             text        NOT NULL,
+  condition_type   text        NOT NULL,   -- e.g. 'event_match'
+  condition_payload jsonb      NOT NULL,   -- e.g. {"event":"signup","source":"referral_x"}
+  action_type      text        NOT NULL,   -- e.g. 'send_email'
+  action_payload   jsonb       NOT NULL,   -- e.g. {"template":"welcome_x"}
+  enabled          boolean     NOT NULL DEFAULT true,
+  created_at       timestamptz NOT NULL DEFAULT now()
+);
+
+-- example row: "if user signs up from referral_x, send welcome_x"
+INSERT INTO business_triggers (name, condition_type, condition_payload, action_type, action_payload)
+VALUES (
+  'welcome_referral_x',
+  'event_match',
+  '{"event":"signup","source":"referral_x"}'::jsonb,
+  'send_email',
+  '{"template":"welcome_x"}'::jsonb
+);
+```
+
+**Impact.** A new growth rule shipped in minutes, not in a deploy
+window. Non-engineers wrote SQL inserts; engineering kept its attention
+on systems work. The rule-set became reviewable, auditable, and
+revertable with `enabled = false` — no rollback PR required.
+
+## 7. The Resilient Local Migrator
+
+**Context.** 150GB of user media had to move from S3 Mumbai to
+US-East-1. A single run took ~30 hours; the network would not stay up
+that long, and neither would the laptop.
+
+**Pattern.** Deterministic local-to-cloud sync that assumes failure
+and treats every restart as routine.
+
+**Logic.**
+
+- **Manifest diff.** Scan the local manifest, hash-compare against the
+  remote S3 listing, and produce the exact set of objects still owed.
+- **Append-only progress log.** Every completed chunk is fsync'd into
+  a persistent `.log`. Resume reads the last successful entry and
+  continues from there.
+- **Backoff on transient failure.** On `ECONNRESET`, sleep 5s and retry
+  the same chunk — never skip, never reorder.
+- **OS-level enabler.** `caffeinate` keeps the laptop awake for the
+  full 30-hour run. The pipeline's resilience is irrelevant if the
+  machine sleeps.
+- **QC layer.** A batch is only marked complete after byte-for-byte
+  integrity validation against the remote object hash.
+
+```ts
+// migrator.ts — the resume loop
+async function migrate(manifest: Chunk[]): Promise<void> {
+  const done = await readLog('.migrate.log');                  // input
+  const todo = manifest.filter(c => !done.has(c.key));         // input
+
+  for (const chunk of todo) {
+    try {
+      const bytes = await readLocal(chunk.key);                // process
+      await s3.put(chunk.key, bytes);                          // process
+      await verifyHash(chunk.key, chunk.sha256);               // QC
+      await appendLog('.migrate.log', chunk.key);              // output (durable)
+    } catch (e: any) {
+      if (e.code === 'ECONNRESET') {
+        await sleep(5_000);                                    // backoff
+        manifest.unshift(chunk);                               // retry same chunk
+        continue;
+      }
+      throw e;                                                 // fail loud
+    }
+  }
+}
+```
+
+**Result.** 150GB migrated across regions with zero data loss across
+multiple crashes and restarts. The script became reusable — every
+later migration started from this same skeleton.

@@ -46,15 +46,17 @@
  * deliberate. The list IS the source of truth.
  */
 const SLUG_TO_PATH = Object.freeze({
-  'identity':       'docs/identity.md',
-  'manifesto':      'docs/manifesto.md',
-  'journey':        'docs/journey.md',
-  'blueprints':     'docs/blueprints.md',
-  'product-growth': 'docs/product-growth.md',
-  'perspectives':   'docs/perspectives.md',
-  'journal':        'docs/journal.md',
-  'christmas-sql':  'docs/case-studies/christmas-sql.md',
-  '175-lead-bug':   'docs/case-studies/175-lead-bug.md',
+  'identity':           'docs/identity.md',
+  'manifesto':          'docs/manifesto.md',
+  'journey':            'docs/journey.md',
+  'blueprints':         'docs/blueprints.md',
+  'product-growth':     'docs/product-growth.md',
+  'perspectives':       'docs/perspectives.md',
+  'journal':            'docs/journal.md',
+  'christmas-sql':      'docs/case-studies/christmas-sql.md',
+  '175-lead-bug':       'docs/case-studies/175-lead-bug.md',
+  'loca-ghost-sprint':  'docs/case-studies/loca-ghost-sprint.md',
+  'media-migration':    'docs/case-studies/media-migration.md',
 });
 
 /** Modes the perspective switcher can be in. Order matters for the UI. */
