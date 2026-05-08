@@ -33,3 +33,10 @@ _bmad-output/
 
 # Claude Code workspace
 .claude/
+
+# Staged source memoirs / drafts — kept locally, never deployed to public site.
+# Per the IRREVERSIBLE no-names + brand-scrub policy, these often contain raw
+# names and brand references that must NOT reach the served Pages site. Move
+# the drafts here, work on them, run them through agents to extract polished
+# docs, then delete (or leave them locally; .gitignore will keep them out of git).
+docs/memoir_*.md
