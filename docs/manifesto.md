@@ -42,4 +42,4 @@
 > — the principle that came back to me the day after I deleted a row in production. December 2022.
 
 > *I am not someone who leaves when everything is breaking.*
-> — me, to Robin and Ashish, returning from the Pune trip. Early 2024.
+> — me, to leadership, returning from the Pune trip. Early 2024.

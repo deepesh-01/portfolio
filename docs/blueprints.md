@@ -229,7 +229,7 @@ later migration started from this same skeleton.
 credible social presence (Facebook Pages + Instagram Business) without
 each one having to think like a marketer. The pipeline turns generated
 content plus a posting schedule into actual posts on customer-owned
-Meta accounts. Co-designed with Pravesh.
+Meta accounts. Co-designed with a teammate.
 
 **The Architecture.** Three layers, each replaceable on its own.
 
@@ -274,7 +274,7 @@ per-tenant insights. Investors wanted a live demo; customers wanted
 near-real-time. Two hours was unworkable for both. The boundary in the
 data was already there — each tenant's insights were independent of
 every other tenant's — so the architecture had to match the data, not
-fight it. Co-built with Pravesh.
+fight it. Co-built with a teammate.
 
 **The Pattern.** A hierarchy of AWS Step Functions, narrow at the top
 and wide at the leaves.

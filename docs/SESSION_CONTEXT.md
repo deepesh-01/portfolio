@@ -83,13 +83,24 @@ Per case-study-count discipline:
 3. Bump `?v=4` to `?v=5` in `index.html` if `assets/app.js` or `assets/styles.css` change (cache-bust per `DEPLOYMENT.md` §2).
 4. Update **this file** (`SESSION_CONTEXT.md`) with the new state for the *following* session.
 
-### 3.5 Editorial-name policy carry-over (important)
+### 3.5 Editorial-name policy — UPDATED, IRREVERSIBLE
 
-Authorised names on the live site (cumulative across sessions): **Shambhav** (Founder/CTO of the stealth entity, Thunderstorm), **Vishal** (engineer who paired with Shambhav, later a departing mentor), **Animesh** (Junior FE, Thunderstorm), **Robin** (co-founder/CTO), **Ashish** (CEO), **Vinay** (mentor who departed, August 2024), **Ruddhi** (mentor who departed, August 2024), **Pravesh** (Arrow team Phase 6; departed in the Phase 7 fracture), **Sahil** (Shield team), **Durga** (Shield team), **Harshpal** (engineer who blacked out — NEW in Phase 7), **Kushal** (engineer who left with Pravesh — NEW in Phase 7). Older 2023 entries that previously anonymised "Robin" / "Ashish" remain anonymised — over-publishing without explicit re-confirmation is harder to undo than under-publishing.
+**The user issued a final policy** (this turn, across all phases): *"no name calling — we don't want to write anything about anyone which can be misused — we will take accountability and share only my story."*
 
-**Brand-name policy carry-over:** The user asked us to scrub the *new entity's* actual brand name from the public site to avoid carrying any legal/compliance smell into the portfolio (this file is publicly reachable at `/docs/SESSION_CONTEXT.md`, so we keep it scrubbed here too). The story reads as a **stealth pivot to an unnamed new entity** triggered by legal/compliance issues on the existing brand. The predecessor brand is also softened in legal contexts to "the existing brand identity". Carry this forward: when documenting the next chapter, do not name the stealth entity, and do not surface the predecessor brand name alongside any legal/compliance language. Naming Zoca (the current employer) is fine; it appears in the resume.
+**Rule, going forward:** **No real names of colleagues anywhere on the public site.** Use role-based phrasing only: *"the Founder", "leadership", "the CEO", "a co-founder", "a senior engineer", "a mentor", "the lead engineer I partnered with", "a teammate", "a junior frontend engineer", "another teammate", "one of our core engineers"*. Where a story structurally requires identifying *who* did *what*, prefer reframing to focus on the user's actions / feelings / learnings — *"share only my story"* is the principle.
 
-For the next session: **default back to anonymisation** unless the user names someone explicitly. Do not extrapolate the Thunderstorm exception. If the user mentions a colleague by name in source material for the next phase, ask for confirmation before publishing the name.
+**Story-essential phrases that survived the scrub (these all work without names):**
+- "the Founder reported 'zero friction'" — the *Ghost Sprint* DevEx win
+- "the Founder's 'negative motivation'" — the *150GB Migration* recovery
+- "Arrow / Shield" — the *Funding Sprint* team-split metaphor (no names, just the dynamic)
+- "physical and verbal confrontation between leadership and the lead engineer" — the *Dec 22 Collision*
+- "two of my closest teammates left, including the lead I'd partnered with on the funding" — the *Phase 7 Fracture*
+- "to leadership, returning from the Pune trip" — the *Stabilization Oath* attribution
+- "one of our core engineers blacked out from exhaustion" — the Phase 7 *Blackout*
+
+**For the next session:** Do NOT name colleagues, even if the user's source material does. If new source material includes names, replace with role-based phrasing during extraction. Quotes attributed to named people get role-based attribution. The user has explicitly delegated this judgment.
+
+**Brand-name policy carry-over** (unchanged): No predecessor brand names (originally Chrone, LOCA, TimelyAI) in legal/compliance context. Zoca (current employer) is fine. *"the existing brand identity"* / *"the new entity"* / *"the stealth pivot"* / *"the predecessor identity"* are the canonical phrasings.
 
 ---
 
@@ -97,8 +108,8 @@ For the next session: **default back to anonymisation** unless the user names so
 
 These are settled. Don't second-guess them while writing Phase 4 — re-deriving voice mid-narrative breaks consistency.
 
-- **No real names of colleagues.** Use "leadership", "a senior teammate", "the team", etc. Phrases like *"Robin, my CTO, said…"* become *"the response that came back was…"*.
-- **No specific job titles** of individuals where avoidable. Story-essential titles ("the CEO") are OK; gratuitous ones ("the PM, Kushagra") are not.
+- **No real names of colleagues — universal rule, no exceptions.** Use "leadership", "a senior teammate", "the team", "the Founder", "the lead engineer I partnered with", "a teammate", etc. The user's principle: *"share only my story."*
+- **Roles are OK; names are not.** Story-essential roles ("the CEO", "the Founder", "the lead engineer") are fine where they're structurally needed. Gratuitous roles attached to identifiable people (e.g. naming the PM) are not.
 - **Brutalist voice.** Declarative, terse, story-driven. No marketing fluff. Reference: `docs/journal.md` for raw, `docs/manifesto.md` for principle-tone, `docs/blueprints.md` for technical-tone.
 - **IPO Framework as backbone.** Every new blueprint or case study should fit the **Input → Process → Data Context → Output** lens (see `docs/identity.md` and `docs/manifesto.md` §I).
 - **"Logs over excuses"** — concrete numbers, dates, durations beat vague claims. *"Scaled 90 → 1,500 customers (~1,000 paying, $1M+ ARR)"* beats *"scaled significantly"*.

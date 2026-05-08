@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2024-02-XX (approximate — decision crystallised during the Ghost Sprint, Jan — Feb 2024, on a stealth-pivot rebuild kept unnamed here on purpose)
-- **Deciders:** Deepesh Rathod, with the founding team (Shambhav et al.)
+- **Deciders:** Deepesh Rathod, with the founding team
 - **Supersedes:** —
 - **Related:** [`docs/case-studies/ghost-sprint.md`](../docs/case-studies/ghost-sprint.md), `docs/blueprints.md` §3 and §6
 

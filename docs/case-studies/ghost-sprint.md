@@ -23,8 +23,8 @@
 
 - **Input.** A green-field repo, a deadline, and ten engineers about to land in it.
 - **Process.** Build the skeleton like it has to survive contact with strangers. Conventions documented, not assumed. Utils named for what they do, not how they're implemented. Scripts that fail loudly with helpful errors.
-- **Data Context.** The repo would be read by the Founder/CTO, by Vishal, by every new engineer onboarded over the next two months. Each of them had a different mental model of the old system. The README had to land for all of them without a Slack thread.
-- **Output.** A README so complete that Shambhav reported "zero friction" booting up. Pre-commit hooks that barred the obvious mistakes — formatting drift, accidental console logs, secrets in commits — so ten engineers could move at breakneck speed without breaking the core.
+- **Data Context.** The repo would be read by the Founder/CTO, by a senior engineer, by every new engineer onboarded over the next two months. Each of them had a different mental model of the old system. The README had to land for all of them without a Slack thread.
+- **Output.** A README so complete that the Founder reported "zero friction" booting up. Pre-commit hooks that barred the obvious mistakes — formatting drift, accidental console logs, secrets in commits — so ten engineers could move at breakneck speed without breaking the core.
 
 ```bash
 # pre-commit (shape)
@@ -40,9 +40,9 @@ pnpm test --changed
 
 <p data-mode="founder">The README was the centerpiece. Not the architecture diagram. Not the schema. The README — because that was the document that decided whether the Founder/CTO would be in the codebase that week or not.</p>
 
-<p data-mode="human">It was the first time Shambhav had jumped back into hands-on coding alongside Vishal in a long stretch. The fact that he could — and that he didn't lose a day to setup — was the proudest line item of the sprint.</p>
+<p data-mode="human">It was the first time the Founder had jumped back into hands-on coding alongside a senior engineer in a long stretch. The fact that he could — and that he didn't lose a day to setup — was the proudest line item of the sprint.</p>
 
-> *"README was more than enough."* — Shambhav, on the new codebase, Jan 2024.
+> *"README was more than enough."* — the Founder, on the new codebase, Jan 2024.
 
 ## The Investor Demo
 
@@ -70,4 +70,4 @@ pnpm test --changed
 
 <p data-mode="human">And one more thing, the one I keep coming back to: a Founder writing the words *"zero friction"* about your repo is a more honest review than any retro could produce. It means a senior person, low on time, hit your code and kept moving. That is the only DevEx metric that actually matters.</p>
 
-> *"README was more than enough."* — Shambhav, on the new codebase, Jan 2024.
+> *"README was more than enough."* — the Founder, on the new codebase, Jan 2024.

@@ -47,9 +47,9 @@
 
 <p data-mode="engineer founder">No imports. Legal-tainted assets stayed where they were. We manually cloned and re-engineered the mobile app, the websites, the onboarding flows — every line, two months, from scratch.</p>
 
-<p data-mode="engineer"><strong>The Foundation:</strong> I built the new Node.js server from the ground up. It was the first time Shambhav (Founder) jumped back into the codebase alongside Vishal — two people who hadn't shipped production code in a while, plugging in next to a team that had to ship a company in 8 weeks.</p>
+<p data-mode="engineer"><strong>The Foundation:</strong> I built the new Node.js server from the ground up. It was the first time the Founder jumped back into the codebase alongside a senior engineer — two people who hadn't shipped production code in a while, plugging in next to a team that had to ship a company in 8 weeks.</p>
 
-<p data-mode="founder engineer"><strong>The DevEx Breakthrough:</strong> the proudest moment wasn't a feature — it was onboarding. The README, the utils, the conventions were organized so tightly that Shambhav started up with zero friction. His exact words: <strong>"README was more than enough."</strong> A founder reading a doc and shipping the same day is the highest compliment a server foundation can get.</p>
+<p data-mode="founder engineer"><strong>The DevEx Breakthrough:</strong> the proudest moment wasn't a feature — it was onboarding. The README, the utils, the conventions were organized so tightly that the Founder started up with zero friction. His exact words: <strong>"README was more than enough."</strong> A founder reading a doc and shipping the same day is the highest compliment a server foundation can get.</p>
 
 <p data-mode="engineer"><strong>The Guardrails:</strong> pre-commit hooks barred the obvious mistakes — bad imports, missing types, broken contracts. 10+ engineers moved at breakneck speed without breaking the core. The hooks did the babysitting so the humans could ship.</p>
 
@@ -65,7 +65,7 @@
 
 <p data-mode="engineer"><strong>Input → Process → Data → Output:</strong> <em>Input</em> — a list of S3 keys in Mumbai. <em>Process</em> — a local script issuing concurrent transfers, logging every success, hashing every byte. <em>Data Context</em> — a persistent log file as the source of truth for "what survived the last crash." <em>Output</em> — the same 150GB, byte-perfect, in US-East-1.</p>
 
-<p data-mode="engineer human"><strong>The Struggle:</strong> 30-hour runtimes on a local machine. The script crashed twice. I felt sad, then depressed — until Shambhav used "negative motivation" to pump me back up. Kuch logo ke liye yeh kaam karta hai. Mere liye kar gaya.</p>
+<p data-mode="engineer human"><strong>The Struggle:</strong> 30-hour runtimes on a local machine. The script crashed twice. I felt sad, then depressed — until the Founder used "negative motivation" to pump me back up. Kuch logo ke liye yeh kaam karta hai. Mere liye kar gaya.</p>
 
 <p data-mode="engineer"><strong>The "Grit" Script:</strong></p>
 
@@ -83,7 +83,7 @@
 
 <p data-mode="engineer"><strong>Performance:</strong> SQS-backed Lambdas re-architected to process <strong>50+ media items in under 30 seconds</strong>. The bottleneck moved off our infrastructure and onto the downstream APIs — exactly where it should sit.</p>
 
-<p data-mode="founder human"><strong>Junior Collaboration:</strong> worked closely with Animesh (Junior FE) on the user-facing side. His fresh ideas on UX and problem-shape made it into the final ship. The best feedback in a code review is when the senior keeps the junior's instinct.</p>
+<p data-mode="founder human"><strong>Junior Collaboration:</strong> worked closely with a junior frontend engineer on the user-facing side. His fresh ideas on UX and problem-shape made it into the final ship. The best feedback in a code review is when the senior keeps the junior's instinct.</p>
 
 <p data-mode="founder human"><strong>The Senior Stamp:</strong> the CEO raised me to <strong>28 LPA CTC (22 fixed + 2 variable + 4 more ESOPs)</strong>. The ESOP top-up was the signal — ownership was being doubled down on, not just compensated.</p>
 
@@ -93,15 +93,15 @@
 
 ### The Strategic Baton
 
-<p data-mode="founder human">The mentors left in sequence. Vishal, Vinay, Ruddhi — gone. The Original Clan dissolved around me, and I was the last one standing in the room. "Orphaned" is the honest word. The people who taught me how the system thinks were no longer in the building.</p>
+<p data-mode="founder human">The mentors left in sequence — gone, one after another. The Original Clan dissolved around me, and I was the last one standing in the room. "Orphaned" is the honest word. The people who taught me how the system thinks were no longer in the building.</p>
 
-<p data-mode="founder human">The exit door was right there. I didn't take it. The Pune trip earlier in the year had already settled the question — I told Robin and Ashish I wasn't someone who leaves when everything is breaking. The baton wasn't handed to me; it landed at my feet. I picked it up.</p>
+<p data-mode="founder human">The exit door was right there. I didn't take it. The Pune trip earlier in the year had already settled the question — I told leadership I wasn't someone who leaves when everything is breaking. The baton wasn't handed to me; it landed at my feet. I picked it up.</p>
 
 <p data-mode="founder">Cloud, Infra, DevOps — three domains the departing seniors used to own. I inherited all of them. Not because I was ready, but because nobody else in the room had the tenure to absorb them.</p>
 
 ### Strategic Selfishness
 
-<p data-mode="founder engineer">Vishal and Ruddhi, on the way out, hired Pravesh and Sahil specifically to unburden me. Two juniors, one explicit purpose: give Deepesh breathing room. The kind gesture had a quiet test embedded in it — what would I do with the slack?</p>
+<p data-mode="founder engineer">Two of the departing mentors, on the way out, hired a lead engineer and a junior teammate specifically to unburden me. Two new hires, one explicit purpose: give me breathing room. The kind gesture had a quiet test embedded in it — what would I do with the slack?</p>
 
 <p data-mode="founder engineer">I could have stayed in my lane. I chose to expand it instead. Strategic selfishness — I redirected every spare cycle into a deliberate pivot from "Lead Dev" to <strong>Full-Stack Builder</strong>. Owning the entire lifecycle: <strong>Develop → Deploy → Monitor → Cost Manage</strong>. Not just the code shipping out, but the cloud bill landing at the end of the month.</p>
 
@@ -133,11 +133,11 @@
 
 ### Social Media Content Pipeline
 
-<p data-mode="engineer founder"><strong>The Build:</strong> co-designed the Content Creation → Posting pipeline with Pravesh. His first major surface; my chance to mentor through a real production system instead of a side-task.</p>
+<p data-mode="engineer founder"><strong>The Build:</strong> co-designed the Content Creation → Posting pipeline with the lead engineer I partnered with. His first major surface; my chance to mentor through a real production system instead of a side-task.</p>
 
 <p data-mode="engineer">Architected the OAuth flows for Meta — Facebook + Instagram — with token refresh, scope handling, and the failure-mode catalogue OAuth always demands. Built a <strong>generic content-calendar system</strong> on top of that surface — calendar primitives that any future channel could plug into without re-doing the auth dance.</p>
 
-<p data-mode="founder engineer">That generic calendar powered the initial launch. Pravesh shipped the first verticals; the system held. See Blueprints for the architecture diagrams.</p>
+<p data-mode="founder engineer">That generic calendar powered the initial launch. My partner shipped the first verticals; the system held. See Blueprints for the architecture diagrams.</p>
 
 ### Human Documentation
 
@@ -159,9 +159,9 @@
 
 ### The Real Test of the Oath
 
-<p data-mode="founder human">Within a single window, the Original Clan walked. Vishal, Vinay, Ruddhi — gone in sequence, gone close enough together that the calendar barely had room to breathe between exits. The vacuum wasn't theoretical. The people I asked when I didn't know, the people who used to catch the falling object before it hit the floor — none of them were on Slack anymore. "Orphaned" earned its quotation marks.</p>
+<p data-mode="founder human">Within a single window, the Original Clan walked. The mentors — gone in sequence, gone close enough together that the calendar barely had room to breathe between exits. The vacuum wasn't theoretical. The people I asked when I didn't know, the people who used to catch the falling object before it hit the floor — none of them were on Slack anymore. "Orphaned" earned its quotation marks.</p>
 
-<p data-mode="human">The <a href="#pune-trip">Pune trip earlier in the year</a> had already settled the philosophy. The oath I'd given Robin and Ashish over that conversation — <em>"I am not someone who leaves when everything is breaking"</em> — had been a sentence at the time. A clean line spoken in a quieter month. Now the building was actively breaking and the oath had to either become a load-bearing decision or expose itself as a slogan.</p>
+<p data-mode="human">The <a href="#pune-trip">Pune trip earlier in the year</a> had already settled the philosophy. The oath I'd given leadership over that conversation — <em>"I am not someone who leaves when everything is breaking"</em> — had been a sentence at the time. A clean line spoken in a quieter month. Now the building was actively breaking and the oath had to either become a load-bearing decision or expose itself as a slogan.</p>
 
 <p data-mode="founder">I stayed. Not as a gesture, not as loyalty theatre — as a structural choice. The exit door was right there, the market was hiring, and the rational move on a spreadsheet was to leave. The oath stopped being a sentence the day I noticed I wasn't reading the spreadsheet.</p>
 
@@ -173,7 +173,7 @@
 
 ### The Arrow and the Shield
 
-<p data-mode="founder">When the funding battle started, the team had to split clean. Pravesh and I became the <strong>Arrow</strong> — the attack team, head-down on the funding demo, building the thing that didn't exist yet. Durga and Sahil became the <strong>Shield</strong> — protecting the 600+ existing users, shipping the roadmap features that couldn't slip, holding the production line while the Arrow tried to bend reality.</p>
+<p data-mode="founder">When the funding battle started, the team had to split clean. We split the team in two — <strong>Arrow</strong> attacking the funding demo, building the thing that didn't exist yet; <strong>Shield</strong> protecting the 600+ existing users, shipping the roadmap features that couldn't slip, holding the production line while the Arrow tried to bend reality. I worked alongside a partner on the Arrow side; two more teammates held the Shield.</p>
 
 <p data-mode="founder">Naming the dynamic was half the win. Once the room had the words "Arrow" and "Shield," nobody asked who was on point for what. No daily reshuffling, no ambiguous ownership, no "I thought you were handling that." Two postures, four people, zero confusion. The org chart was a sentence.</p>
 
@@ -253,25 +253,25 @@
 
 ### The Blackout
 
-<p data-mode="human">A core engineer — <strong>Harshpal</strong> — blacked out from exhaustion. The body's veto on the schedule the calendar hadn't yet allowed.</p>
+<p data-mode="human">One of our core engineers blacked out from exhaustion. The body's veto on the schedule the calendar hadn't yet allowed.</p>
 
-<p data-mode="human">Nobody on a deadline gets to argue with that. Or — they do argue with it, and then they lose. Harshpal hitting the floor was the system telling us a number the spreadsheet refused to print.</p>
+<p data-mode="human">Nobody on a deadline gets to argue with that. Or — they do argue with it, and then they lose. A teammate hitting the floor was the system telling us a number the spreadsheet refused to print.</p>
 
 ### The December 22nd Collision
 
 <p data-mode="founder human">Dec 22nd. A unilateral Jan 1st launch deadline was announced — no status check, no capacity read, no question to the people doing the shipping. The deadline collided with the team's actual capacity, and the collision wasn't theoretical. It happened in the room.</p>
 
-<p data-mode="human">A physical and verbal confrontation followed between the Founder and the Lead — <strong>Pravesh</strong>. Two people who'd built the product together, standing chest-to-chest in an office at the end of the worst month of the year. I stood in the middle — the literal buffer between two colliding forces. Hands up, voice level, trying to keep the thing that was already broken from breaking further.</p>
+<p data-mode="human">A physical and verbal confrontation followed between leadership and the lead engineer. Two people who'd built the product together, standing chest-to-chest in an office at the end of the worst month of the year. I stood in the middle — the literal buffer between two colliding forces. Hands up, voice level, trying to keep the thing that was already broken from breaking further.</p>
 
 ### The Fracture
 
-<p data-mode="founder human">Pravesh and <strong>Kushal</strong> left. The team I'd built the funding round with — the Arrow team that had run the 11 AM to 2 PM gauntlet for months, the people who'd been on the Slack thread the night the $6M closed — cracked at the seams. Not over engineering disagreements. Over the way humans were being asked to perform like systems.</p>
+<p data-mode="founder human">Two of my closest teammates left, including the lead I'd partnered with on the funding. The team I'd built the funding round with — the Arrow team that had run the 11 AM to 2 PM gauntlet for months, the people who'd been on the Slack thread the night the $6M closed — cracked at the seams. Not over engineering disagreements. Over the way humans were being asked to perform like systems.</p>
 
 <p data-mode="founder human">Management held a "Stay or Leave" interrogation. Each remaining engineer in a room, the question put plainly. No theatrics. No long preamble. Stay, or leave. The kind of conversation that strips a company down to who is actually in it.</p>
 
 ### The Oath, Reaffirmed
 
-<p data-mode="founder human">The same oath I'd given Robin and Ashish on the <a href="#pune-trip">Pune trip</a> months earlier — <em>"I am not someone who leaves when everything is breaking"</em> — held when it would have been easier to break it. The market was still hiring. The exit door was, again, right there. Easier than ever to walk through, because this time half the room had already walked.</p>
+<p data-mode="founder human">The same oath I'd given leadership on the <a href="#pune-trip">Pune trip</a> months earlier — <em>"I am not someone who leaves when everything is breaking"</em> — held when it would have been easier to break it. The market was still hiring. The exit door was, again, right there. Easier than ever to walk through, because this time half the room had already walked.</p>
 
 <p data-mode="founder human">I broke emotionally watching the team leave. Not metaphorically — actually broke. The Arrow team had been the closest thing to a unit I'd had since the Original Clan. Watching it splinter on the way out of the year that had also closed our funding was a category of grief the trajectory hadn't prepared me for. I broke. I did not break the oath.</p>
 

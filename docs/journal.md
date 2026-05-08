@@ -68,13 +68,13 @@
 
 ### The Node.js Foundation
 
-<p data-mode="engineer founder">I built the new Node.js server foundation from the first commit. Folder structure, conventions, env loading, error contracts, the whole skeleton. This was the first time in a long while that <strong>Shambhav (Founder)</strong> jumped back into the codebase himself, alongside <strong>Vishal</strong>.</p>
+<p data-mode="engineer founder">I built the new Node.js server foundation from the first commit. Folder structure, conventions, env loading, error contracts, the whole skeleton. This was the first time in a long while that <strong>the Founder</strong> jumped back into the codebase himself, alongside <strong>a senior engineer</strong>.</p>
 
-<p data-mode="engineer founder">It changed the gravity of the work. Founders writing routes next to you means every shortcut you take is a shortcut they'll inherit. I over-invested in the bones on purpose — naming, layering, where business logic was allowed to live — because I knew Shambhav and Vishal were going to be in there at 1 AM, and I didn't want them losing time decoding my cleverness.</p>
+<p data-mode="engineer founder">It changed the gravity of the work. Founders writing routes next to you means every shortcut you take is a shortcut they'll inherit. I over-invested in the bones on purpose — naming, layering, where business logic was allowed to live — because I knew leadership and the senior engineer were going to be in there at 1 AM, and I didn't want them losing time decoding my cleverness.</p>
 
 ### "README Was More Than Enough"
 
-<p data-mode="engineer founder">My proudest DevEx moment from that period: Shambhav cloned the repo, ran through setup, started shipping. Later he told me, plainly, <strong><em>"README was more than enough."</em></strong> No DM, no "hey how do I run this", no Slack thread. He just <em>started</em>.</p>
+<p data-mode="engineer founder">My proudest DevEx moment from that period: the Founder cloned the repo, ran through setup, started shipping. Later he told me, plainly, <strong><em>"README was more than enough."</em></strong> No DM, no "hey how do I run this", no Slack thread. He just <em>started</em>.</p>
 
 <p data-mode="engineer founder">Underneath that line was a stack of small disciplines: pre-commit hooks that barred the obvious mistakes, a utils layer that didn't make you guess, scripts that named themselves after what they did. 10+ engineers were moving at breakneck speed and the core didn't crack. The README wasn't a document — it was a guardrail.</p>
 
@@ -102,7 +102,7 @@
 
 <p data-mode="engineer human">I built a local script. 30-hour runtime end to end. It crashed twice. Both times deep into the run, both times after I'd watched the progress logs scroll past for hours. <strong>I felt sad and depressed.</strong> Not the dramatic kind — the dull kind, where you stare at the terminal and don't want to relaunch it.</p>
 
-<p data-mode="founder human">Shambhav pulled me back up with what he calls <em>negative motivation</em> — the sharp, unsentimental kind that doesn't pat your head, just points at the work and says <em>get back in</em>. It worked. I got back in.</p>
+<p data-mode="founder human">The Founder pulled me back up with what he calls <em>negative motivation</em> — the sharp, unsentimental kind that doesn't pat your head, just points at the work and says <em>get back in</em>. It worked. I got back in.</p>
 
 ### The "Grit" Script — caffeinate, pause, resume
 
@@ -116,11 +116,11 @@
 
 <p data-mode="engineer founder">Then I wired WebSockets through the Node server so users and internal teams had real-time visibility on the whole chain — <code>Upload → Resize → SQS → Lambda → GBP/Website Live</code>. No more "did it work?" support tickets. The SQS-backed Lambdas were tuned to push <strong>50+ media items live in under 30 seconds</strong>. Observability stopped being a dashboard and became a feeling: you could watch your work go live.</p>
 
-### The Junior — Animesh
+### The Junior
 
-<p data-mode="human founder">I worked closely with <strong>Animesh</strong> (Junior FE) through this stretch. What I loved was that he didn't defer — he came in with fresh ideas on problem-solving, the kind a senior stops seeing because they've stopped looking.</p>
+<p data-mode="human founder">I worked closely with <strong>a junior frontend engineer</strong> through this stretch. What I loved was that they didn't defer — they came in with fresh ideas on problem-solving, the kind a senior stops seeing because they've stopped looking.</p>
 
-<p data-mode="human founder">I integrated his ideas into the final ship, by name and by credit. The lesson stuck: a junior who feels safe enough to push back is worth more than five who nod.</p>
+<p data-mode="human founder">I integrated their ideas into the final ship, by name and by credit. The lesson stuck: a junior who feels safe enough to push back is worth more than five who nod.</p>
 
 ### The Senior Stamp — 28L CTC
 
@@ -134,9 +134,10 @@
 
 <p data-mode="human">I booked a flight. Two days in Pune. Strategic, not a vacation — I needed distance from Bangalore, from the Slack threads, from the war room. Two days away from the noise and the answer arrived without me hunting for it. That personal clarity changed everything.</p>
 
-<p data-mode="founder human">I came back and walked into the room with <strong>Robin</strong> and <strong>Ashish</strong>. No build-up, no soft opening. I told them, directly: <strong>"I am not someone who leaves when everything is breaking."</strong></p>
+<p data-mode="founder human">I came back and walked into the room with <strong>leadership</strong>. No build-up, no soft opening. I told them, directly: <strong>"I am not someone who leaves when everything is breaking."</strong></p>
 
 <p data-mode="founder">That sentence was the oath. I committed — to them and to myself — to stabilise the system and see the transition through before I let myself even <em>think</em> about an exit. The decision was made there, in that room, in early 2024. Everything in the Builder era that came after — the DevOps takeover, the documentation work, the team scaling — was downstream of that one promise. The oath came first. The work came second.</p>
+
 
 ### Bangalore Treks — Sustainable Hustle
 
@@ -148,15 +149,15 @@
 
 ### The Strategic Baton
 
-<p data-mode="founder human">Through mid-2024, the mentors left. <strong>Vishal</strong>. <strong>Vinay</strong>. <strong>Ruddhi</strong>. Not all at once, not dramatically — but the cumulative effect was that the people who had built the original engineering culture with me were no longer in the building. I was the last of the Original Clan.</p>
+<p data-mode="founder human">Through mid-2024, the mentors left. One after another — not all at once, not dramatically — but the cumulative effect was that the people who had built the original engineering culture with me were no longer in the building. I was the last of the Original Clan.</p>
 
 <p data-mode="human">There's no clean word for that feeling, but the closest one is <em>orphaned</em>. The people who had taught me how this place thought — gone. The people who had argued with me about architecture at midnight — gone. The room got quieter. The weight on the remaining chair got heavier.</p>
 
-<p data-mode="founder human">The easy move would have been to follow them out. The market was hot, my résumé was loud, and "everyone's leaving" is the cleanest cover any engineer ever gets to walk under. I didn't. The Pune oath had already been spoken, and I'd told Robin and Ashish I was not someone who leaves when everything is breaking. The emotional cost of staying was real. I paid it anyway.</p>
+<p data-mode="founder human">The easy move would have been to follow them out. The market was hot, my résumé was loud, and "everyone's leaving" is the cleanest cover any engineer ever gets to walk under. I didn't. The Pune oath had already been spoken, and I'd told leadership I was not someone who leaves when everything is breaking. The emotional cost of staying was real. I paid it anyway.</p>
 
 ### Strategic Selfishness
 
-<p data-mode="founder">Vishal and Ruddhi, on their way out, did something I still think about: they hired <strong>Pravesh</strong> and <strong>Sahil</strong> as juniors specifically to unburden me. They could have just left. Instead they staffed the gap before stepping through it. That was the breathing room I inherited.</p>
+<p data-mode="founder">Two of the mentors, on their way out, did something I still think about: they hired two new teammates specifically to unburden me. They could have just left. Instead they staffed the gap before stepping through it. That was the breathing room I inherited.</p>
 
 <p data-mode="founder engineer">I could have used that room as comfort — push work down, take the easier load, coast on seniority. I didn't. I used it to pivot from "Lead Dev" to "Full-Stack Builder". The honest framing: <em>I chose to learn DevOps because no one else would.</em> Not because it was the noble choice — because it was the move that compounded. When breathing room appears, you don't spend it. You invest it. You expand your capability radius while you have the slack to do it. That kind of selfishness is the productive kind.</p>
 
@@ -188,13 +189,13 @@
 
 ### The Orphaned Window
 
-<p data-mode="human founder">August 2024. Within a single window — not a quarter, not a half, a <em>window</em> — the Original Clan walked out the door. <strong>Vishal</strong>. <strong>Vinay</strong>. <strong>Ruddhi</strong>. The men I had argued architecture with at midnight, the ones who had taught me how this place actually thought. Gone, in sequence, fast.</p>
+<p data-mode="human founder">August 2024. Within a single window — not a quarter, not a half, a <em>window</em> — the Original Clan walked out the door. The mentors I had argued architecture with at midnight, the ones who had taught me how this place actually thought. Gone, in sequence, fast.</p>
 
 <p data-mode="human">The word for it is <em>orphaned</em>. Not metaphor, not exaggeration — the literal shape of it. The people who had been load-bearing in my professional life were no longer in the room, and the chairs they used to sit in still had their indentations. The vacuum was real. I felt it in the silence of Slack channels that used to hum, in the questions I now had no one senior to lob upward.</p>
 
 ### The Real Test of the Oath
 
-<p data-mode="founder human">Months earlier, I had walked into a room with <strong>Robin</strong> and <strong>Ashish</strong> and said, plainly, <em>"I am not someone who leaves when everything is breaking."</em> I'd thought that was the moment the oath was tested. It wasn't. The moment I said it, the people I would have stood next to were still in the building.</p>
+<p data-mode="founder human">Months earlier, I had walked into a room with <strong>leadership</strong> and said, plainly, <em>"I am not someone who leaves when everything is breaking."</em> I'd thought that was the moment the oath was tested. It wasn't. The moment I said it, the people I would have stood next to were still in the building.</p>
 
 <p data-mode="founder human">The real test came now — when those people weren't there anymore. The market was hot, the cover story was clean (<em>"everyone's leaving"</em>), and no one would have blamed me for following them out. The oath is not what you say when your friends are next to you. The oath is what stays when the noise fades, when the room is quieter, when the only person enforcing the promise is you.</p>
 
@@ -212,7 +213,7 @@
 
 ### The Arrow and the Shield
 
-<p data-mode="founder human">When the funding battle started, I split the team in half on purpose. <strong>Pravesh</strong> and I were the <strong>Arrow</strong> — attacking the demo for investors, building the engine that would prove the thesis. <strong>Durga</strong> and <strong>Sahil</strong> were the <strong>Shield</strong> — protecting the 600+ existing users, shipping the roadmap, keeping the lights on while we fought.</p>
+<p data-mode="founder human">When the funding battle started, I split the team in half on purpose. I and the lead engineer I partnered with were the <strong>Arrow</strong> — attacking the demo for investors, building the engine that would prove the thesis. Two other teammates were the <strong>Shield</strong> — protecting the 600+ existing users, shipping the roadmap, keeping the lights on while we fought.</p>
 
 <p data-mode="founder">Naming the split was half the work. Once the whole team said <em>Arrow</em> and <em>Shield</em> the same way, with the same weight, no one had to ask whose lane was whose. No turf. No "wait, who owns this ticket?" The vocabulary did the coordination the org chart couldn't.</p>
 
@@ -224,7 +225,7 @@
 
 ### The Streamlit Makeshift Sprint
 
-<p data-mode="engineer founder">Pravesh and I shipped a raw <strong>Streamlit</strong> frontend. <em>Makeshift was the point.</em> No design polish, no component library, no opinions about UX. Just a thin glass over the engine.</p>
+<p data-mode="engineer founder">The lead I partnered with and I shipped a raw <strong>Streamlit</strong> frontend. <em>Makeshift was the point.</em> No design polish, no component library, no opinions about UX. Just a thin glass over the engine.</p>
 
 <p data-mode="engineer founder">Underneath: it scraped <strong>StyleSeat</strong> and <strong>Booksy</strong>, ran city-wide trending keywords through LLMs, and audited service catalogs for pricing gaps. The thing was ugly. The data was real. When the investors looked at the screen, what they saw was the <em>engine</em>, not the polish — and that was the bet. Polish would have lied about what stage we were at. Streamlit told the truth.</p>
 
@@ -272,27 +273,27 @@
 
 <p data-mode="human">There was no rest. The boundary between work and rest had stopped existing — not blurred, <em>gone</em>. You woke up where you had stopped. You stopped where you had started. The lights stayed on. The build stayed running. Morale was on a knife-edge and we kept walking it, single file, one engineer behind the other, pretending the edge was a path.</p>
 
-### Harshpal Blacked Out
+### A Core Engineer Blacked Out
 
-<p data-mode="human">One of our core engineers — <strong>Harshpal</strong> — blacked out. Not a figure of speech. His body, mid-shift, said <em>no</em> in the only language a body has left when no one is listening to it. The schedule the calendar hadn't yet allowed for, his nervous system vetoed for him.</p>
+<p data-mode="human">One of our core engineers blacked out from exhaustion. Not a figure of speech. The body, mid-shift, said <em>no</em> in the only language a body has left when no one is listening to it. The schedule the calendar hadn't yet allowed for, the nervous system vetoed for him.</p>
 
-<p data-mode="human">That was the moment the cost stopped being theoretical. Up until then, "we're burning out" had been a sentence we said in standups and didn't act on. After Harshpal hit the floor, the sentence had a body attached to it. <em>Yeh real hai. Yeh ho gaya hai.</em> You can argue with a Slack message. You can't argue with a person who isn't conscious.</p>
+<p data-mode="human">That was the moment the cost stopped being theoretical. Up until then, "we're burning out" had been a sentence we said in standups and didn't act on. After a teammate hit the floor, the sentence had a body attached to it. <em>Yeh real hai. Yeh ho gaya hai.</em> You can argue with a Slack message. You can't argue with a person who isn't conscious.</p>
 
 ### The December 22nd Announcement
 
 <p data-mode="founder human">December 22nd. A unilateral <strong>January 1st</strong> launch deadline got announced. No status check. No team consultation. No <em>"hey, what's actually shippable, what's actually broken, who's actually still standing."</em> Just a date, dropped into the room from above, and a clock that started counting down whether anyone in the room was ready or not.</p>
 
-<p data-mode="founder human">The deadline collided with the team's actual capacity in the same room — the room where Harshpal had blacked out, where the sofas had become beds, where the Red Bull cans had become décor. The math didn't work. The announcement didn't care that the math didn't work. That was the spark.</p>
+<p data-mode="founder human">The deadline collided with the team's actual capacity in the same room — the room where a teammate had blacked out, where the sofas had become beds, where the Red Bull cans had become décor. The math didn't work. The announcement didn't care that the math didn't work. That was the spark.</p>
 
 ### The Collision
 
-<p data-mode="human founder">A physical and verbal confrontation between the <strong>Founder</strong> and <strong>Pravesh</strong> (the Lead). In the same room. In front of the team. I stood in the middle. <em>The literal buffer between two colliding forces.</em></p>
+<p data-mode="human founder">A physical and verbal confrontation between two senior people in the room — leadership on one side, the lead engineer on the other. In front of the team. I stood in the middle. <em>The literal buffer between two colliding forces.</em></p>
 
 <p data-mode="human founder">I do not have a clean image of what I said. I was holding two people apart, in a room of people who had been working too long, who had not slept properly in weeks, who were watching this happen. Memory does not record cleanly under that kind of load. What I remember is the weight on both of my arms, the heat of two voices going past my ears in opposite directions, and the silence of the rest of the team — a silence that was its own kind of damage.</p>
 
 ### The Fracture
 
-<p data-mode="founder human"><strong>Pravesh</strong> left. <strong>Kushal</strong> left with him. The <em>Arrow</em> team — the same Arrow that had won the funding round in August, the half I had named in a quieter month — was fractured by December. Four months. That's the whole arc. From <em>$6M</em> to a hollowed-out half-team in one calendar season.</p>
+<p data-mode="founder human">Two of my closest teammates left, including the lead I'd partnered with on the funding. The <em>Arrow</em> team — the same Arrow that had won the funding round in August, the half I had named in a quieter month — was fractured by December. Four months. That's the whole arc. From <em>$6M</em> to a hollowed-out half-team in one calendar season.</p>
 
 <p data-mode="founder human">Management called a <strong>"Stay or Leave"</strong> interrogation. Not a conversation. An interrogation — the word fits because the room had that shape. Direct question, direct answer, on the record. The kindness of ambiguity was not on offer.</p>
 
@@ -300,7 +301,7 @@
 
 <p data-mode="founder">I sat in that meeting. The question was direct. The honest version of my answer was <em>I have made an oath; I do not break oaths when the asking gets hard.</em> The polite version of my answer was the one I gave — shorter, calmer, professional, the version that fits in a meeting with the people who sign your offer letter.</p>
 
-<p data-mode="founder">Either way, I stayed. Same answer underneath both versions. The Pune oath, said to Robin and Ashish a year earlier, was still load-bearing. <em>"I am not someone who leaves when everything is breaking."</em> December 2024 was the sentence's worst test, and the sentence held.</p>
+<p data-mode="founder">Either way, I stayed. Same answer underneath both versions. The Pune oath, said to leadership a year earlier, was still load-bearing. <em>"I am not someone who leaves when everything is breaking."</em> December 2024 was the sentence's worst test, and the sentence held.</p>
 
 ### Breaking, Without Breaking
 

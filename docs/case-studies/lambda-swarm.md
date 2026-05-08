@@ -7,9 +7,9 @@
 
 ## Context — The 11 AM to 2 PM Battle
 
-<p data-mode="founder">Shambhav was in the US, twelve hours ahead of Bangalore. He woke at 11 AM IST and demanded a working demo by 2 PM IST. Three-hour window. Every day. The funding round was on the line and the asset that had to perform was a single thing — an insights engine that scraped StyleSeat and Booksy, analysed city-wide trending keywords via LLMs, and audited service catalogs for pricing gaps. *That* was the "Revenue Opportunity" the round was being raised on. *That* engine could not take 2 hours.</p>
+<p data-mode="founder">The Founder was in the US, twelve hours ahead of Bangalore. He woke at 11 AM IST and demanded a working demo by 2 PM IST. Three-hour window. Every day. The funding round was on the line and the asset that had to perform was a single thing — an insights engine that scraped StyleSeat and Booksy, analysed city-wide trending keywords via LLMs, and audited service catalogs for pricing gaps. *That* was the "Revenue Opportunity" the round was being raised on. *That* engine could not take 2 hours.</p>
 
-<p data-mode="founder engineer">The team split, and naming the split was half the win. Pravesh and I were the **Arrow** — the funding demo, the engine, the architecture, the all-nighters. Durga and Sahil were the **Shield** — protecting 600+ existing users and shipping live features so the company didn't bleed product velocity while the funding battle ran in parallel. Two teams, two clocks, one company. The Shield is the reason the Arrow could fly.</p>
+<p data-mode="founder engineer">We split the team in two — Arrow attacking the funding demo, Shield protecting 600+ existing users. I and a partner ran the **Arrow** side — the funding demo, the engine, the architecture, the all-nighters. Two more teammates held the **Shield** — shipping live features so the company didn't bleed product velocity while the funding battle ran in parallel. Two teams, two clocks, one company. The Shield is the reason the Arrow could fly.</p>
 
 <p data-mode="engineer">The makeshift demo surface was a Streamlit frontend wired straight to the engine outputs — no polish, no design system, just the raw numbers in a table investors could read. The point was never the UI. The point was the engine behind it.</p>
 
@@ -99,7 +99,7 @@ Step Functions (Master Orchestrator)
 
 <p data-mode="engineer">Two days in, I hit a wall on the Master Orchestrator's state-management logic. Specifically: how to aggregate per-tenant results across stages without re-running settled stages, and how to handle partial failures without re-running the world. The standard Step Functions patterns I tried hit the execution-history size limit — the per-tenant state I was carrying through `ResultPath` blew the 25KB-per-event ceiling once you got past a few hundred tenants. Custom recursion to checkpoint and resume landed in cold-start traps and timeout cliffs.</p>
 
-<p data-mode="engineer">The bug had the shape of a state-machine problem that the standard playbook didn't have a clean answer for. I had been around this loop for the better part of a day. Pravesh had been on the scraper side. The clock was the clock.</p>
+<p data-mode="engineer">The bug had the shape of a state-machine problem that the standard playbook didn't have a clean answer for. I had been around this loop for the better part of a day. My partner had been on the scraper side. The clock was the clock.</p>
 
 ## Claude, First Time
 

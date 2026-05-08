@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2024-08 (the $6M funding sprint)
-- **Deciders:** Deepesh Rathod, with Pravesh on the Arrow team
+- **Deciders:** Deepesh Rathod, with a partner on the Arrow team
 - **Supersedes:** —
 - **Related:** [`docs/case-studies/lambda-swarm.md`](../docs/case-studies/lambda-swarm.md), `docs/blueprints.md` §9, [`docs/product-growth.md`](../docs/product-growth.md) §5
 

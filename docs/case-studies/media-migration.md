@@ -81,7 +81,7 @@ caffeinate -dimsu node migrate.js
 
 <p data-mode="human">The first crash came around hour 22 of run two. The second came around hour 14 of run three. I felt sad and depressed. Not in a poetic way — in the literal way where you stare at a terminal you've been staring at for a day and a half and the terminal has nothing kind to say back.</p>
 
-<p data-mode="founder">Shambhav called the same evening as the second crash. The mode he used I will only describe as <em>negative motivation</em> — the kind of pep talk that does not pretend the situation is fine. He did not tell me it would be okay. He told me, in the bluntest possible terms, that the only thing standing between this migration and done was me, that the design was right, that the resume logic existed for exactly this moment, and that the next chunk was waiting. It was not gentle. It was the right shape of un-gentle.</p>
+<p data-mode="founder">The Founder called the same evening as the second crash. The mode he used I will only describe as <em>negative motivation</em> — the kind of pep talk that does not pretend the situation is fine. He did not tell me it would be okay. He told me, in the bluntest possible terms, that the only thing standing between this migration and done was me, that the design was right, that the resume logic existed for exactly this moment, and that the next chunk was waiting. It was not gentle. It was the right shape of un-gentle.</p>
 
 <p data-mode="engineer">The recovery itself was anticlimactic — which was the entire point. `caffeinate -dimsu node migrate.js` again; the script read `progress.log`, built the `done` set, skipped the 80% already shipped, and picked up at the next un-logged key. The crashes were, in the end, a vindication of the pause/resume design. The architecture had budgeted for failure; the failure arrived; the budget held.</p>
 
@@ -101,7 +101,7 @@ caffeinate -dimsu node migrate.js
 
 <p data-mode="engineer">"0% data loss" is not a result you celebrate at the end. It is a design output you commit to at the start. The migrator either was going to ship every byte or it was going to ship none of them; there was no acceptable middle. Every architectural choice — the manifest, the append-only log, the hash check before the log line, the retry-and-keep-going on flaky keys — falls out of that one commitment.</p>
 
-<p data-mode="human">The migration's success unblocked the next surface — the WebSocket-backed observability layer and the GBP drip-feed pipeline that needed the destination bucket to be in-region before any of it made sense. Animesh (Junior FE) shipped a chunk of the upload-progress UI off the back of that work. The migration was the chokepoint; everything downstream was waiting for it to clear. It cleared.</p>
+<p data-mode="human">The migration's success unblocked the next surface — the WebSocket-backed observability layer and the GBP drip-feed pipeline that needed the destination bucket to be in-region before any of it made sense. A junior frontend engineer shipped a chunk of the upload-progress UI off the back of that work. The migration was the chokepoint; everything downstream was waiting for it to clear. It cleared.</p>
 
 > *"Sad and depressed."* — me, after the second crash.
-> *"That's not a problem. That's the next chunk."* — Shambhav, the same evening. *(paraphrased — the verbatim is lost; the shape is exact.)*
+> *"That's not a problem. That's the next chunk."* — the Founder, the same evening. *(paraphrased — the verbatim is lost; the shape is exact.)*
