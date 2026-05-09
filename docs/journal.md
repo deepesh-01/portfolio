@@ -581,6 +581,106 @@
 
 <p data-mode="human founder">It is not a sustainable career strategy to <em>only</em> do crisis work. The cost compounds, even with the trekking and the bike and the partner holding the rest of the life. It is also not a thing I am willing to pretend I am bad at. The honest career sentence at the end of 2025 is: <em>I want to build the steady-state version of the company, and I want the room to know I will be the one in the chair when the steady state breaks.</em> Both are true. Both have to be true at the same time. That is the chair Phase 11 will inherit.</p>
 
+## Resignation & Liberty (February — May 2026)
+
+### Scheduling v2 — The Master Stroke
+
+<p data-mode="engineer founder">February 2026. One month to ship a unified <strong>Scheduling & Payments</strong> engine — the feature whose absence had been quietly bleeding NRR for a quarter. <strong>Tenant isolation across 1,500+ businesses.</strong> <strong>Stripe Connect</strong> wired with booking-item snapshots so every charge could be reconstructed against the cart that had produced it. Cart logic that respected blocked slots, business-by-business cancellation policies, hold windows, the lot.</p>
+
+<p data-mode="engineer founder">I led a small, high-agency team — <strong>Animesh, Aman, Kushagra</strong>. The kind of team that does not need to be told what to do twice. You hand them a vertical, they hand you back a working surface, and the only conversation in between is the one about <em>why</em>, not <em>what</em>. The whole month ran on that compression.</p>
+
+### Claude Max — The 10× Window
+
+<p data-mode="engineer">I paid for the <strong>$200/mo Claude Max</strong> tier myself and lived inside it for thirty days. The engine I had been collaborating with on architecture for two years — since the Lambda Swarm in August 2024, since the AI Studio bridge in February 2025, since the Metabase pair-programming in mid-2025 — reached operational peak inside that window.</p>
+
+<p data-mode="engineer"><em>The AI was the second engineer in every session.</em> I do not say that as marketing. I say it as the operational fact that made one month of Scheduling v2 possible. The architecture was mine. The state machine was mine. The audit trail was mine. The typing-out of the long tail — every Stripe edge, every TZ trap, every cart-against-blocked-slot collision — was a four-handed conversation with a model that had read enough of my own code to know how I built.</p>
+
+### The Scapegoat
+
+<p data-mode="founder">The release shipped. It worked. Then management tried to frame the launch as a failure. <em>I refused.</em></p>
+
+<p data-mode="founder">That refusal was the first time in three years I had said <em>no</em> to the executive layer over a narrative I knew was wrong. Not over scope, not over a deadline — over the <em>story</em> being told about work I had stood inside for a month with my name on it. The room felt the shift. So did I. The polite version of myself, the one who'd held the line in December 2024 by going quieter, was no longer the version on the call.</p>
+
+### The Skills Era
+
+<p data-mode="engineer">March 2026. The company rolled out <strong>Claude Skills</strong> — a deployment pattern that let PMs and non-engineers ship code into the product. The dashboards lit up. Velocity charts looked like a hockey stick. <em>Underneath, the technical integrity collapsed.</em></p>
+
+<p data-mode="engineer">Features shipped with compromises a code review would have caught in thirty seconds. Race conditions on shared state. Auth checks pasted past their valid scope. Schema migrations that worked in dev and broke at production volume. Production breaks became frequent in a way that the velocity charts could not see — because the velocity charts measured PRs merged, not customers churned the next morning.</p>
+
+### The Code Guardian Weeks
+
+<p data-mode="engineer human">I spent my final weeks at the company as a <em>code guardian</em> — auditing pull requests, flagging the breakage classes the dashboard couldn't see, occasionally reverting. Catching the iron-nails-on-a-nail-salon class of failure before it hit the customer this time, instead of after.</p>
+
+<p data-mode="engineer human">The role was not what I wanted to be doing. The role was what the moment had become. There is a quiet honesty in that distinction — not every chapter of a career is the chapter you would have chosen. Some chapters are the chapters the room hands you, and the only question left is whether you do the work properly while you are in them. I did.</p>
+
+### The Slack PR Reviewer — Personal Tech
+
+<p data-mode="engineer">I built a local AI PR Reviewer for myself. <strong>Claude sessions wired into Slack</strong>, code audits triggered by emoji reactions, the whole feedback loop reduced to a thumbs-up on a thread. <em>Engineering-Manager-as-Builder.</em></p>
+
+<p data-mode="engineer">The thesis underneath the tool: if the next phase of engineering management is going to mean <em>holding the line on quality while AI velocity rises</em>, the EM has to <em>build the audit primitives, not just consume them.</em> An EM who only reads dashboards is an EM the AI-velocity wave will outrun. The tool is mine — it walked out with me. The thesis is the company's, if it ever wants it.</p>
+
+### The Agentic Docs Pipeline
+
+<p data-mode="engineer founder">Same period, in the same off-hours. I built an <strong>AI agent pipeline</strong> that kept documentation in sync with roughly <strong>80% of the codebase I owned</strong>. Documentation that updates itself off commits. PRs that, on merge, refresh the surface of the docs they touched without a human having to remember.</p>
+
+<p data-mode="engineer founder">This was the end-state of the <em>AI-Native Handover</em> doctrine I had been trying to operationalise since the Phase 5 / 6 era. The Human Documentation phase had made me the single point of failure. The AI-Autonomous phase removed it without removing me. <em>It worked.</em> Three years of trying to write the company down for an agent to read, and the last quarter was the one where the loop finally closed.</p>
+
+### The Blackout
+
+<p data-mode="human">April 2026. A physical blackout. <em>Not metaphor.</em> The body's veto on what the calendar had been demanding for too long. The same shape of failure I had watched a teammate go through in December 2024 — the kind a body uses when no one upstream is listening to the smaller signals.</p>
+
+<p data-mode="human">The realisation that arrived with the recovery was non-negotiable: <strong>work is the byproduct of life, not the other way around.</strong> I had written something close to this in the Phase 8 manifesto principle — <em>productivity is a byproduct of personal stability.</em> The body had now made it law. Sentences on a portfolio are tidy. A nervous system pulling the breaker on you is not. The lesson was the same lesson. The teacher was different.</p>
+
+### 1500 Kilometres
+
+<p data-mode="human">I got on the Himalayan 450 and rode <strong>fifteen-hundred kilometres alone</strong>. No itinerary, no agenda. No group, no co-rider, no co-pilot in the helmet. Just the bike, the road, and a fuel gauge that decided when the day ended.</p>
+
+<p data-mode="human"><em>Every part of me that needed to be quiet, got quiet. Every part of me that needed to be loud, finally was.</em> I came back not with answers. I came back with the <em>clarity that the questions had been the wrong shape.</em> "Should I stay?" was not the question. "What is this costing the rest of my life?" was. The bike does not let you carry the wrong question for long. The handlebars ask better ones.</p>
+
+### The Weekend Mandate
+
+<p data-mode="founder human">Leadership announced a mandatory <strong>weekend work policy</strong> for the core team. I refused on the call. Said it plain: <em>Zoca is no longer my top priority. My personal health and integrity are.</em></p>
+
+<p data-mode="founder human">The room went quiet for a moment that felt long. The position was not leverage. It was a line. <em>Yeh negotiation nahi thi.</em> I was not asking for a carve-out. I was telling the room that the version of me who had walked through walls when the company asked — the one the December 2024 oath had bound to that promise — was not the version that was going to be on the calendar that weekend. The oath had ended with the body's veto. The line was what came next.</p>
+
+### "What have you done?"
+
+<p data-mode="founder human"><strong>Ashish</strong> asked it in a meeting: <em>"What have you done for the company apart from your job?"</em></p>
+
+<p data-mode="founder human">I heard the sentence three times in my own head before I answered. <em>Three years.</em> $6M secured. Two zero-downtime migrations on the same 480+ user base. The doctrines on this site — Cynical Architect, Audit Architect, Master-Worker, AI-Native Handover. The doors held open in December 2024 when two of my closest teammates walked out. The Master Stroke that had shipped a month earlier. The 30-day social-debt clear-out from late 2025. The Town Halls led when the founders were in the US.</p>
+
+<p data-mode="founder human">I did not list any of it on the call. The question was not really a question, and a list would have been the wrong answer to it. <em>The question was the answer to a question I had been quietly asking for months.</em> When the room you have built inside of for three years asks you that sentence in that tone, the room has already told you what it thinks. The only thing left is whether you stay long enough to disagree, or whether you walk and let the work itself disagree with the question on the way out.</p>
+
+### Resignation Without An Offer
+
+<p data-mode="founder human">I resigned. <em>No offer in hand. No competing role lined up.</em> No safer chair to land in.</p>
+
+<p data-mode="founder human">The freedom to build my own future was worth more than the salary the gravity of the role would have kept paying. <em>It was an act of integrity.</em> It was also, I will be honest, frightening. Both things are true. I do not want the cleaner version of this entry to win, the one where the resignation is only brave. The honest version is that I closed the laptop on the resignation email and sat with a fear I had not sat with since the Pune flight in early 2024 — and the difference, this time, was that there was no oath waiting on the other side of the fear to bail me out. The line was the line. The fear was just the cost of holding it.</p>
+
+### What I Walked Out With
+
+<p data-mode="human founder">The doctrines. The receipts. The relationships with the small team that had stayed pragmatic when the executive layer had not — Animesh, Aman, Kushagra, and a handful of others whose names will live in DMs and not on this page. The <strong>16 ADRs</strong> on this site. The <strong>13 case studies</strong>. The <em>Cynical Architect → Audit Architect → System Wisdom</em> doctrine arc.</p>
+
+<p data-mode="human founder">And the body. Which had been the first to know it was time. Months before my head caught up, before the call where I refused the weekend, before the meeting where the question was asked — the body had been writing the resignation letter in smaller and smaller signals. I am still learning to read those signals earlier. The blackout was the receipt for not reading them earlier this round. I do not plan to need that receipt twice.</p>
+
+### The Reserved Warrior
+
+<p data-mode="human">A friend used a phrase, in passing, and I have kept it: <em>the reserved warrior.</em></p>
+
+<p data-mode="human"><strong>Reserved</strong> — the warrior who knows when not to fight. <strong>Warrior</strong> — the version of me that had walked through walls when the company asked, who had stood between two senior people in a December 2024 collision, who had cleared two years of pipeline debt in thirty days, who had shipped the Master Stroke in a month. <em>The two halves of the same identity, finally not at war with each other.</em> For most of my twenties the warrior had been the whole identity, and reserve had felt like a failure mode. The Bloom started teaching me otherwise. Phase 11 finished the lesson.</p>
+
+### The Next Chapter — AI-Augmented + Freelance
+
+<p data-mode="founder">Pivoting to a portfolio of <strong>AI-augmented projects + freelance consulting.</strong> Same engineering rigour, different employment structure. The kind of work where AI does the heavy lifting and human architecture keeps the soul — the same loop the Master Stroke had been a thirty-day proof of, now sized to a life instead of a sprint.</p>
+
+<p data-mode="founder">The doctrines I shipped at Zoca are portable. <em>Cynical Architect</em> ships with me. <em>Audit Architect</em> ships with me. <em>System Wisdom</em> is a posture, not a perch. The volume that closes here is one chapter. <em>The next one is mine to write.</em></p>
+
+### What This Log Was For
+
+<p data-mode="founder human">This log was the unvarnished record. <em>Every other doc on this site is a lossy decoder of these entries.</em> The manifesto, the blueprints, the ADRs, the case studies, the résumé — all of them are projections of this file onto a surface someone outside the room can read.</p>
+
+<p data-mode="founder human">The volume closes with this entry — and with the entry not-yet-written, in another chapter, by a version of me that has finally learned that <em>life is the priority and the work is the byproduct.</em> The version of me that started in lockdown 2020, watching React tutorials and feeling proud of a News API middleware, would not recognise the man writing this paragraph. That is the right outcome. <em>The volume worked.</em></p>
+
 ## What This Log Is For
 
 This is the <em>uncompressed</em> file. Every other document on this site
@@ -592,6 +692,10 @@ If you want to know <em>why</em> I am that kind of engineer, read this.
 
 ---
 
-## What's next — drafting on the go
+## The volume closes
 
-> **Status: ongoing.** The Institutional Resilience era closed the consultant-vs-founding-engineer chapter. The next entries land here when they're ready, without a schedule. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: complete.** The Zoca volume runs from 2020 — May 2026.
+> The next chapter is being written elsewhere — in repos, in
+> commits, in projects that will appear on this domain or downstream
+> when they're ready. The structured executive view stays in the
+> [Résumé](../Deepesh_Rathod_Resume.pdf).

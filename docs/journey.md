@@ -521,10 +521,116 @@
 
 <p data-mode="founder">The system was resilient because the <em>institutional memory carrying the doctrines</em> was still in the building. The framework can be hired; the memory has to be grown. Phase 10 is the chapter that recorded the difference.</p>
 
+## Phase 11 — Resignation & Liberty (February — May 2026)
+
+### The Master Stroke — Scheduling & Payments v2
+
+<p data-mode="engineer founder">February 2026. The mission was the one that had been quietly defining NRR for two quarters: build a unified <strong>Scheduling &amp; Payments</strong> engine — the v2 that would close the gap the v1 had left open since the predecessor identity. The timeline was a month. Not a quarter. Not "by end of Q1." A month.</p>
+
+<p data-mode="engineer founder">The architectural surface was every hard thing at once. <strong>Tenant isolation</strong> across 1,500+ businesses — each one a distinct, secure scheduling environment with its own slot graph and its own service catalog. <strong>Full Stripe Connect integration</strong> with booking-item snapshots, so a payment captured today could be reconciled against a service definition that had since drifted. <strong>Cart logic</strong> spanning blocked slots, varied service policies per tenant, and cart persistence across sessions. The kind of build that, in another company in another quarter, would have been a six-month roadmap.</p>
+
+<p data-mode="founder engineer">I led a small, high-agency team — <strong>Animesh</strong>, <strong>Aman</strong>, <strong>Kushagra</strong>. Three engineers and the doctrines. The Cynical Architect floor, the Master-Worker spine, the Audit-by-Snapshot trace — all already shipped, all already load-bearing. The pod re-launched on the company's own architectural floor and shipped the v2 inside the window. Cross-link: <a href="#scheduling-payments-v2">Case Study: Scheduling &amp; Payments v2</a>.</p>
+
+### The $200 Claude Max Velocity
+
+<p data-mode="engineer">Leveraged the highest-tier Claude Code sessions — the <strong>$200/mo Claude Max</strong> tier — to maintain a sustained <strong>10× development speed</strong> across the 30-day window. Not a benchmark. A metabolism. The kind of cadence the build required and the budget had to be re-justified to underwrite.</p>
+
+<p data-mode="engineer">The AI-Native Lead doctrine reaching its operational peak. AI was no longer a tool I picked up when the documentation ran out. AI was the second engineer in every working session, every architectural review, every code-shape decision. The conversation was the work; the artifact at the end was downstream. Phase 9 had named it. Phase 11 was where it earned its keep on the most NRR-critical surface in the building.</p>
+
+### The Scapegoat Incident
+
+<p data-mode="founder human">Despite a successful release — the v2 shipped, the tenants migrated, the payments cleared — the leadership layer attempted to frame the launch as a failure. The narrative being shaped around the work did not match the work.</p>
+
+<p data-mode="founder human">I refused to be the scapegoat. The moment marked a definitive shift. The executive layer was no longer aligned with technical reality — and the gap between what the system was actually doing and what the room was being told it was doing had become structural, not incidental. The system was working. The narrative was not.</p>
+
+<p data-mode="founder">A founding-engineer's job for five years had been to keep the system honest. The job for the next two months would be to notice that the room had stopped reading the system.</p>
+
+### The AI Skills "Golden Era"
+
+<p data-mode="founder">March 2026. The company adopted <em>"Claude Skills"</em> — a programme that allowed PMs and non-engineers to ship code directly. The rollout was framed as a velocity unlock and, on the surface, behaved like one. Velocity dashboards lit up. Ship counts climbed. The room celebrated.</p>
+
+<p data-mode="founder">For a month, the dashboards looked great. The number of merged PRs went up. The number of features tagged "shipped" went up. Every leading indicator the org had agreed to track was, in isolation, pointing the right way.</p>
+
+### The Production Reality
+
+<p data-mode="engineer">Underneath the velocity, technical integrity collapsed. Features shipped with compromises that were invisible from the dashboard — silent contract violations, swallowed errors, copy-pasted patterns ripped out of context, schema drift the migration tools weren't watching for. Production breaks became frequent. The kind that get fixed in the next deploy and never get RCA'd because nobody owns the seam they happened at.</p>
+
+<p data-mode="engineer">The lesson the era named for itself: <strong>AI is a force multiplier for experts, but a liability for the uninitiated.</strong> The same Claude Code that had bought a 10× velocity on Scheduling v2 — in the hands of engineers who knew what shape a working system should hold — became, in less calibrated hands, an accelerator for the production debt nobody wanted to count.</p>
+
+<p data-mode="engineer">I spent my final weeks as a <em>Code Guardian</em> — auditing the chaos that "everyone can ship now" was generating. See <a href="#adr-0017">ADR-0017</a> for the doctrine. The Cynical Architect's last shift inside the building was triage, not architecture.</p>
+
+### Engineering-Manager-as-Builder — The Slack PR Reviewer
+
+<p data-mode="engineer">Built a local <strong>AI PR Reviewer</strong> using Claude sessions wired into Slack. Code audits triggered by emoji reactions — react to a PR with a defined symbol, the agent pulled the diff, ran the audit, and posted findings back into the thread. A single engineer's review surface, externalised into a primitive the team could share.</p>
+
+<p data-mode="engineer">That was the proof. The right shape for AI-augmented engineering management is <strong>the EM as a builder of audit primitives</strong>, not the EM as a reviewer who hopes the team's prompts behave. You don't manage AI-generated code by reading more PRs faster. You manage it by building the trace and the audit at the perimeter, the way the Phase 7 PSQL Audit Function managed schema-level mutations — automatically, deterministically, with the database (or in this case, the bot) as the auditor.</p>
+
+<p data-mode="engineer">The pattern shipped to my own workflow first. It would have shipped to the team if there had been more runway. Cross-link: Blueprint §15.</p>
+
+### The Agentic Docs Pipeline
+
+<p data-mode="engineer founder">A parallel project running in the same window: an AI-agent pipeline that kept documentation in sync with roughly <strong>80% of the codebase I owned</strong>. Commits in, agent passes through the middle, updated ADRs / runbooks / blueprints out. Documentation that updated itself off the diff instead of waiting for an engineer to remember.</p>
+
+<p data-mode="founder engineer">The end-state of the AI-Native Handover doctrine — <em>manifesto principle 4</em>, the one Phase 5 named and every phase since had been compounding. The portfolio you are reading is, in part, what falls out of that habit. The corpus an agent could ingest tomorrow morning was being maintained by the agent that had helped write it the night before.</p>
+
+### The Blackout
+
+<p data-mode="human">April 2026. A physical blackout. The body's veto on the schedule the calendar refused to print. Same word as the December 2024 collision — different teammate, different month, same underlying mathematics. Bodies do not negotiate; they invoice.</p>
+
+<p data-mode="human">The realization that arrived with it was non-negotiable: <strong>work is the byproduct of life, not the other way around.</strong> The reverse of the late-2023 <em>adrenaline at 100kg</em> version of me — same body, opposite verdict. The same nervous system that had powered the 30-hour migration scripts and the 11 AM to 2 PM gauntlet was now drawing the line in a different place. Not because the will had weakened. Because the will had finally read the meter correctly.</p>
+
+### The 1500km Ride
+
+<p data-mode="human">Got on the Himalayan 450 — the bike Phase 9 had bought as moving meditation — and rode <strong>1,500km solo</strong>. No itinerary. No agenda. The kind of ride that is therapy or it is nothing.</p>
+
+<p data-mode="human">The road answered some of the questions. The rest, I came back to answer myself. A motorcycle does not solve the problem; it dissolves the noise around it until the shape of the problem is finally visible. The shape, by the time I rolled back into Bangalore, was clear.</p>
+
+### The Weekend Mandate
+
+<p data-mode="founder human">Leadership demanded mandatory weekend work for the core team — a policy decision, framed as a velocity intervention, that asked humans to perform like systems on the days the calendar reserves for being human. I refused.</p>
+
+<p data-mode="founder human">Said it plainly, in the room, on the record: Zoca was no longer my top priority. <em>My personal health and integrity were.</em> The position was not negotiating leverage. It was a line. The kind of line a five-year founding-engineer earns the right to draw exactly once, and only by having held every other line up to that moment.</p>
+
+### "What Have You Done?"
+
+<p data-mode="founder human">A CEO-level question, in a meeting: <em>"What have you done for the company apart from your job?"</em> A single sentence. A clean re-naming of three years of contribution as transactional.</p>
+
+<p data-mode="founder human">I heard it for what it was — not as personal animus, but as a values clash that had been waiting for a sentence to land in. The doctrines I'd shipped, the case studies on this site, the doors I'd held open during the December 2024 collision and the May 2025 stabilisation, the Master Stroke that had just shipped under the same roof — that question, in that room, in that tone, named the gap between what I had given and what was being asked of me. The question wasn't asking for inventory. It was asking for more.</p>
+
+<p data-mode="founder human">The answer wasn't an answer. It was the resignation.</p>
+
+### The Resignation — Integrity Over Inertia
+
+<p data-mode="founder">Resigned without an offer in hand. No bridge, no parallel track, no quiet exit interview where the next chapter was already lined up on a Slack DM. Chose the freedom to build my own future over the gravity of the role I had built into.</p>
+
+<p data-mode="founder"><strong>An act of technical and personal integrity, not a career move.</strong> A career move optimises for the next number on the offer letter. An integrity act optimises for the version of the engineer who has to look at the system in the mirror tomorrow morning. The doctrines stay. The chapter closes.</p>
+
+### The Legacy — Receipts
+
+<p data-mode="founder">Secured <strong>$6M in funding</strong>. Migrated <strong>480+ users with zero downtime</strong> — twice. Cleared two years of accumulated technical debt in 30 days. Architected the Zoca core from scratch. Shipped <strong>16 ADRs, 13 case studies, and 14 blueprints</strong> worth of doctrine to this site — a corpus an agent can ingest on day one and a successor can read on day two.</p>
+
+<p data-mode="founder"><em>The receipts are the receipts.</em> The system is in the building. The trace is on this domain. The work does not need a defender after the fact.</p>
+
+### Reserved Warrior — The Pivot
+
+<p data-mode="founder">The next chapter: a portfolio of AI-augmented projects + freelance consulting. The work that comes next will be selected for the <em>kind</em> of problem, not just the title on the badge. The Reserved Warrior posture — chosen, not assigned; called in for the problems the framework runs out of map for, the way Phase 10 closed.</p>
+
+<p data-mode="founder">Title: <strong>Founding Member · Lead Architect · Crisis Engineering Manager · Institutional Guardian · Reserved Warrior.</strong> Compensation reset: <strong>26L Fixed + 37L ESOPs</strong> as the <em>starting point</em> for the next freelance / staff-level chapter, not the ceiling. The number is a floor with a history attached, not a ask with a hope attached.</p>
+
+### The Volume Closes
+
+<p data-mode="founder human">This site is the documentation of one chapter. The site you are reading is now a <em>completed volume of work</em> — the predecessor identity, the Ghost Sprint, the Lambda Swarm, the December collision, the Bloom, the Resilience era, the Master Stroke, and the resignation that closes the loop on all of it.</p>
+
+<p data-mode="founder human">The next chapter writes itself in code committed to repos that will land on this domain or somewhere downstream. The story does not end here. The Zoca narrative does.</p>
+
 ## The Trajectory
 
-<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA) → Staff Engineer / Founding Engineer → Battle-Tested Leader / Guardian of the Product's Survival → Founding Member &amp; Internal Technical Consultant → <strong>Founding Member &amp; Lead Crisis Architect / Emergency Engineering Manager</strong>. Each title named the work the moment was asking for. <strong>At peak (Apr — Nov 2025):</strong> $3.5M ARR · 1,500+ customers · 140+ headcount. <strong>Background:</strong> $6M funding closed (Aug 2024); the doctrines stacked; the system held when the consultants' frameworks ran out of map.</p>
+<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA) → Staff Engineer / Founding Engineer → Battle-Tested Leader / Guardian of the Product's Survival → Founding Member &amp; Internal Technical Consultant → Lead Crisis Architect / Emergency Engineering Manager → <strong>Founding Member · Lead Architect · Crisis EM · Institutional Guardian · Reserved Warrior</strong> (26L Fixed + 37L ESOPs as the starting point for the next freelance / Staff-level chapter). <strong>Background:</strong> $6M funding closed (Aug 2024); peak <strong>$3.5M ARR · 1,500+ customers · 140+ headcount</strong>; 16 ADRs, 13 case studies, 14 blueprints shipped to this site; resignation as an act of integrity, not a career move.</p>
 
-## What's next
+## What's next — the next chapter
 
-> **Status: ongoing.** The Institutional Resilience era closed the loop on the consultant-vs-founding-engineer chapter. The next entries land here as they're written — without a schedule. The structured executive view stays in the [Résumé](../Deepesh_Rathod_Resume.pdf).
+> **Status: open.** The Zoca volume closes here. The next chapter is
+> a portfolio of AI-augmented projects + freelance consulting where
+> AI does the heavy lifting and human architecture keeps the soul.
+> Reach out: see the [Contact](#) section on the home page, or the
+> [Résumé](../Deepesh_Rathod_Resume.pdf).

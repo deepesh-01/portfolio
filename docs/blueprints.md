@@ -763,3 +763,103 @@ generalised: subsequent LLM-product surfaces in the stack adopted
 the same three-primitive shape — request serializer, response
 serializer with semantic guardrails, adversarial filter at the
 gate. The perimeter is the product.
+
+## 15. Engineering-Manager-as-Builder — The Slack PR Reviewer + Agentic Docs Pipeline
+
+**Context.** When AI lets a PM ship code, the EM's job stops being
+*review every PR* and starts being *build the systems that catch
+regression at scale*. The interrupt model — page the EM, wait for
+review, merge — does not survive a team where velocity is set by
+the AI, not by the human review tier. Two personal-tech artifacts,
+both built solo, both shipped as proof-of-concept for the team,
+both pointed at the same thesis: the audit primitives have to be
+*built*, not endured.
+
+### A. The Slack PR Reviewer
+
+**The Pattern.** Every PR triggers a Claude Code session that
+reviews the diff against a configurable set of project-specific
+rubrics — naming conventions, test coverage, error-handling shape,
+doctrine compliance (Cynical Architect / Audit Architect primitives
+present, ADR-0013 guardrails wired in, etc.). The review lands in
+a Slack thread on the PR's review channel.
+
+**The UX trick — emoji-driven actions.** Reviewers (human or AI)
+react to the Slack message with emoji to gate next steps. ✅ =
+approved. ⚠️ = re-review needed. 🚫 = block merge. The reactions
+are wired back to the PR via the GitHub API. *Emoji is the
+contract.* No web UI to build, no dashboard to maintain — Slack is
+already the surface the team lives in.
+
+**Why it matters.** Removes the "page the EM" interrupt — the
+audit happens automatically; the EM steps in only on the ⚠️ / 🚫
+reactions. EM time scales sub-linearly with team size.
+
+```typescript
+// pr_reviewer.ts — Slack-driven AI PR review
+async function onPullRequestOpened(pr: PullRequest): Promise<void> {
+  const diff = await github.getDiff(pr.id);                     // input
+  const review = await claude.review(diff, {                    // process: structured review
+    rubrics: PROJECT_RUBRICS,
+    style: 'concise + actionable',
+  });
+
+  await slack.postMessage({
+    channel: pr.repo.reviewChannel,
+    text: formatReview(review),                                 // data context
+    metadata: { pr_id: pr.id },
+  });
+}
+
+async function onSlackReaction(event: ReactionEvent): Promise<void> {
+  const pr = lookupPR(event.message.metadata.pr_id);
+  if (event.emoji === '✅') await github.approvePR(pr.id);     // output: approve
+  if (event.emoji === '🚫') await github.requestChanges(pr.id);// output: block
+}
+```
+
+### B. The Agentic Docs Pipeline
+
+**The Pattern.** An AI agent pipeline that ingests every commit on
+the watched repos and updates the corresponding documentation
+(READMEs, ADRs, blueprints) in a separate docs repo. Synchronisation
+runs on commit; conflicts surface as PRs against the docs repo for
+human review. The code repo and the docs repo stop drifting because
+the drift is closed by the agent before the next commit lands.
+
+**What it watched.** ~80% of the codebase the engineer owned.
+Documentation that updates itself off commits is the operational
+end-state of the AI-Native Handover doctrine (manifesto principle
+4) — the truth lives in code, the docs are a derived artefact, and
+the agent is the derivation.
+
+**Why it matters.** A company whose docs auto-sync with code is a
+company whose senior engineer can take a break — or leave — without
+leaving the company half-blind. The portfolio you are reading is a
+more deliberate, hand-curated cousin of the same instinct.
+
+```typescript
+// agentic_docs.ts — keep docs in sync with code
+async function onCommitPushed(commit: Commit): Promise<void> {
+  const touchedFiles = commit.files;                          // input
+  const affectedDocs = await mapCodeToDocs(touchedFiles);     // process: code → docs map
+
+  for (const doc of affectedDocs) {
+    const proposed = await claude.updateDoc({                 // process: AI proposes update
+      doc: await readDoc(doc.path),
+      commit: commit,
+      style: 'preserve voice + structure',
+    });
+
+    if (proposed.differs) {
+      await openDocPR({ path: doc.path, content: proposed.content }); // output: PR for review
+    }
+  }
+}
+```
+
+### The Thesis — Engineering-Manager-as-Builder
+
+<p data-mode="engineer founder">When AI velocity rises faster than human review capacity, the EM's role bifurcates: <em>review the code that needs human eyes</em>, and <em>build the systems that catch the rest at scale</em>. The PMs-shipping-code era (Phase 11) made the second half load-bearing. The Slack PR Reviewer is one shape of it; the Agentic Docs Pipeline is another. Both are <em>force multipliers the EM builds, not workflows the EM endures.</em></p>
+
+<p data-mode="founder">The next phase of engineering management — at companies still scaling AI-driven velocity — will reward the EMs who can write the audit-primitive layer faster than the AI velocity creates regressions. <em>That</em> is what "Engineering-Manager-as-Builder" looks like in 2026.</p>

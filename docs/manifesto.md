@@ -1,6 +1,6 @@
 # The Logic-First Manifesto
 
-> The operating manual. Four principles. Append-only.
+> The operating manual. Five principles. Append-only.
 
 ## 1. The IPO Framework (Input → Process → Output)
 
@@ -36,6 +36,16 @@
 
 <p data-mode="human">The honest framing: doing this work is also how I leave the next chapter possible. If everything I know is written down, I am free to move when the time is right, without leaving the company half-built. Documentation is the most loyal thing you can do for a team you might one day leave.</p>
 
+## 5. Personal Life Is The Priority. Professional Excellence Is The Byproduct.
+
+<p data-mode="human"><strong>Rule:</strong> Work is the byproduct of life, not the other way around. The version of this principle the body had to teach me, because I would not learn it any other way. Found out in April 2026, after a blackout that the calendar refused to make room for.</p>
+
+<p data-mode="human founder">For the first half of my career I had productivity backwards: I treated work as the source and personal life as the residual. The math was wrong. The actual relationship is the reverse — productivity is what falls out of stability, not what produces it.</p>
+
+<p data-mode="founder">For engineers reading this: the doctrines on this site (Cynical Architect, Audit Architect, Master-Worker, AI-Native Handover, System Wisdom) are operationally correct <em>only when the engineer running them has the personal infrastructure to think clearly under load.</em> The doctrines are downstream of the human. The human is upstream of everything.</p>
+
+<p data-mode="human">Said another way: a 16-hour workday is a sprint; a 1,500km motorcycle ride is a journey. I learned to do both. The journey is what made the sprint sustainable.</p>
+
 ---
 
 > *Innocence is allowed. Ignorance is not.*
@@ -43,3 +53,6 @@
 
 > *I am not someone who leaves when everything is breaking.*
 > — me, to leadership, returning from the Pune trip. Early 2024.
+
+> *Work is the byproduct of life, not the other way around.*
+> — the principle the body taught me in April 2026, after the blackout that the calendar refused to make room for.
