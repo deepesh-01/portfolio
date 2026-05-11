@@ -375,17 +375,17 @@
 
 <p data-mode="human founder">Naming the death of the old story was the cleanest version of growth I'd hit. Not louder. Just no longer needed.</p>
 
-### The War Room — with Sachin Shenoy
+### The War Room
 
-<p data-mode="engineer founder">I was chosen as the <em>Warrior</em> to work alongside <strong>Sachin Shenoy</strong> — a high-stakes, uncompromising leader brought in to put a different kind of pressure on the system. The collaboration ran on what we called <strong>War Room philosophy</strong>: absolute accountability, decision-following, no tactical drift mid-sprint. Once a call was made in the room, the call was the call. Re-litigation cost more than the bug.</p>
+<p data-mode="engineer founder">I was chosen as the <em>Warrior</em> to work alongside a senior consultant brought in to put a different kind of pressure on the system — high-stakes, uncompromising. The collaboration ran on what we called <strong>War Room philosophy</strong>: absolute accountability, decision-following, no tactical drift mid-sprint. Once a call was made in the room, the call was the call. Re-litigation cost more than the bug.</p>
 
 <p data-mode="engineer founder">The most load-bearing artifact of that stretch was a <strong>Dockerized testing pipeline</strong>. It added roughly an hour to every deployment. It also bought a level of reliability we'd never had — environment parity from local to staging to prod, regressions caught before they hit a tenant, the long tail of "works on my machine" finally extinguished. An hour of latency in exchange for a category of bug going extinct was a trade the War Room took without flinching.</p>
 
 <p data-mode="engineer founder">The internal debate of the era: TDD or pragmatism. Voices in the room pushed for full Test-Driven Development mid-sprint. I stood by pragmatism — <em>what actually keeps the system alive at 1,500 tenants</em>. Tests at the perimeter, tests at the contracts, tests where the production fires had actually started. Not tests as an ideology. The War Room aligned. The pipeline shipped. The ideology lost; the reliability won.</p>
 
-### The Enterprise Era — with Himanshu Hazarika
+### The Enterprise Era
 
-<p data-mode="engineer">After the War Room, the work pivoted to enterprise readiness. I worked with <strong>Himanshu Hazarika (IIT KGP '08)</strong> to implement <strong>Drizzle ORM</strong> across the platform — a migration that finally gave us true DB-migration visibility. Before Drizzle, schema drift was a thing you found in production by accident. After Drizzle, every migration had a diff, a history, a reviewable artifact. The database stopped being the layer where surprises lived.</p>
+<p data-mode="engineer">After the War Room, the work pivoted to enterprise readiness. I worked with a senior enterprise consultant to implement <strong>Drizzle ORM</strong> across the platform — a migration that finally gave us true DB-migration visibility. Before Drizzle, schema drift was a thing you found in production by accident. After Drizzle, every migration had a diff, a history, a reviewable artifact. The database stopped being the layer where surprises lived.</p>
 
 <p data-mode="engineer">The deeper goal underneath the ORM work was infrastructure preparation for <strong>SOC2 + HIPAA</strong> compliance. The audit shape. The trace shape. The access-control shape. The same instinct the Phase 7 PSQL Audit Function was built on — <em>build the trace before the bug, build the proof before the auditor</em> — now extended to the entire data layer. Cross-link: Blueprint §13, ADR-0014.</p>
 
@@ -453,7 +453,7 @@
 
 ### When The Frameworks Met The System
 
-<p data-mode="founder">By late 2025 the company was running on a hybrid spine — senior external consultants brought in to accelerate specific surfaces, plumbed alongside the Founding-engineer core that had carried the system from the predecessor identity through the Bloom. <strong>Himanshu Hazarika</strong> ran point in the Enterprise pod. <strong>Soumyakanti</strong> held an adjacent surface. The collaboration that had powered the Drizzle / IaC / SOC2 work in <a href="#phase-9">Phase 9</a> was real, and the throughput it bought was real.</p>
+<p data-mode="founder">By late 2025 the company was running on a hybrid spine — senior external consultants brought in to accelerate specific surfaces, plumbed alongside the Founding-engineer core that had carried the system from the predecessor identity through the Bloom. Senior consultants ran point in the Enterprise pod and on adjacent surfaces. The collaboration that had powered the Drizzle / IaC / SOC2 work in <a href="#phase-9">Phase 9</a> was real, and the throughput it bought was real.</p>
 
 <p data-mode="founder">The limits of that collaboration arrived in late 2025. They didn't arrive in the surfaces the consultants had been hired for — those shipped. They arrived in the seams between the new framework-driven work and the legacy substrate underneath. The places nobody had documented well enough for an outsider to navigate without the institutional memory the founding-engineer cohort still carried in one set of heads.</p>
 
@@ -529,7 +529,7 @@
 
 <p data-mode="engineer founder">The architectural surface was every hard thing at once. <strong>Tenant isolation</strong> across 1,500+ businesses — each one a distinct, secure scheduling environment with its own slot graph and its own service catalog. <strong>Full Stripe Connect integration</strong> with booking-item snapshots, so a payment captured today could be reconciled against a service definition that had since drifted. <strong>Cart logic</strong> spanning blocked slots, varied service policies per tenant, and cart persistence across sessions. The kind of build that, in another company in another quarter, would have been a six-month roadmap.</p>
 
-<p data-mode="founder engineer">I led a small, high-agency team — <strong>Animesh</strong>, <strong>Aman</strong>, <strong>Kushagra</strong>. Three engineers and the doctrines. The Cynical Architect floor, the Master-Worker spine, the Audit-by-Snapshot trace — all already shipped, all already load-bearing. The pod re-launched on the company's own architectural floor and shipped the v2 inside the window. Cross-link: <a href="#scheduling-payments-v2">Case Study: Scheduling &amp; Payments v2</a>.</p>
+<p data-mode="founder engineer">I led a small, high-agency team of three engineers. Three engineers and the doctrines. The Cynical Architect floor, the Master-Worker spine, the Audit-by-Snapshot trace — all already shipped, all already load-bearing. The pod re-launched on the company's own architectural floor and shipped the v2 inside the window. Cross-link: <a href="#scheduling-payments-v2">Case Study: Scheduling &amp; Payments v2</a>.</p>
 
 ### The $200 Claude Max Velocity
 

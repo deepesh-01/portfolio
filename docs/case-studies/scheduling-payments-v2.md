@@ -3,7 +3,7 @@
 **Period.** February 2026.
 **Surface.** A unified Scheduling & Payments engine for 1,500+ tenant businesses — the Master Stroke feature that had to land to solve the company's NRR crisis.
 **Constraints.** **One month** of build time. **$200/mo Claude Max** as the engineering pair. Tenant isolation. Full Stripe Connect integration. Booking-item snapshot logic for price-and-policy invariants.
-**Outcome.** Shipped on time. The Cynical Architect + Audit Architect + Master-Worker doctrines stacked underneath. The team — **Animesh**, **Aman**, **Kushagra** — operating at sustained 10x velocity through the Claude Max integration.
+**Outcome.** Shipped on time. The Cynical Architect + Audit Architect + Master-Worker doctrines stacked underneath. The team — three engineers — operating at sustained 10x velocity through the Claude Max integration.
 
 ## Context — Scheduling v1 → v2
 
@@ -99,7 +99,7 @@ async function createBooking(req: BookingRequest): Promise<Booking> {
 
 <p data-mode="engineer">The cadence: open the session with the doctrine in scope ("Cynical Architect on the Stripe webhook handler — what's the recovery path before I write the happy path?"); iterate on the shape until the failure modes were enumerated; then write the code. The AI's job was to surface the edge case I would have found in week three, in week one. <em>The judgment about which doctrine to apply at which seam never left the engineer.</em> The AI never picked the doctrine; it stress-tested the application of it.</p>
 
-<p data-mode="founder">The team — <strong>Animesh</strong> on the frontend / surface integration, <strong>Aman</strong> on the booking-flow + cart-logic backend, <strong>Kushagra</strong> on the Stripe Connect integration and reconciliation — operated at the same velocity because they were the kind of team that does not need to be told the same thing twice. <em>High-agency teams don't need management; they need vocabulary.</em> The Cynical Architect / Audit Architect doctrines on this site provided the vocabulary; the team did the rest.</p>
+<p data-mode="founder">The team — one engineer on the frontend / surface integration, one on the booking-flow + cart-logic backend, one on the Stripe Connect integration and reconciliation — operated at the same velocity because they were the kind of team that does not need to be told the same thing twice. <em>High-agency teams don't need management; they need vocabulary.</em> The Cynical Architect / Audit Architect doctrines on this site provided the vocabulary; the team did the rest.</p>
 
 ## Why This Was Different From v1
 

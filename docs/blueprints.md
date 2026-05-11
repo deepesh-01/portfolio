@@ -574,7 +574,7 @@ liability — applied to schema and infra instead of row-level deletes.
   security group, RDS parameter, and S3 policy lives in
   version-controlled HCL. No console-clicked infrastructure.
 
-**Senior collaborator.** Worked with Himanshu Hazarika (IIT KGP '08)
+**Senior collaborator.** Worked with a senior enterprise consultant
 on the Drizzle rollout and the early Terraform footprint.
 
 ### Drizzle ORM

@@ -2,7 +2,7 @@
 
 - **Status:** Accepted
 - **Date:** 2025-Q3 (decision crystallised during the Enterprise era of Phase 9, mid-2025)
-- **Deciders:** Deepesh Rathod, with Himanshu Hazarika (IIT KGP '08) as the senior collaborator on the Drizzle migration and the early Terraform footprint
+- **Deciders:** Deepesh Rathod, with a senior enterprise consultant as the collaborator on the Drizzle migration and the early Terraform footprint
 - **Supersedes:** —
 - **Related:** [ADR-0011 — Audit-by-Snapshot](./0011-psql-audit-by-snapshot.md), [`docs/blueprints.md`](../docs/blueprints.md) §13.
 
@@ -119,9 +119,9 @@ expects.
 
 The pattern shipped during Phase 9 (April — November 2025) and carried
 straight into the early SOC2 + HIPAA audit windows. The collaboration
-with **Himanshu Hazarika (IIT KGP '08)** on the Drizzle migration is
+with a senior enterprise consultant on the Drizzle migration is
 recorded here in gratitude — the compliance-readable database surface
-is materially his contribution as much as mine.
+is materially their contribution as much as mine.
 
 See [`docs/blueprints.md`](../docs/blueprints.md) §13 for the
 implementation patterns and code shapes.

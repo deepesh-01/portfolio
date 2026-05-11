@@ -421,17 +421,17 @@
 
 <p data-mode="human founder">The internal narrative had finally caught up to the external work. For years I'd been doing senior work while still feeling like I was about to be found out. The Town Hall monologue retired the noob-coder voice in front of the team without ceremony — no announcement, no farewell. He just stopped being in the room. <em>Pata bhi nahi chala kab gaya.</em></p>
 
-### The Warrior of the War Room — Sachin Shenoy
+### The Warrior of the War Room
 
-<p data-mode="engineer founder">I was chosen as the <em>Warrior</em> to work alongside <strong>Sachin Shenoy</strong>. High-stakes, uncompromising. The War Room philosophy was simple and brutal: absolute accountability, decision-following, no tactical drift. If a call was made on Monday, you didn't quietly walk it back on Wednesday because Wednesday was harder.</p>
+<p data-mode="engineer founder">I was chosen as the <em>Warrior</em> to work alongside a senior consultant. High-stakes, uncompromising. The War Room philosophy was simple and brutal: absolute accountability, decision-following, no tactical drift. If a call was made on Monday, you didn't quietly walk it back on Wednesday because Wednesday was harder.</p>
 
 <p data-mode="engineer founder">We built a Dockerized testing pipeline that added an hour to every deploy. An entire hour, on every push, gone. People hated it for a week. Then it started catching the kind of regressions that would have become 2 AM pages, and the hate quieted down. The pipeline saved us from outages we never had to write postmortems for — the best kind, the ones where the absence of a war story <em>is</em> the war story.</p>
 
-<p data-mode="engineer founder">When teammates argued for TDD mid-sprint, I stood with Sachin on pragmatism. Not anti-testing — anti-religion. <em>What actually keeps the system alive at this size, this week, with these people.</em> The doctrine wasn't on a wall. It was in every PR review.</p>
+<p data-mode="engineer founder">When teammates argued for TDD mid-sprint, I stood with the consultant on pragmatism. Not anti-testing — anti-religion. <em>What actually keeps the system alive at this size, this week, with these people.</em> The doctrine wasn't on a wall. It was in every PR review.</p>
 
-### The Enterprise Era — Himanshu Hazarika
+### The Enterprise Era
 
-<p data-mode="engineer">After the War Room, I worked with <strong>Himanshu Hazarika (IIT KGP '08)</strong> to implement <strong>Drizzle ORM</strong>. The first time, in three years at this company, that we had real DB-migration visibility — every migration's diff <em>readable, reviewable, revertable</em>. The kind of guardrail that the Christmas-SQL-call version of me would have wept for.</p>
+<p data-mode="engineer">After the War Room, I worked with a senior enterprise consultant to implement <strong>Drizzle ORM</strong>. The first time, in three years at this company, that we had real DB-migration visibility — every migration's diff <em>readable, reviewable, revertable</em>. The kind of guardrail that the Christmas-SQL-call version of me would have wept for.</p>
 
 <p data-mode="engineer">Same sprint, we started laying down the <strong>SOC2 + HIPAA</strong> compliance scaffolding. Enterprise-shaped work. The bones being put in place now were not for the company we were today — they were for the company we'd be when the next round closed and the customer logos got bigger.</p>
 
@@ -505,7 +505,7 @@
 
 ### When The Frameworks Met The System
 
-<p data-mode="founder">By late 2025 the company was running on a hybrid spine — senior external consultants alongside the founding-engineer core. <strong>Himanshu Hazarika</strong> on the Enterprise side. <strong>Soumyakanti</strong> on adjacent surfaces. The collaboration was real and, for most of the work, it held. Framework-shaped problems got framework-shaped answers, and the company moved.</p>
+<p data-mode="founder">By late 2025 the company was running on a hybrid spine — senior external consultants alongside the founding-engineer core. Senior consultants on the Enterprise side and on adjacent surfaces. The collaboration was real and, for most of the work, it held. Framework-shaped problems got framework-shaped answers, and the company moved.</p>
 
 <p data-mode="founder">The limit, when it came, came at the seams. Not in the centre of any one domain — the consultants knew their domains — but at the joins between domains, the places where the legacy environment, the new structure, and the company's idiosyncrasies met. <em>Those seams were only legible to the people who had been there since 2020.</em> Not because we were smarter. Because we had been there when the seam was being formed, and we still remembered why.</p>
 
@@ -571,7 +571,7 @@
 
 ### What I Learned About Frameworks
 
-<p data-mode="founder human">Frameworks are not failures when they fail. They are reaching the edge of what frameworks were built for. The right reading of <em>"the consultant work stalled"</em> is not <em>"the consultants were bad"</em> — Himanshu and Soumyakanti are senior, capable engineers and the rest of their work that quarter shipped. The right reading is <em>"the work crossed into the surface where institutional memory was load-bearing, and we had not yet figured out how to transfer that memory to outsiders."</em></p>
+<p data-mode="founder human">Frameworks are not failures when they fail. They are reaching the edge of what frameworks were built for. The right reading of <em>"the consultant work stalled"</em> is not <em>"the consultants were bad"</em> — the consultants were senior, capable engineers and the rest of their work that quarter shipped. The right reading is <em>"the work crossed into the surface where institutional memory was load-bearing, and we had not yet figured out how to transfer that memory to outsiders."</em></p>
 
 <p data-mode="founder human">That gap is on us, not on them. The unfixed bug — the one Phase 11 will probably name — is <em>that transfer.</em> How do you take the why-behind-the-why of a five-year-old codebase and put it into a form a senior consultant can pick up in a week? We do not have a clean answer yet. The Claude Code changelog pipeline is one thread. The AI-Native Handover Doctrine is another. The honest version of the late-2025 lesson is that we have started solving the right problem, and we are not done.</p>
 
@@ -587,7 +587,7 @@
 
 <p data-mode="engineer founder">February 2026. One month to ship a unified <strong>Scheduling & Payments</strong> engine — the feature whose absence had been quietly bleeding NRR for a quarter. <strong>Tenant isolation across 1,500+ businesses.</strong> <strong>Stripe Connect</strong> wired with booking-item snapshots so every charge could be reconstructed against the cart that had produced it. Cart logic that respected blocked slots, business-by-business cancellation policies, hold windows, the lot.</p>
 
-<p data-mode="engineer founder">I led a small, high-agency team — <strong>Animesh, Aman, Kushagra</strong>. The kind of team that does not need to be told what to do twice. You hand them a vertical, they hand you back a working surface, and the only conversation in between is the one about <em>why</em>, not <em>what</em>. The whole month ran on that compression.</p>
+<p data-mode="engineer founder">I led a small, high-agency team of three engineers. The kind of team that does not need to be told what to do twice. You hand them a vertical, they hand you back a working surface, and the only conversation in between is the one about <em>why</em>, not <em>what</em>. The whole month ran on that compression.</p>
 
 ### Claude Max — The 10× Window
 
@@ -645,7 +645,7 @@
 
 ### "What have you done?"
 
-<p data-mode="founder human"><strong>Ashish</strong> asked it in a meeting: <em>"What have you done for the company apart from your job?"</em></p>
+<p data-mode="founder human">The CEO asked it in a meeting: <em>"What have you done for the company apart from your job?"</em></p>
 
 <p data-mode="founder human">I heard the sentence three times in my own head before I answered. <em>Three years.</em> $6M secured. Two zero-downtime migrations on the same 480+ user base. The doctrines on this site — Cynical Architect, Audit Architect, Master-Worker, AI-Native Handover. The doors held open in December 2024 when two of my closest teammates walked out. The Master Stroke that had shipped a month earlier. The 30-day social-debt clear-out from late 2025. The Town Halls led when the founders were in the US.</p>
 
@@ -659,7 +659,7 @@
 
 ### What I Walked Out With
 
-<p data-mode="human founder">The doctrines. The receipts. The relationships with the small team that had stayed pragmatic when the executive layer had not — Animesh, Aman, Kushagra, and a handful of others whose names will live in DMs and not on this page. The <strong>16 ADRs</strong> on this site. The <strong>13 case studies</strong>. The <em>Cynical Architect → Audit Architect → System Wisdom</em> doctrine arc.</p>
+<p data-mode="human founder">The doctrines. The receipts. The relationships with the small team that had stayed pragmatic when the executive layer had not — the three engineers I'd led on the Master Stroke, and a handful of others whose names will live in DMs and not on this page. The <strong>16 ADRs</strong> on this site. The <strong>13 case studies</strong>. The <em>Cynical Architect → Audit Architect → System Wisdom</em> doctrine arc.</p>
 
 <p data-mode="human founder">And the body. Which had been the first to know it was time. Months before my head caught up, before the call where I refused the weekend, before the meeting where the question was asked — the body had been writing the resignation letter in smaller and smaller signals. I am still learning to read those signals earlier. The blackout was the receipt for not reading them earlier this round. I do not plan to need that receipt twice.</p>
 
