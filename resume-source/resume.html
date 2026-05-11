@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Deepesh Rathod — Resume</title>
+  <link rel="stylesheet" href="./resume.css" />
+</head>
+<body>
+
+  <!-- ============== HEADER ============== -->
+  <header class="header">
+    <div>
+      <h1>Deepesh Rathod</h1>
+      <p class="tagline">Founding Engineer · Lead Architect · Crisis EM</p>
+    </div>
+    <div class="contact">
+      +91 79872 15728<br />
+      <a href="mailto:deepeshd03938@gmail.com">deepeshd03938@gmail.com</a><br />
+      <a href="https://github.com/deepesh-01">github.com/deepesh-01</a><br />
+      Bengaluru, India · Available Jun 2026
+    </div>
+  </header>
+
+  <!-- ============== SUMMARY ============== -->
+  <section class="summary">
+    <p><strong>Founding Engineer</strong> with six years from first line of code to founding-team scale: ~2 years self-directed personal projects (2020 → mid-2021), then ~4.5 years professional — <strong>3 internships</strong> across early-stage startups, then <strong>Founding Engineer at Zoca</strong> (Sep 2022 → May 2026).</p>
+    <p>Defined the foundational AWS ECS/Fargate stack that scaled Zoca from 90 to <strong>1,500+ customers</strong> (<strong>$3.5M ARR</strong>, <strong>140+ headcount</strong>). Architected the <strong>$6M Lambda Swarm</strong> Step Functions hierarchy that closed the Series A. Shipped the Master Stroke — <strong>Scheduling &amp; Payments v2</strong> (Stripe Connect + tenant isolation across 1,500+ tenants + booking snapshots) — in <strong>30 days</strong> on $200/mo Claude Max with a small high-agency team. Published <strong>17 ADRs · 13 case studies · 7 long-form doctrines</strong>.</p>
+    <p>Looking for the next big build — <strong>Founding Engineer / Staff Software Engineer / Tech Lead</strong> roles where the work crosses system seams.</p>
+  </section>
+
+  <!-- ============== DEFINING WORK ============== -->
+  <h2>Defining Work</h2>
+  <section class="defining">
+    <ul>
+      <li><span class="lbl">Stack-defining decisions:</span> chose AWS ECS + Fargate over EC2; consolidated 3 servers + 50–60 Lambdas into <strong>6 autoscaling services + 10 workers + 10 Lambdas</strong>; orchestrated zero-failure migration of all legacy users — the calls that supported scale from 90 → 1,500+ customers ($1M+ → $3.5M ARR).</li>
+      <li><span class="lbl">$6M Lambda Swarm:</span> hierarchical Step Functions + S3 JSON state — the Streamlit Revenue Opportunity engine that closed the Series A. <strong>2-hour batch → 5-minute pipeline.</strong></li>
+      <li><span class="lbl">AI-native engineering platform:</span> Claude Code + custom Metabase MCP + AWS CLI toolchain that compresses outage and customer-issue RCAs from <strong>2–3 hours → ~5 minutes</strong> (25–35× speedup); auto-updating doc pipeline and Mac-based local infra clone enabling AI agents to write tests and validate end-to-end flows without staging dependencies.</li>
+      <li><span class="lbl">Master Stroke (Feb 2026):</span> shipped <strong>Scheduling &amp; Payments v2</strong> — Stripe Connect + tenant isolation across 1,500+ tenants + booking-item snapshots — in <strong>30 days</strong> on $200/mo Claude Max with a 3-engineer team.</li>
+      <li><span class="lbl">Force-multiplier leadership:</span> helped scale engineering from 2–3 → 15–18; ran <strong>20+ technical interviews</strong>; <strong>Senior Buddy</strong> for 4+ engineers (mentees shipping bug fixes in week 1 and end-to-end features within their first month); owned audit infrastructure and AWS ownership after senior departures.</li>
+    </ul>
+  </section>
+
+  <!-- ============== EXPERIENCE ============== -->
+  <h2>Experience</h2>
+
+  <div class="role">
+    <div class="row">
+      <p class="title">Zoca — <span class="company">Founding Member · Lead Architect · Crisis EM</span></p>
+      <p class="dates">Jan 2025 — May 2026</p>
+    </div>
+    <p class="scope">AWS ECS/Fargate · Terraform · Drizzle ORM · Redis · NestJS · Stripe Connect · LLM infra · SOC2/HIPAA</p>
+    <ul>
+      <li>Architected the foundational stack for a multi-tenant SaaS that scaled from <strong>90 → 1,500+ customers</strong> (1,000+ paying, <strong>$1M+ → $3.5M ARR</strong>, 140+ headcount); chose AWS ECS+Fargate over EC2 and consolidated 3 servers + 50–60 Lambdas into 6 autoscaling services + 10 workers + 10 Lambdas, drastically reducing operational surface while preserving pod-driven delivery.</li>
+      <li>Designed <strong>tenant isolation + database-layer audit logging</strong> — every internal access gated through a unified RBAC system and recorded as immutable change history; foundation for <strong>SOC2/HIPAA readiness</strong>.</li>
+      <li>Led <strong>zero-failure migration</strong> of all legacy users to the new architecture — no data loss, no production incidents, no rollbacks.</li>
+      <li>Built an <strong>AI-native engineering toolchain</strong> (Claude Code + custom Metabase MCP + AWS CLI) compressing RCAs from 2–3 hours of dedicated engineering bandwidth to ~5 minutes — complemented by an auto-updating doc pipeline and a Mac-based local infra clone for AI-driven E2E testing.</li>
+      <li>Authored the <strong>Master-Worker pattern</strong> (Redis + NestJS workers + Lambda callbacks), the <strong>LLM Guardrails</strong> safety layer, the <strong>Drizzle ORM + Terraform IaC</strong> rollout for SOC2/HIPAA-readable change management, and the <strong>Win Agent's deterministic LLM testing</strong> suite (invariants over examples).</li>
+      <li>Led the <strong>5-Minute RCA</strong> on the Infra-Flip CI/CD seam; authored the <em>System Wisdom vs Framework Knowledge</em> doctrine.</li>
+      <li>Integrated <strong>Retell / Voice AI</strong> for an early experimental cohort and built the observability layer — surfacing latency, error, and behavioral signals the moment each call ends.</li>
+      <li>Led the Scheduling &amp; Payments Pod — RFC processes, code-review standards, architectural guidelines; ran 20+ technical interviews; Senior Buddy for 4+ engineers.</li>
+      <li><strong>Master Stroke (Feb 2026):</strong> shipped <strong>Scheduling &amp; Payments v2</strong> — Stripe Connect + tenant isolation + booking-item snapshots — in <strong>30 days</strong> with a 3-engineer team on $200/mo Claude Max.</li>
+      <li>Built a local <strong>Slack PR Reviewer</strong> and an <strong>Agentic Docs Pipeline</strong> keeping ~80% of owned codebase docs in sync with commits — Engineering-Manager-as-Builder responses to rising AI velocity.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="row">
+      <p class="title">Zoca — <span class="company">Founding Engineer</span></p>
+      <p class="dates">Jun 2023 — Dec 2024</p>
+    </div>
+    <p class="scope">Node.js · NestJS · AWS (Lambda, Step Functions, S3, ECS/Fargate) · PostgreSQL · 150 GB media migration</p>
+    <ul>
+      <li>Spearheaded migration of the mobile-app backend from a legacy Python monolith to <strong>Node.js / NestJS services</strong>; established team-wide DevEx standards and shared utility tooling that scaled cleanly with the team.</li>
+      <li>Engineered a <strong>distributed media pipeline</strong> handling 1,000+ user uploads/day across <strong>900+ GB of S3</strong> with content-aware duplicate detection (0.1–5% reclaimed); executed the 150 GB migration with 30-hour scripts, two crashes, pause/resume + caffeinate — <strong>0% data loss</strong>.</li>
+      <li>Owned the <strong>Flask → Node fallback migration</strong> with a client-side safety net (zero-failure cutover for live users).</li>
+      <li>Drove SQL performance work: <strong>15-minute query → 75 seconds</strong> via CTEs, composite indexes, deadlock resolution.</li>
+      <li>Owned the entire <strong>AWS Cloud Infrastructure &amp; DevOps</strong> after a senior-leadership transition — absorbed full infra ownership while keeping product delivery uninterrupted.</li>
+      <li>Architected a <strong>hyper-local keyword demand system</strong> with 5-mile-radius geo-accuracy by integrating US Census data.</li>
+      <li>Designed and shipped <strong>Scheduling v1</strong> end-to-end — slot algorithm, transaction blocks, entity-snapshot pattern (the "Integrity Engine").</li>
+      <li>Architected the <strong>$6M Lambda Swarm</strong> — hierarchical Step Functions + S3 JSON state; the Streamlit Revenue Opportunity engine that closed the $6M round.</li>
+      <li>Authored the <em>Cynical Architect / Recovery-First</em> doctrine and the <strong>PSQL Audit-by-Snapshot</strong> pattern.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="row">
+      <p class="title">Zoca — <span class="company">Software Engineer Intern</span></p>
+      <p class="dates">Sep 2022 — May 2023</p>
+    </div>
+    <p class="scope">Python · Jinja · lemmatization · image classification · PostgreSQL · SQL triggers</p>
+    <ul>
+      <li>Built <strong>citation and NAP (Name/Address/Phone) consistency automation</strong> — delivered a 1-month scoped initiative in <strong>1 week</strong>, freeing the founding team for higher-leverage work.</li>
+      <li>Implemented <strong>lemmatization-based keyword matching</strong> to improve search relevance and recall.</li>
+      <li>Built a <strong>dynamic website generation pipeline</strong> combining Jinja templates with image classification.</li>
+      <li>Led a <strong>1.5-hour Christmas-morning P0</strong> (Dec 25, 2022) — production rescue of a deleted-row incident.</li>
+      <li>Authored the <strong>SQL-Defined Business Triggers</strong> pattern — AFTER-DELETE audit triggers on every core table; zero silently-lost rows since.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="row">
+      <p class="title">Arbunize Digital (VideoWiki) — <span class="company">Backend Developer Intern</span></p>
+      <p class="dates">Jan 2022 — Apr 2022</p>
+    </div>
+    <p class="scope">Python · Django · FFmpeg · real-time progress tracking</p>
+    <ul>
+      <li>Built backend APIs in <strong>Python/Django</strong> using FFmpeg for the VideoWiki video editor.</li>
+      <li>Engineered a <strong>real-time progress tracking system</strong> for long-running FFmpeg tasks, improving editor UX.</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <div class="row">
+      <p class="title">Yosecal Tech LLP (Finmo) — <span class="company">SDE Intern</span></p>
+      <p class="dates">Oct 2021 — Dec 2021</p>
+    </div>
+    <p class="scope">NestJS · AWS SES · CloudTrail · SQS · Slack API · transactional email</p>
+    <ul>
+      <li>Built NestJS servers integrating <strong>AWS SES, CloudTrail, SQS, and Slack API</strong> — powering management-event logging and transactional email rendering.</li>
+    </ul>
+  </div>
+
+  <!-- ============== PERSONAL PROJECTS — THE 2020-2021 FOUNDATION ============== -->
+  <h2>Personal Projects · 2020 — Mid 2021 (self-directed full-stack foundation)</h2>
+
+  <div class="project">
+    <div class="row">
+      <p class="title">Quiz App</p>
+      <p class="stack">React · Node.js · MongoDB Atlas · Passport · JWT · Redux · MaterialUI · Axios</p>
+    </div>
+    <p class="blurb">Full-stack web app with user login/registration, Passport authentication, JWT authorization, Redux global state, Mongoose data layer. <a href="https://github.com/deepesh-01/quiz-app">github.com/deepesh-01/quiz-app</a></p>
+  </div>
+
+  <div class="project">
+    <div class="row">
+      <p class="title">News-App</p>
+      <p class="stack">React · Node.js · Axios · News API · Heroku-deployed</p>
+    </div>
+    <p class="blurb">Production-style React frontend with a Node middleware connecting to a third-party news API; deployed on Heroku.</p>
+  </div>
+
+  <div class="project">
+    <div class="row">
+      <p class="title">Instagram Automation</p>
+      <p class="stack">Python · Selenium</p>
+    </div>
+    <p class="blurb">Selenium-driven Chrome automation — early exposure to browser-driven automation patterns that scaled into the Master Stroke's $200/mo Claude Max workflow five years later.</p>
+  </div>
+
+  <p class="portfolio-link"><strong>The IPO framework</strong> (Input → Process → Data Context → Output) was first drafted during this period as personal engineering doctrine; later became the documented backbone for every blueprint and ADR at Zoca.</p>
+
+  <!-- ============== SELECTED ARCHITECTURAL DOCTRINES ============== -->
+  <h2>Selected Published Doctrines · 17 ADRs at v1.deepesh-engg.in</h2>
+
+  <div class="doctrines">
+    <div class="row"><span class="id">ADR-0009</span> <span>The Lambda Swarm — Step Functions hierarchy + S3 JSON state · $6M Series A closed</span></div>
+    <div class="row"><span class="id">ADR-0010</span> <span>Recovery-First Architecture — the Cynical Architect doctrine</span></div>
+    <div class="row"><span class="id">ADR-0011</span> <span>Audit-by-Snapshot — generic PSQL before/after logging</span></div>
+    <div class="row"><span class="id">ADR-0012</span> <span>Master-Worker Pattern — Redis + NestJS workers + Lambda callbacks</span></div>
+    <div class="row"><span class="id">ADR-0014</span> <span>Drizzle ORM + Terraform IaC for SOC2/HIPAA-readable infrastructure</span></div>
+    <div class="row"><span class="id">ADR-0015</span> <span>Deterministic LLM Testing — invariants over examples</span></div>
+    <div class="row"><span class="id">ADR-0016</span> <span>System Wisdom vs Framework Knowledge — the Founding Logic doctrine</span></div>
+  </div>
+
+  <!-- ============== WEEKEND ARCHITECTURAL EXPLORATION ============== -->
+  <h2>Weekend / Off-Hours Architectural Exploration</h2>
+  <div class="project">
+    <p class="blurb"><strong>Slack PR Reviewer (Claude + Slack + Git):</strong> LLM-powered sentiment + technical review on PRs via emoji reaction — reviewed 30 PRs in the first 3 days vs ~15 baseline manually (<strong>2× review throughput</strong> with improved consistency).</p>
+  </div>
+  <div class="project">
+    <p class="blurb"><strong>Agentic Docs Pipeline:</strong> AI agents that keep ~80% of an owned codebase's docs in sync with commits; the end-state of the AI-Native Handover doctrine.</p>
+  </div>
+  <div class="project">
+    <p class="blurb"><strong>WeLog:</strong> collaborative real-time journaling for partners; end-to-end full-stack (auth, signup, encrypted private data, real-time shared entries with per-user isolation).</p>
+  </div>
+  <div class="project">
+    <p class="blurb"><strong>MarketSignal AI:</strong> real-time trading-automation engine ingesting Angel One market data on a 15-min cron, evaluating conditions, delivering Telegram alerts — full pipeline on local infrastructure, no third-party orchestration.</p>
+  </div>
+  <div class="project">
+    <p class="blurb"><strong>Private Cloud on Raspberry Pi:</strong> self-hosted server stack via Cloudflare Tunnels (no public IPs, no port-forwarding) — <strong>2+ months continuous uptime, 3–5s cold boot</strong>; engineered a passwordless camera-to-laptop streaming flow over unified LAN.</p>
+  </div>
+
+  <!-- ============== TECHNICAL SKILLS ============== -->
+  <h2>Technical Skills</h2>
+  <div class="skills">
+    <div class="cat">Languages</div>
+    <div class="vals">TypeScript, JavaScript, Python, SQL (PostgreSQL), Bash, HTML, CSS, C++, Java, C</div>
+
+    <div class="cat">Backend / Runtime</div>
+    <div class="vals">Node.js, NestJS, Express, Flask, FastAPI, Django, Django REST Framework, Streamlit</div>
+
+    <div class="cat">Frontend</div>
+    <div class="vals">React, React Native, Redux, MaterialUI</div>
+
+    <div class="cat">Cloud / Infra</div>
+    <div class="vals">AWS (ECS, Fargate, EC2, Lambda, Step Functions, S3, IAM, RDS, SES, SQS, CloudTrail, CloudFront), Terraform, Docker, CI/CD, GitHub Actions, Cloudflare Pages, Cloudflare Tunnels</div>
+
+    <div class="cat">Data / Storage</div>
+    <div class="vals">PostgreSQL (CTEs, triggers, RLS, transactions, indexes, optimisation), Redis, MongoDB, Drizzle ORM, audit-by-snapshot logging</div>
+
+    <div class="cat">AI / LLM</div>
+    <div class="vals">Claude Code, Claude Max, OpenAI Function Calling, Anthropic Claude API, custom MCP servers (Metabase MCP), LLM guardrails, deterministic LLM testing, semantic serialization, AI agent observability, Retell / Voice AI</div>
+
+    <div class="cat">Architecture</div>
+    <div class="vals">Multi-tenant SaaS, microservices, monorepo, tenant isolation + RBAC, zero-downtime migrations, master-worker pattern, Stripe Connect, scheduling / slot algorithms, booking-item snapshots</div>
+
+    <div class="cat">Compliance / Method</div>
+    <div class="vals">SOC2 readiness, HIPAA readiness, RBAC, audit logging, change management, Architecture Decision Records (ADR), RFC processes, IPO framework</div>
+
+    <div class="cat">Leadership</div>
+    <div class="vals">Crisis Engineering Manager, Tech Lead, founding-engineer cohort, hiring &amp; technical interviewing, Senior Buddy mentorship, code review &amp; doctrine authorship</div>
+  </div>
+
+  <!-- ============== EDUCATION ============== -->
+  <h2>Education</h2>
+  <p class="edu">
+    <strong>B.Tech — Information Technology</strong> · Shri Shankaracharya Technical Campus, SSGI (CSVTU affiliated) · <span class="meta">2019 — 2023 · GPA 7+/10</span>
+  </p>
+
+  <!-- ============== PORTFOLIO LINK ============== -->
+  <p class="portfolio-link"><strong>Full portfolio + 17 ADRs + 13 case studies:</strong> <a href="https://v1.deepesh-engg.in">v1.deepesh-engg.in</a></p>
+
+</body>
+</html>

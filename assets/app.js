@@ -346,12 +346,15 @@ async function loadArticle(slug) {
     // Unknown slug → degrade to home rather than show a 404 dead-end.
     view.classList.add('hide');
     home.classList.remove('hide');
+    document.body.classList.add('on-home');
     return;
   }
 
-  // Show the article container, hide the home.
+  // Show the article container, hide the home. The on-home class drives the
+  // perspective-switcher visibility (hidden on home, visible on article views).
   home.classList.add('hide');
   view.classList.remove('hide');
+  document.body.classList.remove('on-home');
   view.innerHTML = '<p class="loading">LOADING…</p>';
 
   try {
@@ -407,6 +410,10 @@ function showHome() {
   document.getElementById('view').classList.add('hide');
   document.getElementById('home').classList.remove('hide');
   setNavBackVisible(false);
+  // The home view owns audience-routing via the lens-picker, so the
+  // perspective switcher (.modebar) is hidden here via body.on-home (CSS).
+  // Article views remove this class and the switcher reappears.
+  document.body.classList.add('on-home');
 }
 
 /**

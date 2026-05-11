@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Deepesh Rathod · For Engineering Leaders</title>
+  <meta name="description" content="17 ADRs. 13 case studies. 7 long-form doctrines. Six years of decisions, written down at the time they were made. The portfolio for engineering leaders evaluating depth, judgment, and IC↔Lead range." />
+  <meta name="color-scheme" content="dark" />
+  <meta property="og:title" content="Deepesh Rathod · For Engineering Leaders" />
+  <meta property="og:description" content="Receipts: 15-min query → 75s · 2hr batch → 5min · 30hr migration → 0 data loss. 17 ADRs underneath." />
+  <link rel="stylesheet" href="./assets/styles.css?v=13" />
+  <link rel="stylesheet" href="./assets/covers.css?v=1" />
+</head>
+<body data-cover="leader">
+  <div class="cover-shell">
+
+    <!-- ============== NAV ============== -->
+    <nav class="cover-nav" aria-label="Primary">
+      <div class="brand">
+        <a href="./">DEEPESH RATHOD</a>
+      </div>
+      <div class="lens">// For Engineering Leaders</div>
+    </nav>
+
+    <p class="cover-slug">v1.deepesh-engg.in / leader</p>
+
+    <!-- ============== HERO — SYSTEM ARCHITECTURE BLOCK ============== -->
+    <section class="system-arch" aria-label="Career as system architecture">
+      <p class="label">// SYSTEM ARCHITECTURE: A CAREER</p>
+<pre><span class="key">SCOPE      :</span>  <span class="val">IC → TL → ARCHITECT → CRISIS EM → INSTITUTIONAL GUARDIAN</span>
+<span class="key">DOMAINS    :</span>  <span class="val">AI/LLM infra · cloud &amp; DevOps · audit &amp; compliance · funding-bagger prototype · scheduling &amp; payments</span>
+<span class="key">INCIDENTS  :</span>  <span class="val">3 P0s led · 1 multi-week outage closed · 0 repeat RCAs</span>
+<span class="key">ARTIFACTS  :</span>  <span class="val">17 ADRs · 13 case studies · 7 long-form</span></pre>
+    </section>
+
+    <!-- ============== JOHN'S RATIO HOOK ============== -->
+    <p class="leader-hook"><em>15min query → 75s</em> · <em>2hr batch → 5min</em> · <em>30hr migration → 0 data loss</em> · receipts below.</p>
+
+    <!-- ============== SCOPE-VS-TIME DENSITY GRID ============== -->
+    <p class="cover-section">Shape Of Practice · 2020 → 2026</p>
+    <div class="scope-grid" aria-label="Practice density over time">
+      <div class="scope-grid-table">
+        <div class="head"></div>
+        <div class="head">2020</div>
+        <div class="head">2021</div>
+        <div class="head">2022</div>
+        <div class="head">2023</div>
+        <div class="head">2024</div>
+        <div class="head">2025</div>
+        <div class="head">2026</div>
+
+        <div class="row-label">architecture</div>
+        <div class="cell"></div>
+        <div class="cell d1"></div>
+        <div class="cell d2"></div>
+        <div class="cell d3"></div>
+        <div class="cell d4"></div>
+        <div class="cell d4"></div>
+        <div class="cell d4"></div>
+
+        <div class="row-label">leadership</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell d1"></div>
+        <div class="cell d2"></div>
+        <div class="cell d4"></div>
+        <div class="cell d4"></div>
+
+        <div class="row-label">incidents</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell d2"></div>
+        <div class="cell d2"></div>
+        <div class="cell d4"></div>
+        <div class="cell d3"></div>
+        <div class="cell d4"></div>
+
+        <div class="row-label">mentorship</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell d2"></div>
+        <div class="cell d3"></div>
+        <div class="cell d3"></div>
+
+        <div class="row-label">strategy</div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell"></div>
+        <div class="cell d1"></div>
+        <div class="cell d2"></div>
+        <div class="cell d3"></div>
+        <div class="cell d4"></div>
+      </div>
+    </div>
+
+    <!-- ============== ADR INDEX TIMELINE ============== -->
+    <p class="cover-section">The ADR Index · 12 Doctrinal Decisions</p>
+    <section class="adr-index" aria-label="Architecture Decision Records by year">
+
+      <div class="adr-year-row">
+        <span class="year">2022</span>
+        <div class="items">
+          <a class="item" href="./adr/0006-sql-defined-business-triggers.md">
+            <span class="id">ADR-0006</span> SQL-Defined Business Triggers<span class="ctx"> / the Christmas-SQL aftermath — every core table gets an AFTER-DELETE audit trigger</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="adr-year-row">
+        <span class="year">2024</span>
+        <div class="items">
+          <a class="item" href="./adr/0007-fallback-migration-pattern.md">
+            <span class="id">ADR-0007</span> The Fallback Migration Pattern<span class="ctx"> / Flask → Node with a client-side safety net; zero-failure cutover</span>
+          </a>
+          <a class="item" href="./adr/0008-sql-defined-logic-pattern.md">
+            <span class="id">ADR-0008</span> SQL-Defined Logic as the Default<span class="ctx"> / move conditional logic from code into data</span>
+          </a>
+          <a class="item" href="./adr/0009-lambda-swarm-step-functions.md">
+            <span class="id">ADR-0009</span> The Lambda Swarm<span class="ctx"> / Step Functions hierarchy + S3 JSON state · 2hr → 5min · $6M closed</span>
+          </a>
+          <a class="item" href="./adr/0010-cynical-architect-recovery-first.md">
+            <span class="id">ADR-0010</span> Recovery-First Architecture<span class="ctx"> / the Cynical Architect doctrine — recovery primitives before the happy path</span>
+          </a>
+          <a class="item" href="./adr/0011-psql-audit-by-snapshot.md">
+            <span class="id">ADR-0011</span> Audit-by-Snapshot<span class="ctx"> / generic PSQL before/after logging; audit-proof for due diligence</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="adr-year-row">
+        <span class="year">2025</span>
+        <div class="items">
+          <a class="item" href="./adr/0012-master-worker-redis-pattern.md">
+            <span class="id">ADR-0012</span> The Master-Worker Pattern<span class="ctx"> / Redis + NestJS workers + Lambda callbacks · 480-user migration · 0% data loss</span>
+          </a>
+          <a class="item" href="./adr/0013-llm-guardrails-ai-safety-layer.md">
+            <span class="id">ADR-0013</span> LLM Guardrails<span class="ctx"> / the AI safety layer — typed serializers + semantic validators</span>
+          </a>
+          <a class="item" href="./adr/0014-drizzle-orm-iac-compliance.md">
+            <span class="id">ADR-0014</span> Drizzle ORM + Terraform IaC<span class="ctx"> / SOC2 / HIPAA-ready change-management substrate</span>
+          </a>
+          <a class="item" href="./adr/0015-deterministic-llm-testing.md">
+            <span class="id">ADR-0015</span> Deterministic LLM Testing<span class="ctx"> / invariants over examples — production-grade LLM test discipline</span>
+          </a>
+          <a class="item" href="./adr/0016-system-wisdom-vs-framework-knowledge.md">
+            <span class="id">ADR-0016</span> System Wisdom vs Framework Knowledge<span class="ctx"> / the Founding Logic doctrine — when frameworks meet institutional memory</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="adr-year-row">
+        <span class="year">2026</span>
+        <div class="items">
+          <a class="item" href="./adr/0017-ai-as-force-multiplier-vs-liability.md">
+            <span class="id">ADR-0017</span> AI as Force Multiplier vs Liability<span class="ctx"> / the Skills Paradox — when non-engineers ship code, technical integrity collapses</span>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ============== THREE SYSTEM-DESIGN CASE STUDIES WITH DIAGRAMS ============== -->
+    <p class="cover-section">Three System-Design Receipts</p>
+
+    <article class="leader-case">
+      <p class="num-label">01 · funding-bagger prototype</p>
+      <h3>The $6M Lambda Swarm — Step Functions Hierarchy + S3 JSON State</h3>
+<pre class="diagram">    ┌─ Master Step Function
+    │   pulls work · fans out · monitors
+    │
+    ├──→ Worker SFN  ──→ Lambda × N
+    ├──→ Worker SFN  ──→ Lambda × N
+    └──→ Worker SFN  ──→ Lambda × N
+              │
+              └─ S3 JSON state (recovery primitive · resume-from-anywhere)</pre>
+      <p class="blurb">August 2024. Streamlit Revenue Opportunity engine on a 3-hour feedback loop with a US-based CEO and $6M on the line. Hierarchical Step Functions over flat fan-out; S3 JSON as the cheapest possible state store; first meaningful Claude collaboration on architecture. 2hr batch → 5min. The round closed.</p>
+      <a class="read" href="./#lambda-swarm">read the case study →</a>
+    </article>
+
+    <article class="leader-case">
+      <p class="num-label">02 · LLM/AI infra</p>
+      <h3>Win Agent Testing — Invariants Over Examples</h3>
+<pre class="diagram">prompt ─┬─→ LLM ─┬─→ invariant validator  ──→ pass / fail
+        │        │   (structural rules,
+        │        │    not example match)
+        │        └─→ drift sentinel       ──→ perimeter alert
+        │
+        └─→ replay cache (record/replay for regressions)</pre>
+      <p class="blurb">2025. The Win Agent shipping at $3.5M ARR scale, with "change the prompt and pray" as the inherited test discipline. Replaced it with invariant-based validators + drift sentinels + replay cache. Same Cynical Architect doctrine, applied to the LLM layer. ADR-0013 + ADR-0015.</p>
+      <a class="read" href="./#win-agent-testing">read the case study →</a>
+    </article>
+
+    <article class="leader-case">
+      <p class="num-label">03 · System Wisdom vs Framework Knowledge</p>
+      <h3>The 5-Minute RCA — Infra-Flip Rescue</h3>
+<pre class="diagram">Terraform consolidation  ──→  clean diff · state-files committed
+                              │
+                              ▼
+                      CI/CD pipelines stall · 1hr+ war room
+                              │
+                  ──── the seam ──── legacy env × new NestJS/NX
+                              │
+                  5 minutes:  pattern-match · fix · pipeline up</pre>
+      <p class="blurb">Late 2025. The Infra-Flip shipped clean — the framework view said the system should run; the system did not run. The fix lived at the seam between the legacy environment and the new conventions. ADR-0016 named the doctrine the moment taught.</p>
+      <a class="read" href="./#infra-flip-rca">read the case study →</a>
+    </article>
+
+    <!-- ============== BORING-MARKDOWN CALLOUT ============== -->
+    <section class="bm-callout" aria-label="The portfolio is the artifact">
+      <p class="label">// This site IS the artifact</p>
+      <p>One <code>index.html</code>. One stylesheet. One ~120-line vanilla-JS markdown parser. Zero build step. Zero <code>node_modules</code>. Zero dependencies.</p>
+      <p>17 ADRs at <a href="./adr/0001-boring-markdown-stack.md">/adr</a> explain every structural decision. ADR-0001 is the meta-decision; the rest follow.</p>
+      <p class="stack-line">The medium is part of the message. If a hand-rolled monospace site reads as a trust signal, this audience reads me right.</p>
+    </section>
+
+    <!-- ============== BRIEF EXIT MENTION ============== -->
+    <section class="what-i-look-for">
+      <p>Six-year volume closed May 2026 on the company's own architectural floor — Scheduling &amp; Payments v2 shipped 30 days before exit. The exit itself was an act of integrity, not a career move; the doctrines stay, the work compounds. <a href="./#phase-11">Phase 11 →</a></p>
+      <p>Available <strong>Jun 2026</strong>. Open to <strong>Staff Engineer</strong>, <strong>Tech Lead</strong>, <strong>Engineering Manager</strong>, or <strong>Founding Engineer</strong> roles where the work crosses system seams.</p>
+    </section>
+
+    <!-- ============== CTA ============== -->
+    <section class="cta" aria-label="Contact">
+      <h2>The Audition Is The ADR</h2>
+      <div class="row">
+        <a class="primary" href="./adr/0009-lambda-swarm-step-functions.md">Read ADR-0009 (Lambda Swarm) →</a>
+        <a href="https://wa.me/917987215728?text=Hi%20Deepesh%2C%20engineering-leader%20role%20at%20%5Bcompany%5D" target="_blank" rel="noopener noreferrer">WhatsApp →</a>
+        <a href="https://www.linkedin.com/in/deepesh-rathod-315152198/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
+        <a href="mailto:deepeshd03938@gmail.com?subject=%5BStaff%2FTL%2FEM%5D%20%5Byour%20company%5D&body=Tell%20me%3A%20the%20system%20you%27re%20building%2C%20the%20seam%20that%27s%20costing%20you%2C%20what%20good%20looks%20like%20in%2090%20days.%0A%0A">Email →</a>
+      </div>
+      <div class="reading-paths">
+        <a href="./#journey">start with the journey →</a>
+        <a href="./#blueprints">jump to the blueprints →</a>
+        <a href="./#phase-11">read the resignation memo →</a>
+      </div>
+    </section>
+
+    <!-- ============== FOOTER ============== -->
+    <footer class="cover-footer">
+      <div class="links">
+        <a href="./">novel ↗</a>
+        <a href="./founder.html">founder lens →</a>
+        <a href="./recruiter.html">recruiter lens →</a>
+        <a href="./Deepesh_Rathod_Resume.pdf" download>resume.pdf ↓</a>
+      </div>
+      <div class="built">
+        <strong>BMAD-METHOD (Boring Markdown)</strong> · Engineered for Logic, not Layouts
+      </div>
+    </footer>
+
+  </div>
+</body>
+</html>

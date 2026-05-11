@@ -1,0 +1,232 @@
+/* =========================================================================
+   resume.css — print-friendly stylesheet for Deepesh Rathod's resume.
+   Target: A4 PDF via headless Chromium (Playwright). Light theme, sans-serif,
+   ATS-friendly density. Lives in resume-source/, NOT served as a runtime asset.
+   ========================================================================= */
+
+@page {
+  size: A4;
+  margin: 14mm 16mm;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #1a1a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.4;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+a {
+  color: #1a1a1a;
+  text-decoration: none;
+}
+
+/* ---------- Header ---------- */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 1.5pt solid #1a1a1a;
+  padding-bottom: 6pt;
+  margin-bottom: 10pt;
+}
+.header h1 {
+  font-size: 22pt;
+  font-weight: 700;
+  margin: 0 0 2pt;
+  letter-spacing: -0.01em;
+}
+.header .tagline {
+  font-size: 10pt;
+  color: #444;
+  margin: 0;
+  font-weight: 500;
+}
+.header .contact {
+  font-size: 9pt;
+  color: #444;
+  text-align: right;
+  line-height: 1.55;
+}
+.header .contact a {
+  color: #444;
+}
+
+/* ---------- Section headers ---------- */
+
+h2 {
+  font-size: 10pt;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1a1a1a;
+  border-bottom: 0.75pt solid #999;
+  padding-bottom: 3pt;
+  margin: 14pt 0 6pt;
+}
+
+/* ---------- Summary block ---------- */
+
+.summary {
+  font-size: 9.75pt;
+  line-height: 1.5;
+  margin: 0 0 6pt;
+}
+.summary p { margin: 0 0 4pt; }
+.summary strong { color: #000; }
+
+/* ---------- Defining work bullets ---------- */
+
+.defining ul {
+  margin: 4pt 0 0;
+  padding-left: 14pt;
+}
+.defining li {
+  font-size: 9.75pt;
+  line-height: 1.5;
+  margin: 3pt 0;
+}
+.defining li strong { color: #000; }
+.defining .lbl {
+  font-weight: 700;
+  color: #000;
+}
+
+/* ---------- Experience entries ---------- */
+
+.role {
+  margin: 8pt 0 4pt;
+  page-break-inside: avoid;
+}
+.role .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8pt;
+}
+.role .title {
+  font-size: 10.5pt;
+  font-weight: 700;
+  margin: 0;
+  color: #000;
+}
+.role .company { color: #000; }
+.role .dates {
+  font-size: 9pt;
+  color: #555;
+  font-style: italic;
+  white-space: nowrap;
+}
+.role .scope {
+  font-size: 9pt;
+  color: #555;
+  font-style: italic;
+  margin: 1pt 0 0;
+}
+.role ul {
+  margin: 4pt 0 0;
+  padding-left: 14pt;
+}
+.role li {
+  font-size: 9.5pt;
+  line-height: 1.45;
+  margin: 2.5pt 0;
+}
+.role li strong { color: #000; }
+
+/* ---------- Personal projects ---------- */
+
+.project {
+  margin: 5pt 0;
+}
+.project .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.project .title {
+  font-size: 10pt;
+  font-weight: 700;
+  margin: 0;
+}
+.project .stack {
+  font-size: 9pt;
+  color: #555;
+  font-style: italic;
+}
+.project .blurb {
+  font-size: 9.5pt;
+  margin: 1.5pt 0 0;
+  line-height: 1.45;
+}
+
+/* ---------- Doctrines table ---------- */
+
+.doctrines {
+  margin: 4pt 0 0;
+}
+.doctrines .row {
+  display: grid;
+  grid-template-columns: 60pt 1fr;
+  gap: 8pt;
+  font-size: 9.5pt;
+  padding: 1pt 0;
+  line-height: 1.45;
+}
+.doctrines .id {
+  font-weight: 700;
+  color: #000;
+  letter-spacing: 0.02em;
+}
+
+/* ---------- Skills grid ---------- */
+
+.skills {
+  display: grid;
+  grid-template-columns: 90pt 1fr;
+  gap: 5pt 10pt;
+  font-size: 9.5pt;
+  line-height: 1.5;
+}
+.skills .cat {
+  font-weight: 700;
+  color: #000;
+}
+.skills .vals {
+  color: #1a1a1a;
+}
+
+/* ---------- Education ---------- */
+
+.edu {
+  font-size: 9.5pt;
+  line-height: 1.5;
+  margin: 0;
+}
+.edu strong { color: #000; }
+.edu .meta { color: #555; }
+
+/* ---------- Footer link ---------- */
+
+.portfolio-link {
+  font-size: 9pt;
+  color: #555;
+  margin: 6pt 0 0;
+  font-style: italic;
+}
+.portfolio-link strong { color: #000; }
+
+/* ---------- Print rules ---------- */
+
+@media print {
+  .role, .project { page-break-inside: avoid; }
+  h2 { page-break-after: avoid; }
+}

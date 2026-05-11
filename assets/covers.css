@@ -1,0 +1,812 @@
+/* =========================================================================
+   covers.css — primitives for the three audience-targeted cover pages.
+   Loaded AFTER styles.css. Inherits all tokens (colours, mono stack, --measure).
+   No imports, no preprocessor, no JS hooks — same boring contract as the Novel.
+
+   Each cover gets one accent token (--cover-accent) selected from the existing
+   perspective palette so the brand DNA is preserved exactly:
+     Founder    → yellow (--accent)
+     Leader     → green  (--accent-2)
+     Recruiter  → pink   (--accent-3)
+   ========================================================================= */
+
+
+/* ---------- Per-cover accent ----------------------------------------- */
+
+/* Default for non-cover pages (the Novel home /). Cover pages override below. */
+:root { --cover-accent: var(--fg); }
+
+body[data-cover="founder"]   { --cover-accent: var(--accent);   }
+body[data-cover="leader"]    { --cover-accent: var(--accent-2); }
+body[data-cover="recruiter"] { --cover-accent: var(--accent-3); }
+
+
+/* ---------- Cover shell --------------------------------------------- */
+
+.cover-shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 1rem 1.5rem 4rem;
+}
+
+.cover-slug {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin: 0 0 2rem;
+  text-transform: lowercase;
+}
+
+.cover-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  padding: 0.9rem 0;
+  margin: 0 0 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.cover-nav .brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  font-size: 13px;
+}
+.cover-nav .brand a { text-decoration: none; }
+.cover-nav .lens {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cover-accent);
+}
+
+
+/* ---------- Section title (matches styles.css convention) ----------- */
+
+.cover-section {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin: 2.5rem 0 0.75rem;
+}
+
+
+/* ---------- Metric-cinema hero (Founder) ---------------------------- */
+
+.metric-hero {
+  margin: 1.5rem 0 2rem;
+}
+.metric-line {
+  font-size: clamp(1.05rem, 2.6vw, 1.7rem);
+  line-height: 1.45;
+  margin: 0 0 1rem;
+  letter-spacing: 0.005em;
+}
+.metric-line .num { color: var(--cover-accent); font-weight: 700; }
+.metric-line .arr { color: var(--fg); margin: 0 0.2rem; }
+.metric-line .lbl { color: var(--muted); font-size: 0.85em; }
+.metric-line .sep { color: var(--muted); margin: 0 0.5rem; font-size: 0.9em; }
+
+.sparkline {
+  font-size: clamp(1.4rem, 3.6vw, 2.2rem);
+  letter-spacing: 0.02em;
+  color: var(--cover-accent);
+  margin: 0.5rem 0 1.25rem;
+  line-height: 1;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+.cover-tagline {
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
+  color: var(--fg);
+  margin: 0 0 0.75rem;
+  font-style: normal;
+  max-width: var(--measure);
+  line-height: 1.5;
+}
+.cover-tagline em { color: var(--cover-accent); font-style: normal; }
+
+.cover-soft-line {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin: 0 0 2rem;
+  max-width: var(--measure);
+  line-height: 1.55;
+}
+
+
+/* ---------- Stack-plot timeline (Founder) --------------------------- */
+
+.stack-plot {
+  border-top: 1px solid var(--line-hot);
+  border-bottom: 1px solid var(--line-hot);
+  padding: 0.5rem 0;
+  margin: 2rem 0 3rem;
+}
+.stack-plot .row {
+  display: grid;
+  grid-template-columns: 4rem 1fr 9rem;
+  gap: 1rem;
+  padding: 0.5rem 0;
+  align-items: baseline;
+  font-size: 13px;
+  border-bottom: 1px dashed var(--line);
+}
+.stack-plot .row:last-child { border-bottom: 0; }
+.stack-plot .year   { color: var(--muted); letter-spacing: 0.1em; font-size: 12px; }
+.stack-plot .role   { color: var(--fg); }
+.stack-plot .role .scope { color: var(--muted); margin-left: 0.5em; }
+.stack-plot .bar    { color: var(--cover-accent); letter-spacing: 0; font-size: 14px; }
+.stack-plot .note   {
+  grid-column: 1 / 4;
+  color: var(--muted);
+  font-size: 11px;
+  padding: 0.75rem 0 0.25rem;
+  letter-spacing: 0.05em;
+}
+.stack-plot .note a { color: var(--cover-accent); }
+@media (max-width: 720px) {
+  .stack-plot .row { grid-template-columns: 3rem 1fr; }
+  .stack-plot .bar { grid-column: 2; }
+}
+
+
+/* ---------- Case-study cards (Founder + Leader) --------------------- */
+
+.case-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin: 1rem 0 3rem;
+}
+@media (max-width: 720px) {
+  .case-cards { grid-template-columns: 1fr; }
+}
+.case-card {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cover-accent);
+  padding: 1rem 1.1rem;
+  display: flex;
+  flex-direction: column;
+}
+.case-card .num-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.4rem;
+}
+.case-card h3 {
+  font-size: 0.95rem;
+  margin: 0 0 0.6rem;
+  line-height: 1.4;
+  color: var(--fg);
+}
+.case-card .blurb {
+  font-size: 13px;
+  color: var(--fg);
+  margin: 0 0 0.9rem;
+  line-height: 1.55;
+  flex: 1;
+}
+.case-card .read {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--cover-accent);
+  text-decoration: none;
+  text-transform: uppercase;
+  align-self: flex-start;
+}
+.case-card .read:hover { background: var(--cover-accent); color: var(--bg); padding: 0 0.3rem; }
+
+
+/* ---------- "What I look for" prose block (Founder) ----------------- */
+
+.what-i-look-for {
+  max-width: var(--measure);
+  margin: 2.5rem 0 1rem;
+}
+.what-i-look-for p {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0 0 1rem;
+}
+.comp-line {
+  border-left: 3px solid var(--cover-accent);
+  padding-left: 1rem;
+  margin: 1.5rem 0 0;
+  color: var(--cover-accent);
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+}
+
+
+/* ---------- System Architecture hero block (Leader) ----------------- */
+
+.system-arch {
+  margin: 1rem 0 2rem;
+  border: 1px solid var(--line-hot);
+}
+.system-arch .label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+  padding: 0.5rem 0.9rem;
+  border-bottom: 1px solid var(--line-hot);
+  background: #000;
+}
+.system-arch pre {
+  padding: 1rem 1.25rem;
+  margin: 0;
+  background: var(--code-bg);
+  color: var(--fg);
+  font-size: 13px;
+  line-height: 1.85;
+  overflow-x: auto;
+  white-space: pre;
+}
+.system-arch pre .key { color: var(--muted); }
+.system-arch pre .val { color: var(--cover-accent); }
+.system-arch pre .punct { color: var(--muted); }
+
+.leader-hook {
+  font-size: clamp(0.85rem, 1.6vw, 1rem);
+  color: var(--fg);
+  margin: 1.5rem 0 2.5rem;
+  line-height: 1.55;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+.leader-hook em { color: var(--cover-accent); font-style: normal; }
+@media (max-width: 720px) {
+  .leader-hook { white-space: normal; }
+}
+
+
+/* ---------- ADR index timeline (Leader) ----------------------------- */
+
+.adr-index {
+  margin: 1rem 0 3rem;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.adr-year-row {
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--line);
+  align-items: baseline;
+}
+.adr-year-row:last-child { border-bottom: 0; }
+.adr-year-row .year {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+}
+.adr-year-row .items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.adr-year-row .item {
+  font-size: 13px;
+  color: var(--fg);
+  text-decoration: none;
+  line-height: 1.45;
+  display: block;
+}
+.adr-year-row .item:hover { background: var(--fg); color: var(--bg); }
+.adr-year-row .id {
+  color: var(--cover-accent);
+  margin-right: 0.6rem;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+.adr-year-row .item:hover .id { color: inherit; }
+.adr-year-row .ctx { color: var(--muted); margin-left: 0.4em; font-size: 12px; }
+.adr-year-row .item:hover .ctx { color: inherit; }
+
+
+/* ---------- Scope-vs-Time density grid (Leader) --------------------- */
+
+.scope-grid {
+  margin: 2rem 0 3rem;
+  border: 1px solid var(--line-hot);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  background: var(--code-bg);
+}
+.scope-grid-table {
+  display: grid;
+  grid-template-columns: 8rem repeat(7, 1fr);
+  column-gap: 0.5rem;
+  row-gap: 0.5rem;
+  align-items: center;
+  font-size: 13px;
+  min-width: 640px;
+}
+.scope-grid-table .head {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-align: center;
+  padding: 0 0 0.25rem;
+}
+.scope-grid-table .row-label {
+  color: var(--fg);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+}
+.scope-grid-table .cell {
+  height: 1.25rem;
+  border: 1px solid var(--line);
+  background: transparent;
+}
+.scope-grid-table .cell.d1 { background: var(--cover-accent); opacity: 0.22; border-color: var(--cover-accent); }
+.scope-grid-table .cell.d2 { background: var(--cover-accent); opacity: 0.45; border-color: var(--cover-accent); }
+.scope-grid-table .cell.d3 { background: var(--cover-accent); opacity: 0.7;  border-color: var(--cover-accent); }
+.scope-grid-table .cell.d4 { background: var(--cover-accent); opacity: 1;    border-color: var(--cover-accent); }
+
+
+/* ---------- Leader case-study sections (with ASCII diagrams) -------- */
+
+.leader-case {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cover-accent);
+  padding: 1rem 1.25rem;
+  margin: 0 0 1.25rem;
+}
+.leader-case .num-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.4rem;
+}
+.leader-case h3 {
+  font-size: 1rem;
+  margin: 0 0 0.75rem;
+  color: var(--fg);
+  line-height: 1.4;
+}
+.leader-case .diagram {
+  background: var(--code-bg);
+  border: 1px solid var(--line);
+  padding: 0.75rem 1rem;
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 0.5rem 0;
+  overflow-x: auto;
+  color: var(--cover-accent);
+  white-space: pre;
+}
+.leader-case .blurb {
+  font-size: 13px;
+  color: var(--fg);
+  margin: 0.75rem 0 0.5rem;
+  line-height: 1.6;
+}
+.leader-case .read {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: var(--cover-accent);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.leader-case .read:hover { background: var(--cover-accent); color: var(--bg); padding: 0 0.3rem; }
+
+
+/* ---------- Boring-markdown manifesto callout (Leader) -------------- */
+
+.bm-callout {
+  border: 1px solid var(--cover-accent);
+  padding: 1.25rem 1.5rem;
+  margin: 2rem 0 3rem;
+}
+.bm-callout .label {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cover-accent);
+  margin: 0 0 0.6rem;
+}
+.bm-callout p {
+  margin: 0.4rem 0;
+  font-size: 13px;
+  color: var(--fg);
+  line-height: 1.55;
+}
+.bm-callout .stack-line { color: var(--muted); font-size: 12px; margin-top: 0.75rem; }
+
+
+/* ---------- Recruiter header card ----------------------------------- */
+
+.r-header {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  gap: 1.5rem;
+  border: 1px solid var(--line-hot);
+  padding: 1.25rem 1.5rem;
+  margin: 0 0 1rem;
+}
+@media (max-width: 720px) {
+  .r-header { grid-template-columns: 1fr; }
+}
+.r-header .label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  color: var(--cover-accent);
+  text-transform: uppercase;
+  margin: 0 0 0.5rem;
+}
+.r-header h1 {
+  font-size: 1.35rem;
+  margin: 0 0 0.4rem;
+  letter-spacing: 0.01em;
+}
+.r-header .role-line {
+  font-size: 13px;
+  color: var(--cover-accent);
+  margin: 0 0 0.75rem;
+  letter-spacing: 0.02em;
+}
+.r-header .meta {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.85;
+  margin: 0;
+}
+.r-header .meta strong { color: var(--fg); font-weight: 700; }
+.r-header .keywords {
+  font-size: 12px;
+  color: var(--fg);
+  line-height: 1.75;
+}
+
+
+/* ---------- Quick-facts strip (Recruiter) --------------------------- */
+
+.quick-facts {
+  display: flex;
+  gap: 0;
+  margin: 0 0 2rem;
+  border: 1px solid var(--line-hot);
+  flex-wrap: wrap;
+}
+.quick-facts .fact {
+  flex: 1 1 25%;
+  padding: 0.65rem 0.9rem;
+  border-right: 1px solid var(--line);
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: var(--fg);
+  min-width: 0;
+}
+.quick-facts .fact:last-child { border-right: 0; }
+.quick-facts .fact strong { color: var(--cover-accent); }
+@media (max-width: 720px) {
+  .quick-facts .fact { flex: 1 1 50%; border-bottom: 1px solid var(--line); }
+}
+
+
+/* ---------- Year-strip anchor nav (Recruiter) ----------------------- */
+
+.year-strip {
+  display: flex;
+  gap: 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 2rem 0;
+}
+.year-strip a {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem 0;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-decoration: none;
+  border-right: 1px solid var(--line);
+}
+.year-strip a:last-child { border-right: 0; }
+.year-strip a:hover { background: var(--cover-accent); color: var(--bg); }
+
+
+/* ---------- Resume blocks (Recruiter) ------------------------------- */
+
+.resume-block {
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--cover-accent);
+  padding: 1rem 1.25rem;
+  margin: 0 0 1rem;
+}
+.resume-block .head {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 0.5rem;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.resume-block .role-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: 0.01em;
+}
+.resume-block .year {
+  font-size: 12px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.resume-block .scope {
+  font-size: 12px;
+  color: var(--cover-accent);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.04em;
+}
+.resume-block ul {
+  margin: 0.5rem 0 0;
+  padding-left: 1.1rem;
+}
+.resume-block li {
+  font-size: 13px;
+  color: var(--fg);
+  margin: 0.3rem 0;
+  line-height: 1.6;
+}
+
+
+/* ---------- Tools & Stack section (Recruiter) ----------------------- */
+
+.tools-stack {
+  margin: 2rem 0 3rem;
+  border: 1px solid var(--line);
+  padding: 1.25rem 1.5rem;
+}
+.tools-stack h2 {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1rem;
+}
+.tools-stack .group { margin: 0 0 0.9rem; }
+.tools-stack .group:last-child { margin-bottom: 0; }
+.tools-stack .grp-label {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--cover-accent);
+  margin: 0 0 0.4rem;
+}
+.tools-stack .grp-items {
+  font-size: 13px;
+  color: var(--fg);
+  line-height: 1.75;
+}
+
+
+/* ---------- Pitch-quote (Recruiter) --------------------------------- */
+
+.pitch-quote {
+  border-left: 3px solid var(--cover-accent);
+  padding: 0.9rem 1.1rem;
+  margin: 2rem 0;
+  font-size: 13px;
+  color: var(--fg);
+  background: var(--code-bg);
+  line-height: 1.6;
+}
+.pitch-quote .label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 0.4rem;
+}
+.pitch-quote em { color: var(--cover-accent); font-style: normal; }
+
+
+/* ---------- CTA strip ----------------------------------------------- */
+
+.cta {
+  margin: 3rem 0 1rem;
+  border: 1px solid var(--line-hot);
+  padding: 1.5rem 1.75rem;
+}
+.cta h2 {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 1.25rem;
+}
+.cta .row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid var(--fg);
+  padding: 0.7rem 1.1rem;
+  text-decoration: none;
+  color: var(--fg);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+.cta a:hover { background: var(--fg); color: var(--bg); }
+.cta a.primary {
+  background: var(--cover-accent);
+  color: var(--bg);
+  border-color: var(--cover-accent);
+  font-weight: 700;
+}
+.cta a.primary:hover { filter: brightness(1.15); }
+
+
+/* ---------- Reading paths (Leader) ---------------------------------- */
+
+.reading-paths {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0 0;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.reading-paths a {
+  color: var(--cover-accent);
+  text-decoration: none;
+  border-bottom: 1px solid var(--cover-accent);
+  padding: 0.3rem 0.4rem;
+}
+.reading-paths a:hover { background: var(--cover-accent); color: var(--bg); }
+
+
+/* ---------- Cover footer (shared) ----------------------------------- */
+
+.cover-footer {
+  border-top: 1px solid var(--line);
+  padding: 1.25rem 0 0;
+  margin-top: 4rem;
+  display: flex;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.cover-footer .links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+.cover-footer a { color: var(--muted); text-decoration: none; }
+.cover-footer a:hover { color: var(--cover-accent); }
+.cover-footer .built { color: var(--muted); }
+.cover-footer .built strong { color: var(--fg); }
+
+
+/* ---------- Receipt strip (on the Novel landing /index.html) -------- */
+
+.receipt-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.9rem 0;
+  margin: 1.5rem 0 2rem;
+  border-top: 1px solid var(--line-hot);
+  border-bottom: 1px solid var(--line-hot);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  gap: 0.25rem;
+}
+.receipt-strip .r-item {
+  padding: 0 0.65rem;
+  color: var(--fg);
+  white-space: nowrap;
+}
+.receipt-strip .r-num { font-weight: 700; }
+.receipt-strip .r-yellow .r-num { color: var(--accent);   }
+.receipt-strip .r-green  .r-num { color: var(--accent-2); }
+.receipt-strip .r-pink   .r-num { color: var(--accent-3); }
+.receipt-strip .r-sep   { color: var(--line); }
+@media (max-width: 720px) {
+  .receipt-strip { font-size: 12px; }
+  .receipt-strip .r-item { padding: 0 0.4rem; }
+}
+
+
+/* ---------- Lens-picker (rich card variant) ------------------------- */
+
+.lens-picker {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  margin: 0 0 2.5rem;
+}
+@media (max-width: 720px) {
+  .lens-picker { grid-template-columns: 1fr; }
+}
+
+.lens-picker .lens-card {
+  border: 1px solid var(--line-hot);
+  border-top-width: 4px;
+  border-right-width: 0;
+  padding: 1.25rem 1.25rem 1.1rem;
+  text-decoration: none;
+  color: var(--fg);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  background: var(--bg);
+  transition: background 120ms linear;
+  min-height: 12rem;
+}
+.lens-picker .lens-card:last-child { border-right-width: 1px; }
+@media (max-width: 720px) {
+  .lens-picker .lens-card { border-right-width: 1px; border-bottom-width: 0; }
+  .lens-picker .lens-card:last-child { border-bottom-width: 1px; }
+}
+
+.lens-picker .lens-founder   { border-top-color: var(--accent);   }
+.lens-picker .lens-leader    { border-top-color: var(--accent-2); }
+.lens-picker .lens-recruiter { border-top-color: var(--accent-3); }
+
+.lens-picker .lens-label {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin: 0;
+}
+.lens-picker .lens-founder   .lens-label { color: var(--accent);   }
+.lens-picker .lens-leader    .lens-label { color: var(--accent-2); }
+.lens-picker .lens-recruiter .lens-label { color: var(--accent-3); }
+
+.lens-picker .lens-desc {
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.lens-picker .lens-hook {
+  font-size: 14px;
+  color: var(--fg);
+  line-height: 1.55;
+  margin: 0.3rem 0 0;
+  flex: 1;
+}
+
+.lens-picker .lens-cta {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0.6rem 0 0;
+  align-self: flex-start;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid currentColor;
+  font-weight: 700;
+}
+.lens-picker .lens-founder   .lens-cta { color: var(--accent);   }
+.lens-picker .lens-leader    .lens-cta { color: var(--accent-2); }
+.lens-picker .lens-recruiter .lens-cta { color: var(--accent-3); }
+
+.lens-picker .lens-founder:hover   { background: rgba(255, 212, 0, 0.06);  }
+.lens-picker .lens-leader:hover    { background: rgba(74, 222, 128, 0.06); }
+.lens-picker .lens-recruiter:hover { background: rgba(244, 114, 182, 0.06); }
+.lens-picker .lens-founder:hover   .lens-cta { background: var(--accent);   color: var(--bg); }
+.lens-picker .lens-leader:hover    .lens-cta { background: var(--accent-2); color: var(--bg); }
+.lens-picker .lens-recruiter:hover .lens-cta { background: var(--accent-3); color: var(--bg); }

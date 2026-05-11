@@ -6,9 +6,10 @@
   <title>Deepesh Rathod — Founding Engineer</title>
   <meta name="description" content="Founding Engineer | Logic-First Systems Architect. A boring, brutalist portfolio engineered to load in one round-trip." />
   <meta name="color-scheme" content="dark" />
-  <link rel="stylesheet" href="./assets/styles.css?v=13" />
+  <link rel="stylesheet" href="./assets/styles.css?v=14" />
+  <link rel="stylesheet" href="./assets/covers.css?v=1" />
 </head>
-<body data-active-mode="all">
+<body data-active-mode="all" class="on-home">
   <div class="shell">
 
     <!-- ============== NAV + PERSPECTIVE SWITCHER ============== -->
@@ -31,7 +32,88 @@
     <!-- ============== HOME (landing) ============== -->
     <main id="home">
 
-      <!-- HERO -->
+      <!-- RECEIPT STRIP — hard numbers above the fold -->
+      <section class="receipt-strip" aria-label="Receipts at a glance">
+        <span class="r-item r-yellow"><span class="r-num">$3.5M</span> ARR</span>
+        <span class="r-sep">·</span>
+        <span class="r-item r-green"><span class="r-num">1,500+</span> customers</span>
+        <span class="r-sep">·</span>
+        <span class="r-item r-pink"><span class="r-num">140+</span> humans</span>
+        <span class="r-sep">·</span>
+        <span class="r-item r-yellow"><span class="r-num">$6M</span> Series A</span>
+        <span class="r-sep">·</span>
+        <span class="r-item r-green"><span class="r-num">17</span> ADRs</span>
+        <span class="r-sep">·</span>
+        <span class="r-item r-pink"><span class="r-num">13</span> case studies</span>
+        <span class="r-sep">·</span>
+        <span class="r-item"><strong>Reserved Warrior</strong> since May 2026 — available Jun 2026</span>
+      </section>
+
+      <!-- GROWTH ARC — 6-year career timeline at a glance -->
+      <p class="section-title">The Growth Arc · 2020 → 2026</p>
+      <section class="stack-plot" aria-label="6-year career timeline">
+        <div class="row">
+          <span class="year">2020</span>
+          <span class="role">Personal projects <span class="scope">· self-taught full-stack · React + Node + MongoDB + Selenium</span></span>
+          <span class="bar">▏</span>
+        </div>
+        <div class="row">
+          <span class="year">2021</span>
+          <span class="role">SDE Intern · Yosecal/Finmo <span class="scope">· NestJS + AWS SES/CloudTrail/SQS · first professional code</span></span>
+          <span class="bar">▎</span>
+        </div>
+        <div class="row">
+          <span class="year">2022</span>
+          <span class="role">Backend Intern (Arbunize) → SE Intern (Zoca) <span class="scope">· FFmpeg/Django → Jinja/Python · Christmas SQL Call · first audit-trigger ADR</span></span>
+          <span class="bar">█</span>
+        </div>
+        <div class="row">
+          <span class="year">2023</span>
+          <span class="role">Founding Engineer at Zoca (Jun 2023) <span class="scope">· mobile-backend Python→Node · 150GB media migration · Scheduling v1</span></span>
+          <span class="bar">██</span>
+        </div>
+        <div class="row">
+          <span class="year">2024</span>
+          <span class="role">Lead Architect <span class="scope">· AWS Cloud + DevOps ownership · 480+ user unified migration · $6M Lambda Swarm</span></span>
+          <span class="bar">████</span>
+        </div>
+        <div class="row">
+          <span class="year">2025</span>
+          <span class="role">Lead Architect · Crisis EM <span class="scope">· $3.5M ARR · 1,500+ customers · 140+ headcount · 17 ADRs published</span></span>
+          <span class="bar">████████</span>
+        </div>
+        <div class="row">
+          <span class="year">2026</span>
+          <span class="role">Reserved Warrior <span class="scope">· 30-day Master Stroke · Scheduling &amp; Payments v2 · volume closed May 2026</span></span>
+          <span class="bar">█████████</span>
+        </div>
+        <div class="note">// Six-year arc · four years professional · one 10x to show</div>
+      </section>
+
+      <!-- LENS PICKER — three audience-targeted covers, above the fold -->
+      <p class="section-title">Three audiences. Three covers. Pick a lens — or scroll for the full Novel.</p>
+      <nav class="lens-picker" aria-label="Audience-targeted covers">
+        <a class="lens-card lens-founder" href="./founder.html">
+          <p class="lens-label">For Founders</p>
+          <p class="lens-desc">Founder · staff hire · 5-second hook</p>
+          <p class="lens-hook">Pre-revenue → $3.5M ARR. The founding-engineer hire who's already lived your dark night.</p>
+          <span class="lens-cta">Enter →</span>
+        </a>
+        <a class="lens-card lens-leader" href="./leader.html">
+          <p class="lens-label">For Engineering Leaders</p>
+          <p class="lens-desc">CTO · EM · TL · 30-second scan</p>
+          <p class="lens-hook">17 ADRs. 13 case studies. Six years of decisions, written down at the time they were made.</p>
+          <span class="lens-cta">Enter →</span>
+        </a>
+        <a class="lens-card lens-recruiter" href="./recruiter.html">
+          <p class="lens-label">For Recruiters &amp; TA</p>
+          <p class="lens-desc">ATS-friendly · 6-second scan</p>
+          <p class="lens-hook">Senior SWE · 4+ yrs professional · full-stack + AWS + LLM systems · resume + keywords. Avail Jun 2026.</p>
+          <span class="lens-cta">Enter →</span>
+        </a>
+      </nav>
+
+      <!-- HERO (the brand statement, for readers who scroll past the lens-picker) -->
       <section class="hero">
         <h1>If the product isn't moving, move it yourself.</h1>
         <p class="role">Founding Engineer / Staff-level ownership in a seed-stage environment.</p>
@@ -288,6 +370,6 @@
 
   </div>
 
-  <script src="./assets/app.js?v=13"></script>
+  <script src="./assets/app.js?v=14"></script>
 </body>
 </html>

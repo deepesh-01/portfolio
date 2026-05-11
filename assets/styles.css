@@ -102,6 +102,12 @@ hr {
   border: 1px solid var(--line-hot);
 }
 
+/* Hide the modebar on the home view — the lens-picker is the audience-routing
+   surface there, so the perspective pills would be a competing UI. They remain
+   visible on article views, where data-mode dimming actually changes the read.
+   Toggled by app.js via body.on-home; see ADR-0002 (Perspective Toggle). */
+body.on-home .modebar { display: none; }
+
 .mode-pill {
   background: transparent;
   color: var(--fg);
