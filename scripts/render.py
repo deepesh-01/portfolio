@@ -54,6 +54,9 @@ COVER_PAGES = [
     ("founder", "/founder.html"),
     ("leader", "/leader.html"),
     ("recruiter", "/recruiter.html"),
+    # Article views (hash-routed via the SPA) — verify tile-mode rendering.
+    ("article-manifesto-tiles", "/#manifesto"),
+    ("article-blueprints-tiles", "/#blueprints"),
 ]
 
 

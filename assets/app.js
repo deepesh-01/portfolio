@@ -74,6 +74,12 @@ const MODES = Object.freeze(['all', 'founder', 'engineer', 'human']);
 /** localStorage key for the user's last-selected perspective. */
 const MODE_STORAGE_KEY = 'bmad.mode';
 
+/** Article view modes (tile grid vs continuous scroll). Order matters for UI. */
+const VIEW_MODES = Object.freeze(['tiles', 'long']);
+
+/** localStorage key for the user's last-selected article view mode. */
+const VIEW_STORAGE_KEY = 'bmad.view';
+
 
 /* ───── §2. Markdown parser ───────────────────────────────────────────── */
 
@@ -308,6 +314,49 @@ function enhanceCodeBlocks(scope) {
 }
 
 /**
+ * chapterize — group every H2 + the content that follows it (until the next
+ * H2) into a <details class="chapter"> block. Each chapter becomes a clickable
+ * card in tile view (the default) or a section header in long-form view; the
+ * mode toggle lives in setView(). Pure DOM rearrangement; the CSS drives the
+ * visual mode via body[data-view-mode].
+ *
+ * Idempotent: marks the scope with data-chapterized so re-renders no-op.
+ *
+ * INPUT   a DOM scope (typically the rendered <article>).
+ * OUTPUT  same scope with H2 boundaries wrapped in <details class="chapter">.
+ *         Content above the first H2 (if any) is left in place as a preamble.
+ */
+function chapterize(scope) {
+  if (scope.dataset.chapterized === '1') return;
+  scope.dataset.chapterized = '1';
+
+  const h2s = Array.from(scope.querySelectorAll(':scope > h2'));
+  if (h2s.length === 0) return;
+
+  for (const h2 of h2s) {
+    const details = document.createElement('details');
+    details.className = 'chapter';
+
+    const summary = document.createElement('summary');
+    summary.className = 'chapter-head';
+    summary.textContent = h2.textContent;
+    details.appendChild(summary);
+
+    // Move every sibling after this h2, up to (but not including) the next h2,
+    // into the details block.
+    let curr = h2.nextSibling;
+    while (curr && !(curr.nodeType === 1 && curr.tagName === 'H2')) {
+      const next = curr.nextSibling;
+      details.appendChild(curr);
+      curr = next;
+    }
+
+    // Replace the original h2 with the details block.
+    h2.parentNode.replaceChild(details, h2);
+  }
+}
+
+/**
  * rewriteInternalLinks — turn cross-doc links like <a href="#blueprints">
  * into proper SPA hash links. Already-hash links are passed through; the
  * function exists mostly so a future markdown author can write absolute
@@ -370,12 +419,17 @@ async function loadArticle(slug) {
     // they never see a flash of "/docs/foo.md" hover-targets.
     rewriteInternalLinks(article);
     enhanceCodeBlocks(article);
+    chapterize(article);
 
     // The article body no longer carries its own BACK element — BACK lives
     // in the nav (#navBack) and is shown / hidden by setNavBackVisible() on
     // every route change. See §6 boot for the click handler.
     view.innerHTML = '';
     view.appendChild(article);
+
+    // Re-apply the current view mode now that fresh .chapter elements exist
+    // (setView force-opens or closes every chapter to match the mode).
+    setView(document.body.getAttribute('data-view-mode') || 'tiles');
   } catch (err) {
     view.innerHTML =
       '<p>Could not load <code>' + escapeHtml(path) + '</code>: '
@@ -468,6 +522,47 @@ function wireModeBar() {
 }
 
 
+/* ───── §5b. View-mode state machine ─────────────────────────────────── */
+
+/**
+ * setView — switch the article view between tile grid and continuous scroll.
+ *
+ * INPUT   one of VIEW_MODES ('tiles' | 'long').
+ * PROCESS write body's data-view-mode attribute (CSS reads this), force-open
+ *         every .chapter in long mode (and close every one in tile mode), and
+ *         persist the choice to localStorage.
+ * OUTPUT  the article renders as a grid of chapter CTAs (tiles) or as a
+ *         continuous long-form scroll with every section visible (long).
+ *
+ * Invariant: this is the only function that writes data-view-mode. If you are
+ * tempted to write that attribute from elsewhere, write it here instead.
+ */
+function setView(mode) {
+  const safe = VIEW_MODES.includes(mode) ? mode : 'tiles';
+  document.body.setAttribute('data-view-mode', safe);
+
+  document.querySelectorAll('.chapter').forEach((d) => {
+    if (safe === 'long') d.setAttribute('open', '');
+    else d.removeAttribute('open');
+  });
+
+  document.querySelectorAll('.view-toggle').forEach((btn) => {
+    const active = btn.dataset.view === safe;
+    btn.classList.toggle('is-active', active);
+    btn.setAttribute('aria-pressed', String(active));
+  });
+
+  try { localStorage.setItem(VIEW_STORAGE_KEY, safe); } catch (_) { /* private mode */ }
+}
+
+/** wireViewBar — install one click handler per view-toggle. Idempotent. */
+function wireViewBar() {
+  document.querySelectorAll('.view-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => setView(btn.dataset.view));
+  });
+}
+
+
 /* ───── §6. Boot ──────────────────────────────────────────────────────── */
 
 /**
@@ -506,11 +601,16 @@ function wireNavBack() {
  */
 function boot() {
   wireModeBar();
+  wireViewBar();
   wireNavBack();
 
   let stored = 'all';
   try { stored = localStorage.getItem(MODE_STORAGE_KEY) || 'all'; } catch (_) {}
   setMode(stored);
+
+  let storedView = 'tiles';
+  try { storedView = localStorage.getItem(VIEW_STORAGE_KEY) || 'tiles'; } catch (_) {}
+  setView(storedView);
 
   enhanceCodeBlocks(document);
 

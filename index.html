@@ -6,16 +6,24 @@
   <title>Deepesh Rathod — Founding Engineer</title>
   <meta name="description" content="Founding Engineer | Logic-First Systems Architect. A boring, brutalist portfolio engineered to load in one round-trip." />
   <meta name="color-scheme" content="dark" />
-  <link rel="stylesheet" href="./assets/styles.css?v=14" />
+  <link rel="stylesheet" href="./assets/styles.css?v=15" />
   <link rel="stylesheet" href="./assets/covers.css?v=1" />
 </head>
-<body data-active-mode="all" class="on-home">
+<body data-active-mode="all" data-view-mode="tiles" class="on-home">
   <div class="shell">
 
-    <!-- ============== NAV + PERSPECTIVE SWITCHER ============== -->
+    <!-- ============== NAV + VIEW + PERSPECTIVE ============== -->
     <nav class="nav" aria-label="Primary">
       <div class="nav-left">
         <a id="navBack" class="nav-back hide" href="#" aria-label="Back">← BACK</a>
+        <div class="viewbar" role="group" aria-label="Article view mode">
+          <button class="view-toggle is-active" type="button" data-view="tiles" title="Tile view — chapter overview · click any chapter to read" aria-pressed="true">
+            <span class="icon" aria-hidden="true">⊞</span> tiles
+          </button>
+          <button class="view-toggle" type="button" data-view="long" title="Long-form view — continuous scroll, every chapter visible" aria-pressed="false">
+            <span class="icon" aria-hidden="true">☰</span> long
+          </button>
+        </div>
         <div class="nav-brand">
           <a href="#">DEEPESH RATHOD</a>
           <small>// Founding Engineer · Logic-First Systems Architect</small>
@@ -370,6 +378,6 @@
 
   </div>
 
-  <script src="./assets/app.js?v=14"></script>
+  <script src="./assets/app.js?v=15"></script>
 </body>
 </html>

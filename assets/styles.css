@@ -108,6 +108,134 @@ hr {
    Toggled by app.js via body.on-home; see ADR-0002 (Perspective Toggle). */
 body.on-home .modebar { display: none; }
 
+
+/* ---------- View-mode toggle (viewbar in nav) ------------------------ */
+
+/* The viewbar lives next to BACK in .nav-left. Article-only, hidden on home. */
+.viewbar {
+  display: flex;
+  gap: 0;
+  border: 1px solid var(--line-hot);
+}
+.view-toggle {
+  background: transparent;
+  color: var(--fg);
+  border: 0;
+  border-right: 1px solid var(--line-hot);
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.7rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+.view-toggle:last-child { border-right: 0; }
+.view-toggle:hover     { background: var(--fg); color: var(--bg); }
+.view-toggle.is-active { background: var(--fg); color: var(--bg); }
+.view-toggle .icon { font-size: 15px; line-height: 1; }
+body.on-home .viewbar { display: none; }
+
+
+/* ---------- Chapter cards (rendered by chapterize() in app.js) ------- */
+
+/* Each <details class="chapter"> wraps a former H2 + the content that
+   followed it. Tile mode (default) shows summaries as click-to-open CTAs;
+   long mode forces every chapter open and removes the grid layout. The toggle
+   is purely visual — the DOM is identical in both modes. */
+
+.chapter {
+  margin: 0;
+  border: 1px solid var(--line-hot);
+  border-left: 3px solid var(--accent);
+  background: transparent;
+  padding: 0;
+}
+.chapter > summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1rem 1.25rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: 0.01em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  background: transparent;
+}
+.chapter > summary::-webkit-details-marker { display: none; }
+.chapter > summary::marker { content: ''; }
+.chapter > summary::after {
+  content: '+';
+  font-size: 1.4rem;
+  color: var(--accent);
+  font-weight: 400;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.chapter[open] > summary::after { content: '−'; }
+.chapter > summary:hover { background: var(--fg); color: var(--bg); }
+.chapter > summary:hover::after { color: var(--bg); }
+
+.chapter > *:not(summary) { padding-left: 1.25rem; padding-right: 1.25rem; }
+.chapter > *:not(summary):first-of-type { padding-top: 0.4rem; }
+.chapter > *:not(summary):last-child    { padding-bottom: 1rem;  }
+
+
+/* ---------- TILES mode (default) — chapter grid --------------------- */
+
+body[data-view-mode="tiles"] .article {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+/* Preamble content (H1, blockquotes, paragraphs before the first H2)
+   spans the full grid width — only the chapter tiles share the 2-col grid. */
+body[data-view-mode="tiles"] .article > :not(.chapter) {
+  grid-column: 1 / -1;
+  max-width: var(--measure);
+}
+body[data-view-mode="tiles"] .chapter[open] {
+  grid-column: 1 / -1;
+}
+@media (max-width: 720px) {
+  body[data-view-mode="tiles"] .article { grid-template-columns: 1fr; }
+}
+
+
+/* ---------- LONG mode — continuous scroll --------------------------- */
+
+body[data-view-mode="long"] .article {
+  max-width: var(--measure);
+  display: block;
+}
+body[data-view-mode="long"] .chapter {
+  border: 0;
+  border-top: 1px solid var(--line);
+  padding: 0;
+}
+body[data-view-mode="long"] .chapter > summary {
+  font-size: 1.2rem;
+  padding: 1.75rem 0 0.5rem;
+  cursor: default;
+}
+body[data-view-mode="long"] .chapter > summary::after { display: none; }
+body[data-view-mode="long"] .chapter > summary:hover {
+  background: transparent;
+  color: var(--fg);
+}
+body[data-view-mode="long"] .chapter > *:not(summary) {
+  padding-left: 0;
+  padding-right: 0;
+}
+
 .mode-pill {
   background: transparent;
   color: var(--fg);
