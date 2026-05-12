@@ -4,7 +4,9 @@
 > It captures everything a future collaborator (Claude or human) needs to
 > resume work without re-deriving context from scratch.
 >
-> **Last updated:** 2026-05-09, at end of **The Resignation & Liberty** session — **Phase 11 — Feb to May 2026 — landed live. The Zoca volume closes here.** The site is now a completed volume of work spanning 2020 → May 2026.
+> **Last updated:** 2026-05-12, at end of the **Strategic Command Center retool** — the home page is now a **persona-gated hybrid dashboard** (Founder / Engineering / TA-HR) with an **AI-Native Ecosystem capstone**, **Phase Bento** with expandable Memoir toggles, **Field Notes** visual milestones, and a **Reserved Warrior trajectory banner**. ADR-0018 (Persona-Gated Hybrid Dashboard) added. Two new source docs: `docs/memoir_phase_9_ai_native_infrastructure.md` (AI-native primitives — Rspack, Docker-less swarm, 10× QA loop) and `docs/marketing_cover_page_strategy.md` (the persona positioning doc). Identity bumped to **Founding Member & Institutional Technical Guardian**, comp baseline restated as **28 LPA + 37 LPA ESOPs** (the floor for future partners). ADR count: 17 → 18. Asset cache-bust: `styles.css?v=16`, `covers.css?v=2`, `app.js?v=16`.
+>
+> **Previously:** 2026-05-09, end of **The Resignation & Liberty** session — **Phase 11 — Feb to May 2026 — landed live. The Zoca volume closes here.** The site is now a completed volume of work spanning 2020 → May 2026.
 
 ---
 
