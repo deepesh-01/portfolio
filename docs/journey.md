@@ -439,9 +439,7 @@
 
 <p data-mode="human">Moving 500m from my partner changed my life. The proximity wasn't a logistics upgrade — it was a structural one. The Alpha-Male wall I'd carried since I'd started taking the work seriously came down for the first time. Emotional growth that the 16-hour days had been quietly compounding interest on for years finally had a room to land in.</p>
 
-<p data-mode="human"><strong>The Himalayan 450</strong> — purchased that summer. Riding became moving meditation. The kind of activity where the body is busy enough that the mind finally stops talking. I hadn't realized how loud my own head had been until a 200km ride taught it how to be quiet.</p>
-
-<p data-mode="human">The <strong>Pondicherry trip with my girlfriend</strong> was the personal peak of the era. Intercoms. Riding jackets. Top box. Duffle. Tank bag. The gear wasn't gear — it was the symbol of a life that finally had room for balance. <em>A 16-hour workday is a sprint; a motorcycle ride to Pondicherry is a journey. I learned to appreciate both.</em></p>
+<p data-mode="human">For the first time in the working life this site documents, the personal infrastructure outside the office became as deliberately maintained as the production infrastructure inside it. Hobbies that asked the body to be busy and the mind to be quiet. Weekends that ended on Sunday, not on a Slack ping. A life that finally had room for balance — not as an aspiration, as a practice.</p>
 
 ### The Quiet Foreshadowing
 
@@ -579,11 +577,9 @@
 
 <p data-mode="human">The realization that arrived with it was non-negotiable: <strong>work is the byproduct of life, not the other way around.</strong> The reverse of the late-2023 <em>adrenaline at 100kg</em> version of me — same body, opposite verdict. The same nervous system that had powered the 30-hour migration scripts and the 11 AM to 2 PM gauntlet was now drawing the line in a different place. Not because the will had weakened. Because the will had finally read the meter correctly.</p>
 
-### The 1500km Ride
+### The Recovery
 
-<p data-mode="human">Got on the Himalayan 450 — the bike Phase 9 had bought as moving meditation — and rode <strong>1,500km solo</strong>. No itinerary. No agenda. The kind of ride that is therapy or it is nothing.</p>
-
-<p data-mode="human">The road answered some of the questions. The rest, I came back to answer myself. A motorcycle does not solve the problem; it dissolves the noise around it until the shape of the problem is finally visible. The shape, by the time I rolled back into Bangalore, was clear.</p>
+<p data-mode="human">The recovery did the work the calendar had refused to make room for. The questions I had been carrying for months — about the role, the trajectory, the cost of staying — finally had the quiet they needed to answer themselves. By the time I came back to the laptop, the shape of the decision was clear.</p>
 
 ### The Weekend Mandate
 

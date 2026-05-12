@@ -44,7 +44,7 @@
 
 <p data-mode="founder">For engineers reading this: the doctrines on this site (Cynical Architect, Audit Architect, Master-Worker, AI-Native Handover, System Wisdom) are operationally correct <em>only when the engineer running them has the personal infrastructure to think clearly under load.</em> The doctrines are downstream of the human. The human is upstream of everything.</p>
 
-<p data-mode="human">Said another way: a 16-hour workday is a sprint; a 1,500km motorcycle ride is a journey. I learned to do both. The journey is what made the sprint sustainable.</p>
+<p data-mode="human">Said another way: the body keeps the longest log. The sprint is what the body lets you do because the rest of the life is supporting it. The day the rest of the life stops supporting it, the body files the bug — and no amount of will overrides the filing.</p>
 
 ---
 

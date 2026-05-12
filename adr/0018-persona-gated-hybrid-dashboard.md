@@ -46,8 +46,9 @@ following surfaces, in order:
 5. **Phase Bento** — six expandable cards (Phase 4 — 11), each leading
    with a Bento Metric + a Technical Blueprint diagram, with the
    long-form memoir behind a `<details>` toggle.
-6. **Field Notes** — three visual milestone tiles (First Office, Town
-   Hall, 1,500km Solo Ride) with grayscale-to-colour hover.
+6. **Field Notes** — two visual milestone tiles (First Office, Town
+   Hall) with grayscale-to-colour hover. Personal milestones beyond
+   the work are deliberately kept off the public site.
 7. **Reserved Warrior Banner** — the volume-close summary, the
    integrity quote, the trajectory grid (Status / Comp baseline /
    Availability).

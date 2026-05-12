@@ -477,23 +477,11 @@
 
 <p data-mode="human">The principle I had written down in Phase 8 — <em>productivity is a byproduct of personal stability</em> — was no longer a sentence on a portfolio. It was a life I was living. The portfolio version of that line is tidy. The lived version is messier and better. There were nights I came home empty and she let me be empty. There were mornings I left without saying the right thing and she didn't keep score. That is the infrastructure no engineer puts in their résumé. It is the infrastructure everything else stood on.</p>
 
-### The Himalayan 450 — Therapy On Wheels
+### Sprint And Recovery
 
-<p data-mode="human">I bought the bike. Royal Enfield Himalayan 450. Riding became <em>moving meditation</em> — the only place my head got quieter than the office had ever been at 1 AM. Office-quiet is a quiet of exhaustion. Bike-quiet is a quiet of attention.</p>
+<p data-mode="human">The shape of the year had two rhythms in it for the first time. The sprint at the office — the rebrand cutover, the Drizzle migration, the Town Hall, the consulting work — was still loud, still long, still real. But the rest of the week had finally earned its own weight. Sundays became Sundays. Evenings became evenings. The 16-hour day, when it happened, happened against a life that was no longer being eaten by it.</p>
 
-<p data-mode="human">The handlebars asked you a question every second — lean, brake, throttle, line — and the question forced you to be in the second. <em>There is no over-thinking on a 60-kmph corner.</em> The thing in your head that wants to rerun yesterday's Slack thread cannot also keep you upright through a sweeper. The bike chose for me. The bike kept choosing for me. That is what therapy looks like when you can't sit still in a chair.</p>
-
-### Pondicherry — The Personal Peak
-
-<p data-mode="human">Riding to Pondicherry with my girlfriend. Intercoms in the helmets, riding jackets on, top box and duffle strapped, tank bag up front. The gear was not gear; it was the symbol of a life that had finally made room for balance — every strap, every buckle, a small declaration that the work was no longer the whole life.</p>
-
-<p data-mode="human">We talked the whole way. Two helmets, one conversation, hours of road. <em>That conversation, on a moving bike, with the same person who had held my worst weeks in 2024 and 2025 — that was the highest the year went.</em> Not the ARR number. Not the Town Hall. Not the title the CEO said in front of the team. A conversation, at 80 kmph, on the way to a town we had never seen together.</p>
-
-### Sprint And Journey
-
-<p data-mode="human">The sentence I keep coming back to, the one I'll probably keep coming back to for years: <em>a 16-hour workday is a sprint; a motorcycle ride to Pondicherry is a journey. I learned to appreciate both.</em></p>
-
-<p data-mode="human">For most of my twenties I only knew how to do the first kind. The sprint was the identity. The journey was for people who had given up. The Bloom was the year I learned to do the second kind without feeling like I was cheating on the first. They are not in competition. They are the same life, shaped differently. The body that does the sprint is the body that takes the journey. The mind that takes the journey is the mind that survives the next sprint.</p>
+<p data-mode="human">For most of my twenties I had only known how to do the sprint. The recovery was for people who had given up. The Bloom was the year I learned to do the recovery without feeling like I was cheating on the sprint. They are not in competition. They are the same life, shaped differently. The body that does the sprint is the body that takes the recovery. The mind that takes the recovery is the mind that survives the next sprint.</p>
 
 ### Foreshadowing — November
 
@@ -631,11 +619,9 @@
 
 <p data-mode="human">The realisation that arrived with the recovery was non-negotiable: <strong>work is the byproduct of life, not the other way around.</strong> I had written something close to this in the Phase 8 manifesto principle — <em>productivity is a byproduct of personal stability.</em> The body had now made it law. Sentences on a portfolio are tidy. A nervous system pulling the breaker on you is not. The lesson was the same lesson. The teacher was different.</p>
 
-### 1500 Kilometres
+### The Clarity
 
-<p data-mode="human">I got on the Himalayan 450 and rode <strong>fifteen-hundred kilometres alone</strong>. No itinerary, no agenda. No group, no co-rider, no co-pilot in the helmet. Just the bike, the road, and a fuel gauge that decided when the day ended.</p>
-
-<p data-mode="human"><em>Every part of me that needed to be quiet, got quiet. Every part of me that needed to be loud, finally was.</em> I came back not with answers. I came back with the <em>clarity that the questions had been the wrong shape.</em> "Should I stay?" was not the question. "What is this costing the rest of my life?" was. The bike does not let you carry the wrong question for long. The handlebars ask better ones.</p>
+<p data-mode="human">The recovery period was the first stretch in years where the calendar had nothing on it that the work owned. <em>Every part of me that needed to be quiet, got quiet. Every part of me that needed to be loud, finally was.</em> I came back not with answers. I came back with the <em>clarity that the questions had been the wrong shape.</em> "Should I stay?" was not the question. "What is this costing the rest of my life?" was. The body does not let you carry the wrong question for long. The recovery asks better ones.</p>
 
 ### The Weekend Mandate
 

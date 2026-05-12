@@ -98,16 +98,16 @@ need.
 
 ## Field Notes — Visual Milestones
 
-Three tiles. Grayscale by default; colour on hover. The Reserved Warrior
-philosophy expressed in places:
+Two tiles. Grayscale by default; colour on hover. Two places that
+mark the bookends of the volume:
 
 - **The First Office** (Sep 2022) — two chairs, one router. Founding.
 - **The Town Hall** (Nov 2025) — 140+ humans. Peak.
-- **The 1,500km Solo Ride** (May 2026) — Himalayan 450. Liberty.
 
 Each tile carries one sentence of context. The point is not to show
 photographs; it is to remind the reader that this is a person, not a
-résumé.
+résumé. Personal milestones beyond the work are deliberately kept off
+the public site.
 
 ## The Reserved Warrior Banner
 
