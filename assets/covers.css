@@ -1301,8 +1301,10 @@ body[data-cover="recruiter"] { --cover-accent: var(--accent-3); }
   border: 1px solid var(--line);
   margin: 1.25rem 0 1rem;
 }
+.trajectory-grid-2col { grid-template-columns: repeat(2, 1fr); }
 @media (max-width: 720px) {
   .trajectory-grid { grid-template-columns: 1fr; }
+  .trajectory-grid-2col { grid-template-columns: 1fr; }
 }
 .traj-cell {
   padding: 0.85rem 1rem;

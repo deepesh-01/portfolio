@@ -5,7 +5,7 @@
 
 ## The Founder
 
-<p data-mode="founder">Lead Masking. Product movement. 15+ onboardings/day at peak. ESOP-level trust granted before "founding engineer" was a job title in the company. The candidate who closes the loop on the customer, not just on the ticket.</p>
+<p data-mode="founder">Lead Masking. Product movement. 15+ onboardings/day at peak. Founder-level trust granted before "founding engineer" was a job title in the company. The candidate who closes the loop on the customer, not just on the ticket.</p>
 
 ## The Product Manager
 
@@ -17,7 +17,7 @@
 
 ## The Recruiter
 
-<p data-mode="founder">The trajectory: Intern → 18 LPA Full-time → Lead, in under two years. No detours. No managed-out gaps. Hand-picked into the founding-engineer role on the strength of one production-saving trigger.</p>
+<p data-mode="founder">The trajectory: Intern → Full-time → Lead, in under two years. No detours. No managed-out gaps. Hand-picked into the founding-engineer role on the strength of one production-saving trigger.</p>
 
 ## How To Read The Rest Of This Site
 

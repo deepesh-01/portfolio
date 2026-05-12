@@ -122,11 +122,11 @@
 
 <p data-mode="human founder">I integrated their ideas into the final ship, by name and by credit. The lesson stuck: a junior who feels safe enough to push back is worth more than five who nod.</p>
 
-### The Senior Stamp — 28L CTC
+### The Senior Stamp
 
-<p data-mode="founder human">After the migration and the WebSocket ship, the CEO raised me to <strong>28L CTC — 22 Fixed + 2 Variable + 4 ESOPs</strong>. The number mattered. The composition mattered more.</p>
+<p data-mode="founder human">After the migration and the WebSocket ship, the CEO bumped my level — the package restructured to put more weight in equity than in cash. The number mattered. The composition mattered more.</p>
 
-<p data-mode="founder human">The ESOPs weren't a perk. They were the founding-ownership signal — the company telling me, in the only language a cap table speaks, that I was no longer just an employee on this build. I was on the inside of it.</p>
+<p data-mode="founder human">The equity grant wasn't a perk. It was the founding-ownership signal — the company telling me, in the only language a cap table speaks, that I was no longer just an employee on this build. I was on the inside of it.</p>
 
 ### The Pune Clarity Trip & The Stabilization Oath
 
@@ -381,13 +381,13 @@
 
 <p data-mode="founder">The company workation. The recognition came in person, in front of the team: <strong>Institutional Soul. Lead Architect. Founding Member.</strong> Three titles, said out loud, in the same breath, in a room where everyone heard them.</p>
 
-<p data-mode="founder">The titles weren't separate. They were one sentence the company had finally said out loud — the sentence that had been the implicit subtext of every promotion, every ESOP grant, every "Deepesh, can you sit in on this one" since 2023. April 2025 was the month the subtext became text.</p>
+<p data-mode="founder">The titles weren't separate. They were one sentence the company had finally said out loud — the sentence that had been the implicit subtext of every promotion, every cap-table moment, every "Deepesh, can you sit in on this one" since 2023. April 2025 was the month the subtext became text.</p>
 
-### The Numbers
+### The Stake
 
-<p data-mode="founder">Package moved to <strong>26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs</strong>. The ESOP number mattered most. <em>37 LPA in equity is the company saying it expects me to be part of the upside it is building.</em></p>
+<p data-mode="founder">The package was restructured around equity. The composition was the message: the weight of the offer shifted to the cap table, not the salary line. <em>Equity at that weight is the company saying it expects me to be part of the upside it is building.</em></p>
 
-<p data-mode="founder">That is a different kind of stake than a paycheck. A salary is what you're worth this month. Equity at that size is what the company believes you'll still be worth to it three years from now. The cap table is the only document in a company that talks about the future in numbers, and the cap table now had me in a different row than it did a year earlier.</p>
+<p data-mode="founder">That is a different kind of stake than a paycheck. A salary is what you're worth this month. Equity of that weight is what the company believes you'll still be worth to it three years from now. The cap table is the only document in a company that talks about the future in numbers, and the cap table now had me in a different row than it did a year earlier.</p>
 
 ### What I Learned About Productivity
 

@@ -98,11 +98,12 @@ a Reserved Warrior. The tiles are the punctuation.
   `.capstone`, `.bento`, `.field-notes`, `.warrior-banner`,
   `.integrity-quote`. All inherit the existing token system; no new
   CSS variables introduced.
-- Asset cache-bust bumped: `styles.css?v=16`, `covers.css?v=2`,
-  `app.js?v=16`.
+- Asset cache-bust bumped: `styles.css?v=17`, `covers.css?v=2`,
+  `app.js?v=18`.
 - The "Volume Closed" banner becomes the Reserved Warrior trajectory
-  block. The compensation baseline (28L + 37L ESOPs) is now public —
-  framed as a *floor for future partners*, not a brag.
+  block — two cells (Status / Available For). Specific compensation
+  figures are kept off the public site; terms for the next chapter are
+  a private conversation, not a quoted ask.
 
 ## Alternatives considered
 

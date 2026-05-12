@@ -111,13 +111,14 @@ résumé.
 
 ## The Reserved Warrior Banner
 
-Replaces the old volume-close banner. Three trajectory cells:
+Replaces the old volume-close banner. Two trajectory cells:
 
 1. **Status** — Founding Member & Institutional Technical Guardian
-2. **Compensation Baseline** — 28 LPA Fixed + 37 LPA ESOPs (the floor, not the ceiling)
-3. **Available For** — Staff-level / Founding Engineer / Crisis EM
+2. **Available For** — Staff-level / Founding Engineer / Crisis EM
 
-The integrity quote sits inside, lifted out of the body text:
+Specific compensation figures are deliberately kept off the public site
+— terms are a private conversation, not a public number. The integrity
+quote sits inside the banner, lifted out of the body text:
 
 > *"Professional excellence is a byproduct of personal stability.
 > Integrity over Inertia."*

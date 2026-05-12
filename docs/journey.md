@@ -27,7 +27,7 @@
 
 <p data-mode="engineer human"><strong>The SQL Milestone:</strong> mastered complex SQL on a Christmas Day deep-dive; later implemented DB triggers and audit logs after a production mistake. See <a href="#christmas-sql">Case Study: The Christmas SQL Call</a>.</p>
 
-<p data-mode="founder engineer"><strong>Business Impact:</strong> shipped the "Website Suggestions" feature end-to-end. The work earned a salary hike and ESOPs — the moment "founding engineer" stopped being a label and started being a stake.</p>
+<p data-mode="founder engineer"><strong>Business Impact:</strong> shipped the "Website Suggestions" feature end-to-end. The work earned the first formal ownership recognition — the moment "founding engineer" stopped being a label and started being a stake.</p>
 
 <p data-mode="engineer founder"><strong>Operational:</strong> an internal audit caught a silent SMS-leg drop in the lead-delivery pipeline. I owned the fix end-to-end — built a Metabase visibility dashboard, ran reconciliation queries, sent missing leads by hand for seven days while RCA continued. See <a href="#175-lead-bug">Case Study: The 175-Lead Bug</a>.</p>
 
@@ -85,7 +85,7 @@
 
 <p data-mode="founder human"><strong>Junior Collaboration:</strong> worked closely with a junior frontend engineer on the user-facing side. His fresh ideas on UX and problem-shape made it into the final ship. The best feedback in a code review is when the senior keeps the junior's instinct.</p>
 
-<p data-mode="founder human"><strong>The Senior Stamp:</strong> the CEO raised me to <strong>28 LPA CTC (22 fixed + 2 variable + 4 more ESOPs)</strong>. The ESOP top-up was the signal — ownership was being doubled down on, not just compensated.</p>
+<p data-mode="founder human"><strong>The Senior Stamp:</strong> a level bump from the CEO with the package restructured to put more weight in the cap table than in the salary line. The composition was the signal — ownership being doubled down on, not just compensated.</p>
 
 <p data-mode="human"><strong>The Balance:</strong> started trekking around Bangalore on weekends with the friend from Trivandrum. The hustle finally became sustainable. You can't migrate 150GB twice in a row without learning to log off.</p>
 
@@ -333,7 +333,7 @@
 
 ### April 2025 — Goa Workation, Founding Recognition
 
-<p data-mode="founder">The company formally recognized me as <strong>Institutional Soul</strong> and <strong>Lead Architect</strong> of Zoca during the Goa Workation. Title: <strong>Founding Member &amp; Lead Architect at Zoca</strong>. Compensation moved to <strong>26 LPA Fixed + 4 LPA Variable + 37 LPA ESOPs</strong>.</p>
+<p data-mode="founder">The company formally recognized me as <strong>Institutional Soul</strong> and <strong>Lead Architect</strong> of Zoca during the Goa Workation. Title: <strong>Founding Member &amp; Lead Architect at Zoca</strong>. The package was restructured around equity — the weight of the offer shifted to the cap table, the way founding-team offers are supposed to.</p>
 
 <p data-mode="founder">The recognition wasn't just a title or a number — it was the validation that the Phase 7 oath ("I am not someone who leaves when everything is breaking") had paid off. The system held. The team rebuilt. The recognition followed. The order matters: the work first, the title last. A title that arrives in the other order tends not to outlast the next collision.</p>
 
@@ -447,7 +447,7 @@
 
 <p data-mode="founder">Every peak names the slope on the other side. The Golden Bloom was real — the recognition, the scale, the team, the bike, the proximity, the doctrine. None of it was decoration. All of it was earned.</p>
 
-<p data-mode="founder">November 2025 was where the Bloom started becoming something else. The encyclopedia in one head. The ESOPs printed against a number that would eventually have to be tested. The gaps that one engineer kept filling. The successor sentence that nobody had asked me whether I wanted. The bubble had a shape, and shapes have edges. That chapter is for the next phase.</p>
+<p data-mode="founder">November 2025 was where the Bloom started becoming something else. The encyclopedia in one head. The promises printed against a future valuation that would eventually have to be tested. The gaps that one engineer kept filling. The successor sentence that nobody had asked me whether I wanted. The bubble had a shape, and shapes have edges. That chapter is for the next phase.</p>
 
 ## Phase 10 — The Institutional Resilience Era (Late 2025)
 
@@ -615,7 +615,7 @@
 
 <p data-mode="founder">The next chapter: a portfolio of AI-augmented projects + freelance consulting. The work that comes next will be selected for the <em>kind</em> of problem, not just the title on the badge. The Reserved Warrior posture — chosen, not assigned; called in for the problems the framework runs out of map for, the way Phase 10 closed.</p>
 
-<p data-mode="founder">Title: <strong>Founding Member · Lead Architect · Crisis Engineering Manager · Institutional Guardian · Reserved Warrior.</strong> Compensation reset: <strong>26L Fixed + 37L ESOPs</strong> as the <em>starting point</em> for the next freelance / staff-level chapter, not the ceiling. The number is a floor with a history attached, not a ask with a hope attached.</p>
+<p data-mode="founder">Title: <strong>Founding Member · Lead Architect · Crisis Engineering Manager · Institutional Guardian · Reserved Warrior.</strong> Terms for the next freelance / staff-level chapter are a private conversation, not a public number — the bar is set by the work, not by a quoted ask.</p>
 
 ### The Volume Closes
 
@@ -625,7 +625,7 @@
 
 ## The Trajectory
 
-<p data-mode="founder">Intern → 18 LPA Full-time → Lead → Senior Engineer (28 LPA) → Staff Engineer / Founding Engineer → Battle-Tested Leader / Guardian of the Product's Survival → Founding Member &amp; Internal Technical Consultant → Lead Crisis Architect / Emergency Engineering Manager → <strong>Founding Member · Lead Architect · Crisis EM · Institutional Guardian · Reserved Warrior</strong> (26L Fixed + 37L ESOPs as the starting point for the next freelance / Staff-level chapter). <strong>Background:</strong> $6M funding closed (Aug 2024); peak <strong>$3.5M ARR · 1,500+ customers · 140+ headcount</strong>; 16 ADRs, 13 case studies, 14 blueprints shipped to this site; resignation as an act of integrity, not a career move.</p>
+<p data-mode="founder">Intern → Full-time → Lead → Senior Engineer → Staff Engineer / Founding Engineer → Battle-Tested Leader / Guardian of the Product's Survival → Founding Member &amp; Internal Technical Consultant → Lead Crisis Architect / Emergency Engineering Manager → <strong>Founding Member · Lead Architect · Crisis EM · Institutional Guardian · Reserved Warrior</strong>. <strong>Background:</strong> $6M funding closed (Aug 2024); peak <strong>$3.5M ARR · 1,500+ customers · 140+ headcount</strong>; 18 ADRs, 13 case studies, 15 blueprints shipped to this site; resignation as an act of integrity, not a career move.</p>
 
 ## What's next — the next chapter
 
