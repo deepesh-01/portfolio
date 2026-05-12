@@ -631,9 +631,35 @@ function showHome() {
  */
 function route() {
   const slug = (location.hash || '').replace(/^#\/?/, '');
+
+  // Empty hash → land on the home view.
   if (!slug) { showHome(); return; }
-  setNavBackVisible(true);
-  loadArticle(slug);
+
+  // Known article slug → render through the in-page markdown parser.
+  if (SLUG_TO_PATH[slug]) {
+    setNavBackVisible(true);
+    loadArticle(slug);
+    return;
+  }
+
+  // Unknown slug → check whether it matches an in-page anchor on the home
+  // view (e.g. #contact, #phase-11). If so, show home and scroll to it.
+  // The browser's native anchor-jump can't do this because the home view
+  // is hidden while an article is open; we have to un-hide it first, then
+  // defer the scroll one frame so layout settles before scrollIntoView runs.
+  const home = document.getElementById('home');
+  const escape = (window.CSS && CSS.escape) ? CSS.escape : (s) => s.replace(/[^a-zA-Z0-9_-]/g, '');
+  const target = home ? home.querySelector('#' + escape(slug)) : null;
+  if (target) {
+    showHome();
+    requestAnimationFrame(() => {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+    return;
+  }
+
+  // Fully unknown → degrade to home rather than show a 404 dead-end.
+  showHome();
 }
 
 
