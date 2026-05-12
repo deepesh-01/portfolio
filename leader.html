@@ -97,13 +97,13 @@
     </div>
 
     <!-- ============== ADR INDEX TIMELINE ============== -->
-    <p class="cover-section">The ADR Index · 12 Doctrinal Decisions</p>
+    <p class="cover-section">The ADR Index · 13 Doctrinal Decisions</p>
     <section class="adr-index" aria-label="Architecture Decision Records by year">
 
       <div class="adr-year-row">
         <span class="year">2022</span>
         <div class="items">
-          <a class="item" href="./adr/0006-sql-defined-business-triggers.md">
+          <a class="item" href="./#0006-sql-defined-business-triggers">
             <span class="id">ADR-0006</span> SQL-Defined Business Triggers<span class="ctx"> / the Christmas-SQL aftermath — every core table gets an AFTER-DELETE audit trigger</span>
           </a>
         </div>
@@ -112,19 +112,19 @@
       <div class="adr-year-row">
         <span class="year">2024</span>
         <div class="items">
-          <a class="item" href="./adr/0007-fallback-migration-pattern.md">
+          <a class="item" href="./#0007-fallback-migration-pattern">
             <span class="id">ADR-0007</span> The Fallback Migration Pattern<span class="ctx"> / Flask → Node with a client-side safety net; zero-failure cutover</span>
           </a>
-          <a class="item" href="./adr/0008-sql-defined-logic-pattern.md">
+          <a class="item" href="./#0008-sql-defined-logic-pattern">
             <span class="id">ADR-0008</span> SQL-Defined Logic as the Default<span class="ctx"> / move conditional logic from code into data</span>
           </a>
-          <a class="item" href="./adr/0009-lambda-swarm-step-functions.md">
+          <a class="item" href="./#0009-lambda-swarm-step-functions">
             <span class="id">ADR-0009</span> The Lambda Swarm<span class="ctx"> / Step Functions hierarchy + S3 JSON state · 2hr → 5min · $6M closed</span>
           </a>
-          <a class="item" href="./adr/0010-cynical-architect-recovery-first.md">
+          <a class="item" href="./#0010-cynical-architect-recovery-first">
             <span class="id">ADR-0010</span> Recovery-First Architecture<span class="ctx"> / the Cynical Architect doctrine — recovery primitives before the happy path</span>
           </a>
-          <a class="item" href="./adr/0011-psql-audit-by-snapshot.md">
+          <a class="item" href="./#0011-psql-audit-by-snapshot">
             <span class="id">ADR-0011</span> Audit-by-Snapshot<span class="ctx"> / generic PSQL before/after logging; audit-proof for due diligence</span>
           </a>
         </div>
@@ -133,19 +133,19 @@
       <div class="adr-year-row">
         <span class="year">2025</span>
         <div class="items">
-          <a class="item" href="./adr/0012-master-worker-redis-pattern.md">
+          <a class="item" href="./#0012-master-worker-redis-pattern">
             <span class="id">ADR-0012</span> The Master-Worker Pattern<span class="ctx"> / Redis + NestJS workers + Lambda callbacks · 480-user migration · 0% data loss</span>
           </a>
-          <a class="item" href="./adr/0013-llm-guardrails-ai-safety-layer.md">
+          <a class="item" href="./#0013-llm-guardrails-ai-safety-layer">
             <span class="id">ADR-0013</span> LLM Guardrails<span class="ctx"> / the AI safety layer — typed serializers + semantic validators</span>
           </a>
-          <a class="item" href="./adr/0014-drizzle-orm-iac-compliance.md">
+          <a class="item" href="./#0014-drizzle-orm-iac-compliance">
             <span class="id">ADR-0014</span> Drizzle ORM + Terraform IaC<span class="ctx"> / SOC2 / HIPAA-ready change-management substrate</span>
           </a>
-          <a class="item" href="./adr/0015-deterministic-llm-testing.md">
+          <a class="item" href="./#0015-deterministic-llm-testing">
             <span class="id">ADR-0015</span> Deterministic LLM Testing<span class="ctx"> / invariants over examples — production-grade LLM test discipline</span>
           </a>
-          <a class="item" href="./adr/0016-system-wisdom-vs-framework-knowledge.md">
+          <a class="item" href="./#0016-system-wisdom-vs-framework-knowledge">
             <span class="id">ADR-0016</span> System Wisdom vs Framework Knowledge<span class="ctx"> / the Founding Logic doctrine — when frameworks meet institutional memory</span>
           </a>
         </div>
@@ -154,8 +154,11 @@
       <div class="adr-year-row">
         <span class="year">2026</span>
         <div class="items">
-          <a class="item" href="./adr/0017-ai-as-force-multiplier-vs-liability.md">
+          <a class="item" href="./#0017-ai-as-force-multiplier-vs-liability">
             <span class="id">ADR-0017</span> AI as Force Multiplier vs Liability<span class="ctx"> / the Skills Paradox — when non-engineers ship code, technical integrity collapses</span>
+          </a>
+          <a class="item" href="./#0018-persona-gated-hybrid-dashboard">
+            <span class="id">ADR-0018</span> Persona-Gated Hybrid Dashboard<span class="ctx"> / Strategic Command Center retool — Founder / Engineering / TA-HR + AI-Native capstone + bento + field notes</span>
           </a>
         </div>
       </div>
@@ -212,7 +215,7 @@
     <section class="bm-callout" aria-label="The portfolio is the artifact">
       <p class="label">// This site IS the artifact</p>
       <p>One <code>index.html</code>. One stylesheet. One ~120-line vanilla-JS markdown parser. Zero build step. Zero <code>node_modules</code>. Zero dependencies.</p>
-      <p>17 ADRs at <a href="./adr/0001-boring-markdown-stack.md">/adr</a> explain every structural decision. ADR-0001 is the meta-decision; the rest follow.</p>
+      <p>18 ADRs at <a href="./#0001-boring-markdown-stack">/adr</a> explain every structural decision. ADR-0001 is the meta-decision; the rest follow.</p>
       <p class="stack-line">The medium is part of the message. If a hand-rolled monospace site reads as a trust signal, this audience reads me right.</p>
     </section>
 
@@ -226,7 +229,7 @@
     <section class="cta" aria-label="Contact">
       <h2>The Audition Is The ADR</h2>
       <div class="row">
-        <a class="primary" href="./adr/0009-lambda-swarm-step-functions.md">Read ADR-0009 (Lambda Swarm) →</a>
+        <a class="primary" href="./#0009-lambda-swarm-step-functions">Read ADR-0009 (Lambda Swarm) →</a>
         <a href="https://wa.me/917987215728?text=Hi%20Deepesh%2C%20engineering-leader%20role%20at%20%5Bcompany%5D" target="_blank" rel="noopener noreferrer">WhatsApp →</a>
         <a href="https://www.linkedin.com/in/deepesh-rathod-315152198/" target="_blank" rel="noopener noreferrer">LinkedIn →</a>
         <a href="mailto:deepeshd03938@gmail.com?subject=%5BStaff%2FTL%2FEM%5D%20%5Byour%20company%5D&body=Tell%20me%3A%20the%20system%20you%27re%20building%2C%20the%20seam%20that%27s%20costing%20you%2C%20what%20good%20looks%20like%20in%2090%20days.%0A%0A">Email →</a>

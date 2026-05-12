@@ -66,6 +66,29 @@ const SLUG_TO_PATH = Object.freeze({
   'win-agent-testing':  'docs/case-studies/win-agent-testing.md',
   'infra-flip-rca':     'docs/case-studies/infra-flip-rca.md',
   'scheduling-payments-v2': 'docs/case-studies/scheduling-payments-v2.md',
+
+  // ADRs — keyed by full filename basename so rewriteInternalLinks() picks
+  // them up transparently. Cloudflare Pages serves raw .md as text/markdown,
+  // which the browser dumps with zero styling; routing every .md click
+  // through the in-page parser is the only way to keep ADR navigation styled.
+  '0001-boring-markdown-stack':              'adr/0001-boring-markdown-stack.md',
+  '0002-perspective-toggle-data-mode':       'adr/0002-perspective-toggle-data-mode.md',
+  '0003-vanilla-markdown-parser':            'adr/0003-vanilla-markdown-parser.md',
+  '0004-static-serve-cloudflare-tunnel':     'adr/0004-static-serve-cloudflare-tunnel.md',
+  '0005-tunnel-to-pages-migration':          'adr/0005-tunnel-to-pages-migration.md',
+  '0006-sql-defined-business-triggers':      'adr/0006-sql-defined-business-triggers.md',
+  '0007-fallback-migration-pattern':         'adr/0007-fallback-migration-pattern.md',
+  '0008-sql-defined-logic-pattern':          'adr/0008-sql-defined-logic-pattern.md',
+  '0009-lambda-swarm-step-functions':        'adr/0009-lambda-swarm-step-functions.md',
+  '0010-cynical-architect-recovery-first':   'adr/0010-cynical-architect-recovery-first.md',
+  '0011-psql-audit-by-snapshot':             'adr/0011-psql-audit-by-snapshot.md',
+  '0012-master-worker-redis-pattern':        'adr/0012-master-worker-redis-pattern.md',
+  '0013-llm-guardrails-ai-safety-layer':     'adr/0013-llm-guardrails-ai-safety-layer.md',
+  '0014-drizzle-orm-iac-compliance':         'adr/0014-drizzle-orm-iac-compliance.md',
+  '0015-deterministic-llm-testing':          'adr/0015-deterministic-llm-testing.md',
+  '0016-system-wisdom-vs-framework-knowledge': 'adr/0016-system-wisdom-vs-framework-knowledge.md',
+  '0017-ai-as-force-multiplier-vs-liability': 'adr/0017-ai-as-force-multiplier-vs-liability.md',
+  '0018-persona-gated-hybrid-dashboard':     'adr/0018-persona-gated-hybrid-dashboard.md',
 });
 
 /** Modes the perspective switcher can be in. Order matters for the UI. */
@@ -613,6 +636,26 @@ function boot() {
   setView(storedView);
 
   enhanceCodeBlocks(document);
+
+  // Rewrite any static .md anchors on the landing page (Bento refs, Capstone
+  // footnotes, etc.) so they hash-route through the parser instead of dumping
+  // the user into a raw text/markdown response from Cloudflare Pages.
+  rewriteInternalLinks(document);
+
+  // Delegated click safety net — if a .md link slipped through (added by a
+  // future author, or living in an embedded fragment), intercept the click,
+  // rewrite to hash, and let route() handle it. Anything outside SLUG_TO_PATH
+  // is left alone so the raw-file URL still works as a last-resort fallback.
+  document.addEventListener('click', (event) => {
+    const a = event.target.closest && event.target.closest('a[href$=".md"]');
+    if (!a) return;
+    const href = a.getAttribute('href') || '';
+    const m = href.match(/(?:^|\/)([^\/]+)\.md$/);
+    if (m && SLUG_TO_PATH[m[1]]) {
+      event.preventDefault();
+      location.hash = '#' + m[1];
+    }
+  });
 
   route();
   window.addEventListener('hashchange', route);
