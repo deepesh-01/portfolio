@@ -91,6 +91,56 @@ const SLUG_TO_PATH = Object.freeze({
   '0018-persona-gated-hybrid-dashboard':     'adr/0018-persona-gated-hybrid-dashboard.md',
 });
 
+/**
+ * ADR_ORDER — the canonical sequence of ADRs, used to render Previous/Next
+ * navigation on each ADR view. Order matches the filename numbering, which
+ * is also the order in which the decisions were made.
+ *
+ * Keep this list in sync with the ADR entries in SLUG_TO_PATH above.
+ */
+const ADR_ORDER = Object.freeze([
+  '0001-boring-markdown-stack',
+  '0002-perspective-toggle-data-mode',
+  '0003-vanilla-markdown-parser',
+  '0004-static-serve-cloudflare-tunnel',
+  '0005-tunnel-to-pages-migration',
+  '0006-sql-defined-business-triggers',
+  '0007-fallback-migration-pattern',
+  '0008-sql-defined-logic-pattern',
+  '0009-lambda-swarm-step-functions',
+  '0010-cynical-architect-recovery-first',
+  '0011-psql-audit-by-snapshot',
+  '0012-master-worker-redis-pattern',
+  '0013-llm-guardrails-ai-safety-layer',
+  '0014-drizzle-orm-iac-compliance',
+  '0015-deterministic-llm-testing',
+  '0016-system-wisdom-vs-framework-knowledge',
+  '0017-ai-as-force-multiplier-vs-liability',
+  '0018-persona-gated-hybrid-dashboard',
+]);
+
+/** Short human titles for the Prev/Next labels — preserves acronym casing. */
+const ADR_TITLES = Object.freeze({
+  '0001-boring-markdown-stack':              'Boring Markdown Stack',
+  '0002-perspective-toggle-data-mode':       'Perspective Toggle (data-mode)',
+  '0003-vanilla-markdown-parser':            'Vanilla Markdown Parser',
+  '0004-static-serve-cloudflare-tunnel':     'Static Serve · Cloudflare Tunnel',
+  '0005-tunnel-to-pages-migration':          'Tunnel → Pages Migration',
+  '0006-sql-defined-business-triggers':      'SQL-Defined Business Triggers',
+  '0007-fallback-migration-pattern':         'The Fallback Migration Pattern',
+  '0008-sql-defined-logic-pattern':          'SQL-Defined Logic as the Default',
+  '0009-lambda-swarm-step-functions':        'Lambda Swarm + Step Functions',
+  '0010-cynical-architect-recovery-first':   'Recovery-First · The Cynical Architect',
+  '0011-psql-audit-by-snapshot':             'PSQL Audit by Snapshot',
+  '0012-master-worker-redis-pattern':        'The Master-Worker Pattern',
+  '0013-llm-guardrails-ai-safety-layer':     'LLM Guardrails · AI Safety Layer',
+  '0014-drizzle-orm-iac-compliance':         'Drizzle ORM + Terraform IaC',
+  '0015-deterministic-llm-testing':          'Deterministic LLM Testing',
+  '0016-system-wisdom-vs-framework-knowledge': 'System Wisdom vs Framework Knowledge',
+  '0017-ai-as-force-multiplier-vs-liability': 'AI as Force Multiplier vs Liability',
+  '0018-persona-gated-hybrid-dashboard':     'Persona-Gated Hybrid Dashboard',
+});
+
 /** Modes the perspective switcher can be in. Order matters for the UI. */
 const MODES = Object.freeze(['all', 'founder', 'engineer', 'human']);
 
@@ -402,6 +452,78 @@ function rewriteInternalLinks(scope) {
 /* ───── §4. Router ────────────────────────────────────────────────────── */
 
 /**
+ * appendAdrNav — if the current slug is an ADR, append a Previous / Next
+ * navigation strip to the bottom of the article. Previous is a non-clickable
+ * <span> on ADR-0001 (no earlier ADR), Next is a non-clickable <span> on
+ * the last ADR. Both endpoints are styled .adr-nav-disabled.
+ *
+ * INPUT   the rendered <article> element + the slug that produced it.
+ * OUTPUT  the article gains a trailing <nav class="adr-nav"> (or nothing,
+ *         if the slug is not in ADR_ORDER).
+ */
+function appendAdrNav(article, slug) {
+  const idx = ADR_ORDER.indexOf(slug);
+  if (idx === -1) return;
+
+  const prev = idx > 0 ? ADR_ORDER[idx - 1] : null;
+  const next = idx < ADR_ORDER.length - 1 ? ADR_ORDER[idx + 1] : null;
+
+  const nav = document.createElement('nav');
+  nav.className = 'adr-nav';
+  nav.setAttribute('aria-label', 'ADR navigation');
+
+  // --- Previous side --------------------------------------------------
+  const prevTitle = prev ? (ADR_TITLES[prev] || prev) : '— None —';
+  const prevLabel = prev
+    ? '<span class="dir">← Previous · ADR-' + prev.slice(0, 4) + '</span>'
+      + '<span class="title">' + escapeHtml(prevTitle) + '</span>'
+    : '<span class="dir">← Previous</span>'
+      + '<span class="title">— First ADR —</span>';
+
+  let prevEl;
+  if (prev) {
+    prevEl = document.createElement('a');
+    prevEl.href = '#' + prev;
+    prevEl.className = 'adr-nav-prev';
+  } else {
+    prevEl = document.createElement('span');
+    prevEl.className = 'adr-nav-prev adr-nav-disabled';
+    prevEl.setAttribute('aria-disabled', 'true');
+  }
+  prevEl.innerHTML = prevLabel;
+  nav.appendChild(prevEl);
+
+  // --- Center: position marker (e.g. "ADR 7 / 18") --------------------
+  const center = document.createElement('span');
+  center.className = 'adr-nav-center';
+  center.textContent = 'ADR ' + (idx + 1) + ' / ' + ADR_ORDER.length;
+  nav.appendChild(center);
+
+  // --- Next side ------------------------------------------------------
+  const nextTitle = next ? (ADR_TITLES[next] || next) : '— None —';
+  const nextLabel = next
+    ? '<span class="dir">Next · ADR-' + next.slice(0, 4) + ' →</span>'
+      + '<span class="title">' + escapeHtml(nextTitle) + '</span>'
+    : '<span class="dir">Next →</span>'
+      + '<span class="title">— Last ADR —</span>';
+
+  let nextEl;
+  if (next) {
+    nextEl = document.createElement('a');
+    nextEl.href = '#' + next;
+    nextEl.className = 'adr-nav-next';
+  } else {
+    nextEl = document.createElement('span');
+    nextEl.className = 'adr-nav-next adr-nav-disabled';
+    nextEl.setAttribute('aria-disabled', 'true');
+  }
+  nextEl.innerHTML = nextLabel;
+  nav.appendChild(nextEl);
+
+  article.appendChild(nav);
+}
+
+/**
  * loadArticle — fetch a Markdown file by slug, render it, and put it on
  * the page. Failure modes are explicit: bad slug, network error.
  *
@@ -443,6 +565,10 @@ async function loadArticle(slug) {
     rewriteInternalLinks(article);
     enhanceCodeBlocks(article);
     chapterize(article);
+
+    // If this slug is an ADR, append a Prev/Next strip at the bottom of the
+    // article. Non-ADR slugs (case studies, deep dives) are unaffected.
+    appendAdrNav(article, slug);
 
     // The article body no longer carries its own BACK element — BACK lives
     // in the nav (#navBack) and is shown / hidden by setNavBackVisible() on

@@ -510,3 +510,96 @@ body[data-active-mode="human"]    [data-mode~="human"]:not(.mode-pill)    { bord
 @media (prefers-reduced-motion: reduce) {
   [data-mode]:not(.mode-pill) { transition: none; }
 }
+
+
+/* ---------- ADR Previous / Next nav (article-level affordance) -------- */
+
+/* Appended by app.js's appendAdrNav() at the bottom of every ADR article.
+   Three-column grid: [Previous] [position marker] [Next]. Disabled endpoints
+   render as <span class="adr-nav-disabled"> with pointer-events: none so the
+   user can never click into a dead route. The grid collapses to a single
+   column under 600 px so titles never overflow. */
+
+.adr-nav {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 0.5rem;
+  align-items: stretch;
+  margin: 3rem 0 1rem;
+  padding: 0.85rem 0 0;
+  border-top: 1px solid var(--line-hot);
+  font-size: 12px;
+  /* Tile-mode parent grids the .article with 2 columns; force this nav to span
+     the full row so the prev/center/next layout works regardless of view mode. */
+  grid-column: 1 / -1;
+}
+
+.adr-nav > * {
+  text-decoration: none;
+  color: var(--fg);
+  padding: 0.7rem 0.85rem;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-width: 0;
+}
+.adr-nav-prev { text-align: left;  align-items: flex-start; }
+.adr-nav-next { text-align: right; align-items: flex-end; }
+.adr-nav-center {
+  align-self: center;
+  text-align: center;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border-color: var(--line);
+  padding: 0.7rem 1rem;
+  white-space: nowrap;
+  justify-content: center;
+  font-weight: 700;
+}
+
+.adr-nav .dir {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.adr-nav .title {
+  font-size: 13px;
+  color: var(--fg);
+  line-height: 1.4;
+  /* Long titles stay on one line on desktop; wrap gracefully on narrow. */
+  overflow-wrap: anywhere;
+}
+
+/* Active (clickable) endpoint hover — same brutalist invert as the rest of
+   the site. */
+.adr-nav a:hover {
+  background: var(--fg);
+  color: var(--bg);
+  border-color: var(--fg);
+}
+.adr-nav a:hover .dir,
+.adr-nav a:hover .title { color: var(--bg); }
+
+/* Disabled endpoint — visible, dimmed, unclickable. */
+.adr-nav-disabled {
+  color: var(--muted);
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.55;
+  border-style: dashed;
+}
+.adr-nav-disabled .dir,
+.adr-nav-disabled .title { color: var(--muted); }
+
+/* Narrow viewports — stack vertically, center marker last so the eye finds
+   Prev / Next first. */
+@media (max-width: 600px) {
+  .adr-nav { grid-template-columns: 1fr; }
+  .adr-nav-prev,
+  .adr-nav-next { text-align: left; align-items: flex-start; }
+  .adr-nav-center { order: 3; }
+}
